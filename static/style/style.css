@@ -3,7 +3,11 @@ body{
 	padding: 0px;
 	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
 	font-size: 14px;
-	background: #212121;
+	background: #1C1C1C;
+}
+
+h2{
+	margin: 0px;
 }
 
 h3{
@@ -20,6 +24,14 @@ li{
 a{
 	text-decoration: none;
 	color: #45A4FF;
+}
+
+.autoHint{ 
+	color: #888888;
+}
+
+.clear{
+	clear: both;
 }
 
 /*------------------------ NAV ------------------------*/
@@ -50,105 +62,18 @@ a{
 	border-left: 2px solid #494573;
 }
 
+/*------------------------ CONTENT ------------------------*/
+
 .contentWrapper{
 	margin: 0px;
+	padding: 1px 0px;
 	background: #212121 url(../images/bg.png) repeat-x;
 }
-
-/*------------------------ FUNCT ------------------------*/
-
-.funct{
-	width: 402px;
-	height: 242px;
-	margin: auto;
-	padding: 40px 0px;
-}
-
-#login, #signup, #forget{
-	width: 400px;
-	color: #BFB8E5;
-	background: #191919;
-	
-	border-radius: 7px;
-	-moz-border-radius: 7px;
-	
-	border: 1px solid #373553;
-}
-
-#signup, #forget{
-	margin-top: 33px;
-	display: none;
-}
-
-.field{
-	padding-bottom: 10px;
-}
-
-fieldset{
-	padding: 30px 30px 10px 30px;
-	border-width: 0px;
-}
-
-fieldset.submit{
-	padding: 0px 30px 30px 30px;
-}
-
-label{
-	display: block;
-	padding: 0px 0px 8px 0px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-input{
-	font-size: 12px;
-	padding: 7px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background-color: #C9C3E6;
-	
-	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
-	box-shadow: 0px 0px 1px #888888;
-	 
-	width: 320px;
-	border-width: 0px;
-}
-
-input.checkbox{
-	width: auto;
-	margin: 10px;
-}
-
-input.submit{
-	background: #A08DFF;
-	width: auto;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	padding: 6px 20px;
-	font-size: 16px;
-	font-weight: bold;
-	color: #16153B;
-	text-shadow: #C9C3E6 0px 0px 2px;
-	float: right;
-}
-
-input.submit:hover{
-	background: #BFB8E5;
-	cursor: pointer;
-}
-
-input:focus{
-	background: #ccffcc;
-	outline-width: 0px;
-}
-
-/*------------------------ CONTENT ------------------------*/
 
 .content{
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;
-	border-top: 3px solid #212121;
 }
 
 #instruct{
@@ -159,7 +84,28 @@ input:focus{
 	color: #71A8B2;
 }
 
-/*------------------------ CONTENT ------------------------*/
+/*------------------------ PANEL ------------------------*/
+
+.panel{
+	-moz-border-radius: 14px;
+	border-radius: 14px;
+	-moz-box-shadow: #151515 2px 2px 7px 0;
+	-webkit-box-shadow: #151515 2px 2px 7px 0;
+	box-shadow: #151515 2px 2px 7px 0;
+}
+
+.panel h2{
+	font-size: 20px;
+	padding: 10px 20px;
+	-moz-border-radius-topleft: 14px;
+	border-top-left-radius: 14px;
+	-moz-border-radius-topright: 14px;
+	border-top-right-radius: 14px;
+	font-weight: normal;
+}
+
+/*------------------------ FOOTER ------------------------*/
+
 .footerWrapper{
 	border-top: 6px solid #191919;
 }

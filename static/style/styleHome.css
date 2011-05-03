@@ -1,0 +1,167 @@
+/*------------------------ PROFILE ------------------------*/
+
+.profile{
+	width: 960px;
+	margin: 30px auto;
+	background: #232323;
+	height: 80px;
+}
+
+.profileItem{
+	float: left;
+	width: 155px;
+	border-right: 5px solid #151515;
+	padding-top: 12px;
+	margin: 0px;
+	height: 68px;
+	color: #6CAEFF;
+}
+
+#firstItem{
+	border-width: 0px;
+}
+
+.profileItem dd{
+	text-align: center;
+	margin-left: 0px;
+}
+
+.profileItem dt{
+	text-align: center;
+}
+
+.value{
+	font-size: 36px; 
+}
+
+#green{
+	color: #69CA94;
+}
+
+#credit{
+	color: #CAC3E4;
+	float: right;
+	padding-right: 20px;
+}
+
+#credit dd, #credit dt{
+	text-align: right;
+}
+
+#creditPlus{
+	color: #CAC3E4;
+	width: 40px;
+	float: right;
+	border-width: 0px;
+	padding-top: 15px;
+	height: 65px;
+}
+
+#creditPlus:hover{
+	background: #272727;
+}
+
+/*------------------------ TASK ------------------------*/
+
+.task{
+	width: 960px;
+	margin: 30px auto;
+	background: #272727;
+}
+
+.task h2{
+	background: #232323;
+	color: #8D79F2;
+}
+
+#leftBtn, #rightBtn{
+	float: left;
+	width: 65px;
+	height: 90px;
+	cursor: pointer;
+	font-size: 36px;
+	text-align: center;
+	color: #999;
+	padding-top: 30px;
+}
+
+#leftBtn{
+	border-right: 5px solid #232323;
+}
+
+#leftBtn:hover, #rightBtn:hover{
+	background: #232323;
+}
+
+.itemWrapper{
+	margin: 0px;
+	padding: 0px;
+	width: 900px;
+}
+
+.taskItem{
+	float: left;
+	width: 230px;
+	height: 80px;
+	border-right: 5px solid #232323;
+	padding: 20px;
+	color: #999;
+}
+
+/*------------------------ STORE ------------------------*/
+
+.store{
+	width: 960px;
+	margin: 30px auto;
+	background: #212634;
+}
+
+.store h2{
+	background: #1B1F2A;
+	color: #6CAEFF;
+}
+
+.store p{
+	margin: 0px;
+	padding: 20px;
+	color: #4E6178;
+}
+
+#storeList{
+	border-top: 5px solid #1B1F2A;
+}
+
+.storeItem{
+	float: left;
+	width: 148px;
+	height: 60px;
+	padding: 20px;
+	border-left: 5px solid #1B1F2A;
+	text-align: center;
+	color: #6CAEFF;
+	font-size: 18px;
+}
+
+.storeItem:hover{
+	background: #1B1F2A;
+}
+
+.lbCorner{
+	-moz-border-radius-bottomleft: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+.rbCorner{
+	-moz-border-radius-bottomright: 14px;
+	border-bottom-right-radius: 14px;
+}
+
+.ltCorner{
+	-moz-border-radius-topleft: 14px;
+	border-top-left-radius: 14px;
+}
+
+.rtCorner{
+	-moz-border-radius-topright: 14px;
+	border-top-right-radius: 14px;
+}

@@ -1,22 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
 	<head>
 		<title>
 			光子复制
 		</title>
 		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link rel="stylesheet" type="text/css" href="style/styleIndex.css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/scriptIndex.js"></script>
 	</head>
 	<body>
 		<div class="nav">
 			<div id="logo">
-				<a href="index.php">photoncopy</a>
+				<a href="index.php">光子复制</a>
 			</div>
 			<ul class="account">
 				<li>
-					<a href="account.php">帐户</a>
+					<a href="home/index.html">首页</a>
+				</li>
+				<li class='sep'>
+					<a href="account.php">User1的帐户</a>
 				</li>
 				<li class="sep">
 					<a href="index.php?q=logout">退出</a>
@@ -36,12 +42,13 @@
 		</div>
 		<div class="contentWrapper">
 			<div class="funct">
-				<div id="login">
+				<div id="login" class='panel'>
+					<h2>登录</h2>
 					<form>
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" />
+								<input type="text" name="email" title='请输入邮箱地址' class='autoHint' />
 							</div>
 							<div class="field">
 								<label>密码</label>
@@ -49,17 +56,18 @@
 							</div>
 						</fieldset>
 						<fieldset class="submit">
-							<input class="checkbox" type="checkbox" name="publicLogin" value="yes" /><h3> 正在使用公共电脑登录</h3>
+							<input class="checkbox" type="checkbox" checked="yes" name="publicLogin" value="yes" /><h3> 正在使用公共电脑登录</h3>
 							<input class="submit" type="submit" value="登录" />
 						</fieldset>
 					</form>
 				</div>
-				<div id="signup">
+				<div id="signup" class='panel'>
+					<h2>注册</h2>
 					<form>
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" />
+								<input type="text" name="email" title='请输入邮箱地址' class='autoHint'/>
 							</div>
 						</fieldset>
 						<fieldset class="submit">
@@ -67,12 +75,13 @@
 						</fieldset>
 					</form>
 				</div>
-				<div id="forget">
+				<div id="forget" class='panel'>
+					<h2>取回密码</h2>
 					<form>
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" />
+								<input type="text" name="email" title='请输入邮箱地址' class='autoHint' />
 							</div>
 						</fieldset>
 						<fieldset class="submit">
