@@ -1,0 +1,4 @@
+<FilesMatch "\.git\w+$">
+  Order allow,deny
+</FilesMatch>
+
