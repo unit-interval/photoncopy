@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+	<head>
+		<title>
+			光子复制
+		</title>
+		<link rel="stylesheet" type="text/css" href="../style/style.css" />
+		<link rel="stylesheet" type="text/css" href="../style/styleHome.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/scriptHome.js"></script>
+	</head>
+	<body>
+		<div class="nav">
+			<div id="logo">
+				<a href="index.php">光子复制</a>
+			</div>
+			<ul class="account">
+				<li>
+					<a href="home/index.html">首页</a>
+				</li>
+				<li class='sep'>
+					<a href="account.php">User1的帐户</a>
+				</li>
+				<li class="sep">
+					<a href="index.php?q=logout">退出</a>
+				</li>
+			</ul>
+		</div>
+		<div class="contentWrapper">
+			<div class='panel profile'>
+				<dl class='profileItem'>
+					<dt>PDF文档</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem'>
+					<dt>WORD文档</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem'>
+					<dt>PPT幻灯片</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem' id='green'>
+					<dt>双面打印</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<a href='credit/index.php'>
+					<dl class='profileItem rtCorner rbCorner' id='creditPlus'>
+						<dd><span class='value'>+</span></dd>
+					</dl>
+				</a>
+				<dl class='profileItem' id='credit'>
+					<dt>信用额度</dt>
+					<dd><span class='value'>0.5</span> RMB</dd>
+				</dl>
+			</div>
+			<div class='panel task'>
+				<h2>任务</h2>
+				<div class='lbCorner' id='leftBtn'>&lt</div>
+				<ul class='itemWrapper'>
+					<li>
+						<div class='taskItem' id='task0'>
+							编号: 1<br>
+							类型: WORD文档<br>
+							状态: 打印中<br>
+							店铺: 北京大学25楼打印店<br>
+						</div>
+					</li>
+					<li>
+						<div class='taskItem' id='task1'>
+							编号: 2<br>
+							类型: PPT幻灯片<br>
+							状态: 完成待取<br>
+							店铺: 北京大学28楼打印店<br>
+						</div>
+					</li>
+					<li>
+						<div class='taskItem' id='task2'>
+							编号: 3<br>
+							类型: PDF文档<br>
+							状态: 队列中<br>
+							店铺: 北京大学36楼打印店<br>
+						</div>
+					</li>
+				</ul>
+				<div id='rightBtn' class='rbCorner'>&gt</div>
+				<div class='clear'></div>
+			</div>
+			<div class='panel store'>
+				<h2>请选择打印店</h2>
+				<p>网络: 北京大学</p>
+				<div id='storeList'>
+					<a href='/store/index.php?uid=1'>
+						<div class='storeItem lbCorner' id='firstItem'>
+							25楼打印店
+						</div>
+					</a>
+					<a href='/store/index.php?uid=2'>
+						<div class='storeItem'>
+							36楼打印店
+						</div>
+					</a>
+					<a href='/store/index.php?uid=3'>
+						<div class='storeItem'>
+							28楼打印店
+						</div>
+					</a>
+					<a href='/store/index.php?uid=4'>
+						<div class='storeItem'>
+							45楼打印店
+						</div>
+					</a>
+					<a href='/store/index.php?uid=5'>
+						<div class='storeItem rbCorner'>
+							40楼打印店
+						</div>
+					</a>
+					<div class='clear'></div>
+				</div>
+			</div>
+		</div>
+		<div class="footerWrapper">
+			<div class="footer">
+				<ul class="fd">
+					<li>
+						d
+					</li>
+					<li>
+						f						
+					</li>
+				</ul>			
+			</div>
+		</div>
+	</body>
+</html>
