@@ -7,8 +7,8 @@ session_start();
 
 if($_GET['become'] == 'admin') {
 	$_SESSION['admin'] = true;
-	echo "May Elune be with you.";
+	echo '"Baby, I\'m mortal now. Time\'s a wastin\'."';
 } else
-	echo "En Taro Tassadar."
+	echo "Hey, Look! We found a witch! May we burn her?"
 
 ?>
