@@ -6,7 +6,7 @@ session_name(SESSNAME);
 session_start();
 
 if($_SESSION['admin'] != true)
-        die('"At this time, I think you should purchase me an alcoholic beverage and engage in diminutive conversation with me in hopes of establishing a rapport."');
+die('"At this time, I think you should purchase me an alcoholic beverage and engage in diminutive conversation with me in hopes of establishing a rapport."');
 
 ?>
 <pre>

@@ -1,64 +1,60 @@
 /*------------------------ FUNCT ------------------------*/
-
-.funct{
+.funct {
 	padding-top: 30px;
 	width: 400px;
 	margin: auto;
 }
 
-#login, #signup, #forget{
+#login,#signup,#forget {
 	color: #8D79F2;
 	background: #272727;
 }
 
-.panel h2
-{
+.panel h2 {
 	background: #232323;
 }
 
-#signup, #forget{
+#signup,#forget {
 	display: none;
 }
 
-.field{
+.field {
 	padding-bottom: 10px;
 }
 
-fieldset{
+fieldset {
 	padding: 30px 30px 10px 30px;
 	border-width: 0px;
 }
 
-fieldset.submit{
+fieldset.submit {
 	padding: 0px 30px 30px 30px;
 }
 
-label{
+label {
 	display: block;
 	padding: 0px 0px 8px 0px;
 	font-size: 14px;
 }
 
-input{
+input {
 	font-size: 12px;
 	padding: 7px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	background-color: #C9C3E6;
-	
 	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
 	box-shadow: 0px 0px 1px #888888;
-	 
 	width: 320px;
 	border-width: 0px;
 }
 
-input.checkbox{
+input.checkbox {
 	width: auto;
 	margin: 11px;
 }
 
-input.submit{
+input.submit {
 	background: #8D79F2;
 	width: auto;
 	-moz-border-radius: 3px;
@@ -71,12 +67,12 @@ input.submit{
 	float: right;
 }
 
-input.submit:hover{
+input.submit:hover {
 	background: #BFB8E5;
 	cursor: pointer;
 }
 
-input:focus{
+input:focus {
 	background: #ccffcc;
 	outline-width: 0px;
 }

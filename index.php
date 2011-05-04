@@ -15,7 +15,7 @@ if($_SESSION['logged_in'] != true) {
 	require 'inc/auth.php';
 	cookie_auth();
 	if($_SESSION['logged_in'] == true)
-		err_redir('', '/home.php');
+	err_redir('', '/home.php');
 }
 
 $link['css'][] = 'style';

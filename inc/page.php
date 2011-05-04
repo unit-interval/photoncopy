@@ -53,7 +53,7 @@ function page_home($tasks, $stores) {
 				<h2>任务</h2>
 				<div class='lbCorner' id='leftBtn'>&lt</div>
 				<ul class='itemWrapper'>"
-				. mod_tasks($tasks, $stores) .
+	. mod_tasks($tasks, $stores) .
 				"
 				</ul>
 				<div id='rightBtn' class='rbCorner'>&gt</div>
@@ -154,11 +154,11 @@ function page_meta() {
 	<title>' . CODE_NAME . '</title>
 	';
 	foreach($link['css'] as $v)
-		echo "\t<link rel='stylesheet' type='text/css' href='./media/css/$v.css' />\n";
+	echo "\t<link rel='stylesheet' type='text/css' href='./media/css/$v.css' />\n";
 	foreach($link['js'] as $v)
-		echo "\t<script type='text/javascript' src='./media/js/$v.js'></script>\n";
+	echo "\t<script type='text/javascript' src='./media/js/$v.js'></script>\n";
 	foreach($link['script'] as $v)
-		echo "\t<script type='text/javascript'>{$v}\t</script>\n";
+	echo "\t<script type='text/javascript'>{$v}\t</script>\n";
 	echo <<<EOT
 </head>
 <body>

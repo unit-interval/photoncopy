@@ -1,13 +1,12 @@
 /*------------------------ PROFILE ------------------------*/
-
-.profile{
+.profile {
 	width: 960px;
 	margin: 30px auto;
 	background: #232323;
 	height: 80px;
 }
 
-.profileItem{
+.profileItem {
 	float: left;
 	width: 155px;
 	border-right: 5px solid #151515;
@@ -17,38 +16,38 @@
 	color: #6CAEFF;
 }
 
-#firstItem{
+#firstItem {
 	border-width: 0px;
 }
 
-.profileItem dd{
+.profileItem dd {
 	text-align: center;
 	margin-left: 0px;
 }
 
-.profileItem dt{
+.profileItem dt {
 	text-align: center;
 }
 
-.value{
-	font-size: 36px; 
+.value {
+	font-size: 36px;
 }
 
-#green{
+#green {
 	color: #69CA94;
 }
 
-#credit{
+#credit {
 	color: #CAC3E4;
 	float: right;
 	padding-right: 20px;
 }
 
-#credit dd, #credit dt{
+#credit dd,#credit dt {
 	text-align: right;
 }
 
-#creditPlus{
+#creditPlus {
 	color: #CAC3E4;
 	width: 40px;
 	float: right;
@@ -57,24 +56,23 @@
 	height: 65px;
 }
 
-#creditPlus:hover{
+#creditPlus:hover {
 	background: #272727;
 }
 
 /*------------------------ TASK ------------------------*/
-
-.task{
+.task {
 	width: 960px;
 	margin: 30px auto;
 	background: #272727;
 }
 
-.task h2{
+.task h2 {
 	background: #232323;
 	color: #8D79F2;
 }
 
-#leftBtn, #rightBtn{
+#leftBtn,#rightBtn {
 	float: left;
 	width: 65px;
 	height: 90px;
@@ -85,21 +83,21 @@
 	padding-top: 30px;
 }
 
-#leftBtn{
+#leftBtn {
 	border-right: 5px solid #232323;
 }
 
-#leftBtn:hover, #rightBtn:hover{
+#leftBtn:hover,#rightBtn:hover {
 	background: #232323;
 }
 
-.itemWrapper{
+.itemWrapper {
 	margin: 0px;
 	padding: 0px;
 	width: 900px;
 }
 
-.taskItem{
+.taskItem {
 	float: left;
 	width: 230px;
 	height: 80px;
@@ -109,29 +107,28 @@
 }
 
 /*------------------------ STORE ------------------------*/
-
-.store{
+.store {
 	width: 960px;
 	margin: 30px auto;
 	background: #212634;
 }
 
-.store h2{
+.store h2 {
 	background: #1B1F2A;
 	color: #6CAEFF;
 }
 
-.store p{
+.store p {
 	margin: 0px;
 	padding: 20px;
 	color: #4E6178;
 }
 
-#storeList{
+#storeList {
 	border-top: 5px solid #1B1F2A;
 }
 
-.storeItem{
+.storeItem {
 	float: left;
 	width: 148px;
 	height: 60px;
@@ -142,26 +139,26 @@
 	font-size: 18px;
 }
 
-.storeItem:hover{
+.storeItem:hover {
 	background: #1B1F2A;
 }
 
-.lbCorner{
+.lbCorner {
 	-moz-border-radius-bottomleft: 14px;
 	border-bottom-left-radius: 14px;
 }
 
-.rbCorner{
+.rbCorner {
 	-moz-border-radius-bottomright: 14px;
 	border-bottom-right-radius: 14px;
 }
 
-.ltCorner{
+.ltCorner {
 	-moz-border-radius-topleft: 14px;
 	border-top-left-radius: 14px;
 }
 
-.rtCorner{
+.rtCorner {
 	-moz-border-radius-topright: 14px;
 	border-top-right-radius: 14px;
 }

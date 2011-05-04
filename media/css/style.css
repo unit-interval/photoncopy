@@ -1,48 +1,47 @@
-body{
+body {
 	margin: 0px;
 	padding: 0px;
-	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
 	font-size: 14px;
 	background: #1C1C1C;
 }
 
-h2{
+h2 {
 	margin: 0px;
 }
 
-h3{
+h3 {
 	font-size: 14px;
 	display: inline;
 }
 
-li{
+li {
 	text-decoration: none;
 	display: inline;
 	padding: 0px 8px 0px 10px;
 }
 
-a{
+a {
 	text-decoration: none;
 	color: #45A4FF;
 }
 
-.autoHint{ 
+.autoHint {
 	color: #888888;
 }
 
-.clear{
+.clear {
 	clear: both;
 }
 
 /*------------------------ NAV ------------------------*/
-
-.nav{
+.nav {
 	height: 90px;
 	background: #29264D;
 	border-bottom: 3px solid #494573;
 }
 
-.account{
+.account {
 	margin-right: 24px;
 	float: right;
 	background: #231D40;
@@ -52,41 +51,38 @@ a{
 	font-size: 14px;
 }
 
-.navBtn
-{
+.navBtn {
 	color: #45A4FF;
 	cursor: pointer;
 }
 
-.sep{
+.sep {
 	border-left: 2px solid #494573;
 }
 
 /*------------------------ CONTENT ------------------------*/
-
-.contentWrapper{
+.contentWrapper {
 	margin: 0px;
 	padding: 1px 0px;
 	background: #212121 url(../images/bg.png) repeat-x;
 }
 
-.content{
+.content {
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;
 }
 
-#instruct{
+#instruct {
 	color: #7565C7;
 }
 
-#stat{
+#stat {
 	color: #71A8B2;
 }
 
 /*------------------------ PANEL ------------------------*/
-
-.panel{
+.panel {
 	-moz-border-radius: 14px;
 	border-radius: 14px;
 	-moz-box-shadow: #151515 2px 2px 7px 0;
@@ -94,7 +90,7 @@ a{
 	box-shadow: #151515 2px 2px 7px 0;
 }
 
-.panel h2{
+.panel h2 {
 	font-size: 20px;
 	padding: 10px 20px;
 	-moz-border-radius-topleft: 14px;
@@ -105,12 +101,11 @@ a{
 }
 
 /*------------------------ FOOTER ------------------------*/
-
-.footerWrapper{
+.footerWrapper {
 	border-top: 6px solid #191919;
 }
 
-.footer{
+.footer {
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;
