@@ -1,6 +1,4 @@
 *.swp
-.project
-.settings
 config.php
 tmp
 uploads
