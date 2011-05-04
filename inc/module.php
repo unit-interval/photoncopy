@@ -2,7 +2,7 @@
 
 function mod_login() {
 	if($_SESSION['logged_in'])
-		return '
+	return '
 				<li><a href="home.php">首页</a></li>
 				<li class="sep">
 					<a href="profile.php">' . $_SESSION['name'] . '</a>
@@ -13,7 +13,7 @@ function mod_login() {
 				</li>
 		';
 	else
-		return '
+	return '
 				<li id="loginBtn">
 					<span class="navBtn">登录</span>
 
@@ -41,7 +41,7 @@ function mod_stores($stores) {
 		$html .= "
 			<a href='/store.php?id={$s['id']}'>
 				<div class='storeItem'>
-					{$s['name']}<br />
+				{$s['name']}<br />
 					零錢罐: {$_SESSION['credit'][$s['id']]}
 				</div>
 			</a>
@@ -54,7 +54,7 @@ function mod_tasks($tasks, $stores) {
 	$i = 0;
 	$html = '';
 	foreach($tasks as $t)
-		$html .= "
+	$html .= "
 			<li><div class='taskItem' id='task". $i++ ."'>
 				编号: {$t['id']}<br />
 				类型: {$text_order_type[$t['type']]}<br />
@@ -64,7 +64,7 @@ function mod_tasks($tasks, $stores) {
 			</div></li>
 		";
 	while($i < 2)
-		$html .= "
+	$html .= "
 			<li><div class='taskItem' id='task". $i++ ."'>
 				编号: <br />
 				类型: <br />

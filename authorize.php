@@ -14,7 +14,7 @@ function send_reg_mail($to) {
 	$body = <<<EOT
 To continue your registration, click the link below, plz.
 	
-$link
+	$link
 
 photoncopy is blahblah.
 and this mail will be beautified with html.
@@ -30,13 +30,13 @@ photoncopy admin
 EOT;
 	$header = "Content-type: text/plain; charset=utf-8\r\n";
 	$header .= "From: " . CODE_NAME . " <noreply-reg@" .
-		SERVER_HOST . ">\r\n";
+	SERVER_HOST . ">\r\n";
 	$header .= "Reply-To: " . CODE_NAME . " <noreply-reg@" .
-		SERVER_HOST . ">\r\n";
+	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }
 function verify_login_form() {
-/** validate input client-side with js */
+	/** validate input client-side with js */
 	global $input;
 	$input['email'] = strtolower($_POST['email']);
 	$input['passwd'] = md5($_POST['passwd']);
@@ -44,7 +44,7 @@ function verify_login_form() {
 	return true;
 }
 function verify_email($m) {
-// write the actual check later.
+	// write the actual check later.
 	return true;
 }
 
@@ -54,12 +54,12 @@ session_start();
 
 if($_GET['c'] == 'login') {
 	if(!verify_login_form())
-		err_redir('Invalid Login Information.');
+	err_redir('Invalid Login Information.');
 	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	if ($mysqli->connect_error)
-		err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
+	err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
 	if (!$mysqli->set_charset("utf8"))
-		err_redir("db error({$mysqli->errno}).", '/error.php');
+	err_redir("db error({$mysqli->errno}).", '/error.php');
 	$query = "select `id`, `passwd`, `name` from `user`
 		where `email` = '{$mysqli->real_escape_string($input['email'])}'";
 	if(($result = $mysqli->query($query)) && ($result->num_rows > 0)) {
@@ -67,15 +67,15 @@ if($_GET['c'] == 'login') {
 		$result->free();
 		$logged_in = ($user['passwd'] == $input['passwd']);
 	} else
-		$logged_in = false;
+	$logged_in = false;
 	if(!$logged_in)
-		err_redir('login fail.');
+	err_redir('login fail.');
 	$query = "select `pocket`, `amount` from `credit`
 		where `id` = {$user['id']}";
 	if($result = $mysqli->query($query)) {
 		$credit = array();
 		while($row = $result->fetch_assoc())
-			$credit[$row['pocket']] = $row['amount'];
+		$credit[$row['pocket']] = $row['amount'];
 		$result->free();
 	}
 	$mysqli->close();
@@ -92,7 +92,7 @@ if($_GET['c'] == 'login') {
 		setcookie('stamp', $stamp, $expire);
 		setcookie('hash', md5(date('Y-M-').$user['id'].$stamp), $expire);
 	} else
-		setcookie('email', '', time()-3600);
+	setcookie('email', '', time()-3600);
 	err_redir('', '/home.php');
 	exit;
 } elseif($_GET['c'] == 'logout') {
@@ -105,7 +105,7 @@ if($_GET['c'] == 'login') {
 } elseif($_GET['c'] == 'reg') {
 	$email = strtolower($_POST['email']);
 	if(!verify_email($email))
-		err_redir('invalid email addr.');
+	err_redir('invalid email addr.');
 	send_reg_mail($email);
 	setcookie('email', $email, time()+3600*24*3);
 	err_redir('email sent.');
