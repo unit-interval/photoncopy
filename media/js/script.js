@@ -1,21 +1,23 @@
-/**
- * @author Roy John
- */
-
 $(document).ready(function(){
-	$("#loginBtn").click(function(){
-		$("#login").show("normal");
-		$("#signup").hide("normal");
-		$("#forget").hide("normal");
+	$('INPUT.autoHint, TEXTAREA.autoHnt').blur(function(){
+	    if($(this).val() == '' && $(this).attr('title') != ''){
+	       $(this).val($(this).attr('title'));
+	       $(this).addClass('autoHint');
+	    }
 	});
-	$("#signupBtn").click(function(){
-		$("#login").hide("normal");
-		$("#signup").show("normal");
-		$("#forget").hide("normal");
+	$('INPUT.autoHint, TEXTAREA.autoHint').each(function(){
+	    if($(this).attr('title') == ''){ return; }
+	    if($(this).val() == ''){ 
+	    	$(this).val($(this).attr('title'));
+	    }
+	    else { 
+	    	$(this).removeClass('autoHint');
+	    }
 	});
-	$("#forgetBtn").click(function(){
-		$("#login").hide("normal");
-		$("#signup").hide("normal");
-		$("#forget").show("normal");
-	})
+	$('INPUT.autoHint, TEXTAREA.autoHint').focus(function(){
+	    if($(this).val() == $(this).attr('title')){
+	        $(this).val('');
+	        $(this).removeClass('autoHint');
+	    }
+	});
 })
