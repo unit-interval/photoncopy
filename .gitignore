@@ -2,5 +2,6 @@
 .project
 .settings
 config.php
+static
 tmp
 uploads
