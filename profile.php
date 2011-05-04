@@ -56,8 +56,10 @@ if($_SESSION['state'] === 'activating') {
 		)";
 	if($mysqli->query($query) !== TRUE)
 		err_redir("db error({$mysqli->errno}).", '/error.php');
+	$uid = $mysqli->insert_id;
+	$query = "insert into `credit` values ($uid, 0, 0.5)";
 	$_SESSION['logged_in'] = true;
-	$_SESSION['uid'] = $mysqli->insert_id;
+	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];
 	unset($_SESSION['state']);
 	err_redir('Congura-, your account is activated.', '/home.php');
