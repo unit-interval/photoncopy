@@ -19,8 +19,10 @@ if($_SESSION['logged_in'] != true) {
 }
 
 $link['css'][] = 'style';
+$link['css'][] = 'styleIndex';
 $link['js'][] = 'jquery';
 $link['js'][] = 'script';
+$link['js'][] = 'scriptIndex';
 
 page_meta();
 page_nav();

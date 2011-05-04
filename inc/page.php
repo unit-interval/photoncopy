@@ -29,12 +29,13 @@ function page_index() {
 	echo '
 		<div class="contentWrapper">
 			<div class="funct">
-				<div id="login">
+				<div id="login" class="panel">
+					<h2>登录</h2>
 					<form action="/authorize.php?c=login" method="post">
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" value="' . $_COOKIE['email'] . '" />
+								<input type="text" name="email" value="' . $_COOKIE['email'] . '" title="请输入邮箱地址" class="autoHint" />
 							</div>
 							<div class="field">
 								<label>密码</label>
@@ -47,12 +48,13 @@ function page_index() {
 						</fieldset>
 					</form>
 				</div>
-				<div id="signup">
+				<div id="signup" class="panel">
+					<h2>注册</h2>
 					<form action="/authorize.php?c=reg" method="post">
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" />
+								<input type="text" name="email" title="请输入邮箱地址" class="autoHint" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">
@@ -60,12 +62,13 @@ function page_index() {
 						</fieldset>
 					</form>
 				</div>
-				<div id="forget">
+				<div id="forget" class="panel">
+					<h2>取回密码</h2>
 					<form action="/authorize.php?c=forget" method="post">
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" value="' . $_COOKIE['email'] . '" />
+								<input type="text" name="email" value="' . $_COOKIE['email'] . '" title="请输入邮箱地址" class="autoHint" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">

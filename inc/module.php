@@ -3,7 +3,7 @@
 function mod_login() {
 	if($_SESSION['logged_in'])
 		return '
-				<li><a href="home.php">Home</a></li>
+				<li><a href="home.php">首页</a></li>
 				<li class="sep">
 					<a href="profile.php">' . $_SESSION['name'] . '</a>
 
