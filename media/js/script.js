@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('INPUT.autoHint, TEXTAREA.autoHnt').blur(function(){
+	$('INPUT.autoHint, TEXTAREA.autoHint').blur(function(){
 	    if($(this).val() == '' && $(this).attr('title') != ''){
 	       $(this).val($(this).attr('title'));
 	       $(this).addClass('autoHint');
