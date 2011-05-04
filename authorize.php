@@ -63,25 +63,34 @@ if($_GET['c'] == 'login') {
 	$query = "select `id`, `passwd`, `name` from `user`
 		where `email` = '{$mysqli->real_escape_string($input['email'])}'";
 	if(($result = $mysqli->query($query)) && ($result->num_rows > 0)) {
-		$row = $result->fetch_assoc();
+		$user = $result->fetch_assoc();
 		$result->free();
-		$logged_in = ($row['passwd'] == $input['passwd']);
+		$logged_in = ($user['passwd'] == $input['passwd']);
 	} else
 		$logged_in = false;
-	$mysqli->close();
 	if(!$logged_in)
 		err_redir('login fail.');
+	$query = "select `pocket`, `amount` from `credit`
+		where `id` = {$user['id']}";
+	if($result = $mysqli->query($query)) {
+		$credit = array();
+		while($row = $result->fetch_assoc())
+			$credit[$row['pocket']] = $row['amount'];
+		$result->free();
+	}
+	$mysqli->close();
 	$_SESSION['logged_in'] = true;
-	$_SESSION['uid'] = $row['id'];
-	$_SESSION['name'] = $row['name'];
+	$_SESSION['uid'] = $user['id'];
+	$_SESSION['name'] = $user['name'];
 	$_SESSION['email'] = $input['email'];
+	$_SESSION['credit'] = $credit;
 	if(!$input['pub']) {
 		$expire = time()+3600*24*30;
 		$stamp = date('YmdHis');
 		setcookie('email', $input['email'], $expire);
-		setcookie('uid', $row['id'], $expire);
+		setcookie('uid', $user['id'], $expire);
 		setcookie('stamp', $stamp, $expire);
-		setcookie('hash', md5(date('Y-M-').$row['id'].$stamp), $expire);
+		setcookie('hash', md5(date('Y-M-').$user['id'].$stamp), $expire);
 	} else
 		setcookie('email', '', time()-3600);
 	err_redir('', '/home.php');

@@ -20,10 +20,56 @@ function page_footer() {
 		</div>
 	';
 }
-function page_home() {
-	echo '<div class="contentWrapper"><div class="content">
-		<p>i\'d love to see how this part is arranged.</p>
-		</div></div>';
+function page_home($tasks, $stores) {
+	echo "<div class='contentWrapper'>
+			<div class='panel profile'>
+				<dl class='profileItem'>
+					<dt>PDF文档</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem'>
+					<dt>WORD文档</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem'>
+					<dt>PPT幻灯片</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<dl class='profileItem' id='green'>
+					<dt>双面打印</dt>
+					<dd><span class='value'>0</span> RMB</dd>
+				</dl>
+				<a href='credit/index.php'>
+					<dl class='profileItem rtCorner rbCorner' id='creditPlus'>
+						<dd><span class='value'>+</span></dd>
+					</dl>
+				</a>
+				<dl class='profileItem' id='credit'>
+					<dt>信用额度</dt>
+					<dd><span class='value'>{$_SESSION['credit'][0]}</span> RMB</dd>
+				</dl>
+			</div>
+			<div class='panel task'>
+				<h2>任务</h2>
+				<div class='lbCorner' id='leftBtn'>&lt</div>
+				<ul class='itemWrapper'>"
+				. mod_tasks($tasks, $stores) .
+				"
+				</ul>
+				<div id='rightBtn' class='rbCorner'>&gt</div>
+				<div class='clear'></div>
+			</div>
+			<div class='panel store'>
+				<h2>请选择打印店</h2>
+				<p>网络: 北京大学 | <a>查看地圖</a></p>
+				<div id='storeList'>"
+				. mod_stores($stores) .
+				"
+					<div class='clear'></div>
+				</div>
+			</div>
+		</div>		
+		";
 }
 function page_index() {
 	echo '
@@ -35,7 +81,9 @@ function page_index() {
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" value="' . $_COOKIE['email'] . '" title="请输入邮箱地址" class="autoHint" />
+								<input type="text" name="email" value="'
+								. $_COOKIE['email'] .
+								'" title="请输入邮箱地址" class="autoHint" />
 							</div>
 							<div class="field">
 								<label>密码</label>
@@ -43,7 +91,8 @@ function page_index() {
 							</div>
 						</fieldset>
 						<fieldset class="submit">
-							<input class="checkbox" type="checkbox" name="pub" value="yes" /><h3> 正在使用公共电脑登录</h3>
+							<input class="checkbox" type="checkbox" name="pub" value="yes" />
+							<h3> 正在使用公共电脑登录</h3>
 							<input class="submit" type="submit" value="登录" />
 						</fieldset>
 					</form>
@@ -68,7 +117,9 @@ function page_index() {
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" value="' . $_COOKIE['email'] . '" title="请输入邮箱地址" class="autoHint" />
+								<input type="text" name="email" value="'
+								. $_COOKIE['email'] .
+								'" title="请输入邮箱地址" class="autoHint" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">

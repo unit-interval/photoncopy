@@ -15,10 +15,10 @@ $tables = array(
 			`amount` float(8.2) NOT NULL ',
 		'index' => "ALTER TABLE `devel_pq`.`credit` ADD UNIQUE `id-pocket` ( `id` , `pocket` )",
 		'row' => array(
-			"0, 0, 0.5",
-			"0, 2, 3.9",
-			"1, 0, 2.5",
-			"1, 1, 3.2",
+			"1, 0, 0.5",
+			"1, 2, 3.9",
+			"2, 0, 2.5",
+			"2, 1, 3.2",
 		),
 	),
 	'order' => array(
@@ -30,12 +30,12 @@ $tables = array(
 			`cost` FLOAT( 5, 2 ) UNSIGNED NOT NULL ,
 			INDEX ( `uid` , `pid` , `status` ) ',
 		'row' => array(
-			"default, 0, 1, 2, 0, 0.3",
-			"default, 0, 1, 1, 2, 1.2",
-			"default, 0, 2, 0, 1, 0.5",
-			"default, 1, 2, 0, 3, 0.6",
-			"default, 1, 3, 2, 0, 2.7",
-			"default, 1, 1, 1, 1, 0.9",
+			"default, 1, 1, 2, 0, 0.3",
+			"default, 1, 1, 1, 2, 1.2",
+			"default, 1, 2, 0, 1, 0.5",
+			"default, 2, 2, 0, 3, 0.6",
+			"default, 2, 3, 2, 0, 2.7",
+			"default, 2, 1, 1, 1, 0.9",
 		),
 	),
 	'partner' => array(

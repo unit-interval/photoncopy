@@ -35,4 +35,44 @@ function mod_msg() {
 		return $msg;
 	}
 }
+function mod_stores($stores) {
+	$html = '';
+	foreach($stores as $s) {
+		$html .= "
+			<a href='/store.php?id={$s['id']}'>
+				<div class='storeItem'>
+					{$s['name']}<br />
+					零錢罐: {$_SESSION['credit'][$s['id']]}
+				</div>
+			</a>
+		";
+	}
+	return $html;
+}
+function mod_tasks($tasks, $stores) {
+	require_once 'inc/text-defs.php';
+	$i = 0;
+	$html = '';
+	foreach($tasks as $t)
+		$html .= "
+			<li><div class='taskItem' id='task". $i++ ."'>
+				编号: {$t['id']}<br />
+				类型: {$text_order_type[$t['type']]}<br />
+				状态: {$text_order_status[$t['status']]}<br />
+				店铺: {$stores[$t['pid']]['name']}<br />
+				金額: {$t['cost']}<br />
+			</div></li>
+		";
+	while($i < 2)
+		$html .= "
+			<li><div class='taskItem' id='task". $i++ ."'>
+				编号: <br />
+				类型: <br />
+				状态: <br />
+				店铺: <br />
+				金額: <br />
+			</div></li>
+		";
+	return $html;
+}
 
