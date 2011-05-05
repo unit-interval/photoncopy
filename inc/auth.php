@@ -1,19 +1,15 @@
 <?
 
 function cookie_auth() {
+	global $db;
 	if(!cookie_verify_hash()) {
 		$_SESSION['logged_in'] = false;
 		return;
 	}
 	$uid = $_COOKIE['uid'];
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if ($mysqli->connect_error)
-	err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
-	if (!$mysqli->set_charset("utf8"))
-	err_redir("db error({$mysqli->errno}).", '/error.php');
 	$query = "select `stamp`+0, `email`, `name` from `user`
 		where `id` = $uid";
-	if($result = $mysqli->query($query)) {
+	if($result = $db->query($query)) {
 		if($result->num_rows === 0) {
 			$_SESSION['logged_in'] = false;
 			setcookie('hash', '', time()-3600);
@@ -29,13 +25,12 @@ function cookie_auth() {
 	}
 	$query = "select `pocket`, `amount` from `credit`
 		where `id` = $uid";
-	if($result = $mysqli->query($query)) {
+	if($result = $db->query($query)) {
 		$credit = array();
 		while($row = $result->fetch_assoc())
 		$credit[$row['pocket']] = $row['amount'];
 		$result->free();
 	}
-	$mysqli->close();
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $user['name'];

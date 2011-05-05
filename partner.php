@@ -12,7 +12,8 @@ session_name(SESSNAME);
 session_start();
 
 if($_SESSION['partner'] != true) {
-	include 'inc/auth.php';
+	include './inc/database.php';
+	include './inc/auth.php';
 	partner_cookie_auth();
 	if($_SESSION['partner'] !== true)
 	err_redir('', '/partner.php?c=login');

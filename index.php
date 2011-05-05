@@ -12,7 +12,8 @@ session_name(SESSNAME);
 session_start();
 
 if($_SESSION['logged_in'] != true) {
-	include 'inc/auth.php';
+	include './inc/database.php';
+	include './inc/auth.php';
 	cookie_auth();
 	if($_SESSION['logged_in'] == true)
 	err_redir('', '/home.php');

@@ -55,14 +55,10 @@ session_start();
 if($_GET['c'] == 'login') {
 	if(!verify_login_form())
 	err_redir('Invalid Login Information.');
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if ($mysqli->connect_error)
-	err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
-	if (!$mysqli->set_charset("utf8"))
-	err_redir("db error({$mysqli->errno}).", '/error.php');
+	include_once './inc/database.php';
 	$query = "select `id`, `passwd`, `name` from `user`
-		where `email` = '{$mysqli->real_escape_string($input['email'])}'";
-	if(($result = $mysqli->query($query)) && ($result->num_rows > 0)) {
+		where `email` = '{$db->real_escape_string($input['email'])}'";
+	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
 		$user = $result->fetch_assoc();
 		$result->free();
 		$logged_in = ($user['passwd'] == $input['passwd']);
@@ -72,13 +68,12 @@ if($_GET['c'] == 'login') {
 	err_redir('login fail.');
 	$query = "select `pocket`, `amount` from `credit`
 		where `id` = {$user['id']}";
-	if($result = $mysqli->query($query)) {
+	if($result = $db->query($query)) {
 		$credit = array();
 		while($row = $result->fetch_assoc())
 		$credit[$row['pocket']] = $row['amount'];
 		$result->free();
 	}
-	$mysqli->close();
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $user['id'];
 	$_SESSION['name'] = $user['name'];

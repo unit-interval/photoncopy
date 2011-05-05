@@ -8,6 +8,45 @@ session_start();
 if($_SESSION['admin'] != true)
 die('"At this time, I think you should purchase me an alcoholic beverage and engage in diminutive conversation with me in hopes of establishing a rapport."');
 
+function listCommands() {
+}
+function resetTable($table) {
+	global $db, $tables;
+	echo 'mysql server connected: ' . $db->host_info . "<br />";
+	echo "<p>resetting table $table <br />";
+	if($db->query("drop table if exists `$table`") === TRUE)
+	echo 'table successfully dropped.<br />';
+	else
+	die("error dropping table: $db->error <br />");
+	$query = "create table `$table` ( {$tables[$table]['col']} )";
+	echo "query: $query <br />";
+	if($db->query($query) === TRUE)
+	echo 'table successfully created.<br />';
+	else
+	echo "error creating table: $db->error <br />";
+	if(isset($tables[$table]['index'])) {
+		$query = $tables[$table]['index'];
+		echo "adding indexes:<br />$query<br />";
+		if($db->query($query) === TRUE)
+		echo '... succeeded.<br />';
+		else
+		echo "... error: $db->error <br />";
+	}
+	if(!isset($tables[$table]['row'])) {
+		echo '</p>';
+		return;
+	}
+	foreach($tables[$table]['row'] as $v) {
+		$query = "insert into `$table` values ( $v )";
+		echo "query: $query; ... ";
+		if($db->query($query) === TRUE)
+		echo 'done.<br />';
+		else
+		echo "error: $db->error <br />";
+	}
+	echo '</p>';
+}
+
 $tables = array(
 	'credit' => array(
 		'col' => '`id` MEDIUMINT UNSIGNED NOT NULL ,
@@ -64,52 +103,6 @@ $tables = array(
 ),
 );
 
-
-function listCommands() {
-}
-function resetTable($table) {
-	global $tables;
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if ($mysqli->connect_error)
-	err_redir("database connect error: $mysqli->error.", '/error.php');
-	if (!$mysqli->set_charset("utf8"))
-	err_redir("database error: $mysqli->error.", '/error.php');
-	echo 'mysql server connected: ' . $mysqli->host_info . "<br />";
-	echo "<p>resetting table $table <br />";
-	if($mysqli->query("drop table if exists `$table`") === TRUE)
-	echo 'table successfully dropped.<br />';
-	else
-	die("error dropping table: $mysqli->error <br />");
-	$query = "create table `$table` ( {$tables[$table]['col']} )";
-	echo "query: $query <br />";
-	if($mysqli->query($query) === TRUE)
-	echo 'table successfully created.<br />';
-	else
-	echo "error creating table: $mysqli->error <br />";
-	if(isset($tables[$table]['index'])) {
-		$query = $tables[$table]['index'];
-		echo "adding indexes:<br />$query<br />";
-		if($mysqli->query($query) === TRUE)
-		echo '... succeeded.<br />';
-		else
-		echo "... error: $mysqli->error <br />";
-	}
-	if(!isset($tables[$table]['row'])) {
-		echo '</p>';
-		return;
-	}
-	foreach($tables[$table]['row'] as $v) {
-		$query = "insert into `$table` values ( $v )";
-		echo "query: $query; ... ";
-		if($mysqli->query($query) === TRUE)
-		echo 'done.<br />';
-		else
-		echo "error: $mysqli->error <br />";
-	}
-	$mysqli->close();
-	echo '</p>';
-}
-
 echo '<html><body>';
 
 if(!isset($_GET['c'])) {
@@ -122,6 +115,7 @@ if(!isset($_GET['c'])) {
 	$table = $_GET['c'];
 	if(!isset($tables[$table]))
 	die("table $table doesn't exist.");
+	include_once '../inc/database.php';
 	resetTable($table);
 }
 

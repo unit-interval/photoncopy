@@ -11,18 +11,13 @@ include './inc/page.php';
 $input = array();
 
 function user_exists($u) {
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if ($mysqli->connect_error)
-	err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
-	if (!$mysqli->set_charset("utf8"))
-	err_redir("db error({$mysqli->errno}).", '/error.php');
+	global $db;
 	$query = "select `id` from `user`
-		where `email` = '{$mysqli->real_escape_string($u)}'";
-	if(!($result = $mysqli->query($query)))
-	err_redir("db error({$mysqli->errno}).", '/error.php');
+		where `email` = '{$db->real_escape_string($u)}'";
+	if(!($result = $db->query($query)))
+	err_redir("db error({$db->errno}).", '/error.php');
 	$found = ($result->num_rows > 0);
 	$result->free();
-	$mysqli->close();
 	return $found;
 }
 function verify_pro_form() {
@@ -42,21 +37,17 @@ if($_SESSION['state'] === 'activating') {
 	$_SESSION['state'] = 'reg';
 	if(!verify_pro_form())
 	err_redir('error occured', '/profile.php');
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if ($mysqli->connect_error)
-	err_redir("mysql connect error({$mysqli->connect_errno}).",'/error.php');
-	if (!$mysqli->set_charset("utf8"))
-	err_redir("db error({$mysqli->errno}).", '/error.php');
+	include_once './inc/database.php';
 	$query = "insert into `user` values (
 		default,
-		'{$mysqli->real_escape_string($_SESSION['email'])}',
+		'{$db->real_escape_string($_SESSION['email'])}',
 		'".md5($input['passwd'])."',
 		'{$input['name']}',
 		default
 		)";
-	if($mysqli->query($query) !== TRUE)
-	err_redir("db error({$mysqli->errno}).", '/error.php');
-	$uid = $mysqli->insert_id;
+	if($db->query($query) !== TRUE)
+	err_redir("db error({$db->errno}).", '/error.php');
+	$uid = $db->insert_id;
 	$query = "insert into `credit` values ($uid, 0, 0.5)";
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
@@ -69,7 +60,8 @@ if($_SESSION['logged_in'] !== true) {
 	if(isset($_GET['n']) && isset($_GET['v'])) {
 		if(!verify_link())
 		err_redir('invalid activation link.');
-		$email = rawurldecode(base64_decode($_GET['n']));
+		$email = base64_decode($_GET['n']);
+		include_once './inc/database.php';
 		if(user_exists($email))
 		err_redir('email already activated. please login.');
 		$_SESSION['email'] = $email;
