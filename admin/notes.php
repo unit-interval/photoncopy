@@ -1,6 +1,6 @@
 <?php
 
-require '../config.php';
+include '../config.php';
 
 session_name(SESSNAME);
 session_start();

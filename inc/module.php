@@ -50,7 +50,7 @@ function mod_stores($stores) {
 	return $html;
 }
 function mod_tasks($tasks, $stores) {
-	require_once 'inc/text-defs.php';
+	include_once 'inc/text-defs.php';
 	$i = 0;
 	$html = '';
 	foreach($tasks as $t)

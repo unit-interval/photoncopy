@@ -3,10 +3,10 @@
 /** turn on output buffering */
 ob_start();
 
-require './config.php';
-require './inc/function.php';
-require './inc/module.php';
-require './inc/page.php';
+include './config.php';
+include './inc/function.php';
+include './inc/module.php';
+include './inc/page.php';
 
 $input = array();
 
