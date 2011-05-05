@@ -109,7 +109,7 @@ if(!isset($_GET['c'])) {
 	foreach($tables as $k => $v)
 	echo "<a href='{$_SERVER['SCRIPT_NAME']}?c=$k'>reset the <strong>$k</strong> table.</a><br />";
 	echo '<pre>';
-	print_r($tables);
+	var_dump($tables);
 	echo '</pre>';
 } else {
 	$table = $_GET['c'];

@@ -10,9 +10,9 @@ function err_redir($err = '', $tar = '/') {
 	die;
 }
 
-function print_rh($v) {
+function print_re($v) {
 	echo "<pre>\n";
-	print_r($v);
+	var_dump($v);
 	echo "</pre>";
 	die;
 }
