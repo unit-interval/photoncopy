@@ -1,47 +1,48 @@
-body {
+body{
 	margin: 0px;
 	padding: 0px;
-	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
 	font-size: 14px;
 	background: #1C1C1C;
 }
 
-h2 {
+h2{
 	margin: 0px;
 }
 
-h3 {
+h3{
 	font-size: 14px;
 	display: inline;
 }
 
-li {
+li{
 	text-decoration: none;
 	display: inline;
 	padding: 0px 8px 0px 10px;
 }
 
-a {
+a{
 	text-decoration: none;
 	color: #45A4FF;
 }
 
-.autoHint {
+.autoHint{ 
 	color: #888888;
 }
 
-.clear {
+.clear{
 	clear: both;
 }
 
 /*------------------------ NAV ------------------------*/
-.nav {
+
+.nav{
 	height: 90px;
 	background: #29264D;
 	border-bottom: 3px solid #494573;
 }
 
-.account {
+.account{
 	margin-right: 24px;
 	float: right;
 	background: #231D40;
@@ -51,38 +52,41 @@ a {
 	font-size: 14px;
 }
 
-.navBtn {
+.navBtn
+{
 	color: #45A4FF;
 	cursor: pointer;
 }
 
-.sep {
+.sep{
 	border-left: 2px solid #494573;
 }
 
 /*------------------------ CONTENT ------------------------*/
-.contentWrapper {
+
+.contentWrapper{
 	margin: 0px;
 	padding: 1px 0px;
 	background: #212121 url(../images/bg.png) repeat-x;
 }
 
-.content {
+.content{
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;
 }
 
-#instruct {
+#instruct{
 	color: #7565C7;
 }
 
-#stat {
+#stat{
 	color: #71A8B2;
 }
 
 /*------------------------ PANEL ------------------------*/
-.panel {
+
+.panel{
 	-moz-border-radius: 14px;
 	border-radius: 14px;
 	-moz-box-shadow: #151515 2px 2px 7px 0;
@@ -90,7 +94,7 @@ a {
 	box-shadow: #151515 2px 2px 7px 0;
 }
 
-.panel h2 {
+.panel h2{
 	font-size: 20px;
 	padding: 10px 20px;
 	-moz-border-radius-topleft: 14px;
@@ -100,12 +104,97 @@ a {
 	font-weight: normal;
 }
 
+.lbCorner{
+	-moz-border-radius-bottomleft: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+.rbCorner{
+	-moz-border-radius-bottomright: 14px;
+	border-bottom-right-radius: 14px;
+}
+
+.ltCorner{
+	-moz-border-radius-topleft: 14px;
+	border-top-left-radius: 14px;
+}
+
+.rtCorner{
+	-moz-border-radius-topright: 14px;
+	border-top-right-radius: 14px;
+}
+
+/*------------------------ uiBtn ------------------------*/
+
+input.uiBtn0{
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	border: 1px solid #999;
+	background: #5b74a8 url(../images/uiBtn.png);
+	background-position: 0 -48px;
+	border-color: #29447E #29447E #1A356E;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 4px 20px 5px;
+}
+
+input.uiBtn0:active{
+	background:#4f6aa3;
+	border-bottom-color:#29447e;
+}
+
+input.uiBtn{
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
+	box-shadow: 0px 0px 1px #888888;	
+	border-width: 0px;
+	background: #8D79F2;
+	padding: 6px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #16153B;
+	text-shadow: #C9C3E6 0px 0px 2px;
+}
+
+input.uiBtn:hover{
+	background: #BFB8E5;
+	cursor: pointer;
+}
+
+input.uiText{
+	font-size: 12px;
+	padding: 7px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #C9C3E6;
+	
+	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
+	box-shadow: 0px 0px 1px #888888;
+	 
+	width: 320px;
+	border-width: 0px;
+
+}
+
+input.uiText:focus{
+	background: #ccffcc;
+}
+
+
+input:focus, textarea:focus{
+	outline-width: 0px;
+}
+
 /*------------------------ FOOTER ------------------------*/
-.footerWrapper {
+
+.footerWrapper{
 	border-top: 6px solid #191919;
 }
 
-.footer {
+.footer{
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;

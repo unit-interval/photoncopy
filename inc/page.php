@@ -87,17 +87,17 @@ function page_index() {
 								<label>邮箱</label>
 								<input type="text" name="email" value="'
 								. $_COOKIE['email'] .
-								'" title="请输入邮箱地址" class="autoHint" />
+								'" title="请输入邮箱地址" class="uiText autoHint" />
 							</div>
 							<div class="field">
 								<label>密码</label>
-								<input type="password" name="passwd" />
+								<input type="password" name="passwd" class="uiText" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">
 							<input class="checkbox" type="checkbox" name="pub" value="yes" />
 							<h3> 正在使用公共电脑登录</h3>
-							<input class="submit" type="submit" value="登录" />
+							<input class="uiBtn submit" type="submit" value="登录" />
 						</fieldset>
 					</form>
 				</div>
@@ -107,11 +107,11 @@ function page_index() {
 						<fieldset>
 							<div class="field">
 								<label>邮箱</label>
-								<input type="text" name="email" title="请输入邮箱地址" class="autoHint" />
+								<input type="text" name="email" title="请输入邮箱地址" class="uiText autoHint" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">
-							<input class="submit" type="submit" value="注册" />
+							<input class="uiBtn submit" type="submit" value="注册" />
 						</fieldset>
 					</form>
 				</div>
@@ -123,11 +123,11 @@ function page_index() {
 								<label>邮箱</label>
 								<input type="text" name="email" value="'
 								. $_COOKIE['email'] .
-								'" title="请输入邮箱地址" class="autoHint" />
+								'" title="请输入邮箱地址" class="uiText autoHint" />
 							</div>
 						</fieldset>
 						<fieldset class="submit">
-							<input class="submit" type="submit" value="取回密码" />
+							<input class="uiBtn submit" type="submit" value="取回密码" />
 						</fieldset>
 					</form>
 				</div>
@@ -252,9 +252,11 @@ function page_store($store) {
 						<div class='file'>
 							选择需要打印的PDF文档，上传文件大小限制20MB<br />
 							<input type='file' name='document' />
+							<input type='button' class='uiBtn0' value='使用信用额度预打印'/>
+							<input type='submit' class='uiBtn0' value='上传文件后到店自助打印'/>
 						</div>
 						<div class='dashedLine'></div>
-						<table>
+						<table class='taskConfig'>
 							<tr>
 								<th>纸张:</th>
 								<td>
@@ -301,13 +303,17 @@ function page_store($store) {
 								<th>留言:</th>
 								<td><textarea name='note' title='请将附加说明写于此处' class='autoHint' rows='3'></textarea></td>
 							</tr>
+							<tr>
+								<th></th>
+								<td>
+									<input type='button' class='uiBtn0' id='pdfCon' value='计算总价' />
+									<input type='button' class='uiBtn0' id='pdfConf' value='修改订单' />
+								</td>
+							</tr>
 						</table>
-						<div class='orderConfirm' id='pdfCon'>
-							计算总价
-						</div>
-						<div class='tableConfirm' id='pdfConfirm'>
-							<div class='dashedLine'></div>
-							<table class='orderSum'>
+						<div class='dashedLine'></div>
+						<div class='taskConfirm' id='pdfConfirm'>
+							<table class='taskConfi'>
 								<tr>
 									<td></td>
 									<td>单价</td>
@@ -327,12 +333,7 @@ function page_store($store) {
 									<td></td><td></td><td>4元</td>
 								</tr>
 							</table>
-							<table>
-								<tr>
-									<td><div class='orderCancel' id='pdfConf'>修改订单</div></td>
-									<td><input class='orderSubmit' id='pdfSubmit' type='submit' value='提交订单'/></td>
-								</tr>
-							</table>
+							<input class='uiBtn0' type='submit' value='提交订单' />
 						</div>
 					</form>
 				</div>
