@@ -63,7 +63,7 @@ function mod_tasks($tasks, $stores) {
 				金額: {$t['cost']}<br />
 			</div></li>
 		";
-	while($i < 2)
+	while($i < 3)
 	$html .= "
 			<li><div class='taskItem' id='task". $i++ ."'>
 				编号: <br />
