@@ -29,7 +29,7 @@ if(!isset($_GET['id']))
 err_redir('404','/home.php');
 
 $id = intval($_GET['id']);
-$query = "select `name`, `region`, `memo` from `partner`
+$query = "select `id`, `name`, `region`, `memo` from `partner`
 	where `id` = $id";
 if($result = $db->query($query)) {
 	$store = $result->fetch_assoc();

@@ -247,10 +247,11 @@ function page_store($store) {
 				</div>
 				<div class='taskDeal'>
 					<form action='/submit.php' method='post' enctype='multipart/form-data'>
+						<input type='hidden' name='store' value='{$store['id']}' />
+						<input type='hidden' name='type' value='0' />
 						<div class='file'>
 							选择需要打印的PDF文档，上传文件大小限制20MB<br />
 							<input type='file' name='document' />
-							<input type='hidden' name='type' value='0' />
 						</div>
 						<div class='dashedLine'></div>
 						<table>
