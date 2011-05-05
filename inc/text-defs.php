@@ -12,3 +12,8 @@ $text_order_status = array(
 1 => '正在打印',
 2 => '完成待取',
 );
+
+$text_store_region = array(
+0 => '北京大學',
+);
+

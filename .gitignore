@@ -4,4 +4,4 @@
 .settings
 inc/config.local.php
 tmp
-uploads
+upload

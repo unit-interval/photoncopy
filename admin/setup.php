@@ -36,14 +36,15 @@ function resetTable($table) {
 		echo '</p>';
 		return;
 	}
-	foreach($tables[$table]['row'] as $v) {
-		$query = "insert into `$table` values ( $v )";
-		echo "query: $query; ... ";
-		if($db->query($query) === TRUE)
-		echo 'done.<br />';
-		else
-		echo "error: $db->error <br />";
-	}
+	$query = "insert into `$table` values ";
+	foreach($tables[$table]['row'] as $v)
+	$query .= "( $v ), ";
+	$query = substr($query, 0, -2);
+	echo "query: $query; ... ";
+	if($db->query($query) === TRUE)
+	echo 'done.<br />';
+	else
+	echo "error: $db->error <br />";
 	echo '</p>';
 }
 
@@ -66,15 +67,22 @@ $tables = array(
 			`pid` MEDIUMINT UNSIGNED NOT NULL ,
 			`status` TINYINT UNSIGNED NOT NULL ,
 			`type` TINYINT UNSIGNED NOT NULL ,
+			`paper` tinyint unsigned not null,
+			`color` tinyint unsigned not null,
+			`double` tinyint unsigned not null,
+			`copy` tinyint unsigned not null,
+			`page` tinyint unsigned not null,
 			`cost` FLOAT( 5, 2 ) UNSIGNED NOT NULL ,
-			INDEX ( `uid` , `pid` , `status` ) ',
+			`fname` varchar(64),
+			`note` varchar(64) not null,
+			INDEX ( `uid` ), index (`pid`), index (`status`) ',
 		'row' => array(
-			"default, 1, 1, 2, 0, 0.3",
-			"default, 1, 1, 1, 2, 1.2",
-			"default, 1, 2, 0, 1, 0.5",
-			"default, 2, 2, 0, 3, 0.6",
-			"default, 2, 3, 2, 0, 2.7",
-			"default, 2, 1, 1, 1, 0.9",
+			"default, 1, 1, 2, 0, 1, 1, 2, 1, 7, 0.3, null, 'test1'",
+			"default, 1, 1, 1, 2, 2, 1, 1, 2, 5, 1.2, null, 'test2'",
+			"default, 1, 2, 0, 1, 1, 2, 1, 3, 3, 0.5, null, 'test3'",
+			"default, 2, 2, 0, 3, 2, 2, 1, 1, 5, 0.6, null, 'test4'",
+			"default, 2, 3, 2, 0, 1, 1, 2, 4, 5, 2.7, null, 'test5'",
+			"default, 3, 1, 1, 1, 1, 2, 2, 1, 3, 0.9, null, 'test6'",
 ),
 ),
 	'partner' => array(
@@ -82,11 +90,13 @@ $tables = array(
 			`email` VARCHAR( 64 ) NOT NULL ,
 			`passwd` CHAR( 32 ) NOT NULL ,
 			`name` VARCHAR( 32 ) NOT NULL ,
+			`region` TINYINT UNSIGNED NOT NULL ,
+			`memo` VARCHAR( 256 ) NOT NULL ,
 			UNIQUE (`email`)',
 		'row' => array(
-			"default, 'p1@abc.com', '".md5('p1')."', '25楼打印店'",
-			"default, 'p2@abc.com', '".md5('p2')."', '博實打印店'",
-			"default, 'p3@abc.com', '".md5('p3')."', '學五打印店'",
+			"default, 'p1@abc.com', '".md5('p1')."', '25楼打印店', 0, '位置: 北京大学36楼北侧'",
+			"default, 'p2@abc.com', '".md5('p2')."', '博實打印店', 0, '营业时间: 8AM-8PM'",
+			"default, 'p3@abc.com', '".md5('p3')."', '學五打印店', 0, '单面打印: 1角/张 | 双面打印: 7分/面'",
 ),
 ),
 	'user' => array(
@@ -99,6 +109,7 @@ $tables = array(
 		'row' => array(
 			"default, 'user1@example.com', '".md5('user1')."', 'User1', default",
 			"default, 'user2@example.com', '".md5('user2')."', 'User2', default",
+			"default, 'user3@example.com', '".md5('user3')."', 'User3', default",
 ),
 ),
 );

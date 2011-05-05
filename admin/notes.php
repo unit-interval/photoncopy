@@ -15,5 +15,8 @@ echo "</pre></p>";
 echo "<p>order status:<br /><pre>";
 var_dump($text_order_status);
 echo "</pre></p>";
+echo "<p>store region:<br /><pre>";
+var_dump($text_store_region);
+echo "</pre></p>";
 
 
