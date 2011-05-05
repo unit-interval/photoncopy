@@ -9,11 +9,11 @@ function page_footer() {
 			<div class="footer">
 				<ul class="fd">
 					<li>
-						d
+						<a href="/static/">static</a>
 					</li>
-
+|
 					<li>
-						f						
+						<a href="/partner.php">partner</a>						
 					</li>
 				</ul>			
 			</div>
