@@ -12,7 +12,6 @@ define('SESSNAME', 'photonsess');
 $link = array(
 	'css' => array(),
 	'js' => array(),
-	'script' => array(),
 );
 
 /** read in local settings */

@@ -157,8 +157,6 @@ function page_meta() {
 	echo "\t<link rel='stylesheet' type='text/css' href='./media/css/$v.css' />\n";
 	foreach($link['js'] as $v)
 	echo "\t<script type='text/javascript' src='./media/js/$v.js'></script>\n";
-	foreach($link['script'] as $v)
-	echo "\t<script type='text/javascript'>{$v}\t</script>\n";
 	echo <<<EOT
 </head>
 <body>
