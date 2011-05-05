@@ -1,11 +1,11 @@
 <?php
 
-require './config.php';
-require './inc/function.php';
+include './config.php';
+include './inc/function.php';
 
 session_name(SESSNAME);
 session_start();
 
-print_rh($_SESSION);
+print_re($_SESSION);
 
 ?>

@@ -3,16 +3,16 @@
 /** predefined error messages might be needed */
 function err_redir($err = '', $tar = '/') {
 	if($tar == '/error.php')
-		$_SESSION['err'] = $err;
+	$_SESSION['err'] = $err;
 	else
-		$_SESSION['msg'] = $err;
+	$_SESSION['msg'] = $err;
 	header("Location: $tar");
 	die;
 }
 
-function print_rh($v) {
+function print_re($v) {
 	echo "<pre>\n";
-	print_r($v);
+	var_dump($v);
 	echo "</pre>";
 	die;
 }

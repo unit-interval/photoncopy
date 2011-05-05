@@ -1,4 +1,5 @@
 *.swp
+.buildpath
 .project
 .settings
 inc/config.local.php

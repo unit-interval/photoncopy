@@ -1,72 +1,71 @@
-.nav-button a:link, a#sitename:link, .nav-button a:visited, a#sitename:visited
-{
-	text-decoration:none; 
+.nav-button a:link,a#sitename:link,.nav-button a:visited,a#sitename:visited
+	{
+	text-decoration: none;
 	color: white;
 }
-.nav-button
-{
+
+.nav-button {
 	padding: 0.5em 1em;
 }
-.nav-button:hover
-{
+
+.nav-button:hover {
 	background-color: #939393;
 	cursor: pointer;
 }
-body
-{
+
+body {
 	margin: 0;
 	background: #e5e5e5
 }
-.navigation
-{
+
+.navigation {
 	background-color: #333333;
-	padding: 0.5em 10%; 
-	position: fixed; 
-	color: white; 
+	padding: 0.5em 10%;
+	position: fixed;
+	color: white;
 	width: 80%;
 	-moz-box-shadow: 0px 0px 20px black; /* Firefox 3.6 and earlier*/
 	-webkit-box-shadow: 0px 0px 20px black; /* Safari */
 	box-shadow: 0px 0px 20px black;
 }
-ul.nav-right, ul.ft-right
-{
-	float: right; 
-	list-style: none; 
+
+ul.nav-right,ul.ft-right {
+	float: right;
+	list-style: none;
 	margin: 0;
 }
-li.nav-button, ul.ft-right li
-{
+
+li.nav-button,ul.ft-right li {
 	display: inline;
-	font-size:small;
+	font-size: small;
 }
-#dummy-head 
-{
+
+#dummy-head {
 	height: 2.5em;
 }
-.content-wrapper, .footer-wrapper
-{
+
+.content-wrapper,.footer-wrapper {
 	width: 80%;
 	padding: 0 10%;
 	display: block;
 	clear: left;
 	padding-top: 1em;
 }
-#login-wrapper
-{
-/*	visibility: hidden;*/
+
+#login-wrapper { /*	visibility: hidden;*/
 	display: none;
 }
-.login-background
-{
+
+.login-background {
 	background-color: black;
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	filter: alpha(opacity=40); /* for IE */
+	filter: alpha(opacity = 40); /* for IE */
 	opacity: 0.4; /* CSS3 standard */
 }
-.login
-{
+
+.login {
 	background: white;
 	margin: 30%;
 	position: fixed;
@@ -79,12 +78,12 @@ li.nav-button, ul.ft-right li
 	box-shadow: 0px 0px 50px black;
 	font-size: small;
 }
-span
-{
+
+span {
 	color: #bbbbbb
 }
-.foot-wrapper
-{
+
+.foot-wrapper {
 	display: block;
 	width: 100%;
 	float: right;
