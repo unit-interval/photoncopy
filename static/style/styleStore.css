@@ -120,27 +120,34 @@
 	padding-top: 30px;
 }
 
+input[type='file']{
+	color: #333;
+	padding: 10px;
+}
+
+/*------------------------ DEAL ------------------------*/
+
 .taskDeal{
 	float: right;
 	width: 680px;
 	border: 1px solid #B3B3B3;
 	padding: 20px;
-	background: #F2F2F2; 
+	background: #F2F2F2;
 }
+
+.dashedLine{
+	width: 100%;
+	border-top: 1px solid #999;
+	margin: 20px 0px;
+}
+
+/*------------------------ FILE ------------------------*/
 
 .file{
 	text-align: center;
 }
 
-.dashedLine{
-	width: 100%;
-	border-top: 1px dashed #666;
-	margin: 10px 0px;
-}
-
-table{
-	padding-bottom: 8px;
-}
+/*------------------------ Config ------------------------*/
 
 th{
 	text-align: right;
@@ -160,8 +167,10 @@ label{
 	padding-left: 4px;
 }
 
-input:focus, textarea:focus{
-	outline-width: 0px;
+/*------------------------ Confirm ------------------------*/
+
+.taskConfirm{
+	text-align: center;
 }
 
 select{
@@ -182,75 +191,11 @@ input[type='text']{
 	display: block;
 }
 
-.orderConfirm, .orderCancel, .orderSubmit{
-	cursor: pointer;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-	border: 1px solid #999;
-	background: #5b74a8 url(../images/uiBtn.png);
-	background-position: 0 -48px;
-	border-color: #29447E #29447E #1A356E;
-	color: white;
-	font-weight: bold;
-	text-align: center;
-	margin: 10px auto;
-	width: 400px;
-}
-
-.orderCancel{
-	width: 200px;
-}
-
-/*------------------------ SUMMARY ------------------------*/
-
-table.orderSum{
-	border-collapse:collapse;
-	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-table.orderSum th{
-	padding: 0px;
-}
-
-table.orderSum td{
-	padding: 0px;
-	text-align: center;
-	width: 130px;
-}
-
-table.orderSum tr{
-	border-bottom: 1px dashed #666;
-}
-
-table.orderSum tr:first-child{
-	border-top: 1px dashed #666;
-}
-
 /*------------------------ SUBMIT BUTTON ------------------------*/
-
-input.orderSubmit{
-	display: block;
-	font-size: 12px;
-	padding: 0px;
-	line-height: 200%;
-	width: 202px;
-}
-
-.orderConfirm:active{
-	background:#4f6aa3;
-	border-bottom-color:#29447e;
-}
 
 textarea{
 	border: 1px solid #BDC7D8;
 	padding-top: 4px;
 	padding-left: 4px;
 	width: 100%;
-}
-
-input[type='file']{
-	color: #333;
-	padding: 10px;
 }

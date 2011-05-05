@@ -9,15 +9,12 @@
 #login, #signup, #forget{
 	color: #8D79F2;
 	background: #272727;
+	display: none;
 }
 
 .panel h2
 {
 	background: #232323;
-}
-
-#signup, #forget{
-	display: none;
 }
 
 .field{
@@ -39,44 +36,11 @@ label{
 	font-size: 14px;
 }
 
-input{
-	font-size: 12px;
-	padding: 7px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background-color: #C9C3E6;
-	
-	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
-	box-shadow: 0px 0px 1px #888888;
-	 
-	width: 320px;
-	border-width: 0px;
-}
-
 input.checkbox{
 	width: auto;
 	margin: 11px;
 }
 
 input.submit{
-	background: #8D79F2;
-	width: auto;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	padding: 6px 20px;
-	font-size: 16px;
-	font-weight: bold;
-	color: #16153B;
-	text-shadow: #C9C3E6 0px 0px 2px;
 	float: right;
-}
-
-input.submit:hover{
-	background: #BFB8E5;
-	cursor: pointer;
-}
-
-input:focus{
-	background: #ccffcc;
-	outline-width: 0px;
 }
