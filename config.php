@@ -15,6 +15,6 @@ $link = array(
 );
 
 /** read in local settings */
-include './inc/config.local.php';
+include dirname(__FILE__).'/inc/config.local.php';
 
 ?>

@@ -9,6 +9,10 @@ function page_footer() {
 			<div class="footer">
 				<ul class="fd">
 					<li>
+						<a href="/admin/">admin</a>
+					</li>
+|
+					<li>
 						<a href="/static/">static</a>
 					</li>
 |
@@ -212,5 +216,157 @@ function page_reg($m) {
 				<input class='submit' type='submit' value='提交' />
 			</fieldset></form>
 		</div></div>";
+}
+function page_store($store) {
+	echo "
+		<div class='contentWrapper'><div class='panel board'>
+			<h2>{$text_store_region[$store['region']]}{$store['name']}</h2>
+			<div id='storeStatus'>
+				<div id='storeAvatar'><img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar' /></div>
+				<div id='storeMsg'>
+					<div id='msgQuote'></div>
+					<div id='msgContent'>{$store['memo']}</div>
+				</div>
+				<div class='clear'></div>
+			</div>
+			<div id='storeView'>
+				<img width='100%' src='/media/images/store/storeView1.jpg' alt='Store View'/>
+			</div>
+			<div id='storeMap'>" .
+//				<iframe width='100%' height='350' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>
+				"<iframe></iframe>
+			</div>
+			<p id='toggleMap'>显示地图</p>
+		</div>
+		<div class='panel order'>
+			<h2>添加打印任务</h2>
+			<div class='taskType' id='pdf'>PDF文档</div>
+			<div class='taskDetail' id='pdfDetail'>
+				<div class='taskIcon'>
+					<img width='100%' src='/media/images/pdf.png' alt='pdf' />
+				</div>
+				<div class='taskDeal'>
+					<form action='/submit.php' method='post' enctype='multipart/form-data'>
+						<div class='file'>
+							选择需要打印的PDF文档，上传文件大小限制20MB<br />
+							<input type='file' name='document' />
+							<input type='hidden' name='type' value='0' />
+						</div>
+						<div class='dashedLine'></div>
+						<table>
+							<tr>
+								<th>纸张:</th>
+								<td>
+									<select name='paper'>
+										<option value='1' title='0.06'>A4 (210mm*297mm) 0.06元/张</option>
+										<option value='2' title='0.1'>B5 (182mm*257mm) 0.06元/张</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>油墨:</th>
+								<td>
+									<select name='color'>
+										<option value='1' title='0.04'>黑白打印 0.04元/面</option>
+										<option value='2' title='0.94'>彩色打印 0.94元/面</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>环保:</th>
+								<td>
+									<select name='double'>
+										<option value='1'>单面打印</option>
+										<option value='2'>双面打印</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>份数:</th>
+								<td><input type='text' name='copy' title='请输入需要打印的份数' class='autoHint' /></td>
+							</tr>
+							<tr>
+								<th>页数:</th>
+								<td><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /></td>
+							</tr>
+							<tr>
+								<th>服务:</th>
+								<td>
+									<input type='checkbox' name='' value='1' title='0'/><label>装订 0.00元</label>
+									<input type='checkbox' name='' value='1' title='1.5'/><label>添加封面 1.50元</label>
+								</td>
+							</tr>
+							<tr>
+								<th>留言:</th>
+								<td><textarea name='note' title='请将附加说明写于此处' class='autoHint' rows='3'></textarea></td>
+							</tr>
+						</table>
+						<div class='orderConfirm' id='pdfCon'>
+							计算总价
+						</div>
+						<div class='tableConfirm' id='pdfConfirm'>
+							<div class='dashedLine'></div>
+							<table class='orderSum'>
+								<tr>
+									<td></td>
+									<td>单价</td>
+									<td>数量</td>
+									<td>合计</td>
+								</tr>
+								<tr>
+									<td>纸张费用</td>
+									<td>0.06元</td><td>50张</td><td>3元</td>
+								</tr>
+								<tr>
+									<td>墨水费用</td>
+									<td>0.04元</td><td>100面</td><td>4元</td>
+								</tr>
+								<tr>
+									<td>总费用</td>
+									<td></td><td></td><td>4元</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td><div class='orderCancel' id='pdfConf'>修改订单</div></td>
+									<td><input class='orderSubmit' id='pdfSubmit' type='submit' value='提交订单'/></td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+				<div class='clear'></div>
+			</div>
+			<div class='taskType' id='word'>WORD文档</div>
+			<div class='taskDetail' id='wordDetail'>
+				<div class='taskIcon'>
+					<img width='100%' src='/media/images/docx.png' alt='pdf' />
+				</div>
+				<form action='/submit.php' method='post' enctype='multipart/form-data'>
+					<label>提交PDF文档 </label><input type='file' name='document' /><br>
+					<input type='hidden' name='type' value='1' />
+					<label>颜色 </label><input type='radio' checked='yes' name='color' value='黑白' />黑白<input type='radio' name='color' value='彩色' />彩色<br>
+					<label>环保 </label><input type='radio' checked='yes' name='double' value='双面' />双面<input type='radio' name='double' value='单面'/>单面<br>
+					<label>页数 </label><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /><br>
+					<input type='submit' value='提交'/>
+				</form>
+			</div>
+			<div class='taskType lbCorner rbCorner' id='ppt'>PPT幻灯片</div>
+			<div class='taskDetail' id='pptDetail'>
+				<div class='taskIcon'>
+					<img width='100%' src='/media/images/pptx.png' alt='pdf' />
+				</div>
+				<form action='/submit.php' method='post' enctype='multipart/form-data'>
+					<label>提交PDF文档 </label><input type='file' name='document' /><br>
+					<input type='hidden' name='type' value='2' />
+					<label>颜色 </label><input type='radio' checked='yes' name='color' value='黑白' />黑白<input type='radio' name='color' value='彩色' />彩色<br>
+					<label>环保 </label><input type='radio' checked='yes' name='double' value='双面' />双面<input type='radio' name='double' value='单面'/>单面<br>
+					<label>页数 </label><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /><br>
+					<input type='submit' value='提交'/>
+				</form>
+			</div>
+		</div>
+	</div>
+	";
 }
 ?>
