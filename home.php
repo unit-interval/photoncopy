@@ -3,16 +3,16 @@
 /** turn on output buffering */
 ob_start();
 
-require './config.php';
-require './inc/function.php';
-require './inc/page.php';
-require './inc/module.php';
+include './config.php';
+include './inc/function.php';
+include './inc/page.php';
+include './inc/module.php';
 
 session_name(SESSNAME);
 session_start();
 
 if($_SESSION['logged_in'] != true) {
-	require 'inc/auth.php';
+	include 'inc/auth.php';
 	cookie_auth();
 	if($_SESSION['logged_in'] != true)
 	err_redir('Please Login.');

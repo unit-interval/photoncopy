@@ -1,7 +1,7 @@
 <?php
 
-require './config.php';
-require './inc/function.php';
+include './config.php';
+include './inc/function.php';
 
 // array to hold submitted form data.
 $input = array();

@@ -3,16 +3,16 @@
 /** turn on output buffering */
 ob_start();
 
-require './config.php';
-require './inc/function.php';
-require './inc/module.php';
-require './inc/page.php';
+include './config.php';
+include './inc/function.php';
+include './inc/module.php';
+include './inc/page.php';
 
 session_name(SESSNAME);
 session_start();
 
 if($_SESSION['partner'] != true) {
-	require 'inc/auth.php';
+	include 'inc/auth.php';
 	partner_cookie_auth();
 	if($_SESSION['partner'] !== true)
 	err_redir('', '/partner.php?c=login');
