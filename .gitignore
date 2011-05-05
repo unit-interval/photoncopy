@@ -1,7 +1,6 @@
 *.swp
 .project
 .settings
-config.php
-static
+inc/config.local.php
 tmp
 uploads

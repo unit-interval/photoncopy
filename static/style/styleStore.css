@@ -1,0 +1,256 @@
+/*------------------------ BOARD ------------------------*/
+
+.board{
+	width: 960px;
+	margin: 30px auto;
+	background: #1A2F36;
+}
+
+.board h2{
+	background: #1B2429;
+	color: #CFF0FF;
+}
+
+.board p{
+	margin: 0px;
+	padding: 10px 20px;
+	color: #4E6178;
+}
+
+/*------------------------ Status ------------------------*/
+
+#storeStatus{
+	padding: 20px 40px;
+}
+
+#storeAvatar{
+	float: left;
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+	background: #ccc;
+	border-radius: 5px;
+}
+
+#storeMsg{
+	float: right;
+	padding: 20px;
+	width: 688px;
+	min-height: 68px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #243F47;
+	background: #1B2429;
+	color: #CFF0FF;
+}
+
+#msgQuote{
+	float: left;
+	background: url(../images/quotationMark.png) no-repeat;
+	width: 60px;
+	height: 60px;
+}
+
+#msgContent{
+	float: right;
+	width: 628px;
+	line-height: 150%;
+}
+
+/*------------------------ View ------------------------*/
+
+#storeView{
+	padding: 1px;
+}
+
+/*------------------------ MAP ------------------------*/
+
+#toggleMap{
+	text-align: center;
+}
+
+#toggleMap:hover{
+	color: white;
+	cursor: pointer;
+}
+
+#storeMap{
+	padding: 1px;
+	display: none;
+}
+
+/*------------------------ ORDER ------------------------*/
+
+.order{
+	width: 960px;
+	margin: 30px auto;
+	background: #1B1F2A;
+}
+
+.order h2{
+	color: #6CAEFF;
+}
+
+.taskType{
+	padding: 10px 20px;
+	color: #6CAEFF;
+	background: #212634;
+}
+
+.taskType:hover{
+	background: #1B1F2A;
+	cursor: pointer;
+}
+
+.taskDetail{
+	padding: 20px 40px;
+	display: block;
+	color: #333;
+	line-height: 200%;
+	font-size: 12px;
+}
+
+.taskSelected{
+	background: transparent;
+}
+
+.taskIcon{
+	float: left;
+	width: 128px;
+	padding-top: 30px;
+}
+
+.taskDeal{
+	float: right;
+	width: 680px;
+	border: 1px solid #B3B3B3;
+	padding: 20px;
+	background: #F2F2F2; 
+}
+
+.file{
+	text-align: center;
+}
+
+.dashedLine{
+	width: 100%;
+	border-top: 1px dashed #666;
+	margin: 10px 0px;
+}
+
+table{
+	padding-bottom: 8px;
+}
+
+th{
+	text-align: right;
+	padding-top: 8px;
+	padding-right: 10px;
+	width: 120px;
+	color: #666;
+	vertical-align: top;
+}
+
+td{
+	padding-top: 8px;
+	width: 400px;
+}
+
+label{
+	padding-left: 4px;
+}
+
+input:focus, textarea:focus{
+	outline-width: 0px;
+}
+
+select{
+	border: 1px solid #BDC7D8;
+	padding: 2px;
+}
+
+input[type='text']{
+	border: 1px solid #BDC7D8;
+	padding-top: 2px;
+	padding-left: 4px;
+	height: 20px;
+	width: 100%;
+}
+
+.tableConfirm{
+	padding: 10px;
+	display: block;
+}
+
+.orderConfirm, .orderCancel, .orderSubmit{
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	border: 1px solid #999;
+	background: #5b74a8 url(../images/uiBtn.png);
+	background-position: 0 -48px;
+	border-color: #29447E #29447E #1A356E;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin: 10px auto;
+	width: 400px;
+}
+
+.orderCancel{
+	width: 200px;
+}
+
+/*------------------------ SUMMARY ------------------------*/
+
+table.orderSum{
+	border-collapse:collapse;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.orderSum th{
+	padding: 0px;
+}
+
+table.orderSum td{
+	padding: 0px;
+	text-align: center;
+	width: 130px;
+}
+
+table.orderSum tr{
+	border-bottom: 1px dashed #666;
+}
+
+table.orderSum tr:first-child{
+	border-top: 1px dashed #666;
+}
+
+/*------------------------ SUBMIT BUTTON ------------------------*/
+
+input.orderSubmit{
+	display: block;
+	font-size: 12px;
+	padding: 0px;
+	line-height: 200%;
+	width: 202px;
+}
+
+.orderConfirm:active{
+	background:#4f6aa3;
+	border-bottom-color:#29447e;
+}
+
+textarea{
+	border: 1px solid #BDC7D8;
+	padding-top: 4px;
+	padding-left: 4px;
+	width: 100%;
+}
+
+input[type='file']{
+	color: #333;
+	padding: 10px;
+}
