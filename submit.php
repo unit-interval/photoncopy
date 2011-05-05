@@ -49,7 +49,7 @@ function verify_order_form() {
 		'cost' => intval($_POST['cost']),
 		'_note' => $_POST['note'],
 	);
-//	TODO may need further check
+//	REQ may need further check
 	return $o;
 }
 function save_upload_file() {

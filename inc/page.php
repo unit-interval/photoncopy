@@ -179,6 +179,24 @@ function page_nav() {
 		</div>
 	' . mod_msg();
 }
+function page_par_act() {
+	
+}
+function page_par_home() {
+	
+}
+function page_par_login() {
+	
+}
+function page_par_logout() {
+	
+}
+function page_par_profile() {
+	
+}
+function page_par_reg() {
+	
+}
 function page_profile() {
 	echo "<div class='contentWrapper'><div class='content'>
 		<p>displays user profile.</p>

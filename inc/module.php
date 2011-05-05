@@ -3,15 +3,24 @@
 function mod_login() {
 	if($_SESSION['logged_in'])
 	return '
-				<li><a href="home.php">首页</a></li>
+				<li><a href="/home.php">首页</a></li>
 				<li class="sep">
-					<a href="profile.php">' . $_SESSION['name'] . '</a>
-
+					<a href="/profile.php">' . $_SESSION['name'] . '</a>
 				</li>
 				<li class="sep">
-					<a href="authorize.php?c=logout">退出</a>
+					<a href="/authorize.php?c=logout">退出</a>
 				</li>
 		';
+	elseif ($_SESSION['partner'])
+	return '
+				<li><a href="/partner.php">首页</a></li>
+				<li class="sep">
+					<a href="/partner.php?c=profile">賬戶信息</a>
+				</li>
+				<li class="sep">
+					<a href="/partner.php?c=logout">退出</a>
+				</li>
+	';
 	else
 	return '
 				<li id="loginBtn">

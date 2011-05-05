@@ -12,6 +12,7 @@ define('DIR_UPLD', DIR_ROOT . '/upload/');
 
 /** session name */
 define('SESSNAME', 'photonsess');
+define('SESSNAME_P', 'photonpartsess');
 
 /** array that contains page meta info */
 $link = array(
