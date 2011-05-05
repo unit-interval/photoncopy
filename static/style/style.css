@@ -124,6 +124,70 @@ a{
 	border-top-right-radius: 14px;
 }
 
+/*------------------------ uiBtn ------------------------*/
+
+input.uiBtn0{
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	border: 1px solid #999;
+	background: #5b74a8 url(../images/uiBtn.png);
+	background-position: 0 -48px;
+	border-color: #29447E #29447E #1A356E;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 4px 20px 5px;
+}
+
+input.uiBtn0:active{
+	background:#4f6aa3;
+	border-bottom-color:#29447e;
+}
+
+input.uiBtn{
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
+	box-shadow: 0px 0px 1px #888888;	
+	border-width: 0px;
+	background: #8D79F2;
+	padding: 6px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #16153B;
+	text-shadow: #C9C3E6 0px 0px 2px;
+}
+
+input.uiBtn:hover{
+	background: #BFB8E5;
+	cursor: pointer;
+}
+
+input.uiText{
+	font-size: 12px;
+	padding: 7px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #C9C3E6;
+	
+	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
+	box-shadow: 0px 0px 1px #888888;
+	 
+	width: 320px;
+	border-width: 0px;
+
+}
+
+input.uiText:focus{
+	background: #ccffcc;
+}
+
+
+input:focus, textarea:focus{
+	outline-width: 0px;
+}
+
 /*------------------------ FOOTER ------------------------*/
 
 .footerWrapper{

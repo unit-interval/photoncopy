@@ -1,0 +1,106 @@
+/*------------------------ BOARD ------------------------*/
+
+.board{
+	width: 960px;
+	margin: 30px auto;
+	background: #1A2F36;
+}
+
+.board h2{
+	background: #1B2429;
+	color: #CFF0FF;
+}
+
+.board p{
+	margin: 0px;
+	padding: 10px 20px;
+	color: #4E6178;
+}
+
+/*------------------------ Status ------------------------*/
+
+#storeStatus{
+	padding: 20px 40px;
+}
+
+#storeAvatar{
+	float: left;
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+	background: #ccc;
+	border-radius: 5px;
+}
+
+#storeLock{
+	float: left;
+}
+
+#storeMsg{
+	float: right;
+	padding: 20px;
+	width: 688px;
+	min-height: 68px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #243F47;
+	background: #1B2429;
+	color: #CFF0FF;
+}
+
+#msgQuote{
+	float: left;
+	background: url(../images/quotationMark.png) no-repeat;
+	width: 60px;
+	height: 60px;
+}
+
+#msgContent{
+	float: right;
+	width: 628px;
+	line-height: 150%;
+}
+
+/*------------------------ Change Status ------------------------*/
+
+/*------------------------ ORDER ------------------------*/
+
+.order{
+	width: 960px;
+	margin: 30px auto;
+	background: #1B1F2A;
+}
+
+.order h2{
+	color: #6CAEFF;
+}
+
+.order p{
+	color: #6CAEFF;
+	text-align: center;
+	padding: 10px;
+	margin: 0px;
+}
+
+/*------------------------ TABLE ------------------------*/
+
+table{
+	border-collapse: collapse;
+	color: #666;
+	background: #212634;
+	width: 100%;
+	font-size: 14px;
+}
+
+th, td{
+	padding: 10px;
+	text-align: center;
+}
+
+tr:hover{
+	background: #1B1F2A;
+}
+
+tr:first-child{
+	background: #1B1F2A;
+}
