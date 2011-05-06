@@ -40,9 +40,19 @@ function cookie_auth() {
 }
 function cookie_auth_par() {
 	if(!cookie_verify_hash_par())
-	return;
+		return;
+	$pid = $_COOKIE['pid'];
+	$query = "select * from `partner` where `id` = $pid";
+	$result = $db->query($query);
+	$row = $result->fetch_assoc();
+	$result->free();
 	$_SESSION['partner'] = true;
-	$_SESSION['pid'] = $_COOKIE['pid'];
+	$_SESSION['pid'] = $pid;
+	$_SESSION['passphrase'] = $row['passphrase'];
+	$_SESSION['name'] = $row['name'];
+	$_SESSION['region'] = $row['region'];
+	$_SESSION['memo'] = $row['memo'];
+	$_SESSION['email'] = $row['email'];
 	cookie_refresh();
 }
 function cookie_refresh() {
