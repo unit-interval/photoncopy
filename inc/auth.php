@@ -55,7 +55,8 @@ function cookie_verify_hash() {
 	return false;
 	$date = date_create();
 	$salt1 = $date->format('Y-M-');
-//	$salt2 = $date->modify('-1 month')->format('Y-M-');
+	$date->modify('-1 month');
+	$salt2 = $date->format('Y-M-');
 	if (($_COOKIE['hash'] == md5($salt1 . $_COOKIE['uid'] . $_COOKIE['stamp'])) ||
 	($_COOKIE['hash'] == md5($salt2 . $_COOKIE['uid'] . $_COOKIE['stamp'])))
 	return true;
