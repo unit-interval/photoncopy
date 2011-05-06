@@ -93,24 +93,22 @@ function page_home($tasks, $stores) {
 				<h2>任务</h2>
 				<div class='lbCorner' id='leftBtn'></div>
 				<div class='itemWrapper'>"
-	. mod_tasks($tasks, $stores) .
-				"
-				</div>
+				. mod_tasks($tasks, $stores) .
+				"</div>
 				<div class='clear'></div>
 			</div>
 			<div class='panel store'>
 				<h2>请选择打印店</h2>
 				<p>网络: 北京大学 <a>切换网络</a></p>
-				<div id='storeMap'>
-					<iframe width='100%' height='480' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Beijing+South+Railway+Station,+Fengtai,+Beijing,+China&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>
-				</div>
+				<div id='storeMap'>"
+				. mod_map() .
+				"</div>
 				<p id='toggleMap'>显示地图</p>
 			</div>
 			<div class='storeListWrapper'>
 				<div id='storeList'>"
 				. mod_stores($stores) .
-				"
-				</div>
+				"</div>
 			</div>
 		</div>		
 		";
@@ -317,10 +315,9 @@ function page_store($store) {
 			<div id='storeView'>
 				<img width='100%' src='/media/images/store/storeView1.jpg' alt='Store View'/>
 			</div>
-			<div id='storeMap'>" .
-//				<iframe width='100%' height='350' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>
-				"<iframe></iframe>
-			</div>
+			<div id='storeMap'>"
+			. mod_map() .
+			"</div>
 			<p id='toggleMap'>显示地图</p>
 		</div>
 		<div class='panel order'>

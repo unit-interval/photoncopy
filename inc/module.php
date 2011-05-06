@@ -66,6 +66,9 @@ function mod_login_signup ($a = '/authorize') {
 				</div>
 	";
 }
+function mod_map() {
+	return "<iframe width='100%' height='480' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>";
+}
 function mod_msg() {
 	if($_SESSION['msg'] . 'x' != 'x') {
 		$msg = "
