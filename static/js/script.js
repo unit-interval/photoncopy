@@ -5,6 +5,12 @@ $(document).ready(function(){
 	       $(this).addClass('autoHint');
 	    }
 	});
+	$('INPUT.autoHint, TEXTAREA.autoHint').focus(function(){
+	    if($(this).val() == $(this).attr('title')){
+	        $(this).val('');
+	        $(this).removeClass('autoHint');
+	    }
+	});
 	$('INPUT.autoHint, TEXTAREA.autoHint').each(function(){
 	    if($(this).attr('title') == ''){ return; }
 	    if($(this).val() == ''){ 
@@ -12,12 +18,6 @@ $(document).ready(function(){
 	    }
 	    else { 
 	    	$(this).removeClass('autoHint');
-	    }
-	});
-	$('INPUT.autoHint, TEXTAREA.autoHint').focus(function(){
-	    if($(this).val() == $(this).attr('title')){
-	        $(this).val('');
-	        $(this).removeClass('autoHint');
 	    }
 	});
 })
