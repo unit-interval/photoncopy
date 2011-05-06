@@ -209,11 +209,6 @@ function page_par_home($orders) {
 								</div>
 							</form>
 						</div>
-						<form>
-							<textarea id='msgNew'></textarea>
-							<input type='submit' value='确认'/>
-							<input type='button' value='取消'/>
-						</form>
 					</div>
 					<div class='clear'></div>
 				</div>
@@ -231,15 +226,14 @@ function page_par_home($orders) {
 							<th width='50px'>状态</th>
 							<th width='50px'>操作</th>
 						</tr>
-						<tr></tr>";
-		echo mod_order_queue($orders) .
+						<tr></tr>"
+						. mod_order_queue($orders) .
 					"</tbody>
 				</table>
 				<p class='lbCorner rbCorner'>30秒后刷新</p>
 			</div>
 		</div>
 	";
-	echo '456';
 }
 function page_par_logout() {
 	

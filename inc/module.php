@@ -126,7 +126,6 @@ function mod_order_queue($orders) {
 		$link = '過期';
 		else
 		$link = "<a target='_blank' href='/upload/" . rawurlencode($o['fname']) . "'>{$o['copy']}份</a>";
-		echo $link;
 		$html .= "
 						<tr><td>{$o['id']}</td>
 							<td>{$t1[$o['type']]}</td>

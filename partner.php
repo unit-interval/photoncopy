@@ -27,6 +27,7 @@ $link['css'][] = 'stylePartner';
 $link['js'][] = 'jquery';
 $link['js'][] = 'script';
 $link['js'][] = 'scriptIndex';
+$link['js'][] = 'scriptPartner';
 
 
 page_meta();
