@@ -59,88 +59,110 @@
 						<form>
 							<div class='file'>
 								选择需要打印的PDF文档，上传文件大小限制20MB<br><input type='file' name='document' /><br/>
-								<input type='button' class='uiBtn0' value='使用信用额度预打印'/>
-								<input type='submit' class='uiBtn0' value='上传文件后到店自助打印'/>
+								<input type='radio' name='serviceType' id='pdfServiceRadio1' value='1' />
+								<input type='radio' name='serviceType' id='pdfServiceRadio0' value='0' />
+								<input type='button' class='uiBtn0 serviceType' id='pdfonline' value='使用信用额度进行预打印'/>
+								<input type='button' class='uiBtn0 serviceType' id='pdfoffline' value='上传文件后到店自助打印'/>
 							</div>
-							<div class='dashedLine'></div>
-							<table class='taskConfig'>
-								<tr>
-									<th>纸张:</th>
-									<td>
-										<select name='paper'>
-											<option value='1' title='0.06'>A4 (210mm*297mm) 0.06元/张</option>
-											<option value='2' title='0.1'>B5 (182mm*257mm) 0.06元/张</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<th>墨水:</th>
-									<td>
-										<select name='color'>
-											<option value='1' title='0.04'>黑白打印 0.04元/面</option>
-											<option value='2' title='0.94'>彩色打印 0.94元/面</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<th>环保:</th>
-									<td>
-										<select name='double'>
-											<option value='1'>单面打印</option>
-											<option value='2'>双面打印</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<th>份数:</th>
-									<td><input type='text' name='copy' title='请输入需要打印的份数' class='autoHint' /></td>
-								</tr>
-								<tr>
-									<th>页数:</th>
-									<td><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /></td>
-								</tr>
-								<tr>
-									<th>服务:</th>
-									<td>
-										<input type='checkbox' name='add1' value='yes' title='0'/><label>装订 0.00元</label>
-										<input type='checkbox' name='add2' value='yes' title='1.5'/><label>添加封面 1.50元</label>
-									</td>
-								</tr>
-								<tr>
-									<th>留言:</th>
-									<td><textarea name='note' title='请将附加说明写于此处' class='autoHint' rows='3'></textarea></td>
-								</tr>
-								<tr>
-									<th></th>
-									<td>
-										<input type='button' class='uiBtn0' id='pdfCon' value='计算总价' />
-										<input type='button' class='uiBtn0' id='pdfConf' value='修改订单' />
-									</td>
-								</tr>
-							</table>
-							<div class='dashedLine'></div>
-							<div class='taskConfirm' id='pdfConfirm'>
+							<div style='display: none' id='pdfPage1'>
+								<div id='pdfConfigPage'>
+									<div class='dashedLine'></div>
+									<table class='taskConfig'>
+										<tr>
+											<th>纸张:</th>
+											<td>
+												<select name='paper' class='pdfOb'>
+													<option value='1' title='0.06'>A4 (210mm*297mm) 0.06元/张</option>
+													<option value='2' title='0.1'>B5 (182mm*257mm) 0.06元/张</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>油墨:</th>
+											<td>
+												<select name='color' class='pdfOb'>
+													<option value='1' title='0.04'>黑白打印 0.04元/面</option>
+													<option value='2' title='0.94'>彩色打印 0.94元/面</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>环保:</th>
+											<td>
+												<select name='double' class='pdfOb'>
+													<option value='1'>单面打印</option>
+													<option value='2'>双面打印</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>份数:</th>
+											<td><input type='text' class='pdfOb autoHint' name='copy' title='请输入需要打印的份数' /></td>
+										</tr>
+										<tr>
+											<th>页数:</th>
+											<td><input type='text' class='pdfOb autoHint' name='page' title='请准确输入上传文件的页数' /></td>
+										</tr>
+										<tr>
+											<th>服务:</th>
+											<td>
+												<input type='checkbox' class='pdfOb' name='add1' value='yes' title='0'/><label>装订 0.00元</label>
+												<input type='checkbox' class='pdfOb' name='add2' value='yes' title='1.5'/><label>添加封面 1.50元</label>
+											</td>
+										</tr>
+										<tr>
+											<th>留言:</th>
+											<td><textarea name='note' class='pdfOb autoHint' title='请将附加说明写于此处' rows='3'></textarea></td>
+										</tr>
+										<tr>
+											<th></th>
+											<td>
+												<input type='button' class='uiBtn0' id='pdfCal' value='计算总价' />
+												<input style='display: none' type='button' class='uiBtn0' id='pdfCorrect' value='修改订单' />
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div style='display: none' id='pdfConfirmPage'>
+									<div class='dashedLine'></div>
+									<table class='taskConfig'>
+										<tr>
+											<th>纸张费用:</th>
+											<td>0.06元 * 50张 = 3元
+										</tr>
+										<tr>
+											<th>油墨费用:</th>
+											<td>0.04元 * 100面 = 4元</td>
+										</tr>
+										<tr>
+											<th>总费用:</th>
+											<td>3元 + 4元 = 7元</td>
+										</tr>
+										<tr>
+											<th>提示:</th>
+											<td>这里写一些蛋疼的话。。。</td>
+										</tr>
+										<tr>
+											<th></th>
+											<td><input class='uiBtn0' type='submit' value='提交订单' /></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div style='display: none' id='pdfPage0'>
+								<div class='dashedLine'></div>
 								<table class='taskConfig'>
-									<tr>
-										<td></td>
-										<td>单价</td>
-										<td>数量</td>
-										<td>合计</td>
-									</tr>
-									<tr>
-										<td>纸张费用</td>
-										<td>0.06元</td><td>50张</td><td>3元</td>
-									</tr>
-									<tr>
-										<td>墨水费用</td>
-										<td>0.04元</td><td>100面</td><td>4元</td>
-									</tr>
-									<tr>
-										<td>总费用</td>
-										<td></td><td></td><td>4元</td>
-									</tr>
+									<tbody>
+										<tr>
+											<th>提示:</th>
+											<td>写一些话啦啦啦啦啦～</td>
+										</tr>
+										<tr>
+											<th></th>
+											<td><input type='submit' class='uiBtn0' value='提交订单' /></td>
+										</tr>
+									</tbody>
 								</table>
-								<input class='uiBtn0' type='submit' value='提交订单' />
 							</div>
 						</form>
 					</div>
