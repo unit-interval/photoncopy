@@ -238,4 +238,40 @@ textarea.uiTextarea{
 	width: 960px;
 	margin: 0px auto;
 	padding: 10px 0px;
+	color: #555;
+}
+
+.footerItem{
+	float: left;
+	width: 136px;
+	padding: 18px;
+}
+
+.footer h3, .latestNews h3{
+	color: gray;
+	padding-bottom: 13px;
+}
+
+.footer ul{
+	padding: 0px;
+}
+
+.footer li{
+	display: block;
+	padding: 0px 0px 6px 0px;
+}
+
+.latestNews{
+	float: right;
+	padding: 18px;
+	text-align: right;	
+}
+
+.latestNews dt{
+	color: gray;
+}
+
+.latestNews dd{
+	font-size: 12px;
+	padding-bottom: 12px;
 }
