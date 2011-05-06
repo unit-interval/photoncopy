@@ -143,16 +143,17 @@ function mod_stores($stores) {
 	$t1 = text_defs('store_region');
 	$html = '';
 	foreach($stores as $s) {
+		$credit = ($_SESSION['credit'][$s['id']] ? : 0);
 		$html .= "
 					<div class='storeItem'>
 						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+							<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
 							<a href='store.php?id={$s['id']}'><input type='button' class='uiBtn1' value='去这里打印' /></a>
 							<h2>{$t1[$s['region']]}{$s['name']}</h2>
 							<p>{$s['memo']}</p>
-							<p>余额: {$_SESSION['credit'][$s['id']]} 元</p>
+							<p>余额: $credit 元</p>
 						</div>
 					</div>
 		";

@@ -85,7 +85,6 @@ function page_home($tasks, $stores) {
 				<a href='credit/index.php'>
 					<dl class='profileItem rtCorner rbCorner' id='credit'>
 						<dt>信用额度</dt>
-						<dd><span class='value'>+</span></dd>
 						<dd><span class='value'>{$_SESSION['credit'][0]}</span> RMB</dd>
 					</dl>
 				</a>
