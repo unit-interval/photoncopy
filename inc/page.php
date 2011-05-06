@@ -106,9 +106,11 @@ function page_home($tasks, $stores) {
 				<p id='toggleMap'>显示地图</p>
 			</div>
 			<div class='storeListWrapper'>
-				<div id='storeList'>"
+				<div class='storeListL'>"
 				. mod_stores($stores) .
 				"</div>
+				<div class='storeListR'>
+				</div>
 			</div>
 		</div>		
 		";
