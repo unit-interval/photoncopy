@@ -141,43 +141,38 @@ function mod_order_queue($orders) {
 	return $html;
 }
 function mod_stores($stores) {
+	$t1 = text_defs('store_region');
 	$html = '';
 	foreach($stores as $s) {
 		$html .= "
-			<a href='/store.php?id={$s['id']}'>
-				<div class='storeItem'>
-				{$s['name']}<br />
-					零錢罐: {$_SESSION['credit'][$s['id']]}
-				</div>
-			</a>
+					<div class='storeItem'>
+						<div class='storeItemAvatar'>
+							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+						</div>
+						<div class='storeItemInfo'>
+							<a href='store.php?id={$s['id']}'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<h2>{$t1[$s['region']]}{$s['name']}</h2>
+							<p>{$s['memo']}</p>
+							<p>余额: {$_SESSION['credit'][$s['id']]} 元</p>
+						</div>
+					</div>
 		";
 	}
 	return $html;
 }
 function mod_tasks($tasks, $stores) {
-	$i = 0;
 	$t1 = text_defs('order_type');
 	$t2 = text_defs('order_status');
 	$html = '';
 	foreach($tasks as $t)
 	$html .= "
-			<li><div class='taskItem' id='task". $i++ ."'>
+			<div class='taskItem'>
 				编号: {$t['id']}<br />
 				类型: {$t1[$t['type']]}<br />
 				状态: {$t2[$t['status']]}<br />
 				店铺: {$stores[$t['pid']]['name']}<br />
 				金額: {$t['cost']}<br />
-			</div></li>
-		";
-	while($i < 3)
-	$html .= "
-			<li><div class='taskItem' id='task". $i++ ."'>
-				编号: <br />
-				类型: <br />
-				状态: <br />
-				店铺: <br />
-				金額: <br />
-			</div></li>
+			</div>
 		";
 	return $html;
 }

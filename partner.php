@@ -21,7 +21,6 @@ if($_SESSION['partner'] != true && !in_array($_GET['c'], $noLogin)) {
 	err_redir('', '/partner.php?c=signup');
 }
 
-// TODO add css and js.
 $link['css'][] = 'style';
 $link['css'][] = 'styleIndex';
 $link['css'][] = 'stylePartner';

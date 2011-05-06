@@ -7,19 +7,58 @@ function page_footer() {
 	echo '
 		<div class="footerWrapper">
 			<div class="footer">
-				<ul class="fd">
-					<li>
-						<a href="/admin/">admin</a>
-					</li>
-|
-					<li>
-						<a href="/static/">static</a>
-					</li>
-|
-					<li>
-						<a href="/partner.php">partner</a>						
-					</li>
-				</ul>			
+				<div class="footerItem">
+					<h3>光子复制</h3>
+					<ul>
+						<li>
+							档案库
+						</li>
+						<li>
+							成长的足迹
+						</li>
+						<li>
+							联系我们
+						</li>
+						<li>
+							加入我们
+						</li>
+					</ul>
+				</div>
+				<div class="footerItem">
+					<h3>合作伙伴</h3>
+					<ul>
+						<li>
+							申请店铺
+						</li>
+						<li>
+							商铺登录
+						</li>
+						<li>
+							工作流程
+						</li>
+					</ul>
+				</div>
+				<div class="footerItem">
+					<h3>用户</h3>
+					<ul>
+						<li>
+							用户教程
+						</li>
+						<li>
+							用户协议
+						</li>
+					</ul>
+				</div>
+				<div class='latestNews'>
+					<h3>近期新闻</h3>
+					<dl>
+						<dt>光子复制Beta1.0启动</dt>
+						<dd>May 6, 2011</dd>
+						<dt>放两个新闻</dt>
+						<dd>在这里写日期</dd>
+					</dl>
+				</div>
+				<div class='clear'></div>
 			</div>
 		</div>
 	';
@@ -44,32 +83,34 @@ function page_home($tasks, $stores) {
 					<dd><span class='value'>0</span> RMB</dd>
 				</dl>
 				<a href='credit/index.php'>
-					<dl class='profileItem rtCorner rbCorner' id='creditPlus'>
+					<dl class='profileItem rtCorner rbCorner' id='credit'>
+						<dt>信用额度</dt>
 						<dd><span class='value'>+</span></dd>
+						<dd><span class='value'>{$_SESSION['credit'][0]}</span> RMB</dd>
 					</dl>
 				</a>
-				<dl class='profileItem' id='credit'>
-					<dt>信用额度</dt>
-					<dd><span class='value'>{$_SESSION['credit'][0]}</span> RMB</dd>
-				</dl>
 			</div>
 			<div class='panel task'>
 				<h2>任务</h2>
-				<div class='lbCorner' id='leftBtn'>&lt</div>
-				<ul class='itemWrapper'>"
+				<div class='lbCorner' id='leftBtn'></div>
+				<div class='itemWrapper'>"
 	. mod_tasks($tasks, $stores) .
 				"
-				</ul>
-				<div id='rightBtn' class='rbCorner'>&gt</div>
+				</div>
 				<div class='clear'></div>
 			</div>
 			<div class='panel store'>
 				<h2>请选择打印店</h2>
-				<p>网络: 北京大学 | <a>查看地圖</a></p>
+				<p>网络: 北京大学 <a>切换网络</a></p>
+				<div id='storeMap'>
+					<iframe width='100%' height='480' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Beijing+South+Railway+Station,+Fengtai,+Beijing,+China&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>
+				</div>
+				<p id='toggleMap'>显示地图</p>
+			</div>
+			<div class='storeListWrapper'>
 				<div id='storeList'>"
 				. mod_stores($stores) .
 				"
-					<div class='clear'></div>
 				</div>
 			</div>
 		</div>		
@@ -136,22 +177,44 @@ function page_par_act() {
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
 	echo "
+		<div class='dummy'>
+			<input id='lockPsw' type='password'/>
+			<input id='lockPhr' type='hidden' value='{$_SESSION['passphrase']}' />
+		</div>
 		<div class='contentWrapper'>
 			<div class='panel board'>
 				<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
 				<div id='storeStatus'>
-					<div id='storeAvatar'><img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'/></div>
+					<div id='storeCtrl'>
+						<div id='storeAvatar'>
+						<img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'/>
+						</div>
+						<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
+					</div>
 					<div id='storeMsg'>
 						<div id='msgQuote'></div>
-						<div id='msgContent'>" . $_SESSION['memo']. "</div>
-						<input type='button' value='更改状态'>
+						<div id='msgContent'>
+							<div id='msgBody'>" . $_SESSION['memo']. "</div>
+							<div id='msgDate'>最后一次更新于2011年5月4日</div>
+							<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
+							<div class='clear'></div>
+							<form id='msgChangePanel'>
+								<div class='uiTextareaWrapper'>
+									<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
+								</div>
+								<div class='clear'></div>
+								<div class='uiBtn1Wrapper'>
+									<input class='uiBtn1' type='submit' value='确认'/>
+									<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
+								</div>
+							</form>
+						</div>
 						<form>
 							<textarea id='msgNew'></textarea>
 							<input type='submit' value='确认'/>
 							<input type='button' value='取消'/>
 						</form>
 					</div>
-					<input type='button' id='storeLock' value='锁屏幕'/>
 					<div class='clear'></div>
 				</div>
 			</div>
@@ -162,7 +225,7 @@ function page_par_home($orders) {
 						<tr>
 							<th width='50px'>编号</th>
 							<th width='50px'>类型</th>
-							<th>要求</th>
+							<th width='200px'>要求</th>
 							<th>留言</th>
 							<th width='50px'>下载</th>
 							<th width='50px'>状态</th>
