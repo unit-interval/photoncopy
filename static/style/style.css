@@ -124,6 +124,12 @@ a{
 	border-top-right-radius: 14px;
 }
 
+/*------------------------ ui ------------------------*/
+
+input:focus, textarea:focus{
+	outline-width: 0px;
+}
+
 /*------------------------ uiBtn ------------------------*/
 
 input.uiBtn0{
@@ -164,6 +170,28 @@ input.uiBtn:hover{
 	cursor: pointer;
 }
 
+input.uiBtn1{
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 0px 5px #071114; /* Safari */
+	box-shadow: 0px 0px 5px #071114;	
+	border-width: 0px;
+	background: #62A141 url(../images/uiBtn1.png) repeat-x;
+	padding: 4px 16px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #16153B;
+	text-shadow: #E1F9B5 0px 0px 3px;
+	background-position: center 0;
+}
+
+input.uiBtn1:hover{
+	background-position: center -30px;
+	cursor: pointer;
+}
+
+/*------------------------ uiText ------------------------*/
+
 input.uiText{
 	font-size: 12px;
 	padding: 7px;
@@ -176,16 +204,28 @@ input.uiText{
 	 
 	width: 320px;
 	border-width: 0px;
-
 }
 
 input.uiText:focus{
 	background: #ccffcc;
 }
 
+/*------------------------ uiTextarea ------------------------*/
 
-input:focus, textarea:focus{
-	outline-width: 0px;
+textarea{
+	border: 1px solid #BDC7D8;
+	padding-top: 4px;
+	padding-left: 4px;
+	width: 100%;
+}
+
+textarea.uiTextarea{
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #243F47;
+	background: #1B2429;
+	color: #CFF0FF;
+	line-height: 150%
 }
 
 /*------------------------ FOOTER ------------------------*/

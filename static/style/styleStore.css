@@ -190,12 +190,3 @@ input[type='text']{
 	padding: 10px;
 	display: block;
 }
-
-/*------------------------ SUBMIT BUTTON ------------------------*/
-
-textarea{
-	border: 1px solid #BDC7D8;
-	padding-top: 4px;
-	padding-left: 4px;
-	width: 100%;
-}
