@@ -3,9 +3,6 @@
 include './config.php';
 include './inc/function.php';
 
-// array to hold submitted form data.
-$input = array();
-
 function send_reg_mail($to) {
 	$addr = base64_encode($to);
 	$hash = md5( SALT_REG . $addr );
@@ -35,14 +32,6 @@ EOT;
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }
-function verify_login_form() {
-	/** validate input client-side with js */
-	global $input;
-	$input['email'] = strtolower($_POST['email']);
-	$input['passwd'] = md5($_POST['passwd']);
-	$input['pub'] = (isset($_POST['pub']) ? true : false);
-	return true;
-}
 function verify_email($m) {
 	// write the actual check later.
 	return true;
@@ -53,7 +42,7 @@ session_name(SESSNAME);
 session_start();
 
 if($_GET['c'] == 'login') {
-	if(!verify_login_form())
+	if(!($input = verify_login_form()))
 	err_redir('Invalid Login Information.');
 	include_once './inc/database.php';
 	$query = "select `id`, `passwd`, `name` from `user`

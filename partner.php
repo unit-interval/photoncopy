@@ -12,17 +12,23 @@ include './inc/page.php';
 session_name(SESSNAME_P);
 session_start();
 
-if($_SESSION['partner'] != true) {
+$noLogin = array('activate','forget','login','reg','signup');
+
+if($_SESSION['partner'] != true && !in_array($_GET['c'], $noLogin)) {
 	include './inc/auth.php';
-	partner_cookie_auth();
+	cookie_auth_par();
 	if($_SESSION['partner'] !== true)
-	err_redir('', '/partner.php?c=login');
+	err_redir('', '/partner.php?c=signup');
 }
 
+// TODO add css and js.
 $link['css'][] = 'style';
+$link['css'][] = 'styleIndex';
 $link['css'][] = 'stylePartner';
-$link['js'][] = 'query';
+$link['js'][] = 'jquery';
 $link['js'][] = 'script';
+$link['js'][] = 'scriptIndex';
+
 
 page_meta();
 page_nav();
@@ -30,16 +36,56 @@ page_nav();
 /** FIXME write partner pages */
 if($_GET['c'] == 'activate')
 page_par_act();
-elseif($_GET['c'] == 'login')
+elseif($_GET['c'] == 'forget')
 page_par_login();
-elseif($_GET['c'] == 'logout')
-page_par_logout();
-elseif ($_GET['c'] == 'profile')
+elseif($_GET['c'] == 'login') {
+	if(!($input = verify_login_form()))
+	err_redir('Invalid Login Information.','/partner.php');
+	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
+		where `email` = '{$db->real_escape_string($input['email'])}'";
+	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
+		$user = $result->fetch_assoc();
+		$result->free();
+		$logged_in = ($user['passwd'] == $input['passwd']);
+	} else
+	$logged_in = false;
+	if(!$logged_in)
+	err_redir('login fail.','/partner.php');
+	$_SESSION['partner'] = true;
+	$_SESSION['pid'] = $user['id'];
+	$_SESSION['passphrase'] = $user['passphrase'];
+	$_SESSION['name'] = $user['name'];
+	$_SESSION['region'] = $user['region'];
+	$_SESSION['memo'] = $user['memo'];
+	$_SESSION['email'] = $input['email'];
+	$expire = time()+3600*24*7;
+	setcookie('email_p', $input['email'], $expire);
+	setcookie('pid', $user['id'], $expire);
+	setcookie('hash_p', md5(SALT_REG . $user['id']), $expire);
+	err_redir('', '/partner.php');
+	exit;
+} elseif($_GET['c'] == 'logout') {
+	setcookie('hash_p', '', time()-3600);
+	setcookie('pid', '', time()-3600);
+	$_SESSION = array();
+	session_destroy();
+	err_redir();
+} elseif ($_GET['c'] == 'profile')
 page_par_profile();
 elseif ($_GET['c'] == 'reg')
 page_par_reg();
-else
-page_par_home();
+elseif ($_GET['c'] == 'signup') {
+	page_par_signup();
+} else {
+	$orders = array();
+	$query = "select * from `order` where `pid` = {$_SESSION['pid']}";
+	if($result = $db->query($query)) {
+		while($row = $result->fetch_assoc())
+		$orders[$row['id']] = $row;
+		$result->free();
+	}
+	page_par_home($orders);
+}
 
 page_footer();
 page_close();

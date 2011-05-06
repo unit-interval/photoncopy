@@ -78,60 +78,11 @@ function page_home($tasks, $stores) {
 function page_index() {
 	echo '
 		<div class="contentWrapper">
-			<div class="funct">
-				<div id="login" class="panel">
-					<h2>登录</h2>
-					<form action="/authorize.php?c=login" method="post">
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" value="'
-								. $_COOKIE['email'] .
-								'" title="请输入邮箱地址" class="uiText autoHint" />
-							</div>
-							<div class="field">
-								<label>密码</label>
-								<input type="password" name="passwd" class="uiText" />
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="checkbox" type="checkbox" name="pub" value="yes" />
-							<h3> 正在使用公共电脑登录</h3>
-							<input class="uiBtn submit" type="submit" value="登录" />
-						</fieldset>
-					</form>
-				</div>
-				<div id="signup" class="panel">
-					<h2>注册</h2>
-					<form action="/authorize.php?c=reg" method="post">
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" title="请输入邮箱地址" class="uiText autoHint" />
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="uiBtn submit" type="submit" value="注册" />
-						</fieldset>
-					</form>
-				</div>
-				<div id="forget" class="panel">
-					<h2>取回密码</h2>
-					<form action="/authorize.php?c=forget" method="post">
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" value="'
-								. $_COOKIE['email'] .
-								'" title="请输入邮箱地址" class="uiText autoHint" />
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="uiBtn submit" type="submit" value="取回密码" />
-						</fieldset>
-					</form>
-				</div>
-			</div>
+			<div class="funct">'
+			. mod_login()
+			. mod_login_signup()
+			. mod_login_forget() .
+			'</div>
 			<div class="content">
 				<div id="instruct">
 					<p>Step 1: blablabla</p>
@@ -174,7 +125,7 @@ function page_nav() {
 				<a href="/">光子复制</a>
 			</div>
 			<ul class="account">
-	' . mod_login() . '
+	' . mod_nav_account() . '
 			</ul>
 		</div>
 	' . mod_msg();
@@ -182,11 +133,50 @@ function page_nav() {
 function page_par_act() {
 	
 }
-function page_par_home() {
-	
-}
-function page_par_login() {
-	
+function page_par_home($orders) {
+	$t1 = text_defs('store_region');
+	echo "
+		<div class='contentWrapper'>
+			<div class='panel board'>
+				<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
+				<div id='storeStatus'>
+					<div id='storeAvatar'><img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'/></div>
+					<div id='storeMsg'>
+						<div id='msgQuote'></div>
+						<div id='msgContent'>" . $_SESSION['memo']. "</div>
+						<input type='button' value='更改状态'>
+						<form>
+							<textarea id='msgNew'></textarea>
+							<input type='submit' value='确认'/>
+							<input type='button' value='取消'/>
+						</form>
+					</div>
+					<input type='button' id='storeLock' value='锁屏幕'/>
+					<div class='clear'></div>
+				</div>
+			</div>
+			<div class='panel order'>
+				<h2>打印任务队列</h2>
+				<table>
+					<tbody>
+						<tr>
+							<th width='50px'>编号</th>
+							<th width='50px'>类型</th>
+							<th>要求</th>
+							<th>留言</th>
+							<th width='50px'>下载</th>
+							<th width='50px'>状态</th>
+							<th width='50px'>操作</th>
+						</tr>
+						<tr></tr>";
+		echo mod_order_queue($orders) .
+					"</tbody>
+				</table>
+				<p class='lbCorner rbCorner'>30秒后刷新</p>
+			</div>
+		</div>
+	";
+	echo '456';
 }
 function page_par_logout() {
 	
@@ -196,6 +186,27 @@ function page_par_profile() {
 }
 function page_par_reg() {
 	
+}
+function page_par_signup() {
+	$a = '/partner';
+	echo '
+		<div class="contentWrapper">
+			<div class="funct">'
+			. mod_login($a)
+			. mod_login_signup($a)
+			. mod_login_forget($a) .
+			'</div>
+			<div class="content">
+				<div id="instruct">
+					<p>Become one of our provider now!</p>
+				</div>
+				<div id="stat">
+					<p>*** users have signed up.</p>
+					<p>*** orders have been made.</p>
+				</div>
+			</div>
+		</div>
+	';
 }
 function page_profile() {
 	echo "<div class='contentWrapper'><div class='content'>

@@ -66,12 +66,12 @@ function cookie_verify_hash() {
 	}
 }
 function cookie_verify_hash_par() {
-	if(!isset($_COOKIE['hash']) || !isset($_COOKIE['pid']))
+	if(!isset($_COOKIE['hash_p']) || !isset($_COOKIE['pid_p']))
 	return false;
-	if($_COOKIE['hash'] == md5(SALT_REG . $_COOKIE['pid']))
+	if($_COOKIE['hash_p'] == md5(SALT_REG . $_COOKIE['pid_p']))
 	return true;
 	else {
-		setcookie('hash', '', time()-3600);
+		setcookie('hash_p', '', time()-3600);
 		return false;
 	}
 }
