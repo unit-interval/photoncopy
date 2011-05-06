@@ -14,11 +14,7 @@
 	padding-top: 12px;
 	margin: 0px;
 	height: 68px;
-	color: #6CAEFF;
-}
-
-#firstItem{
-	border-width: 0px;
+	color: #8D79F2;
 }
 
 .profileItem dd{
@@ -39,22 +35,14 @@
 }
 
 #credit{
-	color: #CAC3E4;
+	color: #6CAEFF;
 	float: right;
-	padding-right: 20px;
+	padding-right: 30px;
+	border-width: 0px;
 }
 
 #credit dd, #credit dt{
 	text-align: right;
-}
-
-#creditPlus{
-	color: #CAC3E4;
-	width: 40px;
-	float: right;
-	border-width: 0px;
-	padding-top: 15px;
-	height: 65px;
 }
 
 #creditPlus:hover{
@@ -75,9 +63,8 @@
 }
 
 #leftBtn, #rightBtn{
-	float: left;
 	width: 65px;
-	height: 90px;
+	height: 120px;
 	cursor: pointer;
 	font-size: 36px;
 	text-align: center;
@@ -86,7 +73,11 @@
 }
 
 #leftBtn{
-	border-right: 5px solid #232323;
+	float: left;
+}
+
+#rightBtn{
+	float: right;
 }
 
 #leftBtn:hover, #rightBtn:hover{
@@ -94,18 +85,27 @@
 }
 
 .itemWrapper{
+	float: left;
 	margin: 0px;
 	padding: 0px;
-	width: 900px;
+	width: 825px;
+	overflow: hidden;
+	border-right: 5px solid #232323;
+
+	/*!!! SPECIFY THE HEIGHT OF THE TASK FLOW !!!*/
+	height: 150px;
+	
 }
 
 .taskItem{
+	background: url(../images/taskIcon.png) no-repeat 15px 20px;
 	float: left;
-	width: 230px;
-	height: 80px;
-	border-right: 5px solid #232323;
-	padding: 20px;
-	color: #999;
+	width: 195px;
+	height: 100%;
+	border-left: 5px solid #232323;
+	padding: 20px 20px 0px 55px;
+	color: #CCC;
+	font-size: 12px;
 }
 
 /*------------------------ STORE ------------------------*/
@@ -113,7 +113,7 @@
 .store{
 	width: 960px;
 	margin: 30px auto;
-	background: #212634;
+	background: #1B1F2A;
 }
 
 .store h2{
@@ -123,26 +123,80 @@
 
 .store p{
 	margin: 0px;
-	padding: 20px;
+	padding: 10px 20px;
 	color: #4E6178;
+	background: #212634;
 }
 
-#storeList{
-	border-top: 5px solid #1B1F2A;
+#storeMap{
+	display: none;
+}
+
+#toggleMap{
+	background-color: transparent;
+	text-align: center;
+}
+
+#toggleMap:hover{
+	color: white;
+	cursor: pointer;
+}
+
+/*------------------------ STORE LIST ------------------------*/
+
+.storeList{
+	width: 990px;
+}
+
+.storeListWrapper{
+	width: 960px;
+	margin: 30px auto 0px;
+	overflow: hidden;
 }
 
 .storeItem{
 	float: left;
-	width: 148px;
-	height: 60px;
-	padding: 20px;
-	border-left: 5px solid #1B1F2A;
-	text-align: center;
-	color: #6CAEFF;
-	font-size: 18px;
+	width: 435px;
+	min-height: 80px;
+	margin: 0px 30px 30px 0px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	background: #1A2F36 url(../images/storeListBg.png) repeat-x center top;
+	border: 1px solid #243F47;
+	-moz-box-shadow: 0px 0px 5px #171C1E;
+	-webkit-box-shadow: 0px 0px 5px #171C1E;
+	padding: 14px;
 }
 
-.storeItem:hover{
-	background: #1B1F2A;
+.storeItemAvatar{
+	float: left;
+	height: 70px;
+	width: 70px;
+	margin: 5px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border: 1px solid #1A2F36;
+	-moz-box-shadow: 0px 0px 4px #171C1E;
+	-webkit-box-shadow: 0px 0px 4px #171C1E;
+	overflow: hidden;
 }
 
+.storeItemInfo{
+	float: right;
+	width: 345px;
+	background-repeat: no-repeat;
+}
+
+.storeItemInfo h2{
+	font-size: 20px;
+	color: #CFF0FF;
+}
+
+.storeItemInfo p{
+	font-size: 13px;
+	color: #A9C1CC;
+}
+
+input.uiBtn1{
+	float: right;
+}

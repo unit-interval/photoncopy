@@ -23,8 +23,14 @@
 	padding: 20px 40px;
 }
 
-#storeAvatar{
+/*------------------------ Ctrl ------------------------*/
+
+#storeCtrl{
+	width: 100px;
 	float: left;
+}
+
+#storeAvatar{
 	width: 100px;
 	height: 100px;
 	padding: 5px;
@@ -33,7 +39,7 @@
 }
 
 #storeLock{
-	float: left;
+	margin: 20px;
 }
 
 #storeMsg{
@@ -59,6 +65,22 @@
 	float: right;
 	width: 628px;
 	line-height: 150%;
+}
+
+#msgContent input, #msgContent textarea{
+	float: right;
+}
+
+#msgChangePanel{
+	display: none;
+}
+
+.uiTextareaWrapper{
+	padding: 8px 2px;
+}
+
+.uiBtn1Wrapper{
+	padding-top: 8px;
 }
 
 /*------------------------ Change Status ------------------------*/
@@ -103,4 +125,16 @@ tr:hover{
 
 tr:first-child{
 	background: #1B1F2A;
+}
+
+/*------------------------ DUMMY ------------------------*/
+
+.dummy{
+	position: fixed;
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	filter:alpha(opacity=60);	/* for IE */
+	opacity:0.6;	/* CSS3 standard */
 }

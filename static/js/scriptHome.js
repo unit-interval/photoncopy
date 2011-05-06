@@ -1,4 +1,16 @@
 $(document).ready(function(){
+	
+	$("#toggleMap").click(function(){
+		if ($(this).html()=='显示地图'){
+			$("#storeMap").slideDown();
+			$(this).html('隐藏地图');			
+		}
+		else{
+			$("#storeMap").slideUp();
+			$(this).html('显示地图');
+		}
+	});
+	
 	var op=0.01;
 	var taskNum=0;
 	
