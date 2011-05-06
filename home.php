@@ -28,7 +28,8 @@ $tasks = array();
 $stores = array();
 
 $query = "select `id`, `pid`, `status`, `type`, `cost` from `order`
-	where `uid` = {$_SESSION['uid']}";
+	where `uid` = {$_SESSION['uid']}
+	order by `id` desc";
 if($result = $db->query($query)) {
 	while($row = $result->fetch_assoc())
 	$tasks[$row['id']] = $row;
