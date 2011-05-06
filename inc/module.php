@@ -146,7 +146,7 @@ function mod_stores($stores) {
 	$t1 = text_defs('store_region');
 	$html = '';
 	foreach($stores as $s) {
-		$credit = ($_SESSION['credit'][$s['id']] ? : 0);
+		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] : 0);
 		$html .= "
 					<div class='storeItem'>
 						<div class='storeItemAvatar'>

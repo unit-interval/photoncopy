@@ -47,7 +47,7 @@ $(document).ready(function(){
 		$('#pdfCal').show();
 		$('#pdfConfirmPage').slideUp();
 		$('.pdfOb').each(function(){
-			$(this).attr('disabled', 'false');
+			$(this).attr('enabled', 'true');
 		});
 	});
 })
