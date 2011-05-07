@@ -63,7 +63,7 @@ span{
 .drawer{
 	font-size: 13px;
 	width: 880px;
-	margin: 0px auto;
+	margin: 0px auto 30px;
 	background: #272727;
 	-moz-box-shadow: #151515 2px 2px 7px 0;
 	-webkit-box-shadow: #151515 2px 2px 7px 0;
@@ -80,7 +80,7 @@ span{
 	line-height: 24px;
 }
 
-/*------------------------ STORE ------------------------*/
+/*------------------------ CREDIT PLUS ------------------------*/
 
 #creditPlus{
 	float: right;
@@ -88,25 +88,7 @@ span{
 	line-height: 24px;
 }
 
-/*------------------------ STORE ------------------------*/
-
-.store{
-	width: 960px;
-	margin: 30px auto;
-	background: #1B1F2A;
-}
-
-.store h2{
-	background: #1B1F2A;
-	color: #6CAEFF;
-}
-
-.store p{
-	margin: 0px;
-	padding: 10px 20px;
-	color: #4E6178;
-	background: #212634;
-}
+/*------------------------ MAP ------------------------*/
 
 #storeMap{
 	display: none;
@@ -124,21 +106,25 @@ span{
 
 /*------------------------ STORE LIST ------------------------*/
 
-.storeList{
-	width: 990px;
+.storeListL{
+	float: left;
+	width: 425px;
+}
+
+.storeListR{
+	float: right;
+	width: 425px;
 }
 
 .storeListWrapper{
-	width: 960px;
 	margin: 30px auto 0px;
-	overflow: hidden;
 }
 
 .storeItem{
 	float: left;
-	width: 435px;
+	width: 395px;
 	min-height: 80px;
-	margin: 0px 30px 30px 0px;
+	margin: 0px 0px 30px 0px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	background: #1A2F36 url(../images/storeListBg.png) repeat-x center top;
@@ -163,7 +149,7 @@ span{
 
 .storeItemInfo{
 	float: right;
-	width: 345px;
+	width: 300px;
 	background-repeat: no-repeat;
 }
 
@@ -179,4 +165,25 @@ span{
 
 input.uiBtn1{
 	float: right;
+}
+
+/*------------------------ TASK QUEUE ------------------------*/
+
+.taskQueue{
+	width: 960px;
+	margin: 30px auto;
+	background: #1B1F2A;
+}
+
+.taksQueue h2{
+	background: #1B1F2A;
+	color: #6CAEFF;
+}
+
+.taskQueue table{
+	width: 100%;
+	margin: 0px;
+	color: #4E6178;
+	background: #212634;
+	text-align: center;
 }

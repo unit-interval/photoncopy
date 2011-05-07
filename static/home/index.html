@@ -40,15 +40,15 @@
 					<p>PPT幻灯片</p>
 				</div>
 				<div class='taskTypeItem' id='taskSum'>
-					<h3>总费用</h3>
+					<h3>费用估计</h3>
 					<div>
-						<span id='price'>0</span><span>元</span>
+						<span id='price'>6</span><span>元</span>
 					</div>
 				</div>
 				<div class='taskTypeItem' id='credit'>
-					<h3>积分</h3>
+					<h3>可用积分</h3>
 					<div>
-						<span id='price'>0</span><span>元</span>
+						<span id='price'>0</span>
 					</div>
 				</div>
 			</div>
@@ -57,96 +57,129 @@
 					请选择打印文件的类型
 				</div>
 				<div id='creditPlus'>
-					提升信用额度 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
+					提高上界 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
 				</div>
 				<div class='clear'></div>
 				<form id='pdfPage'>
-					<input type='radio' checked='yes' name='type' value='pdf' />
-					<select name='store' id='dStore'>
-						<option value='0'>选择打印店</option>
-						<option value='1'>北京大学25楼打印店</option>
-						<option value='2'>北京大学36楼打印店</option>
-					</select>
-					<select name='size' id='dSize'>
-						<option value='0'>纸张</option>
-						<option value='1'>A4</option>
-						<option value='2'>B5</option>
-					</select>
-					<select name='color' id='dColor'>
-						<option value='0'>油墨</option>
-						<option value='1'>黑白</option>
-						<option value='2'>彩色</option>
-					</select>
-					<select name='page' id='dPage'>
-						<option value='0'>页数</option>
-						<option value='1'>1-20</option>
-						<option value='2'>10-50</option>
-						<option value='3'>50-100</option>
-						<option value='4'>100-500</option>
-						<option value='5'>500</option>
-					</select>
-					
-					<input type='submit' value='提交' />
+					<div class='dummyForm'>
+						<input type='radio' checked='yes' name='type' value='pdf' />
+						<select name='store' id='pdfStore'>
+							<option value='0'>选择打印店</option>
+							<option value='1'>北京大学25楼打印店</option>
+							<option value='2'>北京大学36楼打印店</option>
+						</select>
+						<select name='size' id='pdfSize'>
+							<option value='0'>纸张</option>
+							<option value='1'>A4</option>
+							<option value='2'>B5</option>
+						</select>
+						<select name='color' id='pdfColor'>
+							<option value='0'>油墨</option>
+							<option value='1'>黑白</option>
+							<option value='2'>彩色</option>
+						</select>
+						<select name='double' id='pdfDouble'>
+							<option value='0'>环保</option>
+							<option value='1'>单面打印</option>
+							<option value='2'>双面打印</option>
+						</select>
+						<select name='page' id='pdfPage'>
+							<option value='0'>页数</option>
+							<option value='1'>1-10</option>
+							<option value='2'>10-50</option>
+							<option value='3'>50-100</option>
+							<option value='4'>100-500</option>
+							<option value='5'>500+</option>
+						</select>
+						<input type='text' name='copy' id='dCopy' />
+					</div>
+					<div id='pdfConfig'>
+						<input type='button' class='uiBtn2' value='选择打印店' />
+							<div class='storeListWrapper'>
+								<div class='storeListL'>
+									<div class='storeItem'>
+										<div class='storeItemAvatar'>
+											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+										</div>
+										<div class='storeItemInfo'>
+											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+											<h2>北京大学25楼打印店</h2>
+											<p>这里放上打印店公告栏的内容</p>
+											<p>余额: 1.00元</p>
+										</div>
+									</div>
+									<div class='storeItem'>
+										<div class='storeItemAvatar'>
+											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+										</div>
+										<div class='storeItemInfo'>
+											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+											<h2>北京大学25楼打印店</h2>
+											<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
+											<p>余额: 1.00元</p>
+										</div>
+									</div>
+								</div>
+								<div class='storeListR'>
+									<div class='storeItem'>
+										<div class='storeItemAvatar'>
+											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+										</div>
+										<div class='storeItemInfo'>
+											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+											<h2>北京大学25楼打印店</h2>
+											<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
+											<p>余额: 1.00元</p>
+										</div>
+									</div>
+									<div class='storeItem'>
+										<div class='storeItemAvatar'>
+											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+										</div>
+										<div class='storeItemInfo'>
+											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+											<h2>北京大学25楼打印店</h2>
+											<p>这里放上打印店公告栏的内容</p>
+											<p>余额: 1.00元</p>
+										</div>
+									</div>
+								</div>
+								<div class='clear'></div>
+							</div>
+						<input type='button' value='纸张' />
+						<input type='button' value='油墨' />
+						<input type='button' value='环保' />
+						<input type='button' value='页数' />
+						<input type='button' value='份数' />
+						<input type='button' value='确认' />
+					</div>
+					<div id='pdfConfirm'>
+						提示：blablabla;
+						<input type='submit' value='提交' />
+					</div>
 				</form>
 			</div>
-			<div class='storeListWrapper'>
-				<div class='storeListL'>
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-							<h2>北京大学25楼打印店</h2>
-							<p>这里放上打印店公告栏的内容</p>
-							<p>余额: 1.00元</p>
-						</div>
-					</div>
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-							<h2>北京大学25楼打印店</h2>
-							<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
-							<p>余额: 1.00元</p>
-						</div>
-					</div>
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-							<h2>北京大学25楼打印店</h2>
-							<p>这里放上打印店公告栏的内容</p>
-							<p>余额: 1.00元</p>
-						</div>
-					</div>
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-							<h2>北京大学25楼打印店</h2>
-							<p>这里放上打印店公告栏的内容</p>
-							<p>余额: 1.00元</p>
-						</div>
-					</div>
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-							<h2>北京大学25楼打印店</h2>
-							<p>这里放上打印店公告栏的内容</p>
-							<p>余额: 1.00元</p>
-						</div>
-					</div>
-				</div>
+			<div class='panel taskQueue'>
+				<h2>任务队列</h2>
+				<table>
+					<tbody>
+						<tr>
+							<th>编号</th>
+							<th>店铺</th>
+							<th>状态</th>
+							<th>费用估计</th>
+							<th>操作</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>BD25</td>
+							<td>A4纸黑白双面打印</td>
+							<td>1-6元</td>
+							<td>取消订单/查看详情</td>
+						</tr>
+					</tbody>
+				</table>
+				<h2></h2>
 			</div>
 		</div>
 		<div class="footerWrapper">
