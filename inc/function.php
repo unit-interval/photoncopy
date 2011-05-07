@@ -38,8 +38,6 @@ function text_defs($key, $all = false) {
 			3 => '訂單退回',
 			4 => '完成待取',
 			5 => '任務完成',
-			6 => '自助任務已提交',
-			7 => '自助任務已提交',
 		),
 		'order_status_par' => array(
 			0 => '新任務',
@@ -48,18 +46,6 @@ function text_defs($key, $all = false) {
 			3 => false, //已拒絕
 			4 => '等待領取',
 			5 => false, //付款完成
-			6 => '自助任務',
-			7 => '等待自助打印',
-		),
-		'queue_action' => array(
-			0 => '撤銷任務',
-			1 => '複製到新任務',
-			2 => '前往打印店',
-			3 => '重新提交',
-			4 => '追加份數',
-			5 => '複製到新訂單',
-			6 => '撤銷任務',
-			7 => '撤銷任務',
 		),
 		'store_region' => array(
 			0 => '北京大學',
@@ -67,7 +53,24 @@ function text_defs($key, $all = false) {
 	);
 	return $all ? $t : $t[$key];
 }
-function text_queue_action($id) {
+function text_queue_action($st = -1, $id = 0) {
+	$support = array(
+		0 => array(0),
+		1 => array(1),
+		2 => array(1),
+		3 => array(1),
+		4 => array(1),
+		5 => array(1),
+	);
+	if($id === 0)
+		return ($st === -1) ? $support : $support[$st];
+	$actions = array(
+		0 => "撤銷任務",
+		1 => '複製到新訂單',
+	);
+	$a = $support[$st][0];
+	$html = "<a href='/submit.php?oid=$id&act=$a'>{$actions[$a]}</a>";
+	return $html;
 	
 }
 function text_queue_action_par($st = -1, $id = 0) {
@@ -75,8 +78,6 @@ function text_queue_action_par($st = -1, $id = 0) {
 		0 => array(0, 1),
 		2 => array(2),
 		4 => array(3),
-		6 => array(4),
-		7 => array(3),
 	);
 	if($id === 0)
 		return ($st === -1) ? $support : $support[$st];
@@ -85,7 +86,6 @@ function text_queue_action_par($st = -1, $id = 0) {
 		1 => "拒絕",
 		2 => '完成任務',
 		3 => '結帳付款',
-		4 => '已下載',
 	);
 	$html = '';
 	$h1 = "<a href='/process.php?oid=$id&act=";

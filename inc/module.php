@@ -139,6 +139,40 @@ function mod_order_queue_proc($orders) {
 	}
 	return $html;
 }
+function mod_store_sel($stores) {
+	$t1 = text_defs('store_region');
+	$i = 0;
+	$html_l = '';
+	$html_r = '';
+	foreach($stores as $s) {
+		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] : 0);
+		$html = "
+								<div class='storeItem'>
+									<input type='hidden' name='pId' value='{$s['id']}' />
+									<div class='storeItemAvatar'>
+										<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+									</div>
+									<div class='storeItemInfo'>
+										<a href='store.php?id={$s['id']}'><input type='button' class='uiBtn1' value='查看详情' /></a>
+										<h2>{$t1[$s['region']]}{$s['name']}</h2>
+										<p>{$s['memo']}</p>
+										<p>余额: $credit 元</p>
+									</div>
+								</div>";
+		if($i%2 === 0)
+			$html_l .= $html;
+		else
+			$html_r .= $html;
+		$i++;
+	}
+	$html = "
+							<div class='storeListL'>"
+	  					 	. $html_l . "
+							</div><div class='storeListR'>"
+							. $html_r . "
+							</div>";
+	return $html;
+}
 function mod_stores($stores) {
 	$t1 = text_defs('store_region');
 	$html = '';
@@ -158,6 +192,28 @@ function mod_stores($stores) {
 					</div>
 		";
 	}
+	return $html;
+}
+function mod_taskqueue($tasks, $stores) {
+	$t1 = text_defs('order_type');
+	$t2 = text_defs('order_status');
+	$html = '
+						<tr>
+							<th>编号</th>
+							<th>店铺</th>
+							<th>状态</th>
+							<th>费用估计</th>
+							<th>操作</th>
+						</tr>';
+	foreach($tasks as $t)
+		$html .= "
+						<tr>
+							<td>{$t['id']}</td>
+							<td>{$stores[$t['pid']]['name']}</td>
+							<td>{$t1[$t['type']]}</td>
+							<td>{$t2[$t['status']]}</td>
+							<td>".text_queue_action($t['status'],$t['id'])."</td>
+						</tr>";
 	return $html;
 }
 function mod_tasks($tasks, $stores) {
