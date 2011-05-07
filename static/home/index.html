@@ -57,105 +57,158 @@
 					请选择打印文件的类型
 				</div>
 				<div id='creditPlus'>
-					提高上界 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
+					如何增加积分 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
 				</div>
 				<div class='clear'></div>
 				<form id='pdfPage'>
-					<div class='dummyForm'>
-						<input type='radio' checked='yes' name='type' value='pdf' />
-						<select name='store' id='pdfStore'>
-							<option value='0'>选择打印店</option>
-							<option value='1'>北京大学25楼打印店</option>
-							<option value='2'>北京大学36楼打印店</option>
-						</select>
-						<select name='size' id='pdfSize'>
-							<option value='0'>纸张</option>
-							<option value='1'>A4</option>
-							<option value='2'>B5</option>
-						</select>
-						<select name='color' id='pdfColor'>
-							<option value='0'>油墨</option>
-							<option value='1'>黑白</option>
-							<option value='2'>彩色</option>
-						</select>
-						<select name='double' id='pdfDouble'>
-							<option value='0'>环保</option>
-							<option value='1'>单面打印</option>
-							<option value='2'>双面打印</option>
-						</select>
-						<select name='page' id='pdfPage'>
-							<option value='0'>页数</option>
-							<option value='1'>1-10</option>
-							<option value='2'>10-50</option>
-							<option value='3'>50-100</option>
-							<option value='4'>100-500</option>
-							<option value='5'>500+</option>
-						</select>
-						<input type='text' name='copy' id='dCopy' />
-					</div>
 					<div id='pdfConfig'>
-						<input type='button' class='uiBtn2' value='选择打印店' />
-							<div class='storeListWrapper'>
-								<div class='storeListL'>
-									<div class='storeItem'>
-										<div class='storeItemAvatar'>
-											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-										</div>
-										<div class='storeItemInfo'>
-											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-											<h2>北京大学25楼打印店</h2>
-											<p>这里放上打印店公告栏的内容</p>
-											<p>余额: 1.00元</p>
-										</div>
+						<div class='uploadFile'>
+							<input type='file'>
+						</div>
+						<input type='button' id='storeBtn' class='uiBtn2' value='选择打印店' />
+						<div class='storeListWrapper'>
+							<div class='storeListL'>
+								<div class='storeItem'>
+									<input type='hidden' name='pId' value='1' />
+									<input type='hidden' name='pName' value='北京大学25楼打印店'>
+									<div class='storeItemAvatar'>
+										<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 									</div>
-									<div class='storeItem'>
-										<div class='storeItemAvatar'>
-											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-										</div>
-										<div class='storeItemInfo'>
-											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-											<h2>北京大学25楼打印店</h2>
-											<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
-											<p>余额: 1.00元</p>
-										</div>
+									<div class='storeItemInfo'>
+										<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+										<h2>北京大学25楼打印店</h2>
+										<p>这里放上打印店公告栏的内容</p>
+										<p>余额: 1.00元</p>
 									</div>
 								</div>
-								<div class='storeListR'>
-									<div class='storeItem'>
-										<div class='storeItemAvatar'>
-											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-										</div>
-										<div class='storeItemInfo'>
-											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-											<h2>北京大学25楼打印店</h2>
-											<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
-											<p>余额: 1.00元</p>
-										</div>
+								<div class='storeItem'>
+									<input type='hidden' name='pId' value='2' /> 
+									<input type='hidden' name='pName' value='北京大学26楼打印店'>
+									<div class='storeItemAvatar'>
+										<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 									</div>
-									<div class='storeItem'>
-										<div class='storeItemAvatar'>
-											<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
-										</div>
-										<div class='storeItemInfo'>
-											<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-											<h2>北京大学25楼打印店</h2>
-											<p>这里放上打印店公告栏的内容</p>
-											<p>余额: 1.00元</p>
-										</div>
+									<div class='storeItemInfo'>
+										<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+										<h2>北京大学25楼打印店</h2>
+										<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
+										<p>余额: 1.00元</p>
 									</div>
 								</div>
-								<div class='clear'></div>
 							</div>
-						<input type='button' value='纸张' />
-						<input type='button' value='油墨' />
-						<input type='button' value='环保' />
-						<input type='button' value='页数' />
-						<input type='button' value='份数' />
+							<div class='storeListR'>
+								<div class='storeItem'>
+									<input type='hidden' name='pId' value='3' /> 
+									<input type='hidden' name='pName' value='北京大学27楼打印店'>
+									<div class='storeItemAvatar'>
+										<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+									</div>
+									<div class='storeItemInfo'>
+										<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+										<h2>北京大学25楼打印店</h2>
+										<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
+										<p>余额: 1.00元</p>
+									</div>
+								</div>
+								<div class='storeItem'>
+									<input type='hidden' name='pId' value='4' /> 
+									<input type='hidden' name='pName' value='北京大学28楼打印店'>
+									<div class='storeItemAvatar'>
+										<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
+									</div>
+									<div class='storeItemInfo'>
+										<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+										<h2>北京大学25楼打印店</h2>
+										<p>这里放上打印店公告栏的内容</p>
+										<p>余额: 1.00元</p>
+									</div>
+								</div>
+							</div>
+							<div class='clear'></div>
+						</div>
+						<input type='button' id='sizeBtn' value='纸张' />
+						<div class='sizeListWrapper'>
+							<div class='sizeItem'>
+								<input type='hidden' value='A4' />
+								A4
+							</div>
+							<div class='sizeItem'>
+								<input type='hidden' value='B5' />
+								B5
+							</div>
+						</div>
+						<input type='button' id='colorBtn' value='油墨' />
+						<div class='colorListWrapper'>
+							<div class='colorItem'>
+								<input type='hidden' value='黑白' />
+								黑白
+							</div>
+							<div class='colorItem'>
+								<input type='hidden' value='彩色' />
+								彩色
+							</div>
+						</div>
+						<input type='button' id='doubleBtn' value='环保' />
+						<div class='doubleListWrapper'>
+							<div class='doubleItem'>
+								<input type='hidden' value='单面打印' />
+								单面打印
+							</div>
+							<div class='doubleItem'>
+								<input type='hidden' value='双面打印' />
+								双面打印
+							</div>
+						</div>
+						<input type='button' id='pageBtn' value='页数' />
+						<div class='pageListWrapper'>
+							<div class='pageItem'>
+								<input type='hidden' name='upper' value='1' />
+								<input type='hidden' name='lower' value='10' />
+								1-10
+							</div>
+							<div class='pageItem'>
+								<input type='hidden' name='upper' value='10' />
+								<input type='hidden' name='lower' value='50' />
+								10-50
+							</div>
+							<div class='pageItem'>
+								<input type='hidden' name='upper' value='50' />
+								<input type='hidden' name='lower' value='100' />
+								50-100
+							</div>
+							<div class='pageItem'>
+								<input type='hidden' name='upper' value='100' />
+								<input type='hidden' name='lower' value='500' />
+								100-500
+							</div>
+						</div>
+						<input type='button' id='copyBtn' value='份数' />
+						<div class='copyListWrapper'>
+							<div class='copyItem'>
+								<input type='hidden' value='1' />
+								1
+							</div>
+							<div class='copyItem'>
+								<input type='hidden' value='2' />
+								2
+							</div>
+						</div>
 						<input type='button' value='确认' />
 					</div>
 					<div id='pdfConfirm'>
 						提示：blablabla;
-						<input type='submit' value='提交' />
+						<form action="/submit.php" method="post" enctype="multipart/form-data">
+							<input type='hidden' name='type' />
+							<input type='hidden' name='store' />
+							<input type='hidden' name='size' />
+							<input type='hidden' name='color' />
+							<input type='hidden' name='double' />
+							<input type='hidden' name='layout' />
+							<input type='hidden' name='pageUpper' />
+							<input type='hidden' name='pageLower' />
+							<input type='hidden' name='copy' />
+							<input type='hidden' name='note' />
+							<input type='submit' value='提交' />
+						</form>
 					</div>
 				</form>
 			</div>
