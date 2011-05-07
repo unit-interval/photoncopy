@@ -226,7 +226,7 @@ function page_par_home($orders) {
 							<th width='50px'>操作</th>
 						</tr>
 						<tr></tr>"
-						. mod_order_queue($orders) .
+						. mod_order_queue_proc($orders) .
 					"</tbody>
 				</table>
 				<p class='lbCorner rbCorner'>30秒后刷新</p>
