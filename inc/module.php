@@ -133,7 +133,7 @@ function mod_order_queue_proc($orders) {
 							<td>{$o['note']}</td>
 							<td>$link</td>
 							<td>{$t4[$o['status']]}</td>
-							<td>".text_queue_action_par($o['id'],$o['status'])."</td>
+							<td>".text_queue_action_par($o['status'],$o['id'])."</td>
 						</tr>
 		";
 	}

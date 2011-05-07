@@ -70,7 +70,7 @@ function text_defs($key, $all = false) {
 function text_queue_action($id) {
 	
 }
-function text_queue_action_par($id, $st) {
+function text_queue_action_par($st = -1, $id = 0) {
 	$support = array(
 		0 => array(0, 1),
 		2 => array(2),
@@ -78,6 +78,8 @@ function text_queue_action_par($id, $st) {
 		6 => array(4),
 		7 => array(3),
 	);
+	if($id === 0)
+		return ($st === -1) ? $support : $support[$st];
 	$actions = array(
 		0 => "接受",
 		1 => "拒絕",
@@ -91,6 +93,16 @@ function text_queue_action_par($id, $st) {
 		$html .= $h1 . $a . "'>" . $actions[$a] . "</a>";
 	}
 	return $html;
+}
+function to_status_par($act = -1) {
+	$to = array(
+		0 => 2,
+		1 => 3,
+		2 => 4,
+		3 => 5,
+		4 => 7,
+	);
+	return ($act === -1) ? $to : $to[$act];
 }
 function verify_login_form() {
 	/** validate input client-side with js */

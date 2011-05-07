@@ -1,8 +1,5 @@
 <?php
 
-/** turn on output buffering */
-ob_start();
-
 include './config.php';
 include './inc/database.php';
 include './inc/function.php';
