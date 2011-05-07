@@ -60,10 +60,23 @@
 					如何增加积分 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
 				</div>
 				<div class='clear'></div>
-				<form id='pdfPage'>
+				<div id='pdfPage'>
 					<div id='pdfConfig'>
 						<div class='uploadFile'>
-							<input type='file'>
+							<form action="/submit.php" method="post" enctype="multipart/form-data">
+								<input type='file'>
+								<input type='hidden' name='type' />
+								<input type='hidden' name='store' />
+								<input type='hidden' name='size' />
+								<input type='hidden' name='color' />
+								<input type='hidden' name='double' />
+								<input type='hidden' name='layout' />
+								<input type='hidden' name='pageUpper' />
+								<input type='hidden' name='pageLower' />
+								<input type='hidden' name='copy' />
+								<input type='hidden' name='note' />
+								<input type='submit' value='提交' />
+							</form>
 						</div>
 						<input type='button' id='storeBtn' class='uiBtn2' value='选择打印店' />
 						<div class='storeListWrapper'>
@@ -196,21 +209,8 @@
 					</div>
 					<div id='pdfConfirm'>
 						提示：blablabla;
-						<form action="/submit.php" method="post" enctype="multipart/form-data">
-							<input type='hidden' name='type' />
-							<input type='hidden' name='store' />
-							<input type='hidden' name='size' />
-							<input type='hidden' name='color' />
-							<input type='hidden' name='double' />
-							<input type='hidden' name='layout' />
-							<input type='hidden' name='pageUpper' />
-							<input type='hidden' name='pageLower' />
-							<input type='hidden' name='copy' />
-							<input type='hidden' name='note' />
-							<input type='submit' value='提交' />
-						</form>
 					</div>
-				</form>
+				</div>
 			</div>
 			<div class='panel taskQueue'>
 				<h2>任务队列</h2>

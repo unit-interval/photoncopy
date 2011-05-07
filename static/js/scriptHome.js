@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 	$('.sizeItem').click(function(){
 		$('input[name="size"]').val($(this).children().val());
-		$('#sizeBtn').val($(this).children('input[name="pName"]').val());
+		$('#sizeBtn').val($(this).children().val());
 	});
 
 //--------------------color javascript--------------------
