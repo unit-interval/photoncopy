@@ -31,7 +31,7 @@ function page_footer() {
 							申请店铺
 						</li>
 						<li>
-							商铺登录
+							<a href='/partner.php'>商铺登录</a>
 						</li>
 						<li>
 							工作流程
