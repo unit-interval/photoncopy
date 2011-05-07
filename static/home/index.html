@@ -29,81 +29,65 @@
 			</ul>
 		</div>
 		<div class="contentWrapper">
-			<div class='panel profile'>
-				<dl class='profileItem'>
-					<dt>PDF文档</dt>
-					<dd><span class='value'>0</span> RMB</dd>
-				</dl>
-				<dl class='profileItem'>
-					<dt>WORD文档</dt>
-					<dd><span class='value'>0</span> RMB</dd>
-				</dl>
-				<dl class='profileItem'>
-					<dt>PPT幻灯片</dt>
-					<dd><span class='value'>0</span> RMB</dd>
-				</dl>
-				<dl class='profileItem' id='green'>
-					<dt>双面打印</dt>
-					<dd><span class='value'>0</span> RMB</dd>
-				</dl>
-				<a href='credit/index.php'>
-					<dl class='profileItem rtCorner rbCorner' id='credit'>
-						<dt>信用额度</dt>
-						<dd><span class='value'>0.5</span> RMB</dd>
-					</dl>
-				</a>
-			</div>
-			<div class='panel task'>
-				<h2>任务</h2>
-				<div class='lbCorner' id='leftBtn'></div>
-				<div class='itemWrapper'>
-					<div class='taskItem'>
-						编号: 1<br>
-						类型: WORD文档<br>
-						状态: 打印中<br>
-						店铺: 北京大学25楼打印店<br>
-					</div>
-					<div class='taskItem'>
-						编号: 2<br>
-						类型: PPT幻灯片<br>
-						状态: 完成待取<br>
-						店铺: 北京大学28楼打印店<br>
-					</div>
-					<div class='taskItem'>
-						编号: 3<br>
-						类型: PDF文档<br>
-						状态: 队列中<br>
-						店铺: 北京大学36楼打印店<br>
-					</div>
-					<div class='taskItem'>
-						编号: 1<br>
-						类型: WORD文档<br>
-						状态: 打印中<br>
-						店铺: 北京大学25楼打印店<br>
-					</div>
-					<div class='taskItem'>
-						编号: 1<br>
-						类型: WORD文档<br>
-						状态: 打印中<br>
-						店铺: 北京大学25楼打印店<br>
-					</div>
-					<div class='taskItem'>
-						编号: 1<br>
-						类型: WORD文档<br>
-						状态: 打印中<br>
-						店铺: 北京大学25楼打印店<br>
+			<div class='panel taskType'>
+				<div class='taskTypeItem' id='pdfTask'>
+					<p>PDF文档</p>
+				</div>
+				<div class='taskTypeItem' id='wordTask'>
+					<p>WORD文档</p>
+				</div>
+				<div class='taskTypeItem' id='pptTask'>
+					<p>PPT幻灯片</p>
+				</div>
+				<div class='taskTypeItem' id='taskSum'>
+					<h3>总费用</h3>
+					<div>
+						<span id='price'>0</span><span>元</span>
 					</div>
 				</div>
-				<div id='rightBtn' class='rbCorner'></div>
+				<div class='taskTypeItem' id='credit'>
+					<h3>积分</h3>
+					<div>
+						<span id='price'>0</span><span>元</span>
+					</div>
+				</div>
+			</div>
+			<div class='drawer lbCorner rbCorner'>
+				<div id='status'>
+					请选择打印文件的类型
+				</div>
+				<div id='creditPlus'>
+					提升信用额度 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
+				</div>
 				<div class='clear'></div>
-			</div>
-			<div class='panel store'>
-				<h2>请选择打印店</h2>
-				<p>网络: 北京大学 切换网络</p>
-				<div id='storeMap'>
-					<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Beijing+South+Railway+Station,+Fengtai,+Beijing,+China&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed"></iframe>
-				</div>
-				<p id='toggleMap'>显示地图</p>
+				<form id='pdfPage'>
+					<input type='radio' checked='yes' name='type' value='pdf' />
+					<select name='store' id='dStore'>
+						<option value='0'>选择打印店</option>
+						<option value='1'>北京大学25楼打印店</option>
+						<option value='2'>北京大学36楼打印店</option>
+					</select>
+					<select name='size' id='dSize'>
+						<option value='0'>纸张</option>
+						<option value='1'>A4</option>
+						<option value='2'>B5</option>
+					</select>
+					<select name='color' id='dColor'>
+						<option value='0'>油墨</option>
+						<option value='1'>黑白</option>
+						<option value='2'>彩色</option>
+					</select>
+					<select name='page' id='dPage'>
+						<option value='0'>页数</option>
+						<option value='1'>1-20</option>
+						<option value='2'>10-50</option>
+						<option value='3'>50-100</option>
+						<option value='4'>100-500</option>
+						<option value='5'>500</option>
+					</select>
+					
+					<input type='submit' value='提交' />
+				</form>
 			</div>
 			<div class='storeListWrapper'>
 				<div class='storeListL'>
@@ -112,7 +96,7 @@
 							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<h2>北京大学25楼打印店</h2>
 							<p>这里放上打印店公告栏的内容</p>
 							<p>余额: 1.00元</p>
@@ -123,7 +107,7 @@
 							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<h2>北京大学25楼打印店</h2>
 							<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
 							<p>余额: 1.00元</p>
@@ -134,7 +118,7 @@
 							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<h2>北京大学25楼打印店</h2>
 							<p>这里放上打印店公告栏的内容</p>
 							<p>余额: 1.00元</p>
@@ -145,7 +129,7 @@
 							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<h2>北京大学25楼打印店</h2>
 							<p>这里放上打印店公告栏的内容</p>
 							<p>余额: 1.00元</p>
@@ -156,15 +140,12 @@
 							<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' /> 
 						</div>
 						<div class='storeItemInfo'>
-							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='去这里打印' /></a>
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<h2>北京大学25楼打印店</h2>
 							<p>这里放上打印店公告栏的内容</p>
 							<p>余额: 1.00元</p>
 						</div>
 					</div>
-				</div>
-				<div class='storeListR'>
-					
 				</div>
 			</div>
 		</div>

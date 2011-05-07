@@ -1,111 +1,91 @@
-/*------------------------ PROFILE ------------------------*/
+/*------------------------ TASK TYPE ------------------------*/
 
-.profile{
+.taskType{
 	width: 960px;
-	margin: 30px auto;
-	background: #232323;
+	margin: 30px auto 0px;
+	background: #282828;
 	height: 80px;
+	overflow: hidden;
+	background: url(../images/taskPanelBg.png);
 }
 
-.profileItem{
+.taskTypeItem{
 	float: left;
-	width: 155px;
-	border-right: 5px solid #151515;
-	padding-top: 12px;
-	margin: 0px;
-	height: 68px;
+	width: 161px;
+	height: 100%;
 	color: #8D79F2;
-}
-
-.profileItem dd{
-	text-align: center;
-	margin-left: 0px;
-}
-
-.profileItem dt{
 	text-align: center;
 }
 
-.value{
-	font-size: 36px; 
+.taskTypeItem:hover{
+	cursor: pointer;
 }
 
-#green{
-	color: #69CA94;
+#pdfTask{
+	width: 158px;
+}
+
+.taskTypeItem h3{
+	font-weight: normal;
+}
+
+.taskTypeItem p{
+	font-size: 18px;
+	margin-top: 28px;
+}
+
+#taskSum{
+	padding-top: 12px;
+	color: #6CAEFF;
+}
+
+#taskSum:hover, #credit:hover{
+	cursor: default;
+}
+
+#price{
+	font-size: 36px;
 }
 
 #credit{
-	color: #6CAEFF;
+	padding: 12px 20px 0px 0px;
+	color: #CAC3E4;
 	float: right;
-	padding-right: 30px;
-	border-width: 0px;
-}
-
-#credit dd, #credit dt{
 	text-align: right;
 }
 
-#creditPlus:hover{
+span{
+	font-size: 14px;
+}
+
+/*------------------------ DRAWER ------------------------*/
+
+.drawer{
+	font-size: 13px;
+	width: 880px;
+	margin: 0px auto;
 	background: #272727;
+	-moz-box-shadow: #151515 2px 2px 7px 0;
+	-webkit-box-shadow: #151515 2px 2px 7px 0;
+	box-shadow: #151515 2px 2px 7px 0;
+	background: url(../images/drawerShadowInset.png) repeat-x;
+	padding: 8px 20px;
 }
 
-/*------------------------ TASK ------------------------*/
+/*------------------------ STATUS ------------------------*/
 
-.task{
-	width: 960px;
-	margin: 30px auto;
-	background: #272727;
-}
-
-.task h2{
-	background: #232323;
-	color: #8D79F2;
-}
-
-#leftBtn, #rightBtn{
-	width: 65px;
-	height: 120px;
-	cursor: pointer;
-	font-size: 36px;
-	text-align: center;
-	color: #999;
-	padding-top: 30px;
-}
-
-#leftBtn{
+#status{
 	float: left;
+	color: #7F95FF;
+	line-height: 24px;
 }
 
-#rightBtn{
+/*------------------------ STORE ------------------------*/
+
+#creditPlus{
 	float: right;
-}
-
-#leftBtn:hover, #rightBtn:hover{
-	background: #232323;
-}
-
-.itemWrapper{
-	float: left;
-	margin: 0px;
-	padding: 0px;
-	width: 825px;
-	overflow: hidden;
-	border-right: 5px solid #232323;
-
-	/*!!! SPECIFY THE HEIGHT OF THE TASK FLOW !!!*/
-	height: 150px;
-	
-}
-
-.taskItem{
-	background: url(../images/taskIcon.png) no-repeat 15px 20px;
-	float: left;
-	width: 195px;
-	height: 100%;
-	border-left: 5px solid #232323;
-	padding: 20px 20px 0px 55px;
-	color: #CCC;
-	font-size: 12px;
+	color: #606580;
+	line-height: 24px;
 }
 
 /*------------------------ STORE ------------------------*/
