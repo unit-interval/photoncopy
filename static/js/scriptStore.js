@@ -1,13 +1,10 @@
 $(document).ready(function(){
-	$("#toggleMap").click(function(){
-		if ($(this).html()=='显示地图'){
-			$("#storeMap").slideDown();
-			$(this).html('隐藏地图');			
-		}
-		else{
-			$("#storeMap").slideUp();
-			$(this).html('显示地图');
-		}
+	$("#toggleMap").toggle(function(){
+		$("#storeMap").slideDown();
+		$(this).html('隐藏地图');
+	},function(){
+		$("#storeMap").slideUp();
+		$(this).html('显示地图');
 	});
 
 	$('.taskType').click(function(){

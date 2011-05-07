@@ -6,7 +6,13 @@ $(document).ready(function(){
 	$('#msgCancel').click(function(){
 		$('#msgChangePanel').slideUp('fast');
 	});
+	$('#lockMask > input[name="phrase"]').keyup(function(){
+		if($(this).val() == $(this).next().val()){
+			$(this).val('');
+			$('#lockMask').hide();
+		}
+	});
 	$('#storeLock').click(function(){
-		
+		$('#lockMask').show();
 	})
 })

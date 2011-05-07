@@ -1,8 +1,5 @@
 <?php
 
-/** turn on output buffering */
-ob_start();
-
 include './config.php';
 include './inc/database.php';
 include './inc/function.php';
@@ -34,11 +31,9 @@ page_meta();
 page_nav();
 
 /** FIXME write partner pages */
-if($_GET['c'] == 'activate')
-page_par_act();
-elseif($_GET['c'] == 'forget')
-page_par_login();
-elseif($_GET['c'] == 'login') {
+if($_GET['c'] == 'activate') {
+} elseif($_GET['c'] == 'forget') {
+} elseif($_GET['c'] == 'login') {
 	if(!($input = verify_login_form()))
 	err_redir('Invalid Login Information.','/partner.php');
 	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
@@ -63,22 +58,20 @@ elseif($_GET['c'] == 'login') {
 	setcookie('pid', $user['id'], $expire);
 	setcookie('hash_p', md5(SALT_REG . $user['id']), $expire);
 	err_redir('', '/partner.php');
-	exit;
 } elseif($_GET['c'] == 'logout') {
 	setcookie('hash_p', '', time()-3600);
 	setcookie('pid', '', time()-3600);
 	$_SESSION = array();
 	session_destroy();
 	err_redir();
-} elseif ($_GET['c'] == 'profile')
-page_par_profile();
-elseif ($_GET['c'] == 'reg')
-page_par_reg();
-elseif ($_GET['c'] == 'signup') {
+} elseif ($_GET['c'] == 'profile') {
+} elseif ($_GET['c'] == 'reg') {
+} elseif ($_GET['c'] == 'signup') {
 	page_par_signup();
 } else {
 	$orders = array();
-	$query = "select * from `order` where `pid` = {$_SESSION['pid']}";
+	$query = "select * from `order` where `pid` = {$_SESSION['pid']}
+		order by `status` desc";
 	if($result = $db->query($query)) {
 		while($row = $result->fetch_assoc())
 		$orders[$row['id']] = $row;

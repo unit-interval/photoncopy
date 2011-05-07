@@ -49,6 +49,8 @@ if($_SESSION['state'] === 'activating') {
 	err_redir("db error({$db->errno}).", '/error.php');
 	$uid = $db->insert_id;
 	$query = "insert into `credit` values ($uid, 0, 0.5)";
+	if($db->query($query) !== TRUE)
+	err_redir("db error({$db->errno}).", '/error.php');
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];

@@ -31,7 +31,7 @@ function page_footer() {
 							申请店铺
 						</li>
 						<li>
-							商铺登录
+							<a href='/partner.php'>商铺登录</a>
 						</li>
 						<li>
 							工作流程
@@ -176,9 +176,9 @@ function page_par_act() {
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
 	echo "
-		<div class='dummy'>
-			<input id='lockPsw' type='password'/>
-			<input id='lockPhr' type='hidden' value='{$_SESSION['passphrase']}' />
+		<div id='lockMask' class='dummy'>
+			<input name='phrase' type='password'/>
+			<input type='hidden' value='{$_SESSION['passphrase']}' />
 		</div>
 		<div class='contentWrapper'>
 			<div class='panel board'>
@@ -226,7 +226,7 @@ function page_par_home($orders) {
 							<th width='50px'>操作</th>
 						</tr>
 						<tr></tr>"
-						. mod_order_queue($orders) .
+						. mod_order_queue_proc($orders) .
 					"</tbody>
 				</table>
 				<p class='lbCorner rbCorner'>30秒后刷新</p>

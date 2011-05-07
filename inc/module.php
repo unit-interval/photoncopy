@@ -113,30 +113,27 @@ function mod_nav_account() {
 				</li>
 		';
 }
-function mod_order_queue($orders) {
+function mod_order_queue_proc($orders) {
 	$t1 = text_defs('order_type');
 	$t2 = text_defs('order_paper');
 	$t3 = text_defs('order_double');
-	$t4 = text_defs('order_status_proc');
-	$proc = array(
-		0 => "<a>接受</a> / <a>拒絕</a>",
-		1 => '<a>打印完成</a>',
-		2 => '<a>埋單</a>',
-	);
+	$t4 = text_defs('order_status_par');
 	$html = '';
 	foreach ($orders as $o) {
+		if(!$t4[$o['status']])
+			continue;
 		if($o['fname'] == '-')
 		$link = '過期';
 		else
 		$link = "<a target='_blank' href='/upload/" . rawurlencode($o['fname']) . "'>{$o['copy']}份</a>";
 		$html .= "
-						<tr><td>{$o['id']}</td>
+						<tr><td>{$o['id']}/{$o['pid']}</td>
 							<td>{$t1[$o['type']]}</td>
 							<td>{$t2[$o['paper']]} {$t3[$o['double']]} {$o['page']}頁</td>
 							<td>{$o['note']}</td>
 							<td>$link</td>
 							<td>{$t4[$o['status']]}</td>
-							<td>{$proc[$o['status']]}</td>
+							<td>".text_queue_action_par($o['status'],$o['id'])."</td>
 						</tr>
 		";
 	}
