@@ -176,9 +176,9 @@ function page_par_act() {
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
 	echo "
-		<div class='dummy'>
-			<input id='lockPsw' type='password'/>
-			<input id='lockPhr' type='hidden' value='{$_SESSION['passphrase']}' />
+		<div id='lockMask' class='dummy'>
+			<input name='phrase' type='password'/>
+			<input type='hidden' value='{$_SESSION['passphrase']}' />
 		</div>
 		<div class='contentWrapper'>
 			<div class='panel board'>

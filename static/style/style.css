@@ -30,6 +30,11 @@ a{
 	color: #888888;
 }
 
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
+
 .clear{
 	clear: both;
 }

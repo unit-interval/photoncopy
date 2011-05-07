@@ -132,9 +132,11 @@ tr:first-child{
 .dummy{
 	position: fixed;
 	background-color: black;
+	top: 0px;
 	height: 100%;
 	width: 100%;
-	z-index: 2;
+	padding: 25px 40%;
+	z-index: 99;
 	filter:alpha(opacity=60);	/* for IE */
 	opacity:0.6;	/* CSS3 standard */
 }
