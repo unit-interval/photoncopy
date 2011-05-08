@@ -16,6 +16,7 @@
 	margin-right: -62px;
 }
 
+#btn0{ position: static; height: 100%; background: url('../images/bg/bg1.png') left; z-index: 80; }
 #btn1{ position: relative; height: 100%; background: url('../images/bg/bg1.png') right; z-index: 70; }
 #btn2{ position: relative; height: 100%; background: url('../images/bg/bg2.png') right; z-index: 60; }
 #btn3{ position: relative; height: 100%; background: url('../images/bg/bg3.png') right; z-index: 50; }
