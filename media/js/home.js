@@ -27,6 +27,6 @@ function order_status(row) {
 	});
 }
 
-$(
+$(function(){
 	setInterval(order_list_refresh, 30000);
-);
+});
