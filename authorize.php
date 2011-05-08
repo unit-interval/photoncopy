@@ -90,7 +90,7 @@ if($_GET['c'] == 'login') {
 	$email = strtolower($_POST['email']);
 	if(!verify_email($email))
 	err_redir('invalid email addr.');
-	send_reg_mail($email);
+//	send_reg_mail($email);
 	setcookie('email', $email, time()+3600*24*3);
 	err_redir('email sent.');
 } elseif($_GET['c'] == 'forget') {

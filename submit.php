@@ -10,30 +10,52 @@ session_start();
 if($_SESSION['logged_in'] != true)
 	err_redir('Please Login.');
 
-$order = verify_order_form();
+if($order = verify_order_form()) {
+	if($_FILES['document']['error'] === UPLOAD_ERR_OK) {
+		if(!($fname = save_upload_file()))
+		err_redir('uploading failed.', '/home.php');
+		$query = "insert into `order` values (default,"
+			. $_SESSION['uid'] . ','
+			. $order['pid'] . ','
+			. '0, '
+			. $order['type'] . ','
+			. $order['paper'] . ','
+			. $order['color'] . ','
+			. $order['double'] . ','
+			. $order['copy'] . ','
+			. $order['page'] . ','
+			. $order['cost'] . ','
+			. "'" . $db->real_escape_string($fname) . "',"
+			. "'" . $db->real_escape_string($order['_note']) . "')";
+		if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+		$oid = $db->insert_id;
+		err_redir("order #$oid successfully submitted.", '/home.php');
+	}
+} elseif(isset($_GET['oid']) && isset($_GET['act'])) {
+	$oid = intval($_GET['oid']);
+	$act = intval($_GET['act']);
 
-if($_FILES['document']['error'] === UPLOAD_ERR_OK) {
-	if(!($fname = save_upload_file()))
-	err_redir('uploading failed.', '/home.php');
-	$query = "insert into `order` values (default,"
-		. $_SESSION['uid'] . ','
-		. $order['pid'] . ','
-		. '0, '
-		. $order['type'] . ','
-		. $order['paper'] . ','
-		. $order['color'] . ','
-		. $order['double'] . ','
-		. $order['copy'] . ','
-		. $order['page'] . ','
-		. $order['cost'] . ','
-		. "'" . $db->real_escape_string($fname) . "',"
-		. "'" . $db->real_escape_string($order['_note']) . "')";
-	if($db->query($query) !== TRUE)
+$query = "select `status` from `order`
+	where `id` = $oid and `uid` = {$_SESSION['uid']}";
+$result = $db->query($query);
+if($result->num_rows == 0)
+err_redir('無效訂單', '/home.php');
+
+$row = $result->fetch_row();
+$result->free();
+
+if($act !==0)
+err_redir('無效訂單', '/home.php');
+
+$query = "update `order` set `status` = 1
+	where `id` = $oid";
+if($db->query($query) !== TRUE)
 	err_redir("db error({$db->errno}).", '/error.php');
-	$oid = $db->insert_id;
-	err_redir("order #$oid successfully submitted.", '/home.php');
-}
+} else
+	err_redir('無效訂單', '/home.php');
 
+err_redir('成功修改訂單狀態', '/home.php');
 
 function verify_order_form() {
 	if (!isset($_POST['store']))

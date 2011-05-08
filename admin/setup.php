@@ -1,6 +1,7 @@
 <?php
 
 include '../config.php';
+include '../inc/database.php';
 
 session_name(SESSNAME);
 session_start();
@@ -137,7 +138,6 @@ if(!isset($_GET['c'])) {
 	$table = $_GET['c'];
 	if(!isset($tables[$table]))
 	die("table $table doesn't exist.");
-	include_once '../inc/database.php';
 	resetTable($table);
 }
 
