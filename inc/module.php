@@ -190,15 +190,18 @@ function mod_stores($stores) {
 }
 function mod_taskqueue($tasks, $stores) {
 	$html = '
+					<thead>
 						<tr>
 							<th>编号</th>
 							<th>店铺</th>
 							<th>状态</th>
 							<th>费用估计</th>
 							<th>操作</th>
-						</tr>';
+						</tr>
+					</thead><tbody>';
 	foreach($tasks as $t)
 		$html .= unit_order($t, $stores[$t['pid']]);
+	$html .= "</tbody>";
 	return $html;
 }
 function mod_tasks($tasks, $stores) {
