@@ -255,13 +255,15 @@ function unit_order_par($order) {
 	else
 	$link = "<a target='_blank' href='/upload/" . rawurlencode($order['fname']) . "'>{$order['copy']}份</a>";
 	$html = "
-					<tr><td>{$order['id']}</td>
+					<tr class='newly_added'>
+						<td>{$order['id']}</td>
 						<td>{$order['pid']}/{$t1[$order['type']]}</td>
 						<td>{$t2[$order['paper']]} {$t3[$order['double']]} {$order['page']}頁</td>
 						<td>{$order['note']}</td>
 						<td>$link</td>
 						<td>{$t4[$order['status']]}</td>
 						<td>".text_queue_action_par($order['status'],$order['id'])."</td>
+						<input type='hidden' name='oid' value={$order['id']} />
 					</tr>
 	";
 	return $html;
