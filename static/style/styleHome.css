@@ -1,71 +1,28 @@
-/*------------------------ TASK TYPE ------------------------*/
+/*------------------------ BTN ------------------------*/
 
-.taskType{
+.btnWrapper{
 	width: 960px;
 	margin: 30px auto 0px;
-	background: #282828;
 	height: 80px;
-	background: url(../images/taskPanelBg.png) repeat-x;
+	z-index: 100;
 	overflow: hidden;
+	background: url('../images/bg/bg00.png') repeat-x;
 }
 
-.taskTypeItem{
-	background: url(../images/taskPanelBg.png) repeat-x;
+.btn{
 	float: left;
-	width: 158px;
+	width: 162px;
 	height: 100%;
-	color: #8D79F2;
-	text-align: center;
+	margin-right: -62px;
 }
 
-.taskTypeBtn:hover{
-	background: url(../images/taskPanelBg.png) 0px -80px repeat-x;
-	cursor: pointer;
-}
-
-.taskTypeBtn.taskTypeSelected{
-	background: url(../images/taskPanelBg.png) 0px -80px repeat-x;	
-}
-
-.taskTypeSep{
-	float: left;
-	height: 100%;
-	width: 6px;
-	background: url(../images/taskPanelBorder.png);
-}
-
-.taskTypeItem h3{
-	font-weight: normal;
-}
-
-.taskTypeItem p{
-	font-size: 18px;
-	margin-top: 28px;
-}
-
-#taskSum{
-	padding-top: 12px;
-	color: #6CAEFF;
-}
-
-#taskSum:hover, #credit:hover{
-	cursor: default;
-}
-
-#price{
-	font-size: 36px;
-}
-
-#credit{
-	padding: 12px 20px 0px 0px;
-	color: #CAC3E4;
-	float: right;
-	text-align: right;
-}
-
-span{
-	font-size: 14px;
-}
+#btn1{ position: relative; height: 100%; background: url('../images/bg/bg1.png') right; z-index: 70; }
+#btn2{ position: relative; height: 100%; background: url('../images/bg/bg2.png') right; z-index: 60; }
+#btn3{ position: relative; height: 100%; background: url('../images/bg/bg3.png') right; z-index: 50; }
+#btn4{ position: relative; height: 100%; background: url('../images/bg/bg4.png') right; z-index: 40; }
+#btn5{ position: relative; height: 100%; background: url('../images/bg/bg5.png') right; z-index: 30; }
+#btn6{ position: relative; height: 100%; background: url('../images/bg/bg6.png') right; z-index: 20; }
+#btn7{ position: relative; height: 100%; background: url('../images/bg/bg7.png') right; z-index: 10; }
 
 /*------------------------ DRAWER ------------------------*/
 
@@ -76,8 +33,7 @@ span{
 	-moz-box-shadow: #151515 2px 2px 7px 0;
 	-webkit-box-shadow: #151515 2px 2px 7px 0;
 	box-shadow: #151515 2px 2px 7px 0;
-	background: #232F32 url(../images/drawerShadowInset1.png) repeat-x;
-	/* url(../images/drawerShadowInset.png) repeat-x;*/
+	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
 	padding: 8px 20px;
 }
 

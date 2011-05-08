@@ -29,290 +29,50 @@
 			</ul>
 		</div>
 		<div class="contentWrapper">
-			<div class='panel taskType'>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg1.png") right;'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg2.png");'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg3.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg4.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg5.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg6.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg7.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg8.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg9.png")'></div>
-				<div style='width: 80px; height: 100%; float: left; background: url("../images/bg/bg10.png")'></div>
-			</div>
-			<div id='pdfDefault'>
-				<input type='hidden' name='type' />
-				<input type='hidden' name='store' />
-				<input type='hidden' name='paer' />
-				<input type='hidden' name='color' />
-				<input type='hidden' name='double' />
-				<input type='hidden' name='layout' />
-				<input type='hidden' name='page' />
-				<input type='hidden' name='copy' />
-				<input type='hidden' name='bind' />
-				<input type='hidden' name='cover' />
-				<input type='hidden' name='note' />
-			</div>
-			<div id='wordDefault'>
-				<input type='hidden' name='type' />
-				<input type='hidden' name='store' />
-				<input type='hidden' name='paper' />
-				<input type='hidden' name='color' />
-				<input type='hidden' name='double' />
-				<input type='hidden' name='layout' />
-				<input type='hidden' name='page' />
-				<input type='hidden' name='copy' />
-				<input type='hidden' name='bind' />
-				<input type='hidden' name='cover' />
-				<input type='hidden' name='note' />
-			</div>
-			<div id='pptDefault'>
-				<input type='hidden' name='type' />
-				<input type='hidden' name='store' />
-				<input type='hidden' name='paper' />
-				<input type='hidden' name='color' />
-				<input type='hidden' name='double' />
-				<input type='hidden' name='layout' />
-				<input type='hidden' name='page' />
-				<input type='hidden' name='copy' />
-				<input type='hidden' name='bind' />
-				<input type='hidden' name='cover' />
-				<input type='hidden' name='note' />
-			</div>
-			<div class='panel taskType'>
-				<div class='taskTypeItem taskTypeBtn'>
-					<input type='hidden' name='value' value='1'>
-					<input type='hidden' name='name' value='pdf'>
-					<p>PDF文档</p>
-				</div>
-				<div class='taskTypeSep'></div>
-				<div class='taskTypeItem taskTypeBtn'>
-					<input type='hidden' name='value' value='2'>
-					<input type='hidden' name='name' value='word'>
-					<p>WORD文档</p>
-				</div>
-				<div class='taskTypeSep'></div>
-				<div class='taskTypeItem taskTypeBtn'>
-					<input type='hidden' name='value' value='3'>
-					<input type='hidden' name='name' value='ppt'>
-					<p>PPT幻灯片</p>
-				</div>
-				<div class='taskTypeSep'></div>
-				<div class='taskTypeItem' id='taskSum'>
-					<h3>费用估计</h3>
-					<div>
-						<span id='price'>0</span><span>元</span>
+			<div class='panel btnWrapper'>
+				<div class='btn'>
+					<div id='btn1'>
+						
 					</div>
 				</div>
-				<div class='taskTypeSep'></div>
-				<div class='taskTypeItem' id='credit'>
-					<h3>可用积分</h3>
-					<div>
-						<span id='price'>0</span>
+				<div class='btn'>
+					<div id='btn2'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn3'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn4'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn5'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn6'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn7'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn8'>
+						
 					</div>
 				</div>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
-				<div id='status'>
-					请选择文件类型
-				</div>
-				<div id='creditPlus'>
-					如何增加积分 <a href='badge.html'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
-				</div>
-				<div class='clear'></div>
-				<div id='taskWrapper'>
-					<div id='typeWrapper' style='display: none'>
-						<input type='button' id='fileBtn' class='uiBtn2' />
-						<input type='button' id='storeBtn' class='uiBtn2' />
-						<input type='button' id='paperBtn' class='uiBtn2' />
-						<input type='button' id='colorBtn' class='uiBtn2' />
-						<input type='button' id='doubleBtn' class='uiBtn2' />
-						<input type='button' id='layoutBtn' class='uiBtn2' />
-						<input type='button' id='pageBtn' class='uiBtn2' />
-						<input type='button' id='copyBtn' class='uiBtn2' />
-						<input type='button' id='bindBtn' class='uiBtn2' />
-						<input type='button' id='coverBtn' class='uiBtn2' />
-						<input type='button' id='noteBtn' class='uiBtn2' />
-					</div>
-					<div id='fileWrapper' style='display: none'>
-						<form name='input' action="/submit.php" method="post" enctype="multipart/form-data">
-							<input type='file' name='file' />
-							<input type='hidden' name='type' />
-							<input type='hidden' name='store' />
-							<input type='hidden' name='paper' />
-							<input type='hidden' name='color' />
-							<input type='hidden' name='double' />
-							<input type='hidden' name='layout' />
-							<input type='hidden' name='page' />
-							<input type='hidden' name='copy' />
-							<input type='hidden' name='bind' />
-							<input type='hidden' name='cover' />
-							<input type='hidden' name='note' />
-							<input type='submit' value='提交' />
-						</form>
-					</div>
-					<div id='storeWrapper' style='display: none'>
-						<div class='storeL'>
-							<input type='hidden' name='id' value='store'>
-							<div class='item storeItem'>
-								<input type='hidden' name='value' value='1' />
-								<input type='hidden' name='name' value='北京大学25楼打印店'>
-								<div class='storeItemAvatar'>
-									<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' alt='avatar'/> 
-								</div>
-								<div class='storeItemInfo'>
-									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-									<h2>北京大学25楼打印店</h2>
-									<p>这里放上打印店公告栏的内容</p>
-									<p>余额: 1.00元</p>
-								</div>
-							</div>
-							<div class='item storeItem'>
-								<input type='hidden' name='value' value='2' /> 
-								<input type='hidden' name='name' value='北京大学26楼打印店'>
-								<div class='storeItemAvatar'>
-									<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' alt='avatar'/> 
-								</div>
-								<div class='storeItemInfo'>
-									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-									<h2>北京大学25楼打印店</h2>
-									<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
-									<p>余额: 1.00元</p>
-								</div>
-							</div>
-						</div>
-						<div class='storeR'>
-							<input type='hidden' name='id' value='store' />
-							<div class='item storeItem'>
-								<input type='hidden' name='value' value='3' /> 
-								<input type='hidden' name='name' value='北京大学27楼打印店'>
-								<div class='storeItemAvatar'>
-									<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' alt='avatar'/> 
-								</div>
-								<div class='storeItemInfo'>
-									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-									<h2>北京大学25楼打印店</h2>
-									<p>这里放上打印店公告栏的内容jkldsjflksadjflajsdlkfjasdlkjfklasjfljas dlfjasjkdflsafjl;adsjfl;adslfasldfskfj</p>
-									<p>余额: 1.00元</p>
-								</div>
-							</div>
-							<div class='item storeItem'>
-								<input type='hidden' name='value' value='4' /> 
-								<input type='hidden' name='name' value='北京大学28楼打印店'>
-								<div class='storeItemAvatar'>
-									<img height='100%' width='100%' src='../images/store/storeAvatar1.jpg' alt='avatar'/> 
-								</div>
-								<div class='storeItemInfo'>
-									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-									<h2>北京大学25楼打印店</h2>
-									<p>这里放上打印店公告栏的内容</p>
-									<p>余额: 1.00元</p>
-								</div>
-							</div>
-						</div>
-						<div class='clear'></div>
-						</div>
-						<div style='display: none' id='paperWrapper'>
-						<input type='hidden' name='id' value='paper' />
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='A4纸' />
-							A4
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='2' />
-							<input type='hidden' name='name' value='B5纸' />
-							B5
-						</div>
-					</div>
-					<div id='colorWrapper' style='display: none'>
-						<input type='hidden' name='id' value='color' />
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='黑白' />
-							黑白
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='2' />
-							<input type='hidden' name='name' value='彩色' />
-							彩色
-						</div>
-					</div>
-					<div id='doubleWrapper' style='display: none'>
-						<input type='hidden' name='id' value='double' />
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='单面打印' />
-							单面打印
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='2' />
-							<input type='hidden' name='name' value='双面打印' />
-							双面打印
-						</div>
-					</div>
-					<div id='layoutWrapper' style='display: none'>
-						<input type='hidden' name='id' value='layout' />
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='1' />
-							1
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='2' />
-							<input type='hidden' name='name' value='2' />
-							2
-						</div>
-					</div>
-					<div id='pageWrapper' style='display: none' >
-						<input type='hidden' name='id' value='page'>
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='' name='name' value='页数很少' />
-							确认页数（很少）
-						</div>
-					</div>
-					<div id='copyWrapper' style='display: none'>
-						<input type='hidden' name='id' value='copy'>
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='打印1份' />
-							确认份数
-						</div>
-					</div>
-					<div id='bindWrapper' style='display: none'>
-						<input type='hidden' name='id' value='bind'>
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='无装订' />
-							无装订
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='2' />
-							<input type='hidden' name='name' value='左上角' />
-							左上角装订
-						</div>
-					</div>
-					<div id='coverWrapper' style='display: none'>
-						<input type='hidden' name='id' value='cover'>
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='无封面' />
-							无封面
-						</div>
-						<div class='item'>
-							<input type='hidden' name='value' value='1' />
-							<input type='hidden' name='name' value='无封面' />
-							添加封面
-						</div>
-					</div>
-					<div id='noteWrapper' style='display: none'>
-						成功啦！！！
-						<input type='button' value='提交订单'>
-					</div>
-
-				</div>
+				
 			</div>
 			<div class='panel taskQueue'>
 				<h2>任务队列</h2>
