@@ -5,24 +5,33 @@
 	margin: 30px auto 0px;
 	background: #282828;
 	height: 80px;
+	background: url(../images/taskPanelBg.png) repeat-x;
 	overflow: hidden;
-	background: url(../images/taskPanelBg.png);
 }
 
 .taskTypeItem{
+	background: url(../images/taskPanelBg.png) repeat-x;
 	float: left;
-	width: 161px;
+	width: 158px;
 	height: 100%;
 	color: #8D79F2;
 	text-align: center;
 }
 
-.taskTypeItem:hover{
+.taskTypeBtn:hover{
+	background: url(../images/taskPanelBg.png) 0px -80px repeat-x;
 	cursor: pointer;
 }
 
-#pdfTask{
-	width: 158px;
+.taskTypeBtn.taskTypeSelected{
+	background: url(../images/taskPanelBg.png) 0px -80px repeat-x;	
+}
+
+.taskTypeSep{
+	float: left;
+	height: 100%;
+	width: 6px;
+	background: url(../images/taskPanelBorder.png);
 }
 
 .taskTypeItem h3{
@@ -64,12 +73,20 @@ span{
 	font-size: 13px;
 	width: 880px;
 	margin: 0px auto 30px;
-	background: #272727;
 	-moz-box-shadow: #151515 2px 2px 7px 0;
 	-webkit-box-shadow: #151515 2px 2px 7px 0;
 	box-shadow: #151515 2px 2px 7px 0;
-	background: url(../images/drawerShadowInset.png) repeat-x;
+	background: #232F32 url(../images/drawerShadowInset1.png) repeat-x;
+	/* url(../images/drawerShadowInset.png) repeat-x;*/
 	padding: 8px 20px;
+}
+
+.uiBtn2{
+	display: none;
+}
+
+#typeWrapper{
+	
 }
 
 /*------------------------ STATUS ------------------------*/
@@ -106,17 +123,17 @@ span{
 
 /*------------------------ STORE LIST ------------------------*/
 
-.storeListL{
+.storeL{
 	float: left;
 	width: 425px;
 }
 
-.storeListR{
+.storeR{
 	float: right;
 	width: 425px;
 }
 
-.storeListWrapper{
+.storeWrapper{
 	margin: 30px auto 0px;
 }
 
