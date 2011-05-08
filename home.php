@@ -23,6 +23,7 @@ $link['css'][] = 'style';
 $link['css'][] = 'styleHome';
 $link['js'][] = 'jquery';
 $link['js'][] = 'scriptHome';
+$link['js'][] = 'home';
 
 $tasks = array();
 $stores = array();

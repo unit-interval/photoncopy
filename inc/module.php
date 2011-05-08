@@ -195,8 +195,6 @@ function mod_stores($stores) {
 	return $html;
 }
 function mod_taskqueue($tasks, $stores) {
-	$t1 = text_defs('order_type');
-	$t2 = text_defs('order_status');
 	$html = '
 						<tr>
 							<th>编号</th>
@@ -206,14 +204,7 @@ function mod_taskqueue($tasks, $stores) {
 							<th>操作</th>
 						</tr>';
 	foreach($tasks as $t)
-		$html .= "
-						<tr>
-							<td>{$t['id']}</td>
-							<td>{$stores[$t['pid']]['name']}</td>
-							<td>{$t1[$t['type']]}</td>
-							<td>{$t2[$t['status']]}</td>
-							<td>".text_queue_action($t['status'],$t['id'])."</td>
-						</tr>";
+		$html .= unit_order($t, $stores[$t['pid']]);
 	return $html;
 }
 function mod_tasks($tasks, $stores) {
@@ -230,6 +221,29 @@ function mod_tasks($tasks, $stores) {
 				金額: {$t['cost']}<br />
 			</div>
 		";
+	return $html;
+}
+/** TODO store storename in order as a order attr. */
+function unit_order($order, $store) {
+	$t1 = text_defs('order_type');
+	$t2 = text_defs('order_status');
+	$open = " class='order_open'";
+	if(in_array($order['status'], $t2['open'])) {
+		$cl = $open;
+		$st = "<a>{$t2[$order['status']]}</a>";
+	} else {
+		$cl = '';
+		$st = "{$t2[$order['status']]}";
+	}
+	$html = "
+					<tr$cl>
+						<td>{$order['id']}</td>
+						<td>{$store['name']}</td>
+						<td>{$t1[$order['type']]}</td>
+						<td>$st</td>
+						<td>".text_queue_action($order['status'],$order['id'])."</td>
+						<input type='hidden' name='status' value='{$order['status']}' />
+					</tr>";
 	return $html;
 }
 

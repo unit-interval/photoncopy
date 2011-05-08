@@ -38,6 +38,7 @@ function text_defs($key, $all = false) {
 			3 => '訂單退回',
 			4 => '完成待取',
 			5 => '任務完成',
+			'open' => array(0, 2, 4),
 		),
 		'order_status_par' => array(
 			0 => '新任務',
