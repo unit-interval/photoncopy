@@ -16,7 +16,6 @@ function order_status(row) {
 		dataType: 'html',
 		statusCode: {
 			204: function() {
-				 	$('div.footer > div.clear').append('123');
 					console.log('204');
 				 },
 			200: function(data){
@@ -27,6 +26,6 @@ function order_status(row) {
 	});
 }
 
-$(function(){
-	setInterval(order_list_refresh, 30000);
-});
+//$(function(){
+//	setInterval(order_list_refresh, 30000);
+//});

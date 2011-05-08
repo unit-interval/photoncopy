@@ -22,6 +22,7 @@ $link['css'][] = 'style';
 $link['css'][] = 'styleIndex';
 $link['css'][] = 'stylePartner';
 $link['js'][] = 'jquery';
+$link['js'][] = 'partner';
 $link['js'][] = 'script';
 $link['js'][] = 'scriptIndex';
 $link['js'][] = 'scriptPartner';
@@ -71,7 +72,7 @@ if($_GET['c'] == 'activate') {
 } else {
 	$orders = array();
 	$query = "select * from `order` where `pid` = {$_SESSION['pid']}
-		order by `status` desc";
+		order by `id` desc";
 	if($result = $db->query($query)) {
 		while($row = $result->fetch_assoc())
 		$orders[$row['id']] = $row;

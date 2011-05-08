@@ -114,29 +114,23 @@ function mod_nav_account() {
 		';
 }
 function mod_order_queue_proc($orders) {
-	$t1 = text_defs('order_type');
-	$t2 = text_defs('order_paper');
-	$t3 = text_defs('order_double');
-	$t4 = text_defs('order_status_par');
-	$html = '';
-	foreach ($orders as $o) {
-		if(!$t4[$o['status']])
-			continue;
-		if($o['fname'] == '-')
-		$link = '過期';
-		else
-		$link = "<a target='_blank' href='/upload/" . rawurlencode($o['fname']) . "'>{$o['copy']}份</a>";
-		$html .= "
-						<tr><td>{$o['id']}/{$o['pid']}</td>
-							<td>{$t1[$o['type']]}</td>
-							<td>{$t2[$o['paper']]} {$t3[$o['double']]} {$o['page']}頁</td>
-							<td>{$o['note']}</td>
-							<td>$link</td>
-							<td>{$t4[$o['status']]}</td>
-							<td>".text_queue_action_par($o['status'],$o['id'])."</td>
-						</tr>
-		";
-	}
+	$th = "
+						<tr>
+							<th width='50px'>编号</th>
+							<th width='50px'>类型</th>
+							<th width='200px'>要求</th>
+							<th>留言</th>
+							<th width='50px'>下载</th>
+							<th width='50px'>状态</th>
+							<th width='50px'>操作</th>
+						</tr>";
+	$html = "
+					<thead>$th
+					</thead><tfoot>$th
+					</tfoot><tbody id='order_list'>";
+	foreach ($orders as $o)
+		$html .= unit_order_par($o);
+	$html .= "</tbody>";
 	return $html;
 }
 function mod_store_sel($stores) {
@@ -244,6 +238,29 @@ function unit_order($order, $store) {
 						<td>".text_queue_action($order['status'],$order['id'])."</td>
 						<input type='hidden' name='status' value='{$order['status']}' />
 					</tr>";
+	return $html;
+}
+function unit_order_par($order) {
+	$t1 = text_defs('order_type');
+	$t2 = text_defs('order_paper');
+	$t3 = text_defs('order_double');
+	$t4 = text_defs('order_status_par');
+	if(!$t4[$order['status']])
+		return '';
+	if($order['fname'] == '-')
+	$link = '過期';
+	else
+	$link = "<a target='_blank' href='/upload/" . rawurlencode($order['fname']) . "'>{$order['copy']}份</a>";
+	$html = "
+					<tr><td>{$order['id']}</td>
+						<td>{$order['pid']}/{$t1[$order['type']]}</td>
+						<td>{$t2[$order['paper']]} {$t3[$order['double']]} {$order['page']}頁</td>
+						<td>{$order['note']}</td>
+						<td>$link</td>
+						<td>{$t4[$order['status']]}</td>
+						<td>".text_queue_action_par($order['status'],$order['id'])."</td>
+					</tr>
+	";
 	return $html;
 }
 

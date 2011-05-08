@@ -304,21 +304,9 @@ function page_par_home($orders) {
 			</div>
 			<div class='panel order'>
 				<h2>打印任务队列</h2>
-				<table>
-					<tbody>
-						<tr>
-							<th width='50px'>编号</th>
-							<th width='50px'>类型</th>
-							<th width='200px'>要求</th>
-							<th>留言</th>
-							<th width='50px'>下载</th>
-							<th width='50px'>状态</th>
-							<th width='50px'>操作</th>
-						</tr>
-						<tr></tr>"
+				<table>"
 						. mod_order_queue_proc($orders) .
-					"</tbody>
-				</table>
+				"</table>
 				<p class='lbCorner rbCorner'>30秒后刷新</p>
 			</div>
 		</div>
