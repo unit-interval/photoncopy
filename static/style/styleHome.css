@@ -11,12 +11,13 @@
 
 .btn{
 	float: left;
-	width: 162px;
+	width: 121px;
 	height: 100%;
-	margin-right: -62px;
+	margin-right: -21px;
 }
 
-#btn0{ position: static; height: 100%; background: url('../images/bg/bg1.png') left; z-index: 80; }
+#btn0{ position: static;   height: 100%; background: url('../images/bg/bg1.png') left;  z-index: 80; }
+#btn{}
 #btn1{ position: relative; height: 100%; background: url('../images/bg/bg1.png') right; z-index: 70; }
 #btn2{ position: relative; height: 100%; background: url('../images/bg/bg2.png') right; z-index: 60; }
 #btn3{ position: relative; height: 100%; background: url('../images/bg/bg3.png') right; z-index: 50; }
@@ -24,26 +25,18 @@
 #btn5{ position: relative; height: 100%; background: url('../images/bg/bg5.png') right; z-index: 30; }
 #btn6{ position: relative; height: 100%; background: url('../images/bg/bg6.png') right; z-index: 20; }
 #btn7{ position: relative; height: 100%; background: url('../images/bg/bg7.png') right; z-index: 10; }
+#btn8{ position: relative; height: 100%; background: url('../images/bg/bg8.png') right; z-index: 0; }
 
 /*------------------------ DRAWER ------------------------*/
 
 .drawer{
+	position: absolute;
 	font-size: 13px;
+	left: 50%;
 	width: 880px;
-	margin: 0px auto 30px;
-	-moz-box-shadow: #151515 2px 2px 7px 0;
-	-webkit-box-shadow: #151515 2px 2px 7px 0;
-	box-shadow: #151515 2px 2px 7px 0;
-	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
+	margin-left: -460px;
 	padding: 8px 20px;
-}
-
-.uiBtn2{
-	display: none;
-}
-
-#typeWrapper{
-	
+	z-index: 1;
 }
 
 /*------------------------ STATUS ------------------------*/
@@ -54,12 +47,57 @@
 	line-height: 24px;
 }
 
+/*------------------------ CREDIT ------------------------*/
+
+dl.credit{
+	color: #CAC3E4;
+	float: right;
+	padding: 12px 20px 0px 0px;
+	text-align: right;
+	margin: 0px;
+}
+
+dl.credit dt{
+	font-size: 14px;
+	margin: 0 0 2px 0;
+}
+
+dl.credit dd{
+	font-size: 36px;
+	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
 /*------------------------ CREDIT PLUS ------------------------*/
 
 #creditPlus{
 	float: right;
 	color: #606580;
 	line-height: 24px;
+}
+
+/*------------------------ WRAPPER ------------------------*/
+
+.w{
+	position: absolute;
+	width: 880px;
+	left: 50%;
+	margin-left: -460px;
+	padding: 38px 20px;
+	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
+	-moz-box-shadow: #151515 2px 2px 7px 0;
+	-webkit-box-shadow: #151515 2px 2px 7px 0;
+	box-shadow: #151515 2px 2px 7px 0;
+	
+	-moz-border-radius-bottomleft: 14px;
+	border-bottom-left-radius: 14px;
+	-moz-border-radius-bottomright: 14px;
+	border-bottom-right-radius: 14px;
+}
+
+.wh{
+	background: #232323;
+	color: #8D79F2;
+	font-size: 20px;
 }
 
 /*------------------------ MAP ------------------------*/

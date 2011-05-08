@@ -33,7 +33,7 @@
 		</div> 
 	<div class='contentWrapper'> 
 			<div class='panel btnWrapper'>
-				<div class='btn'> 
+				<div class='btn' style='width: 35px'> 
 					<div id='btn0'> 
 						
 					</div> 
@@ -79,12 +79,118 @@
 					<div id='btn8'> 
 						
 					</div> 
- 
-				</div> 
+ 				</div>
+ 				<dl class='credit'>
+ 					<dt>积分</dt>
+ 					<dd>99</dd>
+ 				</dl>
 			</div> 
-			<div class='drawer lbCorner rbCorner'> 
-				
-			</div> 
+			<div class='drawer lbCorner rbCorner'>
+				<div id='status'>文件名写在这里</div>
+				<div id='creditPlus'>提高积分</div>
+				<div class='clear'></div>
+			</div>
+			<div id='w1' class='w'>
+				<div class='wh'>上传文件</div>
+				<img width='160px' src='images/uploadIcon.png' alt='upload' />
+				<div id='w1c'></div>
+			</div>
+			<div id='w2' class='w'>
+				<div class='wh'>选择打印店</div>
+					<div class='storeWrapper'> 
+						<div class='storeL'> 
+							<div class='storeItem'> 
+								<input type='hidden' name='pId' value='1' /> 
+								<div class='storeItemAvatar'> 
+									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								</div> 
+								<div class='storeItemInfo'> 
+									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a> 
+									<h2>25楼打印店</h2> 
+									<p></p> 
+									<p>余额: 0 元</p> 
+								</div> 
+							</div> 
+							<div class='storeItem'> 
+								<input type='hidden' name='pId' value='3' /> 
+								<div class='storeItemAvatar'> 
+									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								</div> 
+								<div class='storeItemInfo'> 
+									<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a> 
+									<h2>學五打印店</h2> 
+									<p></p> 
+									<p>余额: 0 元</p> 
+								</div> 
+							</div> 
+						</div>
+						<div class='storeR'> 
+							<div class='storeItem'> 
+								<input type='hidden' name='pId' value='2' /> 
+								<div class='storeItemAvatar'> 
+									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								</div> 
+								<div class='storeItemInfo'> 
+									<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
+									<h2>博實打印店</h2> 
+									<p></p> 
+									<p>余额: 3.9 元</p> 
+								</div> 
+							</div> 
+						</div> 
+						<div class='clear'></div>
+					</div> 
+				</div>				
+			</div>
+			<div id='w3' class='w'>
+				<div class='wh'>纸张和油墨</div>
+				<img width='128px' src='images/location_file.png' alt='a4 gray'/>
+				<img width='128px' src='images/document.png' alt='b5 gray'/>
+				<img width='128px' src='images/location_file.png' alt='a4 color'/>
+				<img width='128px' src='images/document.png' alt='b5 color'/>
+			</div>
+			<div id='w4' class='w'>
+				<div class='wh'>环保选项</div>
+				<img width='140px' src='images/file.png' alt='signle'/>
+				<img width='140px' src='images/copy_file.png' alt='double'/>				
+			</div>
+			<div id='w5' class='w'>
+				<div class='wh'>版式缩放</div>
+				<img width='128px' src='images/document1.png' alt='1'/>
+				<img width='128px' src='images/document1.png' alt='2'/>
+				<img width='128px' src='images/document1.png' alt='4'/>
+				<img width='128px' src='images/document1.png' alt='6'/>
+				<img width='128px' src='images/document1.png' alt='8'/>
+				<img width='128px' src='images/document1.png' alt='12'/>
+			</div>
+			<div id='w6' class='w'>
+				<div class='wh'>数量设置</div>
+				做两个控件滑动，外观类似heroku那个，具体再商量
+			</div>
+			<div id='w7' class='w'>
+				<div class='wh'>附加服务</div>
+				<div class='misc'>
+					<div class='misch'>装订</div>
+					<img width='128px' src='images/document1.png' alt='none'/>
+					<img width='128px' src='images/document1.png' alt='left top corner'/>
+					<img width='128px' src='images/document1.png' alt='left'/>
+				</div>
+				<div class='misc'>
+					<div class='misch'>封面</div>
+					<img width='128px' src='images/document1.png' alt='none'/>
+					<img width='128px' src='images/document1.png' alt='cover'/>
+				</div>
+			</div>
+			<div id='w8' class='w'>
+				<div class='wh'>确认订单</div>
+				<div class='summary'>
+					blablabla
+				</div>
+				<div class='confirm'>
+					留言放在这里，如果文件还在上传，这里的按钮就显示稍等，否则为提交订单。
+				</div>
+			</div>
+-->			 
 			<div class='panel taskQueue'> 
 				<h2>任务队列</h2> 
 				<table> 
