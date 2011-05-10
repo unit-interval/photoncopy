@@ -12,9 +12,9 @@
 	<link rel='stylesheet' type='text/css' href='./media/css/styleHome.css' /> 
 	<script type='text/javascript' src='./media/js/jquery.js'></script> 
 	<script type='text/javascript' src='./media/js/scriptHome.js'></script> 
-	<script type='text/javascript' src='./media/js/home.js'></script> 
+	<script type='text/javascript' src='./media/js/jquery-ui-1.7.1.custom.min.js'></script> 
 </head> 
-<body> 
+	<body> 
 		<div class="nav"> 
 			<div id="logo"> 
 				<a href="/">光子复制</a> 
@@ -32,307 +32,372 @@
 			</ul> 
 		</div> 
 	<div class='contentWrapper'> 
-			<div class='panel btnWrapper'>
-				<div class='btn' style='width: 35px'> 
-					<div id='btn0'> 
-						
+		<div class='panel' id='btnWrapper'>
+			<div id='btn0'></div>
+			<div class='btn' id='firstBtn'><div id='btn1' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn2' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn3' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn4' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn5' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn6' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn7' class='innerBtn'></div></div>
+			<div class='btn'><div id='btn8' class='innerBtn'></div></div>
+ 			<dl id='credit'>
+ 				<dt>积分</dt>
+ 				<dd>99</dd>
+ 			</dl>
+		</div> 
+		<div class='drawer lbCorner rbCorner'>
+			<div id='status'>文件名写在这里，没东西的时候，这个会收起来，用toggle控制status</div>
+			<div class='clear'></div>
+		</div>
+		<div id='w1' class='w panel'>
+			<h2>上传文件</h2>
+			<p style='text-align: center'>支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB</p>
+			<div id='uploadfile'>
+				<form action='submit.php' method='post' enctype='multipart/form-data'>
+					<input type='file' name='file' />
+					<input type='hidden' name='store' />
+					<input type='hidden' name='paper' />
+					<input type='hidden' name='color' />
+					<input type='hidden' name='double' />
+					<input type='hidden' name='layout' />
+					<input type='hidden' name='copy' />
+					<input type='hidden' name='page' />
+					<input type='hidden' name='bind' />
+					<input type='hidden' name='cover' />
+				</form>
+			</div>
+			<div id='w1c'></div>
+		</div>
+		<div id='w2' class='w panel'>
+			<h2>选择打印店</h2>
+			<div class='storeWrapper'> 
+				<div class='storeL'> 
+					<div class='storeItem'> 
+						<input type='hidden' name='pId' value='1' /> 
+						<div class='storeItemAvatar'> 
+							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+						</div> 
+						<div class='storeItemInfo'> 
+							<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+							<div class='storeId'>1</div>
+							<h2>25楼打印店</h2> 
+							<p>这里是电面的介绍</p>
+							<h3>余额: 0元</h3>
+						</div> 
+					</div> 
+					<div class='storeItem'> 
+						<input type='hidden' name='pId' value='3' /> 
+						<div class='storeItemAvatar'> 
+							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+						</div> 
+						<div class='storeItemInfo'> 
+							<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a>
+							<div class='storeId'>3</div> 
+							<h2>學五打印店</h2> 
+							<p>这里的极少多一些<br>比如份进口拉萨解放路科技阿喀琉斯地方李开复</p> 
+							<h3>余额: 0元</h3> 
+						</div> 
+					</div> 
+				</div>
+				<div class='storeR'> 
+					<div class='storeItem'> 
+						<input type='hidden' name='pId' value='2' /> 
+						<div class='storeItemAvatar'> 
+							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+						</div> 
+						<div class='storeItemInfo'> 
+							<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
+							<div class='storeId'>2</div>
+							<h2>博實打印店</h2> 
+							<p>交罚款流口水解放路就</p> 
+							<h3>余额: 0元</h3> 
+						</div> 
 					</div> 
 				</div> 
-				<div class='btn'> 
-					<div id='btn1'> 
-						
-					</div> 
-				</div> 
- 				<div class='btn'> 
-					<div id='btn2'> 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
-					<div id='btn3'> 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
- 
-					<div id='btn4'> 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
-					<div id='btn5'> 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
-					<div id='btn6'> 
- 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
-					<div id='btn7'> 
-						
-					</div> 
-				</div> 
-				<div class='btn'> 
-					<div id='btn8'> 
-						
-					</div> 
- 				</div>
- 				<dl class='credit'>
- 					<dt>积分</dt>
- 					<dd>99</dd>
- 				</dl>
+				<div class='clear'></div>
 			</div> 
-			<div class='drawer lbCorner rbCorner'>
-				<div id='status'>文件名写在这里</div>
-				<div id='creditPlus'>提高积分</div>
+		</div>
+		<div id='w3' class='w panel'>
+			<h2>纸张和油墨</h2>
+			<table class='hovertable'>
+				<tr>
+					<th></th>
+					<th>B5</th>
+					<th>A4</th>
+				</tr>
+				<tr>
+					<th>黑白打印</th>
+					<td><div class='w3item' id='b5bw'></div></td>
+					<td><div class='w3item' id='a4bw'></div></td>
+				</tr>
+				<tr>
+					<th>彩色打印</th>
+					<td><div class='w3item' id='b5color'></div></td>
+					<td><div class='w3item' id='a4color'></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id='w4' class='w panel'>
+			<h2>环保选项</h2>
+			<table class='hovertable'>
+				<tr>
+					<th></th>
+					<th>单面打印</th>
+					<th>双面打印</th>
+				</tr>
+				<tr>
+					<th></th>
+					<td><div class='w4item' id='single'></div></td>
+					<td><div class='w4item' id='double'></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id='w5' class='w panel'>
+			<h2>版式缩放</h2>
+			<p>提示: 打印PPT幻灯片一般需要进行版式放缩</p>
+			<table class='hovertable'>
+				<tr>
+					<th></th>
+					<th>1版</th>
+					<th>2版</th>
+					<th>4版</th>
+					<th>6版</th>
+					<th>8版</th>
+					<th>9版</th>
+					<th>12版</th>
+				</tr>
+				<tr>
+					<th></th>
+					<td><div class='w5item' id='layout1'></div></td>
+					<td><div class='w5item' id='layout2'></div></td>
+					<td><div class='w5item' id='layout4'></div></td>
+					<td><div class='w5item' id='layout6'></div></td>
+					<td><div class='w5item' id='layout8'></div></td>
+					<td><div class='w5item' id='layout9'></div></td>
+					<td><div class='w5item' id='layout12'></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id='w6' class='w panel'>
+			<div class='w6h3 ltCorner rtCorner'>
+				<div style='float: left'>页数估计</div>
+				<div style='float: right'>打印份数</div>
 				<div class='clear'></div>
 			</div>
-			<div id='w1' class='w'>
-				<div class='wh'>上传文件</div>
-				<img width='160px' src='images/uploadIcon.png' alt='upload' />
-				<div id='w1c'></div>
-			</div>
-			<div id='w2' class='w'>
-				<div class='wh'>选择打印店</div>
-					<div class='storeWrapper'> 
-						<div class='storeL'> 
-							<div class='storeItem'> 
-								<input type='hidden' name='pId' value='1' /> 
-								<div class='storeItemAvatar'> 
-									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
-								</div> 
-								<div class='storeItemInfo'> 
-									<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a> 
-									<h2>25楼打印店</h2> 
-									<p></p> 
-									<p>余额: 0 元</p> 
-								</div> 
-							</div> 
-							<div class='storeItem'> 
-								<input type='hidden' name='pId' value='3' /> 
-								<div class='storeItemAvatar'> 
-									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
-								</div> 
-								<div class='storeItemInfo'> 
-									<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a> 
-									<h2>學五打印店</h2> 
-									<p></p> 
-									<p>余额: 0 元</p> 
-								</div> 
-							</div> 
+			<div class='w6content'>
+				<div class="dynos-copy">
+					<p></p>
+					<p>请估计上传文件的页数</p>
+					<p>无需考虑单双面设置与版式放缩</p>
+				</div>
+				<div class="slider">
+		            <div id="dynos-slider-container">
+						<div id="dynos-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
+							<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
+								<span id="dynos-handle-inner">
+									<span id="dynos-handle-inner-dynos">
+										1
+										<span>Dyno</span>
+									</span>
+									<span id="dynos-handle-inner-performance">~500K hits/day*</span>
+									<span id="dynos-handle-inner-price">0.00/hour</span>
+								</span>
+							</a>
 						</div>
-						<div class='storeR'> 
-							<div class='storeItem'> 
-								<input type='hidden' name='pId' value='2' /> 
-								<div class='storeItemAvatar'> 
-									<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
-								</div> 
-								<div class='storeItemInfo'> 
-									<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
-									<h2>博實打印店</h2> 
-									<p></p> 
-									<p>余额: 3.9 元</p> 
-								</div> 
-							</div> 
-						</div> 
-						<div class='clear'></div>
-					</div> 
-				</div>				
-			</div>
-			<div id='w3' class='w'>
-				<div class='wh'>纸张和油墨</div>
-				<img width='128px' src='images/location_file.png' alt='a4 gray'/>
-				<img width='128px' src='images/document.png' alt='b5 gray'/>
-				<img width='128px' src='images/location_file.png' alt='a4 color'/>
-				<img width='128px' src='images/document.png' alt='b5 color'/>
-			</div>
-			<div id='w4' class='w'>
-				<div class='wh'>环保选项</div>
-				<img width='140px' src='images/file.png' alt='signle'/>
-				<img width='140px' src='images/copy_file.png' alt='double'/>				
-			</div>
-			<div id='w5' class='w'>
-				<div class='wh'>版式缩放</div>
-				<img width='128px' src='images/document1.png' alt='1'/>
-				<img width='128px' src='images/document1.png' alt='2'/>
-				<img width='128px' src='images/document1.png' alt='4'/>
-				<img width='128px' src='images/document1.png' alt='6'/>
-				<img width='128px' src='images/document1.png' alt='8'/>
-				<img width='128px' src='images/document1.png' alt='12'/>
-			</div>
-			<div id='w6' class='w'>
-				<div class='wh'>数量设置</div>
-				做两个控件滑动，外观类似heroku那个，具体再商量
-			</div>
-			<div id='w7' class='w'>
-				<div class='wh'>附加服务</div>
-				<div class='misc'>
-					<div class='misch'>装订</div>
-					<img width='128px' src='images/document1.png' alt='none'/>
-					<img width='128px' src='images/document1.png' alt='left top corner'/>
-					<img width='128px' src='images/document1.png' alt='left'/>
+		            </div>
+		            <div id="workers-slider-container">
+		            	<div id="workers-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
+		            		<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
+		            			<span id="workers-handle-inner">	
+		            				<span id="workers-handle-inner-workers">
+		            					0 
+		            					<span>Workers</span>
+		            				</span>	
+		            				<span id="workers-handle-inner-performance"></span>	
+		            				<span id="workers-handle-inner-price">0.00/hour</span>
+		            			</span>
+		            		</a>
+		            	</div>
+		            </div>
 				</div>
-				<div class='misc'>
-					<div class='misch'>封面</div>
-					<img width='128px' src='images/document1.png' alt='none'/>
-					<img width='128px' src='images/document1.png' alt='cover'/>
-				</div>
+	          	<div class="workers-copy">
+	            	<p></p>
+	            	<p></p>
+	            	<p></p>
+          		</div>
+         		<div class="clear"></div>
 			</div>
-			<div id='w8' class='w'>
-				<div class='wh'>确认订单</div>
-				<div class='summary'>
-					blablabla
-				</div>
-				<div class='confirm'>
-					留言放在这里，如果文件还在上传，这里的按钮就显示稍等，否则为提交订单。
-				</div>
+			<input type='button' class='uiBtn2' value='确认' />			
+		</div>
+		<div id='w7' class='w panel'>
+			<h2>附加服务</h2>
+			<table class='hovertable'>
+				<tr>
+					<th></th>
+					<th>无装订</th>
+					<th>简易装订</th>
+					<th>侧边装订</th>
+					<th>添加封面</th>
+				</tr>
+				<tr>
+					<th></th>
+					<td><div class='w7item' id='bind0'></div></td>
+					<td><div class='w7item' id='bind1'></div></td>
+					<td><div class='w7item' id='bind2'></div></td>
+					<td><div class='w7item' id='bind3'></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id='w8' class='w panel'>
+			<h2>确认订单</h2>
+			<div class='wc'>
+				blablabla
 			</div>
--->			 
-			<div class='panel taskQueue'> 
-				<h2>任务队列</h2> 
-				<table> 
-					<tbody> 
-						<tr> 
-							<th>编号</th> 
-							<th>店铺</th> 
-							<th>状态</th> 
-							<th>费用估计</th> 
-							<th>操作</th> 
-						</tr> 
-					<tr class='order_open'> 
-						<td>14</td> 
-						<td>博實打印店</td> 
-						<td>PDF文档</td> 
-						<td><a>队列中</a></td> 
-						<td><a href='/submit.php?oid=14&act=0'>撤銷任務</a></td> 
-						<input type='hidden' name='status' value='0' /> 
-					</tr> 
+		</div>			 
+		<div class='panel taskQueue'> 
+			<h2>任务队列</h2> 
+			<table> 
+				<tbody> 
 					<tr> 
-						<td>13</td> 
-						<td>25楼打印店</td> 
-						<td>PDF文档</td> 
-						<td>成功徹消</td> 
-						<td><a href='/submit.php?oid=13&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='1' /> 
+						<th>编号</th> 
+						<th>店铺</th> 
+						<th>状态</th> 
+						<th>费用估计</th> 
+						<th>操作</th> 
 					</tr> 
-					<tr class='order_open'> 
-						<td>12</td> 
-						<td>25楼打印店</td> 
-						<td>PDF文档</td> 
-						<td><a>正在打印</a></td> 
-						<td><a href='/submit.php?oid=12&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='2' /> 
-					</tr> 
-					<tr class='order_open'> 
-						<td>9</td> 
-						<td>博實打印店</td> 
-						<td>WORD文档</td> 
-						<td><a>队列中</a></td> 
-						<td><a href='/submit.php?oid=9&act=0'>撤銷任務</a></td> 
-						<input type='hidden' name='status' value='0' /> 
-					</tr> 
-					<tr> 
-						<td>8</td> 
-						<td>25楼打印店</td> 
-						<td>PPT幻灯片</td> 
-						<td>成功徹消</td> 
-						<td><a href='/submit.php?oid=8&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='1' /> 
-					</tr> 
-					<tr class='order_open'> 
-						<td>7</td> 
-						<td>25楼打印店</td> 
-						<td>PDF文档</td> 
-						<td><a>正在打印</a></td> 
-						<td><a href='/submit.php?oid=7&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='2' /> 
-					</tr> 
-					<tr class='order_open'> 
-						<td>3</td> 
-						<td>博實打印店</td> 
-						<td>WORD文档</td> 
-						<td><a>队列中</a></td> 
-						<td><a href='/submit.php?oid=3&act=0'>撤銷任務</a></td> 
-						<input type='hidden' name='status' value='0' /> 
-					</tr> 
-					<tr> 
-						<td>2</td> 
-						<td>25楼打印店</td> 
-						<td>PPT幻灯片</td> 
-						<td>成功徹消</td> 
-						<td><a href='/submit.php?oid=2&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='1' /> 
-					</tr> 
-					<tr class='order_open'> 
-						<td>1</td> 
-						<td>25楼打印店</td> 
-						<td>PDF文档</td> 
-						<td><a>正在打印</a></td> 
-						<td><a href='/submit.php?oid=1&act=1'>複製到新訂單</a></td> 
-						<input type='hidden' name='status' value='2' /> 
-					</tr> 
-					</tbody> 
-				</table> 
-				<h2></h2> 
-			</div> 
+				<tr class='order_open'> 
+					<td>14</td> 
+					<td>博實打印店</td> 
+					<td>PDF文档</td> 
+					<td><a>队列中</a></td> 
+					<td><a href='/submit.php?oid=14&act=0'>撤銷任務</a></td> 
+					<input type='hidden' name='status' value='0' /> 
+				</tr> 
+				<tr> 
+					<td>13</td> 
+					<td>25楼打印店</td> 
+					<td>PDF文档</td> 
+					<td>成功徹消</td> 
+					<td><a href='/submit.php?oid=13&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='1' /> 
+				</tr> 
+				<tr class='order_open'> 
+					<td>12</td> 
+					<td>25楼打印店</td> 
+					<td>PDF文档</td> 
+					<td><a>正在打印</a></td> 
+					<td><a href='/submit.php?oid=12&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='2' /> 
+				</tr> 
+				<tr class='order_open'> 
+					<td>9</td> 
+					<td>博實打印店</td> 
+					<td>WORD文档</td> 
+					<td><a>队列中</a></td> 
+					<td><a href='/submit.php?oid=9&act=0'>撤銷任務</a></td> 
+					<input type='hidden' name='status' value='0' /> 
+				</tr> 
+				<tr> 
+					<td>8</td> 
+					<td>25楼打印店</td> 
+					<td>PPT幻灯片</td> 
+					<td>成功徹消</td> 
+					<td><a href='/submit.php?oid=8&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='1' /> 
+				</tr> 
+				<tr class='order_open'> 
+					<td>7</td> 
+					<td>25楼打印店</td> 
+					<td>PDF文档</td> 
+					<td><a>正在打印</a></td> 
+					<td><a href='/submit.php?oid=7&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='2' /> 
+				</tr> 
+				<tr class='order_open'> 
+					<td>3</td> 
+					<td>博實打印店</td> 
+					<td>WORD文档</td> 
+					<td><a>队列中</a></td> 
+					<td><a href='/submit.php?oid=3&act=0'>撤銷任務</a></td> 
+					<input type='hidden' name='status' value='0' /> 
+				</tr> 
+				<tr> 
+					<td>2</td> 
+					<td>25楼打印店</td> 
+					<td>PPT幻灯片</td> 
+					<td>成功徹消</td> 
+					<td><a href='/submit.php?oid=2&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='1' /> 
+				</tr> 
+				<tr class='order_open'> 
+					<td>1</td> 
+					<td>25楼打印店</td> 
+					<td>PDF文档</td> 
+					<td><a>正在打印</a></td> 
+					<td><a href='/submit.php?oid=1&act=1'>複製到新訂單</a></td> 
+					<input type='hidden' name='status' value='2' /> 
+				</tr> 
+				</tbody> 
+			</table> 
+			<h2></h2> 
 		</div> 
-		<div class='footerWrapper'> 
-			<div class='footer'> 
-				<div class='footerItem'> 
-					<h3>光子复制</h3> 
-					<ul> 
-						<li> 
-							档案库
-						</li> 
-						<li> 
-							成长的足迹
-						</li> 
-						<li> 
-							联系我们
-						</li> 
-						<li> 
-							加入我们
-						</li> 
-					</ul> 
-				</div> 
-				<div class='footerItem'> 
-					<h3>合作伙伴</h3> 
-					<ul> 
-						<li> 
-							申请店铺
-						</li> 
-						<li> 
-							<a href='/partner.php'>商铺登录</a> 
-						</li> 
-						<li> 
-							工作流程
-						</li> 
-					</ul> 
-				</div> 
-				<div class='footerItem'> 
-					<h3>用户</h3> 
-					<ul> 
-						<li> 
-							用户教程
-						</li> 
-						<li> 
-							用户协议
-						</li> 
-					</ul> 
-				</div> 
-				<div class='latestNews'> 
-					<h3>近期新闻</h3> 
-					<dl> 
-						<dt>光子复制Beta1.0启动</dt> 
-						<dd>May 6, 2011</dd> 
-						<dt>放两个新闻</dt> 
-						<dd>在这里写日期</dd> 
-					</dl> 
-				</div> 
-				<div class='clear'></div> 
+	</div>
+	<div class='footerWrapper'> 
+		<div class='footer'> 
+			<div class='footerItem'> 
+				<h3>光子复制</h3> 
+				<ul> 
+					<li> 
+						档案库
+					</li> 
+					<li> 
+						成长的足迹
+					</li> 
+					<li> 
+						联系我们
+					</li> 
+					<li> 
+						加入我们
+					</li> 
+				</ul> 
 			</div> 
-		</div> 
-	</body></html>
+			<div class='footerItem'> 
+				<h3>合作伙伴</h3> 
+				<ul> 
+					<li> 
+						申请店铺
+					</li> 
+					<li> 
+						<a href='/partner.php'>商铺登录</a> 
+					</li> 
+					<li> 
+						工作流程
+					</li> 
+				</ul> 
+			</div> 
+			<div class='footerItem'> 
+				<h3>用户</h3> 
+				<ul> 
+					<li> 
+						用户教程
+					</li> 
+					<li> 
+						用户协议
+					</li> 
+				</ul> 
+			</div> 
+			<div class='latestNews'> 
+				<h3>近期新闻</h3> 
+				<dl> 
+					<dt>光子复制Beta1.0启动</dt> 
+					<dd>May 6, 2011</dd> 
+					<dt>放两个新闻</dt> 
+					<dd>在这里写日期</dd> 
+				</dl> 
+			</div> 
+			<div class='clear'></div> 
+		</div>  
+	</body>
+</html>

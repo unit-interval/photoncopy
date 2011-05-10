@@ -1,12 +1,12 @@
 /*------------------------ BTN ------------------------*/
 
-.btnWrapper{
+#btnWrapper{
 	width: 960px;
 	margin: 30px auto 0px;
 	height: 80px;
 	z-index: 100;
 	overflow: hidden;
-	background: url('../images/bg/bg00.png') repeat-x;
+	background: url('../images/bg/bg0.png') repeat-x;
 }
 
 .btn{
@@ -16,27 +16,76 @@
 	margin-right: -21px;
 }
 
-#btn0{ position: static;   height: 100%; background: url('../images/bg/bg1.png') left;  z-index: 80; }
-#btn{}
-#btn1{ position: relative; height: 100%; background: url('../images/bg/bg1.png') right; z-index: 70; }
-#btn2{ position: relative; height: 100%; background: url('../images/bg/bg2.png') right; z-index: 60; }
-#btn3{ position: relative; height: 100%; background: url('../images/bg/bg3.png') right; z-index: 50; }
-#btn4{ position: relative; height: 100%; background: url('../images/bg/bg4.png') right; z-index: 40; }
-#btn5{ position: relative; height: 100%; background: url('../images/bg/bg5.png') right; z-index: 30; }
-#btn6{ position: relative; height: 100%; background: url('../images/bg/bg6.png') right; z-index: 20; }
-#btn7{ position: relative; height: 100%; background: url('../images/bg/bg7.png') right; z-index: 10; }
-#btn8{ position: relative; height: 100%; background: url('../images/bg/bg8.png') right; z-index: 0; }
+.innerBtn{
+	position: relative;
+	height: 100%;
+	cursor: pointer;
+}
+
+#btn0{
+	float: left;
+	width: 14px; 
+	height: 100%; 
+	background: url('../images/bg/homeBtn1.png') top left;
+}
+
+#firstBtn{
+	width: 107px;
+}
+
+#btn1{ 
+	background: url('../images/bg/homeBtn1.png') top right; 
+	z-index: 70; 
+}
+
+#btn2{ 
+	background: url('../images/bg/homeBtn2.png') top right; 
+	z-index: 60; 
+}
+
+#btn3{ 
+	background: url('../images/bg/homeBtn3.png') top right; 
+	z-index: 50; 
+}
+
+#btn4{ 
+	background: url('../images/bg/homeBtn4.png') top right; 
+	z-index: 40;
+}
+
+#btn5{ 
+	background: url('../images/bg/homeBtn5.png') top right; 
+	z-index: 30; 
+}
+
+#btn6{ 
+	background: url('../images/bg/homeBtn6.png') top right; 
+	z-index: 20; 
+}
+
+#btn7{ 
+	background: url('../images/bg/homeBtn7.png') top right; 
+	z-index: 10; 
+}
+
+#btn8{ 
+	background: url('../images/bg/homeBtn8.png') top right; 
+	z-index: 0;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover, #btn8:hover{
+	background-position-y: -80px;
+}
 
 /*------------------------ DRAWER ------------------------*/
 
 .drawer{
-	position: absolute;
 	font-size: 13px;
-	left: 50%;
 	width: 880px;
-	margin-left: -460px;
+	margin: 0px auto;
 	padding: 8px 20px;
 	z-index: 1;
+	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
 }
 
 /*------------------------ STATUS ------------------------*/
@@ -49,20 +98,21 @@
 
 /*------------------------ CREDIT ------------------------*/
 
-dl.credit{
+#credit{
 	color: #CAC3E4;
 	float: right;
 	padding: 12px 20px 0px 0px;
 	text-align: right;
 	margin: 0px;
+	cursor: pointer;
 }
 
-dl.credit dt{
+#credit dt{
 	font-size: 14px;
 	margin: 0 0 2px 0;
 }
 
-dl.credit dd{
+#credit dd{
 	font-size: 36px;
 	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
 }
@@ -78,72 +128,98 @@ dl.credit dd{
 /*------------------------ WRAPPER ------------------------*/
 
 .w{
-	position: absolute;
-	width: 880px;
-	left: 50%;
-	margin-left: -460px;
-	padding: 38px 20px;
-	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
-	-moz-box-shadow: #151515 2px 2px 7px 0;
-	-webkit-box-shadow: #151515 2px 2px 7px 0;
-	box-shadow: #151515 2px 2px 7px 0;
-	
-	-moz-border-radius-bottomleft: 14px;
-	border-bottom-left-radius: 14px;
-	-moz-border-radius-bottomright: 14px;
-	border-bottom-right-radius: 14px;
+	width: 920px;
+	margin: 30px auto;
+	background: #272727;
 }
 
-.wh{
-	background: #232323;
+.w h2{
 	color: #8D79F2;
+	background: #232323;
 	font-size: 20px;
+	padding: 10px 20px;
 }
 
-/*------------------------ MAP ------------------------*/
-
-#storeMap{
-	display: none;
+.w p{
+	color: #999;
+	line-height: 18px;
+	margin: 0px;
+	padding: 20px;
+	font-size: 13px;
 }
 
-#toggleMap{
-	background-color: transparent;
-	text-align: center;
+/*------------------------ W1 ------------------------*/
+
+#w1{
+	padding-bottom: 30px;
 }
 
-#toggleMap:hover{
-	color: white;
+#uploadfile{
+	margin: 0px auto;
+	height: 231px;
+	width: 208px;
+	background: url('../images/uploadIcon2.png');
+	background-position-y: 0px;
+}
+
+#uploadfile:hover{
+	background-position-y: -231px;
+}
+
+form{
+	height: 100%;
+	width: 100%;
+}
+
+input[type='file']{
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	filter: alpha(opacity=0);
 	cursor: pointer;
 }
 
-/*------------------------ STORE LIST ------------------------*/
+/*------------------------ W2 ------------------------*/
+
+.storeId{
+	display: none;
+}
 
 .storeL{
 	float: left;
+	margin-left: 25px;
 	width: 425px;
 }
 
 .storeR{
 	float: right;
+	margin-right: 25px;
 	width: 425px;
 }
 
 .storeWrapper{
-	margin: 30px auto 0px;
+	padding: 30px 0px 10px;
 }
 
 .storeItem{
 	float: left;
 	width: 395px;
 	min-height: 80px;
-	margin: 0px 0px 30px 0px;
+	margin: 0px 0px 20px 0px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
-	background: #1A2F36 url(../images/storeListBg.png) repeat-x center top;
+	background: #1A2F36 url(../images/storeListBg.jpg) no-repeat;
 	border: 1px solid #243F47;
 	-moz-box-shadow: 0px 0px 5px #171C1E;
 	-webkit-box-shadow: 0px 0px 5px #171C1E;
+	box-shadow: 0px 0px 5px #171C1E;
 	padding: 14px;
+	cursor: pointer;
+}
+
+.storeItem:hover{
+	background-position-x: -500px;
+	background-color: #26454F;
 }
 
 .storeItemAvatar{
@@ -154,6 +230,7 @@ dl.credit dd{
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	border: 1px solid #1A2F36;
+	box-shadow: 0px 0px 4px #171C1E;
 	-moz-box-shadow: 0px 0px 4px #171C1E;
 	-webkit-box-shadow: 0px 0px 4px #171C1E;
 	overflow: hidden;
@@ -162,22 +239,190 @@ dl.credit dd{
 .storeItemInfo{
 	float: right;
 	width: 300px;
-	background-repeat: no-repeat;
+	color: #CFF0FF;
 }
 
 .storeItemInfo h2{
 	font-size: 20px;
 	color: #CFF0FF;
+	background: transparent;
+	padding: 0px;
 }
 
 .storeItemInfo p{
 	font-size: 13px;
 	color: #A9C1CC;
+	padding: 0px;
+	margin: 8px 0px 13px;
+	line-height: 18px;
+	word-wrap: break-word;
+}
+
+.storeItemInfo h3{
+	margin: 0;
+	padding: 0;
+	line-height: 18px;
+	font-weight: normal;
+	
 }
 
 input.uiBtn1{
 	float: right;
 }
+
+/*------------------------ W3 ------------------------*/
+
+.w table{
+	color: #999;
+	margin: auto;
+	padding: 20px 0px;
+	border-spacing: 0px 0px
+}
+
+.w td{
+	padding: 10px 40px;
+}
+
+.w th{
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+#b5bw{
+	background: url(../images/b5bw1.png);
+}
+
+#b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover{
+	background-position-y: -160px;
+}
+
+#a4bw{
+	background: url(../images/a4bw1.png);	
+}
+
+#b5color{
+	background: url(../images/b5color1.png);
+}
+
+#a4color{
+	background: url(../images/a4color1.png);	
+}
+
+.w3item{
+	height: 160px;
+	width: 123px;
+	background-position-y: 0px;
+	cursor: pointer;
+}
+
+/*------------------------ W4 ------------------------*/
+
+.w4item{
+	height: 235px;
+	width: 175px;
+	cursor: pointer;
+}
+
+#single{
+	background: url(../images/single.png);
+	background-position-y: 0px;
+}
+
+#single:hover, #double:hover{
+	background-position-y: -235px;
+}
+
+#double{
+	background: url(../images/double.png);
+}
+
+/*------------------------ W5 ------------------------*/
+
+#w5 table{
+	padding-bottom: 40px;
+}
+
+#w5 td{
+	padding: 10px 0px;
+}
+
+.w5item{
+	width: 115px;
+	height: 151px;
+	cursor: pointer;
+}
+
+#layout1{ background: url(../images/l1.png) }
+#layout2{ background: url(../images/l2.png) }
+#layout4{ background: url(../images/l4.png) }
+#layout6{ background: url(../images/l6.png) }
+#layout8{ background: url(../images/l8.png) }
+#layout9{ background: url(../images/l9.png) }
+#layout12{ background: url(../images/l12.png) }
+
+#layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover{
+	background-position-y: -151px;
+}
+
+/*------------------------ W6 ------------------------*/
+
+.w6h3{
+	background: #232323;
+	font-size: 20px;
+	padding: 10px 20px;
+	color: #8D79F2;
+}
+
+.content { padding: 0 0 30px 0; overflow: hidden; }
+.dynos-copy { float: left; background-image: url(../images/w6left.png); background-position: top left; background-repeat: no-repeat; }
+.workers-copy, .dynos-copy { padding: 150px 20px 0 20px; width: 285px; }
+.slider { float: left; position: relative; width: 310px; }
+.slider #dynos-slider-container { background: url(../images/w6middle.png) top right no-repeat; height: 250px; margin-top: 32px; padding-top: 20px; position: absolute; width: 177px; }
+.slider #dynos-slider-container #dynos-slider { height: 229px; position: absolute; width: 100%; }
+.slider #dynos-slider-container #dynos-slider a { display: block; position: absolute; width: 150px; height: 40px; }
+.slider #dynos-slider-container #dynos-slider a:hover { text-decoration: none; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner { background: url(../images/w6middle1.png) top left no-repeat; display: block; height: 86px; margin-left: 10px; padding: 10px 0 0 12px; width: 129px; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-dynos { float: left; clear: left; font-size: 18px; padding-top: 7px; color: #7f95ff; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-dynos span { font-size: 16px; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-performance { float: left; clear: left; white-space: nowrap; margin-top: 3px; font-size: 12px; color: #606580; display: none; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-price { float: left; clear: left; white-space: nowrap; margin-top: 3px; font-size: 10px; color: #606580; background: url(/images/pricing/dollar_handle.png) top left no-repeat; padding-left: 6px; font-size: 14px; }
+.slider #workers-slider-container { position: relative; left: 164px; margin-top: 32px; padding-top: 20px; width: 150px; height: 250px; }
+.slider #workers-slider-container #workers-slider { position: absolute; width: 100%; height: 229px; }
+.slider #workers-slider-container #workers-slider a { display: block; position: absolute; width: 150px; height: 40px; }
+.slider #workers-slider-container #workers-slider a:hover { text-decoration: none; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner { display: block; width: 129px; height: 86px; padding: 10px 0 0 12px; margin-left: 10px; background: url(../images/w6middle2.png) top left no-repeat; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-workers { float: right; clear: left; font-size: 18px; padding-top: 7px; margin-right: 30px; color: #7f95ff; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-workers span { font-size: 16px; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-performance { clear: left; white-space: nowrap; margin-top: 3px; font-size: 12px; color: #606580; display: none; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-price { float: right; clear: left; white-space: nowrap; margin-top: 3px; margin-right: 30px; font-size: 10px; color: #606580; background: url(/images/pricing/dollar_handle.png) top left no-repeat; padding-left: 6px; font-size: 14px; }
+.workers-copy { float: right; background-image: url(../images/w6right.png); background-position: top right; background-repeat: no-repeat; text-align: right; }
+
+.w6content p{
+	line-height: 18px;
+	margin: 0 0 18px 0;
+	padding: 0px;
+}
+
+/*------------------------ W7 ------------------------*/
+
+#w7 td{
+	padding: 10px 10px;
+}
+
+.w7item{
+	width: 170px;
+	height: 220px;
+	cursor: pointer;
+}
+
+#bind0{ background: url(../images/bind0.png) }
+#bind1{ background: url(../images/bind1.png) }
+#bind2{ background: url(../images/bind2.png) }
+#bind3{ background: url(../images/bind3.png) }
+
+#bind0:hover, #bind1:hover, #bind2:hover, #bind3:hover{
+	background-position-y: -220px;
+} 
 
 /*------------------------ TASK QUEUE ------------------------*/
 
@@ -187,7 +432,7 @@ input.uiBtn1{
 	background: #1B1F2A;
 }
 
-.taksQueue h2{
+.taskQueue h2{
 	background: #1B1F2A;
 	color: #6CAEFF;
 }
