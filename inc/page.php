@@ -65,143 +65,60 @@ function page_footer() {
 }
 function page_home($tasks, $stores_prior) {
 	echo "<div class='contentWrapper'>
-			<div class='panel taskType'>
-				<div class='taskTypeItem' id='pdfTask'>
-					<p>PDF文档</p>
-				</div>
-				<div class='taskTypeItem' id='wordTask'>
-					<p>WORD文档</p>
-				</div>
-				<div class='taskTypeItem' id='pptTask'>
-					<p>PPT幻灯片</p>
-				</div>
-				<div class='taskTypeItem' id='taskSum'>
-					<h3>费用估计</h3>
-					<div>
-						<span id='price'>0</span><span>元</span>
+			<div class='panel btnWrapper'>
+				<div class='btn'>
+					<div id='btn1'>
+						
 					</div>
 				</div>
-				<div class='taskTypeItem' id='credit'>
-					<h3>可用积分</h3>
-					<div>
-						<span id='credit'>{$_SESSION['credit'][0]}</span>
+
+				<div class='btn'>
+					<div id='btn2'>
+						
 					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn3'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+
+					<div id='btn4'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn5'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn6'>
+
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn7'>
+						
+					</div>
+				</div>
+				<div class='btn'>
+					<div id='btn8'>
+						
+					</div>
+
 				</div>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
-				<div id='status'>
-					请选择打印文件的类型
-				</div>
-				<div id='creditPlus'>
-					如何增加积分 <a href='/credit.php'><img style='vertical-align: text-bottom' src='../images/question.png' alt='q' /></a>
-				</div>
-				<div class='clear'></div>
-				<div id='pdfPage'>
-					<div id='pdfConfig'>
-						<div class='uploadFile'>
-							<form action='/submit.php' method='post' enctype='multipart/form-data'>
-								<input type='file'>
-								<input type='hidden' name='type' />
-								<input type='hidden' name='store' />
-								<input type='hidden' name='size' />
-								<input type='hidden' name='color' />
-								<input type='hidden' name='double' />
-								<input type='hidden' name='layout' />
-								<input type='hidden' name='pageUpper' />
-								<input type='hidden' name='pageLower' />
-								<input type='hidden' name='copy' />
-								<input type='hidden' name='note' />
-								<input type='submit' value='提交' />
-							</form>
-						</div>
-						<input type='button' id='storeBtn' class='uiBtn2' value='选择打印店' />
-						<div class='storeListWrapper'>"
-						. mod_store_sel($stores_prior) .
-						"
-							<div class='clear'></div>
-						</div>
-						<input type='button' id='sizeBtn' value='纸张' />
-						<div class='sizeListWrapper'>
-							<div class='sizeItem'>
-								<input type='hidden' value='A4' />
-								A4
-							</div>
-							<div class='sizeItem'>
-								<input type='hidden' value='B5' />
-								B5
-							</div>
-						</div>
-						<input type='button' id='colorBtn' value='油墨' />
-						<div class='colorListWrapper'>
-							<div class='colorItem'>
-								<input type='hidden' value='黑白' />
-								黑白
-							</div>
-							<div class='colorItem'>
-								<input type='hidden' value='彩色' />
-								彩色
-							</div>
-						</div>
-						<input type='button' id='doubleBtn' value='环保' />
-						<div class='doubleListWrapper'>
-							<div class='doubleItem'>
-								<input type='hidden' value='单面打印' />
-								单面打印
-							</div>
-							<div class='doubleItem'>
-								<input type='hidden' value='双面打印' />
-								双面打印
-							</div>
-						</div>
-						<input type='button' id='pageBtn' value='页数' />
-						<div class='pageListWrapper'>
-							<div class='pageItem'>
-								<input type='hidden' name='upper' value='1' />
-								<input type='hidden' name='lower' value='10' />
-								1-10
-							</div>
-							<div class='pageItem'>
-								<input type='hidden' name='upper' value='10' />
-								<input type='hidden' name='lower' value='50' />
-								10-50
-							</div>
-							<div class='pageItem'>
-								<input type='hidden' name='upper' value='50' />
-								<input type='hidden' name='lower' value='100' />
-								50-100
-							</div>
-							<div class='pageItem'>
-								<input type='hidden' name='upper' value='100' />
-								<input type='hidden' name='lower' value='500' />
-								100-500
-							</div>
-						</div>
-						<input type='button' id='copyBtn' value='份数' />
-						<div class='copyListWrapper'>
-							<div class='copyItem'>
-								<input type='hidden' value='1' />
-								1
-							</div>
-							<div class='copyItem'>
-								<input type='hidden' value='2' />
-								2
-							</div>
-						</div>
-						<input type='button' value='确认' />
-					</div>
-					<div id='pdfConfirm'>
-						提示：blablabla;
-					</div>
-				</div>
+				
 			</div>
 			<div class='panel taskQueue'>
 				<h2>任务队列</h2>
-				<table>
-					<tbody>"
+				<table>"
 					. mod_taskqueue($tasks, $stores_prior) . "
-					</tbody>
 				</table>
-				<h2></h2>
 			</div>
 		</div>";
 }

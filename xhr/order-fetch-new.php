@@ -10,7 +10,11 @@ session_start();
 
 if($_SESSION['partner'] != true) {
 	header('HTTP/1.0 403 Forbidden');
-	echo '123';
+	die;
+}
+
+if(!isset($_GET['since'])) {
+	header('HTTP/1.0 400 Bad Request');
 	die;
 }
 

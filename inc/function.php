@@ -89,10 +89,10 @@ function text_queue_action_par($st = -1, $id = 0) {
 		3 => '結帳付款',
 	);
 	$html = '';
-	$h1 = "<a href='/process.php?oid=$id&act=";
 	foreach($support[$st] as $a) {
-		$html .= $h1 . $a . "'>" . $actions[$a] . "</a>";
+		$html .= "<a>" . $actions[$a] . "</a><input type='hidden' name='act' value='$a' /> / ";
 	}
+	$html = substr($html, 0, -3);
 	return $html;
 }
 function to_status_par($act = -1) {

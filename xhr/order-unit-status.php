@@ -14,6 +14,11 @@ if($_SESSION['logged_in'] != true) {
 	die;
 }
 
+if(!isset($_GET['oid']) || !isset($_GET['status'])) {
+	header('HTTP/1.0 400 Bad Request');
+	die;
+}
+
 $oid = intval($_GET['oid']);
 $status = intval($_GET['status']);
 
@@ -22,7 +27,6 @@ $query = "select * from `order`
 $result = $db->query($query);
 if($result->num_rows == 0) {
 	header('HTTP/1.0 403 Forbidden');
-	echo '456';
 	die;
 }
 
