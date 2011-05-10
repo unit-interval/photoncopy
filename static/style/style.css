@@ -23,6 +23,7 @@ li{
 
 a{
 	text-decoration: none;
+	outline: medium none;
 	color: #45A4FF;
 }
 
