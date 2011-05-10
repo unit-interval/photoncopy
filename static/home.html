@@ -197,12 +197,8 @@
 						<div id="dynos-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
 							<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
 								<span id="dynos-handle-inner">
-									<span id="dynos-handle-inner-dynos">
-										1
-										<span>Dyno</span>
-									</span>
-									<span id="dynos-handle-inner-performance">~500K hits/day*</span>
-									<span id="dynos-handle-inner-price">0.00/hour</span>
+									<span id="dynos-handle-inner-dynos">页数很少</span>
+									<span id="dynos-handle-inner-price">1-10页</span>
 								</span>
 							</a>
 						</div>
@@ -210,13 +206,12 @@
 		            <div id="workers-slider-container">
 		            	<div id="workers-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
 		            		<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
-		            			<span id="workers-handle-inner">	
-		            				<span id="workers-handle-inner-workers">
-		            					0 
-		            					<span>Workers</span>
-		            				</span>	
-		            				<span id="workers-handle-inner-performance"></span>	
-		            				<span id="workers-handle-inner-price">0.00/hour</span>
+		            			<span id="workers-handle-inner">
+		            				<span id="workers-handle-inner-workers">打印<span id='copyNumber'>1</span>份</span>
+		            				<span id="workers-handle-inner-price">
+		            					<span id='copyM'></span>
+		            					<span id='copyP'></span>
+		            				</span>
 		            			</span>
 		            		</a>
 		            	</div>
@@ -224,12 +219,21 @@
 				</div>
 	          	<div class="workers-copy">
 	            	<p></p>
-	            	<p></p>
-	            	<p></p>
+	            	<p>请选择需要打印的份数</p>
+	            	<p>按 +/- 按钮可进行微调</p>
           		</div>
          		<div class="clear"></div>
 			</div>
-			<input type='button' class='uiBtn2' value='确认' />			
+			<div class='w6confirm'>
+				<div class='w6h3a'>
+					积分使用说明
+					<input type='button' class='uiBtn2 w6item' value='确认页数与份数' />
+				</div>
+				<p>
+					在估计文档页数并选择打印份数的同时，积分也相应扣去，这部分积分用来作为信用担保，用户前往打印店交款结账后将归还对应积分。<br>
+					积分不足可能导致打印店拒绝订单，届时系统会发出通知，请您到打印店下载已上传的文档进行自助打印。
+				</p>
+			</div>
 		</div>
 		<div id='w7' class='w panel'>
 			<h2>附加服务</h2>

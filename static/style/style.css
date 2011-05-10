@@ -195,6 +195,26 @@ input.uiBtn1:hover{
 	cursor: pointer;
 }
 
+input.uiBtn2{
+	background: url(../images/button-smooth.png) #9e8aff;
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	border-radius: 14px;
+	-moz-box-shadow: #232323 2px 2px 6px;
+	-webkit-box-shadow: #232323 2px 2px 6px;
+	box-shadow: #232323 2px 2px 6px;
+	color: #16153b;
+	font-size: 13px;
+	font-weight: bold;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 20px;
+	text-shadow: #c9c3e6 0px 0px 2px;
+	border-width: 0px;
+	cursor: pointer;
+}
+
+
 /*------------------------ uiText ------------------------*/
 
 input.uiText{
