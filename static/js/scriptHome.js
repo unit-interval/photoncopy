@@ -191,15 +191,15 @@ $(function(){
 		max: 5,
 		value: 0,
 		slide: function(event, ui){
-			var tmpValue=page[ui.value];
-			$('span#dynos-handle-inner-dynos').html(tmpValue[0]);
+			$('span#dynos-handle-inner-dynos').html(page[ui.value][0]);
 			refreshCredit();
 		}
 	});
-	
+
 	_slider.find('a').html(
 	'<span id="dynos-handle-inner"><span id="dynos-handle-inner-dynos">1-10页</span></span>'
 	)
+		.removeAttr('href');
 	
 	_slider = $("#workers-slider").slider({
 		animate: 'true',
@@ -215,6 +215,8 @@ $(function(){
 	
 	_slider.find("a").html(
 	'<span id="workers-handle-inner"><span id="workers-handle-inner-workers"><span id="copyNumber">1</span>份</span><span id="workers-handle-inner-price"></span></span>'
-	);
-		
+	)
+	.removeAttr('href');
+
 })
+

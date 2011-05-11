@@ -351,6 +351,16 @@ input.uiBtn1{
 	color: #8D79F2;
 }
 
+a.ui-slider-handle {
+	cursor: pointer;
+}
+
+#dynos-slider-container, .panel {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
 .w6content { padding: 0 0 30px 0; overflow: hidden; }
 
 .dynos-copy { float: left; background-image: url(../images/w6left.png); background-position: top left; background-repeat: no-repeat; }
