@@ -1,5 +1,3 @@
-
- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh" xml:lang="zh"> 
 <head> 
@@ -44,7 +42,8 @@
 			<div class='btn'><div id='btn8' class='innerBtn'></div></div>
  			<dl id='credit'>
  				<dt>积分</dt>
- 				<dd>99</dd>
+ 				<dd id='credit0'>99</dd>
+ 				<dd id='credit1'>99</dd>
  			</dl>
 		</div> 
 		<div class='drawer lbCorner rbCorner'>
@@ -55,17 +54,18 @@
 			<h2>上传文件</h2>
 			<p style='text-align: center'>支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB</p>
 			<div id='uploadfile'>
-				<form action='submit.php' method='post' enctype='multipart/form-data'>
+				<form action='submit.php' method='get' enctype='multipart/form-data'>
 					<input type='file' name='file' />
-					<input type='hidden' name='store' />
-					<input type='hidden' name='paper' />
-					<input type='hidden' name='color' />
-					<input type='hidden' name='double' />
-					<input type='hidden' name='layout' />
-					<input type='hidden' name='copy' />
-					<input type='hidden' name='page' />
-					<input type='hidden' name='bind' />
-					<input type='hidden' name='cover' />
+					<input type='text' id='w2Form' name='store' />
+					<input type='text' id='w3Form1' name='paper' />
+					<input type='text' id='w3Form2' name='color' />
+					<input type='text' id='w4Form' name='double' />
+					<input type='text' id='w5Form' name='layout' />
+					<input type='text' id='w6Form1' name='copy' />
+					<input type='text' id='w6Form2' name='page' />
+					<input type='text' id='w7Form' name='bind' />
+					<input type='text' id='w8Form' name='message' />
+					<input type='text' id='guaranteeForm' name='guarantee' />
 				</form>
 			</div>
 			<div id='w1c'></div>
@@ -74,8 +74,7 @@
 			<h2>选择打印店</h2>
 			<div class='storeWrapper'> 
 				<div class='storeL'> 
-					<div class='storeItem'> 
-						<input type='hidden' name='pId' value='1' /> 
+					<div class='w2item'> 
 						<div class='storeItemAvatar'> 
 							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
 						</div> 
@@ -87,8 +86,7 @@
 							<h3>余额: 0元</h3>
 						</div> 
 					</div> 
-					<div class='storeItem'> 
-						<input type='hidden' name='pId' value='3' /> 
+					<div class='w2item'> 
 						<div class='storeItemAvatar'> 
 							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
 						</div> 
@@ -102,8 +100,7 @@
 					</div> 
 				</div>
 				<div class='storeR'> 
-					<div class='storeItem'> 
-						<input type='hidden' name='pId' value='2' /> 
+					<div class='w2item'> 
 						<div class='storeItemAvatar'> 
 							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
 						</div> 
@@ -124,8 +121,8 @@
 			<table class='hovertable'>
 				<tr>
 					<th></th>
-					<th>B5</th>
-					<th>A4</th>
+					<th>B5纸</th>
+					<th>A4纸</th>
 				</tr>
 				<tr>
 					<th>黑白打印</th>
@@ -195,39 +192,30 @@
 				<div class="slider">
 		            <div id="dynos-slider-container">
 						<div id="dynos-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
-							<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
-								<span id="dynos-handle-inner">
-									<span id="dynos-handle-inner-dynos">页数很少</span>
-									<span id="dynos-handle-inner-price">1-10页</span>
-								</span>
-							</a>
 						</div>
 		            </div>
 		            <div id="workers-slider-container">
 		            	<div id="workers-slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
-		            		<a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 0%; ">
-		            			<span id="workers-handle-inner">
-		            				<span id="workers-handle-inner-workers">打印<span id='copyNumber'>1</span>份</span>
-		            				<span id="workers-handle-inner-price">
-		            					<span id='copyM'></span>
-		            					<span id='copyP'></span>
-		            				</span>
-		            			</span>
-		            		</a>
 		            	</div>
 		            </div>
 				</div>
 	          	<div class="workers-copy">
 	            	<p></p>
 	            	<p>请选择需要打印的份数</p>
-	            	<p>按 +/- 按钮可进行微调</p>
+	            	<p>通过下方按钮可进行微调</p>
+	            	<p>
+	            		<input type='button' id='copyM10' class='copyAdjust' value='-10' />
+	            		<input type='button' id='copyM1' class='copyAdjust' value='-1' />
+	            		<input type='button' id='copyP1' class='copyAdjust' value='+1' />
+	            		<input type='button' id='copyP10' class='copyAdjust' value='+10' />
+	            	</p>
           		</div>
          		<div class="clear"></div>
 			</div>
 			<div class='w6confirm'>
 				<div class='w6h3a'>
 					积分使用说明
-					<input type='button' class='uiBtn2 w6item' value='确认页数与份数' />
+					<input type='button' id='w6ConfirmBtn' class='uiBtn2 w6item' value='确认页数与份数' />
 				</div>
 				<p>
 					在估计文档页数并选择打印份数的同时，积分也相应扣去，这部分积分用来作为信用担保，用户前往打印店交款结账后将归还对应积分。<br>
@@ -256,95 +244,47 @@
 		</div>
 		<div id='w8' class='w panel'>
 			<h2>确认订单</h2>
-			<div class='wc'>
-				blablabla
+			<p>订单仍可进一步修改，如需定制化服务请给打印店留言，并留下联系方式。</p>
+			<div class='w8content'>
+				<div class='editForm'>
+					<h3>打印店</h3>
+					<h4 id='w2Edit'>北京大学25楼打印店</h4>
+				</div>
+				<div class='editForm'>
+					<h3>纸张</h3>
+					<h4 id='w3Edit1'>A4纸</h4>
+					<h3>油墨</h3>
+					<h4 id='w3Edit2'>黑白打印</h4>
+				</div>
+				<div class='editForm'>
+					<h3>环保选项</h3>
+					<h4 id='w4Edit'>双面打印</h4>
+				</div>
+				<div class='editForm'>
+					<h3>版式缩放</h3>
+					<h4 id='w5Edit'>1版</h4>
+				</div>
+				<div class='editForm'>
+					<h3>页数估计</h3>
+					<h4 id='w6Edit1'>页数很少</h4>
+					<h3>打印份数</h3>
+					<h4 id='w6Edit2'>打印6份</h4>
+				</div>
+				<div class='editForm'>
+					<h3>附加服务</h3>
+					<h4 id='w7Edit'>添加封面</h4>
+				</div>
+				<div class='confirmForm'>
+					<h3>客户留言</h3>
+					<textarea id='w8Edit' class='uiTextarea'></textarea>
+					<input type='button' id='w8ConfirmBtn' class='uiBtn2' value='提交订单'/>
+				</div>
+				<div class='clear'></div>
 			</div>
 		</div>			 
 		<div class='panel taskQueue'> 
 			<h2>任务队列</h2> 
-			<table> 
-				<tbody> 
-					<tr> 
-						<th>编号</th> 
-						<th>店铺</th> 
-						<th>状态</th> 
-						<th>费用估计</th> 
-						<th>操作</th> 
-					</tr> 
-				<tr class='order_open'> 
-					<td>14</td> 
-					<td>博實打印店</td> 
-					<td>PDF文档</td> 
-					<td><a>队列中</a></td> 
-					<td><a href='/submit.php?oid=14&act=0'>撤銷任務</a></td> 
-					<input type='hidden' name='status' value='0' /> 
-				</tr> 
-				<tr> 
-					<td>13</td> 
-					<td>25楼打印店</td> 
-					<td>PDF文档</td> 
-					<td>成功徹消</td> 
-					<td><a href='/submit.php?oid=13&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='1' /> 
-				</tr> 
-				<tr class='order_open'> 
-					<td>12</td> 
-					<td>25楼打印店</td> 
-					<td>PDF文档</td> 
-					<td><a>正在打印</a></td> 
-					<td><a href='/submit.php?oid=12&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='2' /> 
-				</tr> 
-				<tr class='order_open'> 
-					<td>9</td> 
-					<td>博實打印店</td> 
-					<td>WORD文档</td> 
-					<td><a>队列中</a></td> 
-					<td><a href='/submit.php?oid=9&act=0'>撤銷任務</a></td> 
-					<input type='hidden' name='status' value='0' /> 
-				</tr> 
-				<tr> 
-					<td>8</td> 
-					<td>25楼打印店</td> 
-					<td>PPT幻灯片</td> 
-					<td>成功徹消</td> 
-					<td><a href='/submit.php?oid=8&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='1' /> 
-				</tr> 
-				<tr class='order_open'> 
-					<td>7</td> 
-					<td>25楼打印店</td> 
-					<td>PDF文档</td> 
-					<td><a>正在打印</a></td> 
-					<td><a href='/submit.php?oid=7&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='2' /> 
-				</tr> 
-				<tr class='order_open'> 
-					<td>3</td> 
-					<td>博實打印店</td> 
-					<td>WORD文档</td> 
-					<td><a>队列中</a></td> 
-					<td><a href='/submit.php?oid=3&act=0'>撤銷任務</a></td> 
-					<input type='hidden' name='status' value='0' /> 
-				</tr> 
-				<tr> 
-					<td>2</td> 
-					<td>25楼打印店</td> 
-					<td>PPT幻灯片</td> 
-					<td>成功徹消</td> 
-					<td><a href='/submit.php?oid=2&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='1' /> 
-				</tr> 
-				<tr class='order_open'> 
-					<td>1</td> 
-					<td>25楼打印店</td> 
-					<td>PDF文档</td> 
-					<td><a>正在打印</a></td> 
-					<td><a href='/submit.php?oid=1&act=1'>複製到新訂單</a></td> 
-					<input type='hidden' name='status' value='2' /> 
-				</tr> 
-				</tbody> 
-			</table> 
+			
 			<h2></h2> 
 		</div> 
 	</div>

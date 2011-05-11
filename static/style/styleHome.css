@@ -73,8 +73,7 @@
 	z-index: 0;
 }
 
-#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover, #btn8:hover,
-#btn1.selected, #btn2.selected, #btn3.selected, #btn4.selected, #btn5.selected, #btn6.selected, #btn7.selected, #btn8.selected{
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover, #btn8:hover{
 	background-position-y: -80px;
 }
 
@@ -113,7 +112,11 @@
 	margin: 0 0 2px 0;
 }
 
-#credit dd{
+#credit0{
+	display: none;
+}
+
+#credit1{
 	font-size: 36px;
 	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
 }
@@ -155,17 +158,8 @@
 	padding-bottom: 30px;
 }
 
-#uploadfile{
-	margin: 0px auto;
-	height: 231px;
-	width: 208px;
-	background: url('../images/uploadIcon2.png');
-	background-position-y: 0px;
-}
-
-#uploadfile:hover{
-	background-position-y: -231px;
-}
+#uploadfile{ margin: 0px auto; height: 231px; width: 208px; background: url('../images/uploadIcon2.png'); background-position-y: 0px }
+#uploadfile:hover{ background-position-y: -231px }
 
 form{
 	height: 100%;
@@ -202,7 +196,7 @@ input[type='file']{
 	padding: 30px 0px 10px;
 }
 
-.storeItem{
+.w2item{
 	float: left;
 	width: 395px;
 	min-height: 80px;
@@ -218,7 +212,7 @@ input[type='file']{
 	cursor: pointer;
 }
 
-.storeItem:hover, .storeItem.selected{
+.w2item:hover, .w2item.selected{
 	background-position-x: -500px;
 	background-color: #26454F;
 }
@@ -289,25 +283,12 @@ input.uiBtn1{
 	filter: alpha(opacity=50);
 }
 
-#b5bw{
-	background: url(../images/b5bw1.png);
-}
+#b5bw{ background: url(../images/b5bw1.png) }
+#a4bw{ background: url(../images/a4bw1.png) }
+#b5color{ background: url(../images/b5color1.png) }
+#a4color{ background: url(../images/a4color1.png) }
+#b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover, #b5bw.selected, #a4bw.selected, #b5color.selected, #a4color.selected{ background-position-y: -160px; }
 
-#b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover, #b5bw.selected, #a4bw.selected, #b5color.selected, #a4color.selected{
-	background-position-y: -160px;
-}
-
-#a4bw{
-	background: url(../images/a4bw1.png);	
-}
-
-#b5color{
-	background: url(../images/b5color1.png);
-}
-
-#a4color{
-	background: url(../images/a4color1.png);	
-}
 
 .w3item{
 	height: 160px;
@@ -324,18 +305,11 @@ input.uiBtn1{
 	cursor: pointer;
 }
 
-#single{
-	background: url(../images/single.png);
-	background-position-y: 0px;
-}
+#single{ background: url(../images/single.png); }
+#double{ background: url(../images/double.png); }
 
-#single:hover, #double:hover, #single.selected, #double.selected{
-	background-position-y: -235px;
-}
+#single:hover, #double:hover, #single.selected, #double.selected{ background-position-y: -235px; }
 
-#double{
-	background: url(../images/double.png);
-}
 
 /*------------------------ W5 ------------------------*/
 
@@ -360,11 +334,7 @@ input.uiBtn1{
 #layout8{ background: url(../images/l8.png) }
 #layout9{ background: url(../images/l9.png) }
 #layout12{ background: url(../images/l12.png) }
-
-#layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover,
-#layout1.selected, #layout2.selected, #layout4.selected, #layout6.selected, #layout8.selected, #layout9.selected, #layout12.selected{
-	background-position-y: -151px;
-}
+#layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover, #layout1.selected, #layout2.selected, #layout4.selected, #layout6.selected, #layout8.selected, #layout9.selected, #layout12.selected{ background-position-y: -151px; }
 
 /*------------------------ W6 ------------------------*/
 
@@ -382,45 +352,41 @@ input.uiBtn1{
 }
 
 .w6content { padding: 0 0 30px 0; overflow: hidden; }
+
 .dynos-copy { float: left; background-image: url(../images/w6left.png); background-position: top left; background-repeat: no-repeat; }
+
 .workers-copy, .dynos-copy { padding: 150px 20px 0 20px; width: 265px; }
 .slider { float: left; position: relative; width: 310px; }
+
 .slider #dynos-slider-container { background: url(../images/w6middle.png) top right no-repeat; height: 250px; margin-top: 32px; padding-top: 20px; position: absolute; width: 177px; }
 .slider #dynos-slider-container #dynos-slider { height: 229px; position: absolute; width: 100%; }
 .slider #dynos-slider-container #dynos-slider a { display: block; position: absolute; width: 150px; height: 40px; }
 .slider #dynos-slider-container #dynos-slider a:hover { text-decoration: none; }
 .slider #dynos-slider-container #dynos-slider #dynos-handle-inner { background: url(../images/w6middle1.png) top left no-repeat; display: block; height: 86px; margin-left: 10px; padding: 10px 0 0 14px; width: 129px; }
-.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-dynos { float: left; clear: left; font-size: 18px; padding-top: 7px; color: #7f95ff; }
+.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-dynos { float: left; clear: left; font-size: 18px; padding-top: 17px; color: #7f95ff; }
 .slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-dynos span { font-size: 16px; }
-.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-performance { float: left; clear: left; white-space: nowrap; margin-top: 3px; font-size: 12px; color: #606580; display: none; }
-.slider #dynos-slider-container #dynos-slider #dynos-handle-inner #dynos-handle-inner-price { float: left; clear: left; white-space: nowrap; margin-top: 3px; font-size: 10px; color: #606580; font-size: 14px; }
+
 .slider #workers-slider-container { position: relative; left: 164px; margin-top: 32px; padding-top: 20px; width: 150px; height: 250px; }
 .slider #workers-slider-container #workers-slider { position: absolute; width: 100%; height: 229px; }
 .slider #workers-slider-container #workers-slider a { display: block; position: absolute; width: 150px; height: 40px; }
 .slider #workers-slider-container #workers-slider a:hover { text-decoration: none; }
 .slider #workers-slider-container #workers-slider #workers-handle-inner { display: block; width: 129px; height: 86px; padding: 10px 0 0 12px; margin-left: 10px; background: url(../images/w6middle2.png) top left no-repeat; }
-.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-workers { float: right; clear: left; font-size: 18px; padding-top: 7px; margin-right: 30px; color: #7f95ff; }
+.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-workers { float: right; clear: left; font-size: 18px; padding-top: 17px; margin-right: 30px; color: #7f95ff; }
 .slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-workers span { font-size: 16px; }
-.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-performance { clear: left; white-space: nowrap; margin-top: 3px; font-size: 12px; color: #606580; display: none; }
-.slider #workers-slider-container #workers-slider #workers-handle-inner #workers-handle-inner-price { float: right; clear: left; white-space: nowrap; margin-top: 3px; margin-right: 30px; font-size: 10px; color: #606580; padding-left: 6px; font-size: 14px; }
+
 .workers-copy { float: right; background-image: url(../images/w6right.png); background-position: top right; background-repeat: no-repeat; text-align: right; }
 
-#copyP{
-	float: right;
-	margin-top: 3px;
-	margin-right: 10px;
-	height: 17px;
-	width: 17px;
-	background: url(../images/copyP.png);
-}
-
-#copyM{
-	float: right;
-	margin-top: 3px;
-	margin-right: 10px;
-	height: 17px;
-	width: 17px;
-	background: url(../images/copyM.png);
+.copyAdjust{
+	background: #1C1C1C;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	border-radius: 14px;
+	color: #AAA;
+	margin: 0 4px 0 4px;
+	padding: 4px 8px;
+	border-width: 0px;
+	font-size: inherit;
+	cursor: pointer;
 }
 
 .w6content p{
@@ -457,10 +423,18 @@ input.uiBtn1{
 #bind1{ background: url(../images/bind1.png) }
 #bind2{ background: url(../images/bind2.png) }
 #bind3{ background: url(../images/bind3.png) }
+#bind0:hover, #bind1:hover, #bind2:hover, #bind3:hover, #bind0.selected, #bind1.selected, #bind2.selected, #bind3.selected{ background-position-y: -220px; } 
 
-#bind0.selected, #bind1:hover, #bind2:hover, #bind3:hover, #bind0:hover, #bind1.selected, #bind2.selected, #bind3.selected{
-	background-position-y: -220px;
-} 
+/*------------------------ W8 ------------------------*/
+
+.editForm{
+	float: left;
+	width: 150px;
+}
+
+.confirmForm{
+	float: left;
+}
 
 /*------------------------ TASK QUEUE ------------------------*/
 
