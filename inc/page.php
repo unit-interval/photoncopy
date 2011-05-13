@@ -95,6 +95,7 @@ function page_home($tasks, $stores_prior) {
 				</p>
 				<div id='uploadfile'>
 					<form id='formFile' action='iframe...' method='get'>
+						<input type='hidden' name='UPLOAD_IDENTIFIER' />
 						<input type='file' name='file' />
 					</form>
 					<form accept-charset='UTF-8' id='formOrder' action='submit.php' method='get'>
@@ -347,7 +348,8 @@ function page_home($tasks, $stores_prior) {
 				</div>
 				<div class='clear'></div>
 			</div> 
-		</div>";
+		</div>
+		<iframe name='ifr_upload' class='outcast'></iframe>";
 }
 function page_index() {
 	echo '

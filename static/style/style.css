@@ -319,3 +319,11 @@ textarea.uiTextarea{
 	font-size: 12px;
 	padding-bottom: 12px;
 }
+
+
+
+.outcast {
+	position: absolute;
+	top: -1000px;
+	left: -1000px;
+}
