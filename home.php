@@ -22,6 +22,8 @@ if($_SESSION['logged_in'] != true) {
 $link['css'][] = 'style';
 $link['css'][] = 'styleHome';
 $link['js'][] = 'jquery';
+$link['js'][] = 'jquery-ui';
+$link['js'][] = 'jquery.scrollTo';
 $link['js'][] = 'scriptHome';
 $link['js'][] = 'home';
 
