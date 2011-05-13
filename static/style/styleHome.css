@@ -476,7 +476,7 @@ input.uiBtn1{
 
 #w8Edit{
 	width: 126px;
-	background: transparent;
+	background: #292929;
 	border: 2px dashed #202020;
 	height: 140px;
 	overflow: hidden;
@@ -512,11 +512,92 @@ input.uiBtn1{
 }
 
 .taskQueueR{
-	background: #1B1F2A;
+	background: #212634;
 	float: right;
 	width: 732px;
 }
 
 #q{
 	width: 160px; 
+}
+
+/*------------------------ TASK ACCORDION ------------------------*/
+
+#taskAccordion{
+	color: #DDD;
+}
+
+.taskAccordionBottom{
+	background: #1B1F2A;
+	height: 14px;
+}
+
+#taskAccordion h3{
+	margin: 0;
+	padding: 18px;
+	display: block;
+	cursor: pointer;
+	background: url(../images/taskIcon.png) no-repeat 18px 18px;
+	padding-left: 58px;
+	height: 32px;
+	color: #DDD;
+	line-height: 32px;
+	font-weight: normal;
+}
+
+#taskAccordion h3:hover, #taskAccordion h3.selected{
+	color: #6CAEFF;
+}
+
+#taskAccordion a{
+	color: #8D79F2;
+}
+
+.taskDetail{
+	display: none;
+}
+
+#taskAccordion table{
+	padding: 0 40px;
+	margin-bottom: 20px;
+}
+
+#taskAccordion th{
+	font-weight: normal;
+	text-align: right;
+	vertical-align: top;
+	width: 60px;
+}
+
+#taskAccordion td{
+	padding: 0px 0px 10px 14px;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+.taskStatus{
+	float: right;
+	border-radius: 5px;
+	padding: 0 10px;
+	color: white;
+}
+
+.taskStatus1{
+	background: #69CA94;
+}
+
+.taskStatus2{
+	background: #7F95FF;
+}
+
+.taskStatus3{
+	background: #8D79F2;
+}
+
+.taskStatus4{
+	background: #3B4458;
+}
+
+.taskItem{
+	border-bottom: 2px solid #1B1F2A;
 }

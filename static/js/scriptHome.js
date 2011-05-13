@@ -298,7 +298,7 @@ $(function(){
 		refreshCredit();
 		showMore(7);
 	});
-	
+		
 	// hover on w8 item
 	$('.editForm').hover(function(){
 		$('#btn'+$('h4', this).attr('id')[1]).addClass('hover');
@@ -353,6 +353,16 @@ $(function(){
 	_slider.find("a").html(
 	'<span id="workers-handle-inner"><span id="workers-handle-inner-workers"><span id="copyNumber">1</span>份</span><span id="workers-handle-inner-price"></span></span>'
 	);
-	
+		
+	$('h3', 'div.taskItem').click(function(){
+		if ($(this).hasClass('selected')){
+			$(this).removeClass('selected');
+			$('div.taskDetail', $(this).parent()).slideUp(250);
+		}
+		else{
+			$(this).addClass('selected');
+			$('div.taskDetail', $(this).parent()).slideDown(250);
+		}
+	})
 })
 
