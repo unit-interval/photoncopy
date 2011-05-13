@@ -26,7 +26,7 @@
 #btn0{
 	float: left;
 	width: 14px; 
-	height: 100%; 
+	height: 100%;
 	background: url('../images/bg/homeBtn1.png') top left;
 }
 
@@ -102,11 +102,28 @@
 /*------------------------ STATUS ------------------------*/
 
 #status{
-	float: left;
 	color: #7F95FF;
 	line-height: 24px;
 }
 
+#statusFileName{
+	float: left;
+}
+
+#statusFileBar{
+	float: left;
+	width: 200px;
+	height: 14px;
+	border: 1px solid #7F95FF;
+	margin: 4px 16px 0px;
+}
+
+#statusFileBarInner{
+	background: #7F95FF;
+	width: 40px;
+	height: 12px;
+	margin: 1px;
+}
 /*------------------------ CREDIT ------------------------*/
 
 #credit{
@@ -219,7 +236,7 @@ input[type='file']{
 	margin: 0px 0px 20px 0px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
-	background: #1A2F36 url(../images/storeListBg.jpg) no-repeat;
+	background: #1A2F36;
 	border: 1px solid #243F47;
 	-moz-box-shadow: 0px 0px 5px #171C1E;
 	-webkit-box-shadow: 0px 0px 5px #171C1E;
@@ -229,7 +246,6 @@ input[type='file']{
 }
 
 .w2item:hover, .w2item.selected{
-	background-position: -500px 0px;
 	background-color: #26454F;
 }
 

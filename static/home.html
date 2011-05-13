@@ -48,7 +48,10 @@
  			</dl>
 		</div> 
 		<div class='drawer lbCorner rbCorner'>
-			<div id='status'>文件名写在这里，没东西的时候，这个会收起来，用toggle控制status</div>
+			<div id='status'>
+				<div id='statusFileName'>文件名</div>
+				<div id='statusFileBar'><div id='statusFileBarInner'></div></div>
+			</div>
 			<div class='clear'></div>
 		</div>
 		<div id='w1' class='w panel'>
@@ -102,7 +105,7 @@
 							<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a>
 							<div class='storeId'>3</div> 
 							<h2>學五打印店</h2> 
-							<p>这里的极少多一些<br>比如份进口拉萨解放路科技阿喀琉斯地方李开复</p> 
+							<p>这里的极少多一些<br>比如份进口拉萨解放路科技阿喀琉斯地方李开复比如份进口拉萨解放路科技阿喀琉斯地方李开复比如份进口拉萨解放路科技阿喀琉斯地方李开复比如份进口拉萨解放路科技阿喀琉斯地方李开复比如份进口拉萨解放路科技阿喀琉斯地方李开复比如份进口拉萨解放路科技阿喀琉斯地方李开复</p> 
 							<h3>余额: 0元</h3> 
 						</div> 
 					</div> 
@@ -294,11 +297,11 @@
 		<div class='taskQueue'>
 			<div class='taskQueueL'>
 				<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
-				<div class='msgBox panel'>
+				<div class='msgBox panel0'>
 					<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
 					<ul class='unreadContent'>
 						<li>
-							f
+							f<span class='msgClose'>X</span>
 						</li>
 						<li>
 							fsd
@@ -306,7 +309,7 @@
 					</ul>
 				</div> 
 			</div>
-			<div class='panel taskQueueR'>
+			<div class='panel0 taskQueueR'>
 				<h2>任务队列</h2>
 				<div id='taskAccordion'>
 					<div class='taskItem'>
@@ -358,7 +361,7 @@
 	    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 	    					<tr><th>客户留言</th><td>blablabla</td></tr>
 	    					<tr><th>订单状态</td><td>队列中</td></tr>
-	    					<tr><th>订单操作</th><td>由于担保积分不足或订单要求不明确等原因，您可以到打印店自助打印或者<a href='#'>撤销订单<a></td></tr>
+	    					<tr><th>订单操作</th><td>由于担保积分不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a href='#'>撤销订单<a></td></tr>
 	    				</table>
 	    				</div>
     				</div>
