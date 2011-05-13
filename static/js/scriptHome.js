@@ -22,7 +22,7 @@ function showMore(n){
 	for (i=n+1; i<formStatus.length; i++)
 		if (formStatus[i]){
 			if ($('#btn'+i).css('display')!='block') j++;
-			$('#btn'+i).delay(250*j).css('display', 'block');
+			$('#btn'+i).delay(250*j).show();
 		}
 		else break;
 	toggleFocusBtn($('#btn'+i), 1, 250*(j+1));
@@ -363,6 +363,11 @@ $(function(){
 			$(this).addClass('selected');
 			$('div.taskDetail', $(this).parent()).slideDown(250);
 		}
+	});
+	
+	$('span.msgClose').click(function(){
+		$(this).parent().hide(250);
+		$('span#unread').html(parseInt($('span#unread').html())-1);
 	})
 })
 
