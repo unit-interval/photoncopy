@@ -8,9 +8,10 @@
 	<title>光子复制</title> 
 		<link rel='stylesheet' type='text/css' href='./media/css/style.css' /> 
 	<link rel='stylesheet' type='text/css' href='./media/css/styleHome.css' /> 
-	<script type='text/javascript' src='./media/js/jquery.js'></script> 
+	<script type='text/javascript' src='./media/js/jquery-1.5.1.min.js'></script> 
 	<script type='text/javascript' src='./media/js/scriptHome.js'></script> 
-	<script type='text/javascript' src='./media/js/jquery-ui-1.7.1.custom.min.js'></script> 
+	<script type='text/javascript' src='./media/js/jquery-ui-1.8.12.custom.min.js'></script> 
+	<script type='text/javascript' src='./media/js/jquery.scrollTo-min.js'></script> 
 </head> 
 	<body> 
 		<div class="nav"> 
@@ -52,20 +53,25 @@
 		</div>
 		<div id='w1' class='w panel'>
 			<h2>上传文件</h2>
-			<p style='text-align: center'>支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB</p>
+			<p style='text-align: center'>
+				支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB<br>
+				重新选择上传文件将直接替换之前上传的文件
+			</p>
 			<div id='uploadfile'>
-				<form action='submit.php' method='get' enctype='multipart/form-data'>
+				<form id='formFile' action='iframe...' method='get'>
 					<input type='file' name='file' />
-					<input type='text' id='w2Form' name='store' />
-					<input type='text' id='w3Form1' name='paper' />
-					<input type='text' id='w3Form2' name='color' />
-					<input type='text' id='w4Form' name='double' />
-					<input type='text' id='w5Form' name='layout' />
-					<input type='text' id='w6Form1' name='copy' />
-					<input type='text' id='w6Form2' name='page' />
-					<input type='text' id='w7Form' name='bind' />
-					<input type='text' id='w8Form' name='message' />
-					<input type='text' id='guaranteeForm' name='guarantee' />
+				</form>
+				<form accept-charset="UTF-8" id='formOrder' action='submit.php' method='get'>
+					<input type='hidden' id='w2Form' name='store' value='' />
+					<input type='hidden' id='w3Form1' name='paper' value='' />
+					<input type='hidden' id='w3Form2' name='color' value='' />
+					<input type='hidden' id='w4Form' name='double' value='' />
+					<input type='hidden' id='w5Form' name='layout' value='' />
+					<input type='hidden' id='w6Form1' name='copy' value='' />
+					<input type='hidden' id='w6Form2' name='page' value='' />
+					<input type='hidden' id='w7Form' name='bind' value='' />
+					<input type='hidden' id='w8Form' name='message' />
+					<input type='hidden' id='w9Form' name='guarantee'/>
 				</form>
 			</div>
 			<div id='w1c'></div>
@@ -246,7 +252,7 @@
 			<h2>确认订单</h2>
 			<p>订单仍可进一步修改，如需定制化服务请给打印店留言，并留下联系方式。</p>
 			<div class='w8content'>
-				<div class='editForm'>
+				<div class='editForm lbCorner'>
 					<h3>打印店</h3>
 					<h4 id='w2Edit'>北京大学25楼打印店</h4>
 				</div>
@@ -274,18 +280,36 @@
 					<h3>附加服务</h3>
 					<h4 id='w7Edit'>添加封面</h4>
 				</div>
-				<div class='confirmForm'>
+				<div class='confirmForm rbCorner'>
 					<h3>客户留言</h3>
 					<textarea id='w8Edit' class='uiTextarea'></textarea>
-					<input type='button' id='w8ConfirmBtn' class='uiBtn2' value='提交订单'/>
+					<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
 				</div>
 				<div class='clear'></div>
 			</div>
-		</div>			 
-		<div class='panel taskQueue'> 
-			<h2>任务队列</h2> 
-			
-			<h2></h2> 
+		</div>
+		<div class='wDummy'></div>
+		<div class='taskQueue'>
+			<div class='taskQueueL'>
+				<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
+			</div>
+			<div class='panel taskQueueR'>
+				<h2>任务队列</h2>
+				<div id='taskAccordion'>
+					<h3><a href="#"><span class='fileName'>文件名</span>@北京大学36楼打印店</a><span class='taskStatus1'>队列中</span></h3>
+    				<div>
+    					<p><span>订单编号: </span><span class='taskInfo'>1</span></p>
+    					<p><span>文件名: </span><span class='taskInfo'>blablabla.pdf</span></p>
+    					<p><span>打印店: </span><span class='taskInfo'>北京大学36楼打印店</span></p>
+    					<p><span>订单要求: </span><span class='taskInfo'>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</span></p>
+    					<p><span>客户留言: </span><span class='taskInfo'>blablabla</span></p>
+    					<p><span>订单状态: </span><span class='taskInfo'>队列中</span></p>
+    					<p><span>操作: </span><span class='taskInfo'>取消订单</span></p>
+    				</div>
+				</div>
+				<h2 class='lbCorner rbCorner'></h2>
+			</div>
+			<div class='clear'></div>
 		</div> 
 	</div>
 	<div class='footerWrapper'> 

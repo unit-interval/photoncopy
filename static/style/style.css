@@ -239,6 +239,21 @@ input.uiText:focus{
 	background: #ccffcc;
 }
 
+input.uiSearch{
+	height: 24px;
+	-moz-border-radius: 14px;
+	border-radius: 14px;
+	border-width: 0;
+	font-size: 100%;
+	color: #6CAEFF;
+	padding: 8px 8px 8px 34px;
+	background: #1B1F2A url(../images/search.png) left 8px no-repeat;
+}
+
+input.uiSearch:focus{
+	background-position-y: -33px;
+}
+
 /*------------------------ uiTextarea ------------------------*/
 
 textarea{
