@@ -55,25 +55,27 @@
 			<h2>上传文件</h2>
 			<p style='text-align: center'>
 				支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB<br>
+			</p>
+			<form id='formFile' action='iframe...' method='get'>
+				<input type='file' name='file' />
+			</form>
+			<p style='text-align: center'>
 				重新选择上传文件将直接替换之前上传的文件
 			</p>
-			<div id='uploadfile'>
-				<form id='formFile' action='iframe...' method='get'>
-					<input type='file' name='file' />
-				</form>
-				<form accept-charset="UTF-8" id='formOrder' action='submit.php' method='get'>
-					<input type='hidden' id='w2Form' name='store' value='' />
-					<input type='hidden' id='w3Form1' name='paper' value='' />
-					<input type='hidden' id='w3Form2' name='color' value='' />
-					<input type='hidden' id='w4Form' name='double' value='' />
-					<input type='hidden' id='w5Form' name='layout' value='' />
-					<input type='hidden' id='w6Form1' name='copy' value='' />
-					<input type='hidden' id='w6Form2' name='page' value='' />
-					<input type='hidden' id='w7Form' name='bind' value='' />
-					<input type='hidden' id='w8Form' name='message' />
-					<input type='hidden' id='w9Form' name='guarantee'/>
-				</form>
-			</div>
+			<form accept-charset="UTF-8" id='formOrder' action='submit.php' method='get'>
+				<input type='hidden' id='w1Form1' name='filename' value='' />
+				<input type='hidden' id='w1Form2' name='filehash' value='' />
+				<input type='hidden' id='w2Form' name='store' value='' />
+				<input type='hidden' id='w3Form1' name='paper' value='' />
+				<input type='hidden' id='w3Form2' name='color' value='' />
+				<input type='hidden' id='w4Form' name='double' value='' />
+				<input type='hidden' id='w5Form' name='layout' value='' />
+				<input type='hidden' id='w6Form1' name='copy' value='' />
+				<input type='hidden' id='w6Form2' name='page' value='' />
+				<input type='hidden' id='w7Form' name='bind' value='' />
+				<input type='hidden' id='w8Form' name='message' />
+				<input type='hidden' id='w9Form' name='guarantee'/>
+			</form>
 			<div id='w1c'></div>
 		</div>
 		<div id='w2' class='w panel'>
@@ -292,6 +294,17 @@
 		<div class='taskQueue'>
 			<div class='taskQueueL'>
 				<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
+				<div class='msgBox panel'>
+					<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
+					<ul class='unreadContent'>
+						<li>
+							f
+						</li>
+						<li>
+							fsd
+						</li>
+					</ul>
+				</div> 
 			</div>
 			<div class='panel taskQueueR'>
 				<h2>任务队列</h2>
@@ -433,6 +446,6 @@
 				</dl> 
 			</div> 
 			<div class='clear'></div> 
-		</div>  
+		</div> 
 	</body>
 </html>
