@@ -661,7 +661,7 @@ input.uiBtn1{
 }
 
 .msgBox li{
-	margin: 4px 0;
+	margin: 8px 0;
 	padding: 0px;
 	display: list-item;
 }
@@ -674,6 +674,5 @@ input.uiBtn1{
 	color: #8D79F2;
 	float: right;
 	padding: 1px 1px;
-	border-bottom: 1px dashed #DDD;
 	cursor: pointer;
 }

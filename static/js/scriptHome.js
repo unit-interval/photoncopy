@@ -363,6 +363,11 @@ $(function(){
 			$(this).addClass('selected');
 			$('div.taskDetail', $(this).parent()).slideDown(250);
 		}
+	});
+	
+	$('span.msgClose').click(function(){
+		$(this).parent().hide(250);
+		$('span#unread').html(parseInt($('span#unread').html())-1);
 	})
 })
 
