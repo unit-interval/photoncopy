@@ -34,10 +34,14 @@
 	display: block;
 }
 
-#btn0.hover0, #btn2.hover, #btn3.hover, #btn4.hover, #btn5.hover, #btn6.hover, #btn7.hover,
+#btn0.selected, #btn0.hover0{
+	background-position: 0px -80px;
+}
+
+#btn2.hover, #btn3.hover, #btn4.hover, #btn5.hover, #btn6.hover, #btn7.hover,
 #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover, #btn8:hover, 
-#btn0.selected, #btn1.selected, #btn2.selected, #btn3.selected, #btn4.selected, #btn5.selected, #btn6.selected, #btn7.selected, #btn8.selected{
-	background-position-y: -80px;
+#btn1.selected, #btn2.selected, #btn3.selected, #btn4.selected, #btn5.selected, #btn6.selected, #btn7.selected, #btn8.selected{
+	background-position: right -80px;
 }
 
 #firstBtn{
@@ -169,20 +173,21 @@
 	padding-bottom: 30px;
 }
 
-#uploadfile{ margin: 0px auto; height: 231px; width: 208px; background: url('/media/images/uploadIcon2.png'); background-position-y: 0px }
-#uploadfile:hover{ background-position-y: -231px }
+#uploadfile{ margin: 0px auto; height: 231px; width: 208px; background: url('/media/images/uploadIcon2.png'); background-position: 0px 0px }
+#uploadfile:hover{ background-position: 0px -231px }
 
-form{
-	height: 100%;
-	width: 100%;
+form#formFile{
+	width: 300px;
+	height: 80px;
+	background: #292929;
+	border: 2px dashed #202020;
+	margin: auto;
 }
 
 input[type='file']{
-	height: 100%;
-	width: 100%;
-	opacity: 0;
-	filter: alpha(opacity=0);
 	cursor: pointer;
+	margin: 30px;
+	display: block;
 }
 
 /*------------------------ W2 ------------------------*/
@@ -224,7 +229,7 @@ input[type='file']{
 }
 
 .w2item:hover, .w2item.selected{
-	background-position-x: -500px;
+	background-position: -500px 0px;
 	background-color: #26454F;
 }
 
@@ -298,13 +303,12 @@ input.uiBtn1{
 #a4bw{ background: url(/media/images/a4bw1.png) }
 #b5color{ background: url(/media/images/b5color1.png) }
 #a4color{ background: url(/media/images/a4color1.png) }
-#b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover, #b5bw.selected, #a4bw.selected, #b5color.selected, #a4color.selected{ background-position-y: -160px; }
-
+#b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover, #b5bw.selected, #a4bw.selected, #b5color.selected, #a4color.selected{ background-position: 0px -160px; }
 
 .w3item{
 	height: 160px;
 	width: 123px;
-	background-position-y: 0px;
+	background-position: 0px 0px;
 	cursor: pointer;
 }
 
@@ -319,7 +323,7 @@ input.uiBtn1{
 #single{ background: url(/media/images/single.png); }
 #double{ background: url(/media/images/double.png); }
 
-#single:hover, #double:hover, #single.selected, #double.selected{ background-position-y: -235px; }
+#single:hover, #double:hover, #single.selected, #double.selected{ background-position: 0px -235px; }
 
 
 /*------------------------ W5 ------------------------*/
@@ -345,7 +349,7 @@ input.uiBtn1{
 #layout8{ background: url(/media/images/l8.png) }
 #layout9{ background: url(/media/images/l9.png) }
 #layout12{ background: url(/media/images/l12.png) }
-#layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover, #layout1.selected, #layout2.selected, #layout4.selected, #layout6.selected, #layout8.selected, #layout9.selected, #layout12.selected{ background-position-y: -151px; }
+#layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover, #layout1.selected, #layout2.selected, #layout4.selected, #layout6.selected, #layout8.selected, #layout9.selected, #layout12.selected{ background-position: 0px -151px; }
 
 /*------------------------ W6 ------------------------*/
 
@@ -431,7 +435,7 @@ input.uiBtn1{
 #bind1{ background: url(/media/images/bind1.png) }
 #bind2{ background: url(/media/images/bind2.png) }
 #bind3{ background: url(/media/images/bind3.png) }
-#bind0:hover, #bind1:hover, #bind2:hover, #bind3:hover, #bind0.selected, #bind1.selected, #bind2.selected, #bind3.selected{ background-position-y: -220px; } 
+#bind0:hover, #bind1:hover, #bind2:hover, #bind3:hover, #bind0.selected, #bind1.selected, #bind2.selected, #bind3.selected{ background-position: 0px -220px; } 
 
 /*------------------------ W8 ------------------------*/
 
@@ -476,7 +480,7 @@ input.uiBtn1{
 
 #w8Edit{
 	width: 126px;
-	background: transparent;
+	background: #292929;
 	border: 2px dashed #202020;
 	height: 140px;
 	overflow: hidden;
@@ -512,11 +516,129 @@ input.uiBtn1{
 }
 
 .taskQueueR{
-	background: #1B1F2A;
+	background: #212634;
 	float: right;
 	width: 732px;
 }
 
 #q{
 	width: 160px; 
+}
+
+/*------------------------ TASK ACCORDION ------------------------*/
+
+#taskAccordion{
+	color: #DDD;
+}
+
+.taskAccordionBottom{
+	background: #1B1F2A;
+	height: 14px;
+}
+
+#taskAccordion h3{
+	margin: 0;
+	padding: 18px;
+	display: block;
+	cursor: pointer;
+	background: url(../images/taskIcon.png) no-repeat 18px 18px;
+	padding-left: 58px;
+	height: 32px;
+	color: #DDD;
+	line-height: 32px;
+	font-weight: normal;
+}
+
+#taskAccordion h3:hover, #taskAccordion h3.selected{
+	color: #6CAEFF;
+}
+
+#taskAccordion a{
+	color: #8D79F2;
+}
+
+.taskDetail{
+	display: none;
+}
+
+#taskAccordion table{
+	padding: 0 40px;
+	margin-bottom: 20px;
+}
+
+#taskAccordion th{
+	font-weight: normal;
+	text-align: right;
+	vertical-align: top;
+	width: 60px;
+}
+
+#taskAccordion td{
+	padding: 0px 0px 10px 14px;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+.taskStatus{
+	float: right;
+	border-radius: 5px;
+	padding: 0 10px;
+	color: white;
+}
+
+.taskStatus1{
+	background: #69CA94;
+}
+
+.taskStatus2{
+	background: #7F95FF;
+}
+
+.taskStatus3{
+	background: #8D79F2;
+}
+
+.taskStatus4{
+	background: #3B4458;
+}
+
+.taskItem{
+	border-bottom: 2px solid #1B1F2A;
+}
+
+/*------------------------ MSG BOX ------------------------*/
+
+.msgBox{
+	margin-top: 30px;
+	width: 202px;
+	background: #212634;
+}
+
+.msgBox h2{
+	padding: 8px 8px 8px 18px;
+	color: #DDD;
+	font-size: 14px;
+}
+
+.msgBox span#unread{
+	float: right;
+	background: #212634;
+	font-size: 10px;
+	padding: 3px 8px;
+	border-radius: 8px;
+	font-weight: bold;
+}
+
+.msgBox ul.unreadContent{
+	padding: 8px 14px;
+	margin: 0 0 0 14px;
+	color: #DDD;
+	list-style-type: disc;
+	font-size: 12px;
+}
+
+.msgBox li{
+	margin: 4px 0;
+	padding: 0px;
+	display: list-item;
 }

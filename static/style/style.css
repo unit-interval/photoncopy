@@ -95,9 +95,9 @@ a{
 .panel{
 	-moz-border-radius: 14px;
 	border-radius: 14px;
-	-moz-box-shadow: #151515 2px 2px 7px 0;
+/*	-moz-box-shadow: #151515 2px 2px 7px 0;
 	-webkit-box-shadow: #151515 2px 2px 7px 0;
-	box-shadow: #151515 2px 2px 7px 0;
+	box-shadow: #151515 2px 2px 7px 0;*/
 }
 
 .panel h2{
@@ -228,7 +228,7 @@ input.uiText{
 	border-radius: 3px;
 	background-color: #C9C3E6;
 	
-	-webkit-box-shadow: 0px 0px 1px #888888; /* Safari */
+	-webkit-box-shadow: 0px 0px 1px #888888;
 	box-shadow: 0px 0px 1px #888888;
 	 
 	width: 320px;
@@ -251,7 +251,7 @@ input.uiSearch{
 }
 
 input.uiSearch:focus{
-	background-position-y: -33px;
+	background-position: left -33px;
 }
 
 /*------------------------ uiTextarea ------------------------*/
