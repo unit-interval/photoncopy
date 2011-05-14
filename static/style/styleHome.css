@@ -104,6 +104,7 @@
 #status{
 	color: #7F95FF;
 	line-height: 24px;
+	display: none;
 }
 
 #statusFileName{
@@ -540,7 +541,7 @@ input.uiBtn1{
 	width: 732px;
 }
 
-#q{
+#taskSearch{
 	width: 160px; 
 }
 
@@ -652,6 +653,15 @@ input.uiBtn1{
 	font-weight: bold;
 }
 
+.msgBox div#msgClearAll{
+	padding: 8px 0;
+	color: #DDD;
+	font-size: 12px;
+	background: #1B1F2A;
+	text-align: center;
+	cursor: pointer;
+}
+
 .msgBox ul.unreadContent{
 	padding: 8px 14px;
 	margin: 0 0 0 14px;
@@ -661,7 +671,7 @@ input.uiBtn1{
 }
 
 .msgBox li{
-	margin: 8px 0;
+	margin: 14px 0;
 	padding: 0px;
 	display: list-item;
 }
@@ -671,7 +681,7 @@ input.uiBtn1{
 }
 
 .msgClose{
-	color: #8D79F2;
+	color: #6CAEFF;
 	float: right;
 	padding: 1px 1px;
 	cursor: pointer;

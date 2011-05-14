@@ -171,9 +171,9 @@ $(function(){
 	});
 	
 	$('#credit').hover(function(){
-		$('#btnWrapper').css('background-position-y', '-80px');
+		$('#btnWrapper').css('background-position', '0 -80px');
 	}, function(){
-		$('#btnWrapper').css('background-position-y', '0px');
+		$('#btnWrapper').css('background-position', '0 0');
 	});
 	
 	$('table.hovertable td').hover(function(){
@@ -368,6 +368,27 @@ $(function(){
 	$('span.msgClose').click(function(){
 		$(this).parent().hide(250);
 		$('span#unread').html(parseInt($('span#unread').html())-1);
-	})
+	});
+	
+	$('div#msgClearAll').click(function(){
+		$('ul.unreadContent li').hide(500);
+		$('span#unread').html(0);
+	});
+	
+	$('input#taskSearch').keyup(function(){
+		if ($('input#taskSearch').val()==''){
+			$('div.taskItem', $('#taskAccordion')).show(250);
+		}
+		else{
+			var key=$('input#taskSearch').val();
+			$('div.taskItem', $('#taskAccordion')).each(function(){
+				var str=$('td:lt(4)', this).text();
+				if (str.search(key)==-1) $(this).hide(250);
+				else $(this).show(250);
+			});
+		}
+	});
+	
+	
 })
 

@@ -55,6 +55,7 @@ a{
 	padding: 10px;
 	border-radius: 7px;
 	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 	font-size: 14px;
 }
 
@@ -94,6 +95,7 @@ a{
 
 .panel, .panel0{
 	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
 	border-radius: 14px;
 }
 
