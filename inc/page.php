@@ -64,63 +64,343 @@ function page_footer() {
 	";
 }
 function page_home($tasks, $stores_prior) {
-	echo "<div class='contentWrapper'>
-			<div class='panel btnWrapper'>
-				<div class='btn'>
-					<div id='btn1'>
-						
-					</div>
-				</div>
-
-				<div class='btn'>
-					<div id='btn2'>
-						
-					</div>
-				</div>
-				<div class='btn'>
-					<div id='btn3'>
-						
-					</div>
-				</div>
-				<div class='btn'>
-
-					<div id='btn4'>
-						
-					</div>
-				</div>
-				<div class='btn'>
-					<div id='btn5'>
-						
-					</div>
-				</div>
-				<div class='btn'>
-					<div id='btn6'>
-
-						
-					</div>
-				</div>
-				<div class='btn'>
-					<div id='btn7'>
-						
-					</div>
-				</div>
-				<div class='btn'>
-					<div id='btn8'>
-						
-					</div>
-
-				</div>
+// TODO credit
+	echo "
+		<div class='contentWrapper'>
+			<div class='panel' id='btnWrapper'>
+				<div id='btn0'></div>
+				<div class='btn' id='firstBtn'><div id='btn1' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn2' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn3' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn4' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn5' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn6' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn7' class='innerBtn'></div></div>
+				<div class='btn'><div id='btn8' class='innerBtn'></div></div>
+ 				<dl id='credit'>
+ 					<dt>积分</dt>
+ 					<dd id='credit0'>99</dd>
+ 					<dd id='credit1'>99</dd>
+ 				</dl>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
-				
+				<div id='status'>
+					<span class='fleft'></span>
+					<div id='statusFileBar'><div id='statusFileBarInner'></div></div>
+				</div>
+				<div class='clear'></div>
 			</div>
-			<div class='panel taskQueue'>
-				<h2>任务队列</h2>
-				<table>"
-					. mod_taskqueue($tasks, $stores_prior) . "
+			<div id='w1' class='w panel'>
+				<h2>上传文件</h2>
+				<p style='text-align: center'>
+					支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB<br>
+				</p>
+				<form id='formFile' target='ifr_upload' action='/xhr/upload-handler.php' method='post' enctype='multipart/form-data'>
+					<input type='hidden' name='UPLOAD_IDENTIFIER' />
+					<input type='file' name='file' />
+				</form>
+				<p style='text-align: center'>
+					重新选择上传文件将直接替换之前上传的文件
+				</p>
+				<div id='w1c'></div>
+			</div>
+			<div id='w2' class='w panel'>
+				<h2>选择打印店</h2>
+				<div class='storeWrapper'> 
+					<div class='storeL'> 
+						<div class='w2item'> 
+							<div class='storeItemAvatar'> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
+							</div> 
+							<div class='storeItemInfo'> 
+								<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
+								<div class='storeId'>1</div>
+								<h2>25楼打印店</h2> 
+								<p>这里是电面的介绍</p>
+								<h3>余额: 0元</h3>
+							</div> 
+						</div> 
+						<div class='w2item'> 
+							<div class='storeItemAvatar'> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
+							</div> 
+							<div class='storeItemInfo'> 
+								<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a>
+								<div class='storeId'>3</div> 
+								<h2>學五打印店</h2> 
+								<p>这里的极少多一些<br>比如份进口拉萨解放路科技阿喀琉斯地方李开复</p> 
+								<h3>余额: 0元</h3> 
+							</div> 
+						</div> 
+					</div>
+					<div class='storeR'> 
+						<div class='w2item'> 
+							<div class='storeItemAvatar'> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
+							</div> 
+							<div class='storeItemInfo'> 
+								<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
+								<div class='storeId'>2</div>
+								<h2>博實打印店</h2> 
+								<p>交罚款流口水解放路就</p> 
+								<h3>余额: 0元</h3> 
+							</div> 
+						</div> 
+					</div> 
+					<div class='clear'></div>
+				</div> 
+			</div>
+			<div id='w3' class='w panel'>
+				<h2>纸张和油墨</h2>
+				<table class='hovertable'>
+					<tr>
+						<th></th>
+						<th>B5纸</th>
+						<th>A4纸</th>
+					</tr>
+					<tr>
+						<th>黑白打印</th>
+						<td><div class='w3item' id='b5bw'></div></td>
+						<td><div class='w3item' id='a4bw'></div></td>
+					</tr>
+					<tr>
+						<th>彩色打印</th>
+						<td><div class='w3item' id='b5color'></div></td>
+						<td><div class='w3item' id='a4color'></div></td>
+					</tr>
 				</table>
 			</div>
-		</div>";
+			<div id='w4' class='w panel'>
+				<h2>环保选项</h2>
+				<table class='hovertable'>
+					<tr>
+						<th></th>
+						<th>单面打印</th>
+						<th>双面打印</th>
+					</tr>
+					<tr>
+						<th></th>
+						<td><div class='w4item' id='single'></div></td>
+						<td><div class='w4item' id='double'></div></td>
+					</tr>
+				</table>
+			</div>
+			<div id='w5' class='w panel'>
+				<h2>版式缩放</h2>
+				<p>提示: 打印PPT幻灯片一般需要进行版式放缩</p>
+				<table class='hovertable'>
+					<tr>
+						<th></th>
+						<th>1版</th>
+						<th>2版</th>
+						<th>4版</th>
+						<th>6版</th>
+						<th>8版</th>
+						<th>9版</th>
+						<th>12版</th>
+					</tr>
+					<tr>
+						<th></th>
+						<td><div class='w5item' id='layout1'></div></td>
+						<td><div class='w5item' id='layout2'></div></td>
+						<td><div class='w5item' id='layout4'></div></td>
+						<td><div class='w5item' id='layout6'></div></td>
+						<td><div class='w5item' id='layout8'></div></td>
+						<td><div class='w5item' id='layout9'></div></td>
+						<td><div class='w5item' id='layout12'></div></td>
+					</tr>
+				</table>
+			</div>
+			<div id='w6' class='w panel'>
+				<div class='w6h3 ltCorner rtCorner'>
+					<div style='float: left'>页数估计</div>
+					<div style='float: right'>打印份数</div>
+					<div class='clear'></div>
+				</div>
+				<div class='w6content'>
+					<div class='dynos-copy'>
+						<p></p>
+						<p>请估计上传文件的页数</p>
+						<p>无需考虑单双面设置与版式放缩</p>
+					</div>
+					<div class='slider'>
+			            <div id='dynos-slider-container'>
+							<div id='dynos-slider' class='ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all'>
+							</div>
+			            </div>
+			            <div id='workers-slider-container'>
+			            	<div id='workers-slider' class='ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all'>
+			            	</div>
+			            </div>
+					</div>
+		          	<div class='workers-copy'>
+		            	<p></p>
+		            	<p>请选择需要打印的份数</p>
+		            	<p>通过下方按钮可进行微调</p>
+		            	<p>
+		            		<input type='button' id='copyM10' class='copyAdjust' value='-10' />
+		            		<input type='button' id='copyM1' class='copyAdjust' value='-1' />
+		            		<input type='button' id='copyP1' class='copyAdjust' value='+1' />
+		            		<input type='button' id='copyP10' class='copyAdjust' value='+10' />
+		            	</p>
+	          		</div>
+	         		<div class='clear'></div>
+				</div>
+				<div class='w6confirm'>
+					<div class='w6h3a'>
+						积分使用说明
+						<input type='button' id='w6ConfirmBtn' class='uiBtn2 w6item' value='确认页数与份数' />
+					</div>
+					<p>
+						在估计文档页数并选择打印份数的同时，积分也相应扣去，这部分积分用来作为信用担保，用户前往打印店交款结账后将归还对应积分。<br>
+						积分不足可能导致打印店拒绝订单，届时系统会发出通知，请您到打印店下载已上传的文档进行自助打印。
+					</p>
+				</div>
+			</div>
+			<div id='w7' class='w panel'>
+				<h2>附加服务</h2>
+				<table class='hovertable'>
+					<tr>
+						<th></th>
+						<th>无装订</th>
+						<th>简易装订</th>
+						<th>侧边装订</th>
+						<th>添加封面</th>
+					</tr>
+					<tr>
+						<th></th>
+						<td><div class='w7item' id='bind0'></div></td>
+						<td><div class='w7item' id='bind1'></div></td>
+						<td><div class='w7item' id='bind2'></div></td>
+						<td><div class='w7item' id='bind3'></div></td>
+					</tr>
+				</table>
+			</div>
+			<div id='w8' class='w panel'>
+				<h2>确认订单</h2>
+				<p>订单仍可进一步修改，如需定制化服务请给打印店留言，并留下联系方式。</p>
+				<div class='w8content'>
+					<div class='editForm lbCorner'>
+						<h3>打印店</h3>
+						<h4 id='w2Edit'>北京大学25楼打印店</h4>
+					</div>
+					<div class='editForm'>
+						<h3>纸张</h3>
+						<h4 id='w3Edit1'>A4纸</h4>
+						<h3>油墨</h3>
+						<h4 id='w3Edit2'>黑白打印</h4>
+					</div>
+					<div class='editForm'>
+						<h3>环保选项</h3>
+						<h4 id='w4Edit'>双面打印</h4>
+					</div>
+					<div class='editForm'>
+						<h3>版式缩放</h3>
+						<h4 id='w5Edit'>1版</h4>
+					</div>
+					<div class='editForm'>
+						<h3>页数估计</h3>
+						<h4 id='w6Edit1'>页数很少</h4>
+						<h3>打印份数</h3>
+						<h4 id='w6Edit2'>打印6份</h4>
+					</div>
+					<div class='editForm'>
+						<h3>附加服务</h3>
+						<h4 id='w7Edit'>添加封面</h4>
+					</div>
+					<div class='confirmForm rbCorner'>
+						<h3>客户留言</h3>
+						<textarea id='w8Edit' class='uiTextarea'></textarea>
+						<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
+					</div>
+					<div class='clear'></div>
+				</div>
+			</div>
+			<div class='wDummy'></div>
+			<div class='taskQueue'>
+				<div class='taskQueueL'>
+					<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
+					<div class='msgBox panel0'>
+						<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
+						<ul class='unreadContent'>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>1</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>去看看</span>
+							</li>
+						</ul>
+					</div> 
+				</div>
+				<div class='panel0 taskQueueR'>
+					<h2>任务队列</h2>
+					<div id='taskAccordion'>
+						<div class='taskItem'>
+							<h3>文件名 @ 北京大学36楼打印店<span class='taskStatus taskStatus1'>队列中</span></h3>
+							<div class='taskDetail'>
+		    				<table>
+		    					<tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td>blablabla.pdf</a></tr>
+		    					<tr><th>打印店</th><td><a href='#'>北京大学36楼打印店</a></td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>订单操作</th><td>订单处在队列中，您仍可以<a href='#'>撤销订单</td></tr>
+		    				</table>
+		    				</div>
+	    				</div>
+					</div>
+					<h2 class='lbCorner rbCorner'></h2>
+				</div>
+				<div class='clear'></div>
+			</div> 
+			<form id='formOrder' accept-charset='UTF-8'>
+				<input type='hidden' id='w2Form' name='store' value='' />
+				<input type='hidden' id='w3Form1' name='paper' value='' />
+				<input type='hidden' id='w3Form2' name='color' value='' />
+				<input type='hidden' id='w4Form' name='double' value='' />
+				<input type='hidden' id='w5Form' name='layout' value='' />
+				<input type='hidden' id='w6Form1' name='copy' value='' />
+				<input type='hidden' id='w6Form2' name='page' value='' />
+				<input type='hidden' id='w7Form' name='bind' value='' />
+				<input type='hidden' id='w8Form' name='message' />
+				<input type='hidden' id='w9Form' name='guarantee'/>
+			</form>
+		</div>
+		<iframe name='ifr_upload' class='outcast init'></iframe>";
 }
 function page_index() {
 	echo '
@@ -178,7 +458,6 @@ function page_nav() {
 	' . mod_msg();
 }
 function page_par_act() {
-	
 }
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
@@ -230,13 +509,10 @@ function page_par_home($orders) {
 	";
 }
 function page_par_logout() {
-	
 }
 function page_par_profile() {
-	
 }
 function page_par_reg() {
-	
 }
 function page_par_signup() {
 	$a = '/partner';

@@ -6,7 +6,7 @@
 	height: 80px;
 	z-index: 100;
 	overflow: hidden;
-	background: url('../images/bg/bg0.png') repeat-x;
+	background: url('/media/images/bg/bg0.png') repeat-x;
 }
 
 .btn{
@@ -26,8 +26,8 @@
 #btn0{
 	float: left;
 	width: 14px; 
-	height: 100%;
-	background: url('../images/bg/homeBtn1.png') top left;
+	height: 100%; 
+	background: url('/media/images/bg/homeBtn1.png') top left;
 }
 
 #btn1{
@@ -49,42 +49,42 @@
 }
 
 #btn1{ 
-	background: url('../images/bg/homeBtn1.png') top right; 
+	background: url('/media/images/bg/homeBtn1.png') top right; 
 	z-index: 70; 
 }
 
 #btn2{ 
-	background: url('../images/bg/homeBtn2.png') top right; 
+	background: url('/media/images/bg/homeBtn2.png') top right; 
 	z-index: 60; 
 }
 
 #btn3{ 
-	background: url('../images/bg/homeBtn3.png') top right; 
+	background: url('/media/images/bg/homeBtn3.png') top right; 
 	z-index: 50; 
 }
 
 #btn4{ 
-	background: url('../images/bg/homeBtn4.png') top right; 
+	background: url('/media/images/bg/homeBtn4.png') top right; 
 	z-index: 40;
 }
 
 #btn5{ 
-	background: url('../images/bg/homeBtn5.png') top right; 
+	background: url('/media/images/bg/homeBtn5.png') top right; 
 	z-index: 30; 
 }
 
 #btn6{ 
-	background: url('../images/bg/homeBtn6.png') top right; 
+	background: url('/media/images/bg/homeBtn6.png') top right; 
 	z-index: 20; 
 }
 
 #btn7{ 
-	background: url('../images/bg/homeBtn7.png') top right; 
+	background: url('/media/images/bg/homeBtn7.png') top right; 
 	z-index: 10; 
 }
 
 #btn8{ 
-	background: url('../images/bg/homeBtn8.png') top right; 
+	background: url('/media/images/bg/homeBtn8.png') top right; 
 	z-index: 0;
 }
 
@@ -96,22 +96,19 @@
 	margin: 0px auto;
 	padding: 8px 20px;
 	z-index: 1;
-	background: #272727 url(../images/drawerShadowInset.png) repeat-x;
+	background: #272727 url(/media/images/drawerShadowInset.png) repeat-x;
 }
 
 /*------------------------ STATUS ------------------------*/
 
 #status{
 	color: #7F95FF;
+	display: none;
 	line-height: 24px;
 	display: none;
 }
 
-#statusFileName{
-	float: left;
-}
-
-#statusFileBar{
+#status > div{
 	float: left;
 	width: 202px;
 	height: 14px;
@@ -119,9 +116,9 @@
 	margin: 4px 16px 0px;
 }
 
-#statusFileBarInner{
+#status > div > div{
 	background: #7F95FF;
-	width: 200px;
+	width: 0px;
 	height: 12px;
 	margin: 1px;
 }
@@ -191,7 +188,7 @@
 	padding-bottom: 30px;
 }
 
-#uploadfile{ margin: 0px auto; height: 231px; width: 208px; background: url('../images/uploadIcon2.png'); background-position: 0px 0px }
+#uploadfile{ margin: 0px auto; height: 231px; width: 208px; background: url('/media/images/uploadIcon2.png'); background-position: 0px 0px }
 #uploadfile:hover{ background-position: 0px -231px }
 
 form#formFile{
@@ -318,12 +315,11 @@ input.uiBtn1{
 	filter: alpha(opacity=50);
 }
 
-#b5bw{ background: url(../images/b5bw1.png) }
-#a4bw{ background: url(../images/a4bw1.png) }
-#b5color{ background: url(../images/b5color1.png) }
-#a4color{ background: url(../images/a4color1.png) }
+#b5bw{ background: url(/media/images/b5bw1.png) }
+#a4bw{ background: url(/media/images/a4bw1.png) }
+#b5color{ background: url(/media/images/b5color1.png) }
+#a4color{ background: url(/media/images/a4color1.png) }
 #b5bw:hover, #a4bw:hover, #b5color:hover, #a4color:hover, #b5bw.selected, #a4bw.selected, #b5color.selected, #a4color.selected{ background-position: 0px -160px; }
-
 
 .w3item{
 	height: 160px;
@@ -340,8 +336,8 @@ input.uiBtn1{
 	cursor: pointer;
 }
 
-#single{ background: url(../images/single.png); }
-#double{ background: url(../images/double.png); }
+#single{ background: url(/media/images/single.png); }
+#double{ background: url(/media/images/double.png); }
 
 #single:hover, #double:hover, #single.selected, #double.selected{ background-position: 0px -235px; }
 
@@ -362,13 +358,13 @@ input.uiBtn1{
 	cursor: pointer;
 }
 
-#layout1{ background: url(../images/l1.png) }
-#layout2{ background: url(../images/l2.png) }
-#layout4{ background: url(../images/l4.png) }
-#layout6{ background: url(../images/l6.png) }
-#layout8{ background: url(../images/l8.png) }
-#layout9{ background: url(../images/l9.png) }
-#layout12{ background: url(../images/l12.png) }
+#layout1{ background: url(/media/images/l1.png) }
+#layout2{ background: url(/media/images/l2.png) }
+#layout4{ background: url(/media/images/l4.png) }
+#layout6{ background: url(/media/images/l6.png) }
+#layout8{ background: url(/media/images/l8.png) }
+#layout9{ background: url(/media/images/l9.png) }
+#layout12{ background: url(/media/images/l12.png) }
 #layout1:hover, #layout2:hover, #layout4:hover, #layout6:hover, #layout8:hover, #layout9:hover, #layout12:hover, #layout1.selected, #layout2.selected, #layout4.selected, #layout6.selected, #layout8.selected, #layout9.selected, #layout12.selected{ background-position: 0px -151px; }
 
 /*------------------------ W6 ------------------------*/
@@ -387,14 +383,14 @@ input.uiBtn1{
 }
 
 .w6content { padding: 0 0 30px 0; overflow: hidden; }
-.dynos-copy { float: left; background-image: url(../images/w6left.png); background-position: top left; background-repeat: no-repeat; }
+.dynos-copy { float: left; background-image: url(/media/images/w6left.png); background-position: top left; background-repeat: no-repeat; }
 .workers-copy, .dynos-copy { padding: 150px 20px 0 20px; width: 265px; }
 .slider { float: left; position: relative; width: 310px; }
-#dynos-slider-container { background: url(../images/w6middle.png) top right no-repeat; height: 250px; margin-top: 32px; padding-top: 20px; position: absolute; width: 177px; }
+#dynos-slider-container { background: url(/media/images/w6middle.png) top right no-repeat; height: 250px; margin-top: 32px; padding-top: 20px; position: absolute; width: 177px; }
 #dynos-slider { height: 229px; position: absolute; width: 100%; }
 #dynos-slider a { display: block; position: absolute; width: 150px; height: 40px; }
 #dynos-slider a:hover { text-decoration: none; }
-#dynos-handle-inner { background: url(../images/w6middle1.png) top left no-repeat; display: block; height: 86px; margin-left: 10px; padding: 10px 0 0 14px; width: 129px; }
+#dynos-handle-inner { background: url(/media/images/w6middle1.png) top left no-repeat; display: block; height: 86px; margin-left: 10px; padding: 10px 0 0 14px; width: 129px; }
 #dynos-handle-inner-dynos { float: left; clear: left; font-size: 18px; padding-top: 17px; color: #7f95ff; }
 #dynos-handle-inner-dynos span { font-size: 16px; }
 #pageNumber { display: none }
@@ -402,11 +398,11 @@ input.uiBtn1{
 #workers-slider { position: absolute; width: 100%; height: 229px; }
 #workers-slider a { display: block; position: absolute; width: 150px; height: 40px; }
 #workers-slider a:hover { text-decoration: none; }
-#workers-handle-inner { display: block; width: 129px; height: 86px; padding: 10px 0 0 12px; margin-left: 10px; background: url(../images/w6middle2.png) top left no-repeat; }
+#workers-handle-inner { display: block; width: 129px; height: 86px; padding: 10px 0 0 12px; margin-left: 10px; background: url(/media/images/w6middle2.png) top left no-repeat; }
 #workers-handle-inner-workers { float: right; clear: left; font-size: 18px; padding-top: 17px; margin-right: 30px; color: #7f95ff; }
 #workers-handle-inner-workers span { font-size: 16px; }
 
-.workers-copy { float: right; background-image: url(../images/w6right.png); background-position: top right; background-repeat: no-repeat; text-align: right; }
+.workers-copy { float: right; background-image: url(/media/images/w6right.png); background-position: top right; background-repeat: no-repeat; text-align: right; }
 
 .copyAdjust{
 	background: #1C1C1C;
@@ -451,10 +447,10 @@ input.uiBtn1{
 	cursor: pointer;
 }
 
-#bind0{ background: url(../images/bind0.png) }
-#bind1{ background: url(../images/bind1.png) }
-#bind2{ background: url(../images/bind2.png) }
-#bind3{ background: url(../images/bind3.png) }
+#bind0{ background: url(/media/images/bind0.png) }
+#bind1{ background: url(/media/images/bind1.png) }
+#bind2{ background: url(/media/images/bind2.png) }
+#bind3{ background: url(/media/images/bind3.png) }
 #bind0:hover, #bind1:hover, #bind2:hover, #bind3:hover, #bind0.selected, #bind1.selected, #bind2.selected, #bind3.selected{ background-position: 0px -220px; } 
 
 /*------------------------ W8 ------------------------*/
