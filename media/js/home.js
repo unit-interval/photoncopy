@@ -9,15 +9,20 @@ var UP = {
 		$('div > div', $bar).width('0px');
 		$bar.slideDown();
 		$('#formFile').submit();
-		this.timer = setInterval(this.update, 500);
+		var t = this;
+		this.timer = setInterval(function(){
+			t.update();
+		}, 500);
 	},
 	update: function(){
 		if(this.ajax === true) return;
 		this.ajax = true;
 		var t = this;
+		var id = this.id;
+		$('#status').append(this.id);
 		$.ajax({
 			type: 'get',
-			data: 'id=' + this.id,
+			data: 'id=' + id,
 			url: '/xhr/upload-progress.php',
 			cache: false,
 //			dataType: 'json',
@@ -85,7 +90,7 @@ $(function(){
 		var r = $('#result', c);
 		if(r.length > 0) {
 			UP.stop();
-			alert(r.text());
+			$('#status').append(r.text());
 		}
 	});
 
