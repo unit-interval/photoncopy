@@ -1,3 +1,26 @@
+/**
+ * general style rules
+ */
+
+.fleft {
+	float: left;
+}
+
+.fright {
+	float: right;
+}
+
+.outcast {
+	position: absolute;
+	top: -1000px;
+	left: -1000px;
+}
+
+
+/**
+ * index
+ */
+
 body{
 	margin: 0px;
 	padding: 0px;
@@ -324,9 +347,3 @@ textarea.uiTextarea{
 }
 
 
-
-.outcast {
-	position: absolute;
-	top: -1000px;
-	left: -1000px;
-}

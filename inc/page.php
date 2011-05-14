@@ -65,7 +65,8 @@ function page_footer() {
 }
 function page_home($tasks, $stores_prior) {
 // TODO credit
-	echo "<div class='contentWrapper'>
+	echo "
+		<div class='contentWrapper'>
 			<div class='panel' id='btnWrapper'>
 				<div id='btn0'></div>
 				<div class='btn' id='firstBtn'><div id='btn1' class='innerBtn'></div></div>
@@ -83,34 +84,24 @@ function page_home($tasks, $stores_prior) {
  				</dl>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
-				<div id='status'>文件名写在这里，没东西的时候，这个会收起来，用toggle控制status</div>
+				<div id='status'>
+					<span class='fleft'></span>
+					<div id='statusFileBar'><div id='statusFileBarInner'></div></div>
+				</div>
 				<div class='clear'></div>
 			</div>
-
 			<div id='w1' class='w panel'>
 				<h2>上传文件</h2>
 				<p style='text-align: center'>
 					支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB<br>
+				</p>
+				<form id='formFile' target='ifr_upload' action='/xhr/upload-handler.php' method='post' enctype='multipart/form-data'>
+					<input type='hidden' name='UPLOAD_IDENTIFIER' />
+					<input type='file' name='file' />
+				</form>
+				<p style='text-align: center'>
 					重新选择上传文件将直接替换之前上传的文件
 				</p>
-				<div id='uploadfile'>
-					<form id='formFile' action='iframe...' method='get'>
-						<input type='hidden' name='UPLOAD_IDENTIFIER' />
-						<input type='file' name='file' />
-					</form>
-					<form accept-charset='UTF-8' id='formOrder' action='submit.php' method='get'>
-						<input type='hidden' id='w2Form' name='store' value='' />
-						<input type='hidden' id='w3Form1' name='paper' value='' />
-						<input type='hidden' id='w3Form2' name='color' value='' />
-						<input type='hidden' id='w4Form' name='double' value='' />
-						<input type='hidden' id='w5Form' name='layout' value='' />
-						<input type='hidden' id='w6Form1' name='copy' value='' />
-						<input type='hidden' id='w6Form2' name='page' value='' />
-						<input type='hidden' id='w7Form' name='bind' value='' />
-						<input type='hidden' id='w8Form' name='message' />
-						<input type='hidden' id='w9Form' name='guarantee'/>
-					</form>
-				</div>
 				<div id='w1c'></div>
 			</div>
 			<div id='w2' class='w panel'>
@@ -119,7 +110,7 @@ function page_home($tasks, $stores_prior) {
 					<div class='storeL'> 
 						<div class='w2item'> 
 							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
 							</div> 
 							<div class='storeItemInfo'> 
 								<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
@@ -131,7 +122,7 @@ function page_home($tasks, $stores_prior) {
 						</div> 
 						<div class='w2item'> 
 							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
 							</div> 
 							<div class='storeItemInfo'> 
 								<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a>
@@ -145,7 +136,7 @@ function page_home($tasks, $stores_prior) {
 					<div class='storeR'> 
 						<div class='w2item'> 
 							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
 							</div> 
 							<div class='storeItemInfo'> 
 								<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
@@ -329,27 +320,87 @@ function page_home($tasks, $stores_prior) {
 			<div class='taskQueue'>
 				<div class='taskQueueL'>
 					<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
+					<div class='msgBox panel0'>
+						<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
+						<ul class='unreadContent'>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>2</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
+							</li>
+							<li>
+								<span class='msgId'>1</span>
+								辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>去看看</span>
+							</li>
+						</ul>
+					</div> 
 				</div>
-				<div class='panel taskQueueR'>
+				<div class='panel0 taskQueueR'>
 					<h2>任务队列</h2>
 					<div id='taskAccordion'>
-						<h3><a href='#'><span class='fileName'>文件名</span>@北京大学36楼打印店</a><span class='taskStatus1'>队列中</span></h3>
-	    				<div>
-	    					<p><span>订单编号: </span><span class='taskInfo'>1</span></p>
-	    					<p><span>文件名: </span><span class='taskInfo'>blablabla.pdf</span></p>
-	    					<p><span>打印店: </span><span class='taskInfo'>北京大学36楼打印店</span></p>
-	    					<p><span>订单要求: </span><span class='taskInfo'>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</span></p>
-	    					<p><span>客户留言: </span><span class='taskInfo'>blablabla</span></p>
-	    					<p><span>订单状态: </span><span class='taskInfo'>队列中</span></p>
-	    					<p><span>操作: </span><span class='taskInfo'>取消订单</span></p>
+						<div class='taskItem'>
+							<h3>文件名 @ 北京大学36楼打印店<span class='taskStatus taskStatus1'>队列中</span></h3>
+							<div class='taskDetail'>
+		    				<table>
+		    					<tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td>blablabla.pdf</a></tr>
+		    					<tr><th>打印店</th><td><a href='#'>北京大学36楼打印店</a></td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>订单操作</th><td>订单处在队列中，您仍可以<a href='#'>撤销订单</td></tr>
+		    				</table>
+		    				</div>
 	    				</div>
 					</div>
 					<h2 class='lbCorner rbCorner'></h2>
 				</div>
 				<div class='clear'></div>
 			</div> 
+			<form id='formOrder' accept-charset='UTF-8'>
+				<input type='hidden' id='w2Form' name='store' value='' />
+				<input type='hidden' id='w3Form1' name='paper' value='' />
+				<input type='hidden' id='w3Form2' name='color' value='' />
+				<input type='hidden' id='w4Form' name='double' value='' />
+				<input type='hidden' id='w5Form' name='layout' value='' />
+				<input type='hidden' id='w6Form1' name='copy' value='' />
+				<input type='hidden' id='w6Form2' name='page' value='' />
+				<input type='hidden' id='w7Form' name='bind' value='' />
+				<input type='hidden' id='w8Form' name='message' />
+				<input type='hidden' id='w9Form' name='guarantee'/>
+			</form>
 		</div>
-		<iframe name='ifr_upload' class='outcast'></iframe>";
+		<iframe name='ifr_upload' class='outcast init'></iframe>";
 }
 function page_index() {
 	echo '

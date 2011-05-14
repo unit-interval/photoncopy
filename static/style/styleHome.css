@@ -103,14 +103,11 @@
 
 #status{
 	color: #7F95FF;
+	display: none;
 	line-height: 24px;
 }
 
-#statusFileName{
-	float: left;
-}
-
-#statusFileBar{
+#status > div{
 	float: left;
 	width: 202px;
 	height: 14px;
@@ -118,9 +115,9 @@
 	margin: 4px 16px 0px;
 }
 
-#statusFileBarInner{
+#status > div > div{
 	background: #7F95FF;
-	width: 200px;
+	width: 0px;
 	height: 12px;
 	margin: 1px;
 }
