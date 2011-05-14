@@ -10,7 +10,6 @@ session_start();
 
 if($_SESSION['logged_in'] != true) {
 	header('HTTP/1.0 403 Forbidden');
-	echo '12';
 	die;
 }
 

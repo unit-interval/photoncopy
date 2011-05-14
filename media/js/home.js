@@ -1,11 +1,12 @@
 var UP = {
-	start: function(fn){
+	start: function(){
 //		check former upload.
-		this.filename = fn;
+		this.filename = $('#formFile input[name="file"]').val();
 		this.id = makeid();
+		this.last_response = [];
 		$('#formFile input[name="UPLOAD_IDENTIFIER"]').val(this.id);
 		var $bar = $('#status');
-		$('span', $bar).html(basename(this.filename).substr(0,30));
+		$('span:first', $bar).html(basename(this.filename).substr(0,30));
 		$('div > div', $bar).width('0px');
 		$bar.slideDown();
 		$('#formFile').submit();
@@ -15,31 +16,35 @@ var UP = {
 		}, 500);
 	},
 	update: function(){
-		if(this.ajax === true) return;
-		this.ajax = true;
 		var t = this;
-		var id = this.id;
-		$('#status').append(this.id);
+		if(t.ajax === true) return;
+		t.ajax = true;
 		$.ajax({
 			type: 'get',
-			data: 'id=' + id,
+			data: 'id=' + t.id,
 			url: '/xhr/upload-progress.php',
 			cache: false,
-//			dataType: 'json',
+			dataType: 'json',
 			success: function(data){
 				t.ajax = false;
 //				var result = $.parseJSON(data);
-//				modify the progress bar
-				$('body').append(data);
+				if(data.id == 0) return;
+				$('#status > div > div').width(data.percentage + 'px');
+				t.last_response.push(data);
 			},
 		});
 	},
-	finish: function() {
-
-	},
 	stop: function() {
 		clearInterval(this.timer);
-	}
+	},
+	fail: function() {
+		$('#status').append('上傳失敗.');
+	},
+	success: function() {
+		$('#status > div > div').width('200px');
+		$('#status').append('上傳完成');
+		$('#formOrder input[name="file-id"]').val(this.id);
+	},
 
 }
 function basename(path) {
@@ -83,15 +88,17 @@ function order_status(row) {
 $(function(){
 	$('#formFile input[name="file"]').change(function(){
 		if($(this).val() != '')
-			UP.start($(this).val());
+			UP.start();
 	});
 	$('iframe[name="ifr_upload"]').load(function(){
+		if(UP.id === undefined) return;
+		UP.stop();
 		var c = $(this).contents();
 		var r = $('#result', c);
-		if(r.length > 0) {
-			UP.stop();
-			$('#status').append(r.text());
-		}
+		if(r.length == 0 || r.text() != 'success')
+			UP.fail();
+		else
+			UP.success();
 	});
 
 //	setInterval(order_list_refresh, 30000);

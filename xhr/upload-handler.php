@@ -1,9 +1,8 @@
 <?php
-if ($_FILES["file"]["error"] > 0)
-  {
+if ($_FILES["file"]["error"] > 0) {
 	echo "<p id='result'>fail</p>";
-  echo "Error: " . $_FILES["file"]["error"] . "<br />";
-  }
+//	echo "Error: " . $_FILES["file"]["error"] . "<br />";
+}
 else
 {
 	echo "<p id='result'>success</p>";
