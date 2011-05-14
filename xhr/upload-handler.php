@@ -1,4 +1,15 @@
 <?php
+
+include '../config.php';
+include DIR_INC . 'function.php';
+include DIR_INC . 'database.php';
+
+session_name(SESSNAME);
+session_start();
+
+if($_SESSION['logged_in'] != true)
+	die("<p id='result'>not logged in.</p>");
+
 if ($_FILES["file"]["error"] > 0) {
 	echo "<p id='result'>fail</p>";
 //	echo "Error: " . $_FILES["file"]["error"] . "<br />";

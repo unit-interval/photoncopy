@@ -398,6 +398,7 @@ function page_home($tasks, $stores_prior) {
 				<input type='hidden' id='w7Form' name='bind' value='' />
 				<input type='hidden' id='w8Form' name='message' />
 				<input type='hidden' id='w9Form' name='guarantee'/>
+				<input type='hidden' name='file-id'/>
 			</form>
 		</div>
 		<iframe name='ifr_upload' class='outcast init'></iframe>";

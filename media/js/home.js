@@ -94,6 +94,7 @@ $(function(){
 		if(UP.id === undefined) return;
 		UP.stop();
 		var c = $(this).contents();
+		UP.last_iframe = c.html();
 		var r = $('#result', c);
 		if(r.length == 0 || r.text() != 'success')
 			UP.fail();
