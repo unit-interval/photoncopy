@@ -604,7 +604,7 @@ input.uiBtn1{
 	color: white;
 }
 
-.taskStatus1{
+.taskStatus0{
 	background: #69CA94;
 }
 
@@ -612,11 +612,11 @@ input.uiBtn1{
 	background: #7F95FF;
 }
 
-.taskStatus3{
+.taskStatus3, .taskStatus4{
 	background: #8D79F2;
 }
 
-.taskStatus4{
+.taskStatus1, .taskStatus5{
 	background: #3B4458;
 }
 
