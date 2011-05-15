@@ -63,8 +63,7 @@ function page_footer() {
 		</div>
 	";
 }
-function page_home($tasks, $stores_prior) {
-// TODO credit
+function page_home($orders, $stores) {
 	echo "
 		<div class='contentWrapper'>
 			<div class='panel' id='btnWrapper'>
@@ -79,14 +78,15 @@ function page_home($tasks, $stores_prior) {
 				<div class='btn'><div id='btn8' class='innerBtn'></div></div>
  				<dl id='credit'>
  					<dt>积分</dt>
- 					<dd id='credit0'>99</dd>
- 					<dd id='credit1'>99</dd>
+ 					<dd id='credit0'>{$_SESSION['credit'][0]}</dd>
+ 					<dd id='credit1'>{$_SESSION['credit'][0]}</dd>
  				</dl>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
 				<div id='status'>
 					<span class='fleft'></span>
 					<div id='statusFileBar'><div id='statusFileBarInner'></div></div>
+					<span></span>
 				</div>
 				<div class='clear'></div>
 			</div>
@@ -106,48 +106,8 @@ function page_home($tasks, $stores_prior) {
 			</div>
 			<div id='w2' class='w panel'>
 				<h2>选择打印店</h2>
-				<div class='storeWrapper'> 
-					<div class='storeL'> 
-						<div class='w2item'> 
-							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
-							</div> 
-							<div class='storeItemInfo'> 
-								<a href='store.php?id=1'><input type='button' class='uiBtn1' value='查看详情' /></a>
-								<div class='storeId'>1</div>
-								<h2>25楼打印店</h2> 
-								<p>这里是电面的介绍</p>
-								<h3>余额: 0元</h3>
-							</div> 
-						</div> 
-						<div class='w2item'> 
-							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
-							</div> 
-							<div class='storeItemInfo'> 
-								<a href='store.php?id=3'><input type='button' class='uiBtn1' value='查看详情' /></a>
-								<div class='storeId'>3</div> 
-								<h2>學五打印店</h2> 
-								<p>这里的极少多一些<br>比如份进口拉萨解放路科技阿喀琉斯地方李开复</p> 
-								<h3>余额: 0元</h3> 
-							</div> 
-						</div> 
-					</div>
-					<div class='storeR'> 
-						<div class='w2item'> 
-							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
-							</div> 
-							<div class='storeItemInfo'> 
-								<a href='store.php?id=2'><input type='button' class='uiBtn1' value='查看详情' /></a> 
-								<div class='storeId'>2</div>
-								<h2>博實打印店</h2> 
-								<p>交罚款流口水解放路就</p> 
-								<h3>余额: 0元</h3> 
-							</div> 
-						</div> 
-					</div> 
-					<div class='clear'></div>
+				<div class='storeWrapper'>"
+				. mod_store_sel($stores) . "
 				</div> 
 			</div>
 			<div id='w3' class='w panel'>
@@ -191,13 +151,13 @@ function page_home($tasks, $stores_prior) {
 				<table class='hovertable'>
 					<tr>
 						<th></th>
-						<th>1版</th>
-						<th>2版</th>
-						<th>4版</th>
-						<th>6版</th>
-						<th>8版</th>
-						<th>9版</th>
-						<th>12版</th>
+						<th>1x1版</th>
+						<th>2x1版</th>
+						<th>2x2版</th>
+						<th>2x3版</th>
+						<th>2x4版</th>
+						<th>3x3版</th>
+						<th>3x4版</th>
 					</tr>
 					<tr>
 						<th></th>
@@ -368,36 +328,26 @@ function page_home($tasks, $stores_prior) {
 				</div>
 				<div class='panel0 taskQueueR'>
 					<h2>任务队列</h2>
-					<div id='taskAccordion'>
-						<div class='taskItem'>
-							<h3>文件名 @ 北京大学36楼打印店<span class='taskStatus taskStatus1'>队列中</span></h3>
-							<div class='taskDetail'>
-		    				<table>
-		    					<tr><th>订单编号</th><td>1</td></tr>
-		    					<tr><th>打印文件</th><td>blablabla.pdf</a></tr>
-		    					<tr><th>打印店</th><td><a href='#'>北京大学36楼打印店</a></td></tr>
-		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
-		    					<tr><th>客户留言</th><td>blablabla</td></tr>
-		    					<tr><th>订单操作</th><td>订单处在队列中，您仍可以<a href='#'>撤销订单</td></tr>
-		    				</table>
-		    				</div>
-	    				</div>
+					<div id='taskAccordion'>"
+					. mod_order_queue($orders) . "
 					</div>
 					<h2 class='lbCorner rbCorner'></h2>
 				</div>
 				<div class='clear'></div>
 			</div> 
 			<form id='formOrder' accept-charset='UTF-8'>
-				<input type='hidden' id='w2Form' name='store' value='' />
+				<input type='hidden' id='w2Form' name='pid' value='' />
 				<input type='hidden' id='w3Form1' name='paper' value='' />
 				<input type='hidden' id='w3Form2' name='color' value='' />
-				<input type='hidden' id='w4Form' name='double' value='' />
+				<input type='hidden' id='w4Form' name='back' value='' />
 				<input type='hidden' id='w5Form' name='layout' value='' />
-				<input type='hidden' id='w6Form1' name='copy' value='' />
 				<input type='hidden' id='w6Form2' name='page' value='' />
-				<input type='hidden' id='w7Form' name='bind' value='' />
-				<input type='hidden' id='w8Form' name='message' />
+				<input type='hidden' id='w6Form1' name='copy' value='' />
+				<input type='hidden' id='w7Form' name='misc' value='' />
+				<input type='hidden' id='w8Form' name='note' />
 				<input type='hidden' id='w9Form' name='guarantee'/>
+				<input type='hidden' name='fid'/>
+				<input type='hidden' name='fname'/>
 			</form>
 		</div>
 		<iframe name='ifr_upload' class='outcast init'></iframe>";

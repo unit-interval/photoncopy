@@ -118,6 +118,27 @@ function refreshSlider(){
 	$("div#workers-slider").slider("value", i);
 }
 
+function order_apply_setting(order) {
+	$('#formOrder input').each(function(){
+		var source = $('input[name="' + this.name + '"]');
+		if(source.length == 0) return;
+		$(this).val(source.val());
+	});
+}
+function order_bind_action() {
+	$('#taskAccordion h3.newly_added').click(function(){
+		if ($(this).hasClass('selected')){
+			$(this).removeClass('selected');
+			$('div.taskDetail', $(this).parent()).slideUp(250);
+		}
+		else{
+			$(this).addClass('selected');
+			$('div.taskDetail', $(this).parent()).slideDown(250);
+		}
+	})
+		.removeClass('newly_added');
+}
+
 $(function(){
 	
 	$('div.wDummy').css('height', Math.max(parseInt($('#w1').css('height')), parseInt($('#w2').css('height')), parseInt($('#w3').css('height')), parseInt($('#w4').css('height')), parseInt($('#w5').css('height')), parseInt($('#w6').css('height')), parseInt($('#w7').css('height')), parseInt($('#w8').css('height')))+'px');
@@ -310,7 +331,7 @@ $(function(){
 	$('#w8ConfirmBtn').click(function(){
 		$('#w8Form').val($('#w8Edit').val());
 		$('#w9Form').val(parseInt($('#credit0').html())-parseInt($('#credit1').html()));
-		$('#formOrder').submit();
+		order_submit();
 	});
 				
 	$('.editForm').click(function(){
@@ -354,17 +375,6 @@ $(function(){
 	'<span id="workers-handle-inner"><span id="workers-handle-inner-workers"><span id="copyNumber">1</span>份</span><span id="workers-handle-inner-price"></span></span>'
 	);
 		
-	$('h3', 'div.taskItem').click(function(){
-		if ($(this).hasClass('selected')){
-			$(this).removeClass('selected');
-			$('div.taskDetail', $(this).parent()).slideUp(250);
-		}
-		else{
-			$(this).addClass('selected');
-			$('div.taskDetail', $(this).parent()).slideDown(250);
-		}
-	});
-	
 	$('span.msgClose').click(function(){
 		$(this).parent().hide(250);
 		$('span#unread').html(parseInt($('span#unread').html())-1);
@@ -388,7 +398,11 @@ $(function(){
 			});
 		}
 	});
+
+	order_bind_action();
 	
-	
+	$('#taskAccordion > div.taskItem:first').each(function() {
+		order_apply_setting($('input', this));
+	});
 })
 

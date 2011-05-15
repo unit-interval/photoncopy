@@ -9,6 +9,7 @@ define('CODE_NAME', '光子复制');
 define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('DIR_INC', DIR_ROOT . '/inc/');
 define('DIR_UPLD', DIR_ROOT . '/upload/');
+define('DIR_UPLD_TMP', DIR_UPLD . 'tmp/');
 
 /** session name */
 define('SESSNAME', 'photonsess');
