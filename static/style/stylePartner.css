@@ -136,7 +136,7 @@ tr:first-child{
 	height: 100%;
 	width: 100%;
 	padding: 25px 40%;
-	z-index: 99;
+	z-index: -1;
 	filter:alpha(opacity=60);	/* for IE */
 	opacity:0.6;	/* CSS3 standard */
 }
