@@ -86,6 +86,7 @@ function page_home($orders, $stores) {
 				<div id='status'>
 					<span class='fleft'></span>
 					<div id='statusFileBar'><div id='statusFileBarInner'></div></div>
+					<span></span>
 				</div>
 				<div class='clear'></div>
 			</div>
@@ -345,7 +346,8 @@ function page_home($orders, $stores) {
 				<input type='hidden' id='w7Form' name='misc' value='' />
 				<input type='hidden' id='w8Form' name='note' />
 				<input type='hidden' id='w9Form' name='guarantee'/>
-				<input type='hidden' name='file-id'/>
+				<input type='hidden' name='fid'/>
+				<input type='hidden' name='fname'/>
 			</form>
 		</div>
 		<iframe name='ifr_upload' class='outcast init'></iframe>";

@@ -218,7 +218,7 @@ function unit_order($order) {
 	$flink = ($order['flink'] === '-') ? $order['fname'] : "<a href='/upload/{$order['flink']}' target='_blank'>{$order['fname']}</a>";
 	$html = "
 						<div class='taskItem $class'>
-							<h3>{$order['fname']} @ {$order['ptext']}<span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>{$order['fname']} @ {$order['ptext']}<span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>

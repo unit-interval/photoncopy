@@ -3,7 +3,7 @@ var UP = {
 //		check former upload.
 		this.filename = $('#formFile input[name="file"]').val();
 		this.id = makeid();
-		this.last_response = [];
+//		this.last_response = [];
 		$('#formFile input[name="UPLOAD_IDENTIFIER"]').val(this.id);
 		var $bar = $('#status');
 		$('span:first', $bar).html(basename(this.filename).substr(0,30));
@@ -30,7 +30,7 @@ var UP = {
 //				var result = $.parseJSON(data);
 				if(data.id == 0) return;
 				$('#status > div > div').width(data.percentage + 'px');
-				t.last_response.push(data);
+//				t.last_response.push(data);
 			},
 		});
 	},
@@ -38,12 +38,15 @@ var UP = {
 		clearInterval(this.timer);
 	},
 	fail: function() {
-		$('#status').append('上傳失敗.');
+		$('#status span:last').html('上傳失敗.');
 	},
-	success: function() {
+	success: function(html) {
+		var size = $('#upload-size', html).text();
+		var name = $('#upload-name', html).text();
 		$('#status > div > div').width('200px');
-		$('#status').append('上傳完成');
-		$('#formOrder input[name="file-id"]').val(this.id);
+		$('#status span:last').html('上傳完成 (' + size + ')');
+		$('#formOrder input[name="fid"]').val(this.id);
+		$('#formOrder input[name="fname"]').val(name);
 		$('#w8ConfirmBtn').removeAttr('disabled').val('提交');
 	},
 
@@ -57,6 +60,10 @@ function makeid() {
     for( var i=0; i < 8; i++ )
         id += charset.charAt(Math.floor(Math.random() * charset.length));
     return id;
+}
+function order_form_reset() {
+	$('#w8').hide();
+	$('#status, div.wDummy').slideUp();
 }
 function order_list_refresh() {
 	$('tr.order_open').each(function() {
@@ -86,23 +93,29 @@ function order_status(row) {
 	});
 }
 function order_submit() {
-	var param = $('#formOrder').serialize();
 	$.ajax({
 		type: "post",
 		url: "/xhr/order-submit.php",
 		cache: false,
-		data: param,
-		dataType: 'html',
+		data: $('#formOrder').serialize(),
+		dataType: 'json',
 		statusCode: {
-			204: function() {
-					console.log('204');
+			400: function() {
+					console.log('400');
+				 },
+			403: function() {
+					console.log('403');
 				 },
 			200: function(data){
-					$('#taskAccordion').prepend(data);
-					console.log(data);
+					if(data.errno == 0) {
+						$('#taskAccordion').prepend(data.html);
+						order_bind_action();
+						order_form_reset();
+					}
 				}
 		}
 	});
+//	loading animation.
 }
 
 $(function(){
@@ -114,12 +127,11 @@ $(function(){
 		if(UP.id === undefined) return;
 		UP.stop();
 		var c = $(this).contents();
-		UP.last_iframe = c.html();
-		var r = $('#result', c);
+		var r = $('#upload-result', c);
 		if(r.length == 0 || r.text() != 'success')
 			UP.fail();
 		else
-			UP.success();
+			UP.success(c);
 	});
 
 //	setInterval(order_list_refresh, 30000);
