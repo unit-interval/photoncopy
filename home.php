@@ -27,18 +27,17 @@ $link['js'][] = 'jquery.scrollTo';
 $link['js'][] = 'scriptHome';
 $link['js'][] = 'home';
 
-$tasks = array();
+$orders = array();
 $stores = array();
 
-$query = "select `id`, `pid`, `status`, `type`, `cost` from `order`
-	where `uid` = {$_SESSION['uid']}
+$query = "select * from `order` where `uid` = {$_SESSION['uid']}
 	order by `id` desc";
 if($result = $db->query($query)) {
 	while($row = $result->fetch_assoc())
-	$tasks[$row['id']] = $row;
+	$orders[$row['id']] = $row;
 	$result->free();
 }
-$query = "select `id`, `name` from `partner`";
+$query = "select `id`, `name`, `region`, `memo` from `partner`";
 if($result = $db->query($query)) {
 	while($row = $result->fetch_assoc())
 	$stores[$row['id']] = $row;
@@ -47,7 +46,7 @@ if($result = $db->query($query)) {
 
 page_meta();
 page_nav();
-page_home($tasks, $stores);
+page_home($orders, $stores);
 page_footer();
 page_close();
 

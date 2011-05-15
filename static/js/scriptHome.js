@@ -118,6 +118,14 @@ function refreshSlider(){
 	$("div#workers-slider").slider("value", i);
 }
 
+function apply_order_setting(order) {
+	$('#formOrder input').each(function(){
+		var source = $('input[name="' + this.name + '"]');
+		if(source.length == 0) return;
+		$(this).val(source.val());
+	});
+}
+
 $(function(){
 	
 	$('div.wDummy').css('height', Math.max(parseInt($('#w1').css('height')), parseInt($('#w2').css('height')), parseInt($('#w3').css('height')), parseInt($('#w4').css('height')), parseInt($('#w5').css('height')), parseInt($('#w6').css('height')), parseInt($('#w7').css('height')), parseInt($('#w8').css('height')))+'px');
@@ -389,6 +397,8 @@ $(function(){
 		}
 	});
 	
-	
+	$('#taskAccordion > div.taskItem:first').each(function() {
+		apply_order_setting($('input', this));
+	});
 })
 
