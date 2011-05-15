@@ -246,6 +246,25 @@ input.uiBtn2{
 	cursor: pointer;
 }
 
+input.uiBtn3{
+background: #EEE;
+padding: 5px 10px;
+margin: 0px auto;
+border: 1px solid #999;
+text-align: center;
+border-bottom-color: #888;
+box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+text-decoration: none;
+font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+font-weight: bold;
+color: #333;
+}
+
+input.uiBtn3:active{
+background: #DDD;
+}
+
 
 /*------------------------ uiText ------------------------*/
 
@@ -280,6 +299,18 @@ input.uiSearch{
 
 input.uiSearch:focus{
 	background-position: left -33px;
+}
+
+input.uiText1{
+	color: #DDD;
+	background: transparent;
+	border-width: 0px;
+	border-bottom: 1px dashed #DDD;
+	font-size: 12px;
+	padding: 1px;
+	margin: 0px;
+	width: 100px;
+	text-align: center;
 }
 
 /*------------------------ uiTextarea ------------------------*/

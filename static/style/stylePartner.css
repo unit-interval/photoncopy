@@ -26,7 +26,7 @@
 /*------------------------ Ctrl ------------------------*/
 
 #storeCtrl{
-	width: 100px;
+	width: 110px;
 	float: left;
 }
 
@@ -104,29 +104,6 @@
 	margin: 0px;
 }
 
-/*------------------------ TABLE ------------------------*/
-
-table{
-	border-collapse: collapse;
-	color: #666;
-	background: #212634;
-	width: 100%;
-	font-size: 14px;
-}
-
-th, td{
-	padding: 10px;
-	text-align: center;
-}
-
-tr:hover{
-	background: #1B1F2A;
-}
-
-tr:first-child{
-	background: #1B1F2A;
-}
-
 /*------------------------ DUMMY ------------------------*/
 
 .dummy{
@@ -135,8 +112,8 @@ tr:first-child{
 	top: 0px;
 	height: 100%;
 	width: 100%;
-	padding: 25px 40%;
+	padding: 25px;
 	z-index: -1;
-	filter:alpha(opacity=60);	/* for IE */
-	opacity:0.6;	/* CSS3 standard */
+	filter:alpha(opacity=90);	/* for IE */
+	opacity:0.9;	/* CSS3 standard */
 }

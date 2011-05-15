@@ -8,13 +8,14 @@
 		</title>
 		<link rel="stylesheet" type="text/css" href="./media/style/style.css" />
 		<link rel="stylesheet" type="text/css" href="./media/style/stylePartner.css" />
+		<link rel="stylesheet" type="text/css" href="./media/style/styleHome.css" />
 		<script type="text/javascript" src="./media/js/jquery.js"></script>
 		<script type="text/javascript" src="./media/js/script.js"></script>
 		<script type="text/javascript" src="./media/js/scriptPartner.js"></script>
 	</head>
 	<body>
 		<div class='dummy'>
-			<input id='lockPsw' type='password'/>
+			<input id='lockPsw' class='uiText' placeholder='请输入短密码' type='password'/>
 		</div>
 		<div class="nav">
 			<div id="logo">
@@ -33,7 +34,7 @@
 			</ul>
 		</div>
 		<div class="contentWrapper">
-			<div class='panel board'>
+			<div class='panel0 board'>
 				<h2>北京大学36楼打印店</h2>
 				<div id='storeStatus'>
 					<div id='storeCtrl'>
@@ -64,43 +65,126 @@
 					<div class='clear'></div>
 				</div>
 			</div>
-			<div class='panel order'>
-				<h2>打印任务队列</h2>
-				<table>
-					<tbody>
-						<tr>
-							<th width='50px'>编号</th>
-							<th width='50px'>类型</th>
-							<th width='200px'>要求</th>
-							<th>留言</th>
-							<th width='50px'>下载</th>
-							<th width='50px'>状态</th>
-							<th width='50px'>操作</th>
-						</tr>
-						<tr>
-							
-						</tr>
-						<tr>
-							<td id='pid1'>1</td>
-							<td id='type1'>PDF</td>
-							<td id='order1'>A4 单面打印 10份</td>
-							<td id=''>说点什么好呢</td>
-							<td>16页</td>
-							<td>拒绝</td>
-							<td>确认</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>PDF</td>
-							<td>A4 单面打印 10份</td>
-							<td>说得对一点看看排版什么效果吧～说得对一点看看排版什么效果吧～说得对一点看看排版什么效果吧～</td>
-							<td>10页</td>
-							<td>拒绝</td>
-							<td>确认</td>
-						</tr>
-					</tbody>
-				</table>
-				<p class='lbCorner rbCorner'>30秒后刷新</p>
+			<div class="taskQueue">
+				<div class="taskQueueL">
+					<input type="text" id="taskSearch" placeholder="搜索" class="uiSearch">
+				</div>
+				<div class="panel0 taskQueueR">
+					<h2>任务队列</h2>
+					<div id="taskAccordion">
+						<div class="taskItem">
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus1">新任务</span></h3>
+							<div class="taskDetail">
+		    				<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>请您下载文件后，根据担保积分选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
+		    				</tbody></table>
+		    				</div>
+	    				</div>
+						<div class="taskItem">
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus2">已接受</span></h3>
+							<div class="taskDetail">
+		    				<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>请您在打印完成订单后，通知用户订单<a href='#'>已完成</a></td></tr>
+		    				</tbody></table>
+		    				</div>
+	    				</div>
+						<div class="taskItem">
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus3">等待领取</span></h3>
+							<div class="taskDetail">
+		    				<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr>
+		    						<th>订单操作</th>
+		    						<td>
+		    							请在用户到店交款后，在此确认</td>
+		    					</tr>
+		    					<tr>
+		    						<th>应收金额</th>
+		    						<td><input type='text' class='uiText1' placeholder='输入应收金额'/>元</td>
+		    					</tr>
+		    					<tr>
+		    						<th>实收金额</th>
+		    						<td><input type='text' class='uiText1' placeholder='输入实收金额'/>元</td>
+		    					<tr>
+		    						<th>用户确认</th>
+		    						<td><input type='password' class='uiText1' placeholder='输入短密码'/></td>
+		    					</tr>
+		    					<tr>
+		    						<th>
+		    						</th>
+		    						<td><input type='submit' class='uiBtn3' value='确认付款'/></td>
+		    					</tr></tbody>
+		    				</table>
+		    				</div>
+	    				</div>
+						<div class="taskItem">
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus3">自助打印</span></h3>
+		    				<div class="taskDetail">
+		    				<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>请您下载文件后，根据担保积分选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
+		    				</tbody></table>
+		    				</div>
+	    				</div>
+	    				<div class='taskItem'>
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus4'>已撤销</span></h3>
+		    				<div class='taskDetail'>
+							<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>订单已被用户撤销，撤销的订单将被保留一天</td></tr>
+		    				</tbody></table>
+		    				</div>
+	    				</div>
+						<div class='taskItem'>
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus4'>已完成</span></h3>
+		    				<div class='taskDetail'>
+							<table>
+		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
+		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+		    					<tr><th>用户编号</th><td>1</td></tr>
+		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
+		    					<tr><th>客户留言</th><td>blablabla</td></tr>
+		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>订单已完成，完成的订单将被保留一天</td></tr>
+		    				</tbody></table></div>
+	    				</div>
+					</div>
+					<div class="lbCorner rbCorner taskAccordionBottom"> </div>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 		<div class="footerWrapper">
