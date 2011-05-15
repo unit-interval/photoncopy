@@ -310,7 +310,7 @@ $(function(){
 	$('#w8ConfirmBtn').click(function(){
 		$('#w8Form').val($('#w8Edit').val());
 		$('#w9Form').val(parseInt($('#credit0').html())-parseInt($('#credit1').html()));
-		$('#formOrder').submit();
+		order_submit();
 	});
 				
 	$('.editForm').click(function(){

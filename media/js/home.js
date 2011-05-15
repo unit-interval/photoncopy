@@ -44,6 +44,7 @@ var UP = {
 		$('#status > div > div').width('200px');
 		$('#status').append('上傳完成');
 		$('#formOrder input[name="file-id"]').val(this.id);
+		$('#w8ConfirmBtn').removeAttr('disabled').val('提交');
 	},
 
 }
@@ -53,7 +54,7 @@ function basename(path) {
 function makeid() {
     var id = '';
     var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < 5; i++ )
+    for( var i=0; i < 8; i++ )
         id += charset.charAt(Math.floor(Math.random() * charset.length));
     return id;
 }
@@ -79,6 +80,25 @@ function order_status(row) {
 				 },
 			200: function(data){
 					$(row).replaceWith(data);
+					console.log(data);
+				}
+		}
+	});
+}
+function order_submit() {
+	var param = $('#formOrder').serialize();
+	$.ajax({
+		type: "post",
+		url: "/xhr/order-submit.php",
+		cache: false,
+		data: param,
+		dataType: 'html',
+		statusCode: {
+			204: function() {
+					console.log('204');
+				 },
+			200: function(data){
+					$('#taskAccordion').prepend(data);
 					console.log(data);
 				}
 		}
