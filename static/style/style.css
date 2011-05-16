@@ -250,23 +250,31 @@ input.uiBtn2{
 }
 
 input.uiBtn3{
-background: #EEE;
-padding: 5px 10px;
-margin: 0px auto;
-border: 1px solid #999;
-text-align: center;
-border-bottom-color: #888;
-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
--webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-text-decoration: none;
-font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
-font-weight: bold;
-color: #333;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-user-select: none;
+	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+	border: 1px solid #aaa;
+	color: #444;
+	font-size: inherit;
+	margin-bottom: 0px;
+	min-width: 4em;
+	padding: 3px 12px 3px 12px;
+}
+
+input.uiBtn3:hover{
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  	background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+  	border-color: #999;
+  	color: #222;
 }
 
 input.uiBtn3:active{
-background: #DDD;
+  	-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+  	background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+  	color: #333;
 }
+
 
 
 /*------------------------ uiText ------------------------*/
@@ -314,6 +322,17 @@ input.uiText1{
 	margin: 0px;
 	width: 100px;
 	text-align: center;
+}
+
+input.uiText2, textarea.uiText2{
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border: 1px solid #AAA;
+	width: 100%;
+	font-size: 13px;
+	color: inherit;
+	padding: 4px;
 }
 
 /*------------------------ uiTextarea ------------------------*/
