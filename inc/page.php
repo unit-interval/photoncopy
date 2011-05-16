@@ -279,7 +279,7 @@ function page_home($orders, $stores) {
 			<div class='wDummy'></div>
 			<div class='taskQueue'>
 				<div class='taskQueueL'>
-					<input type='text' id='q' name='q' placeholder='搜索' class='uiSearch'>
+					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
 					<div class='msgBox panel0'>
 						<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
 						<ul class='unreadContent'>
