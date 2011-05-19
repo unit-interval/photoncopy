@@ -20,6 +20,15 @@
 	cursor: pointer;
 }
 
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.clear{
+	clear: both;
+}
+
 /**
  * index
  */
@@ -53,19 +62,6 @@ a{
 	color: #45A4FF;
 }
 
-.autoHint{ 
-	color: #888888;
-}
-
-.center{
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.clear{
-	clear: both;
-}
-
 /*------------------------ LIGHTBOX ------------------------*/
 
 .lightbox{
@@ -81,6 +77,51 @@ a{
 	z-index: 101;
 	zoom: 1;
 	display: block;
+}
+
+/*------------------------ NOTIFICATION ------------------------*/
+
+#dummyNotification{
+	height: 36px;
+	display: none;
+}
+
+.notification{
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	color: #735005;
+	background-color: #F4A83D;
+	border-bottom: 1px solid #D6800C;
+	padding: 7px 0;
+	display: none;
+}
+
+.notificationCount{
+	float: left;
+	font-size: 12px;
+	margin-left: 20px;
+	padding: 3px 8px;
+	background: #FAD163;
+	border-radius: 5px;
+}
+
+.notificationClose{
+	float: right;
+	font-size: 17px;
+	margin-right: 20px;
+	background: #FAD163;
+	border: 2px solid #735005;
+	padding: 0 4px;
+	display: block;
+	cursor: pointer;
+	font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+	line-height: 16px;
 }
 
 /*------------------------ NAV ------------------------*/
@@ -381,9 +422,9 @@ select.uiSelect {
 	-webkit-appearance: button;
 	-webkit-border-radius: 2px;
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	-webkit-padding-end: 20px;
-	-webkit-padding-start: 2px;
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-webkit-user-select: none;
+	-moz-user-select: none;
 	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5) no-repeat;
 	border: 1px solid #aaa;
 	color: #555;
@@ -394,8 +435,6 @@ select.uiSelect {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-
-
 
 
 /*------------------------ FOOTER ------------------------*/

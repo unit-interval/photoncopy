@@ -1,23 +1,23 @@
-$(document).ready(function(){
-	$('INPUT.autoHint, TEXTAREA.autoHint').blur(function(){
-	    if($(this).val() == '' && $(this).attr('title') != ''){
-	       $(this).val($(this).attr('title'));
-	       $(this).addClass('autoHint');
-	    }
+function addNotification(id, content){
+	var no=$('div.notification', $('#notificationWrapper')).length+1;
+	$('#dummyNotification').slideDown('normal');
+	$('#notificationWrapper').append("<div class='notification'><span class='notificationCount'>"+no+"</span><input type='hidden' name='notificationId' value='"+id+"'/>"+content+"<span class='notificationClose'>×</span></div>");
+	$('div.notification:last', $('#notificationWrapper')).fadeIn('normal');
+	$('span.notificationClose', $('#notificationWrapper')).click(function(){
+		removeNotification($(this).parent());
 	});
-	$('INPUT.autoHint, TEXTAREA.autoHint').focus(function(){
-	    if($(this).val() == $(this).attr('title')){
-	        $(this).val('');
-	        $(this).removeClass('autoHint');
-	    }
+}
+
+function removeNotification(note){
+	note.fadeOut('normal', function(){
+		note.remove();
+		if ($('div.notification', $('#notificationWrapper')).length==0) $('#dummyNotification').slideUp('normal'); 
 	});
-	$('INPUT.autoHint, TEXTAREA.autoHint').each(function(){
-	    if($(this).attr('title') == ''){ return; }
-	    if($(this).val() == ''){ 
-	    	$(this).val($(this).attr('title'));
-	    }
-	    else { 
-	    	$(this).removeClass('autoHint');
-	    }
-	});
+}
+
+$(function(){
+
+	$('#notify').click(function(){
+		addNotification($('#id').val(), $('#content').val());
+	})
 })
