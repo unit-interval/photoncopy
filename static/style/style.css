@@ -16,6 +16,10 @@
 	left: -1000px;
 }
 
+.pointerCursor{
+	cursor: pointer;
+}
+
 /**
  * index
  */
@@ -65,11 +69,18 @@ a{
 /*------------------------ LIGHTBOX ------------------------*/
 
 .lightbox{
+	background: rgba(0, 0, 0, .5);
+	display: none;
+	height: 100%;
+	left: 0;
+	overflow-x: auto;
+	overflow-y: scroll;
 	position: fixed;
-	min-height: 100%;
+	top: 0;
 	width: 100%;
-	background: black;
-	opacity: 50%;
+	z-index: 101;
+	zoom: 1;
+	display: block;
 }
 
 /*------------------------ NAV ------------------------*/
@@ -281,6 +292,7 @@ input.uiBtn3:hover{
 
 input.uiBtn3:active{
   	-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+  	-moz-box-shadow
   	background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
   	color: #333;
 }
@@ -362,6 +374,29 @@ textarea.uiTextarea{
 	color: #CFF0FF;
 	line-height: 150%
 }
+
+/*------------------------ uiSelect ------------------------*/
+
+select.uiSelect {
+	-webkit-appearance: button;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-webkit-user-select: none;
+	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5) no-repeat;
+	border: 1px solid #aaa;
+	color: #555;
+	font-size: inherit;
+	margin: 0;
+	overflow: hidden;
+	padding: 2px 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+
 
 /*------------------------ FOOTER ------------------------*/
 

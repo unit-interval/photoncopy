@@ -74,6 +74,7 @@ a{
     color: #333;
     float: right;
     width: 730px;
+    display: none;
 }
 
 .profileHeader{
@@ -114,7 +115,6 @@ a{
 	font-weight: normal;
 	padding: 4px 0 4px 22px;
 	color: #333;
-	border-spacing: 14px;
 }
 
 .profileContent p{
@@ -122,8 +122,16 @@ a{
 }
 
 .profileContent th{
+	padding-right: 21px;
+}
+
+.profileSection{
+	margin-bottom: 9px;
+}
+
+table.formTable th{
+	width: 56px;
 	text-align: right;
-	padding-right: 20px;
 }
 
 .badge{
@@ -131,7 +139,7 @@ a{
 	background-color: #333;
 	border: 1px solid #333;
 	margin: 0 3px 3px 0;
-	padding: 0px 6px 0px 20px;
+	padding: 0px 6px;
 	display: inline-block;
 	text-decoration: none;
 	line-height: 2;
@@ -141,26 +149,60 @@ a{
 	font-weight: normal;
 }
 
-#creditCenter table, #taskCenter table{
+.badge.pointerCursor:hover, .badge.pointerCursor.selected{
+	background-color: #555;
+	border-color: #555;
+}
+
+#creditCenter table{
 	padding: 0;
 }
 
-#creditCenter th, #taskCenter th{
+#creditCenter th{
 	text-align: left;
 }
 
 input.uiText2{
 	width: 300px;
+	margin: 7px 0;
 }
 
-.badge1{
-	
+input.uiBtn3{
+	margin: 7px 0;
+}
+
+.badge1, .badge2, .badge3{
+	width: 16px;
+	height: 14px;
+	display: inline-block;
+	background: url(../images/badge.png) no-repeat 0px -26px;
 }
 
 .badge2{
-	
+	background-position: 0px -12px;
 }
 
 .badge3{
-	
+	background-position: 0px 2px;
+}
+
+/*------------------------ TASK DETAIL ------------------------*/
+
+#taskDetail{
+	padding: 14px 0 0 0;
+	display: none;
+}
+
+#taskDetail textarea{
+	width: 685px;
+	margin: 7px 0;
+}
+
+#taskDetail input{
+	margin: 7px 0;
+}
+
+#taskCenter > div.profileContent > div.profileSection{
+	border-bottom: 3px dashed #999;
+	padding-bottom: 18px;
 }
