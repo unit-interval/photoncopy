@@ -114,6 +114,7 @@ a{
 	font-weight: normal;
 	padding: 4px 0 4px 22px;
 	color: #333;
+	border-spacing: 14px;
 }
 
 .profileContent p{
