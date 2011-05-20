@@ -74,9 +74,9 @@ a{
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 101;
+	z-index: -500;
 	zoom: 1;
-	display: block;
+	display: none;
 }
 
 /*------------------------ NOTIFICATION ------------------------*/

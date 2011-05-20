@@ -1,3 +1,4 @@
+var storeItemInfoHover=0;
 var page=[['1-10页', 1],['10-50页',10],['50-200页',50],['200-500页',200],['500-1000页',500], ['1000页以上',1000]];
 var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
@@ -205,7 +206,7 @@ $(function(){
 		$(this).parent().siblings().eq(0).children().eq($(this).index()).dequeue().fadeTo('normal', 0.5);
 	});
 	
-	$('div.w2item, .w3item, .w4item, .w5item, .w7item').click(function(){
+	$('.w3item, .w4item, .w5item, .w7item').click(function(){
 		$('.'+$(this).attr('class')).removeClass('selected');
 		$(this).addClass('selected');
 	});
@@ -217,6 +218,9 @@ $(function(){
 		
 	// click on w2 item
 	$('div.w2item').click(function(){
+		if (storeItemInfoHover) return;
+		$('.'+$(this).attr('class')).removeClass('selected');
+		$(this).addClass('selected');
 		$('#w2Form').val($('div.storeId', this).html());
 		$('#w2Edit').html($('h2', this).html());
 		showMore(2);
@@ -404,5 +408,52 @@ $(function(){
 	$('#taskAccordion > div.taskItem:first').each(function() {
 		order_apply_setting($('input', this));
 	});
-})
+	
+/*---------------------- LIGHTBOX ----------------------*/	
+	
+	$('div.storeItemInfo input[type="button"]').hover(function(){
+		storeItemInfoHover = 1;
+	}, function(){
+		storeItemInfoHover = 0;
+	});
+	
+	$('div.storeItemInfo input[type="button"]').click(function(){
+		var storeName=$('h2', $(this).parent()).html();
+		var storeId=$('div.storeId', $(this).parent()).html();
+		var storeMsg=$('p', $(this).parent()).html();
+		var content="<div class='panel board'>"+
+				"<h2>"+storeName+"<span class='storeClose'>×</span></h2>"+
+				"<div id='storeStatus'>"+
+					"<div id='storeAvatar'><img width='100%' height='100%' src='./media/images/store/storeAvatar"+storeId+".jpg' alt='Store Avatar'/></div>"+
+					"<div id='storeMsg'>"+
+						"<div id='msgQuote'></div>"+
+						"<div id='msgContent'>"+storeMsg+"</div>"+
+					"</div>"+
+					"<div class='clear'></div>"+
+				"</div>"+
+				"<div id='storeView'>"+
+					"<img width='100%' src='./media/images/store/storeView"+storeId+".jpg' alt='Store View'/>"+
+				"</div>"+
+				"<div id='storeMap'>"+
+					'<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Beijing+South+Railway+Station,+Fengtai,+Beijing,+China&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed"></iframe>'+
+				"</div>"+
+				"<p id='toggleMap'>显示地图</p>"+
+			"</div>";
 
+		showLightbox(content);
+		
+		$("#toggleMap").toggle(function(){
+			$("#storeMap").slideDown();
+			$(this).html('隐藏地图');
+		},function(){
+			$("#storeMap").slideUp();
+			$(this).html('显示地图');
+		});
+		
+		$('span.storeClose').click(function(){
+		hideLightbox();
+	});
+
+	});
+	
+})

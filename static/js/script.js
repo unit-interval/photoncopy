@@ -15,9 +15,16 @@ function removeNotification(note){
 	});
 }
 
-$(function(){
+function showLightbox(content){
+	$('body').css('overflow', 'hidden');
+	$('div.lightbox').css('z-index', 500);
+	$('div.lightbox').css('display', 'block');
+	$('div.lightbox').html(content);
+}
 
-	$('#notify').click(function(){
-		addNotification($('#id').val(), $('#content').val());
-	})
-})
+function hideLightbox(){
+	$('body').css('overflow', '');
+	$('div.lightbox').css('z-index', -500);
+	$('div.lightbox').css('display', 'none');
+	$('div.lightbox').html('');
+}
