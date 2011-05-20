@@ -1,5 +1,4 @@
 var storeItemInfoHover=0;
-var page=[['1-10页', 1],['10-50页',10],['50-200页',50],['200-500页',200],['500-1000页',500], ['1000页以上',1000]];
 var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
 /* ---------- SHOW MORE ---------- */
@@ -61,51 +60,6 @@ function wFade(ob, par, del){
 	if (par==0) ob.css('display', 'none');
 }
 
-/* ---------- Credit Change ---------- */
-
-function refreshCredit(){
-	var colorN;
-	switch($('#w3Form2').val()){
-		case '2': colorN=14.4;
-		break;
-		default: colorN=0.4;
-	}
-	var paperN=0.6;
-	var doubleN;
-	switch($('#w4Form').val()){
-		case '2': doubleN=2;
-		break;
-		default: doubleN=1;
-	}
-	var pageN=parseInt($("span#pageNumber").html());
-	var copyN=parseInt($("span#copyNumber").html());
-	var bindN;
-	switch($('#w7Form').val()){
-		case '4': bindN=15;
-		break;
-		default: bindN=0;
-	}
-	var layoutN;
-	switch($('#w5Form').val()){
-		case '2': layoutN=2;
-		break;
-		case '3': layoutN=4;
-		break;
-		case '4': layoutN=6;
-		break;
-		case '5': layoutN=8;
-		break;
-		case '6': layoutN=9;
-		break;
-		case '7': layoutN=12;
-		break;
-		default: layoutN=1
-	}
-	var credit0 = parseInt($('#credit0').html());
-	var credit1 = credit0 - Math.round((paperN*Math.ceil(pageN/doubleN/layoutN)+colorN*Math.ceil(pageN/layoutN))*copyN+bindN);
-	$('#credit1').html(Math.max(0, credit1));
-}
-
 /* ---------- Slider Effect ---------- */
 
 function refreshSlider(){
@@ -116,7 +70,7 @@ function refreshSlider(){
 	var left=copyN-copy[i-1];
 	var right=copy[i]-copyN;
 	if (left < right) i--;
-	$("div#workers-slider").slider("value", i);
+	$("div#dynos-slider").slider("value", i);
 }
 
 function order_apply_setting(order) {
@@ -236,7 +190,6 @@ $(function(){
 		$('#w3Form2').val(row);
 		$('#w3Edit1').html(colName);
 		$('#w3Edit2').html(rowName);
-		refreshCredit();
 		showMore(3);
 	});
 	
@@ -247,7 +200,6 @@ $(function(){
 		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w4Form').val(col);
 		$('#w4Edit').html(colName);
-		refreshCredit();
 		showMore(4);
 	});
 	
@@ -258,7 +210,6 @@ $(function(){
 		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w5Form').val(col);
 		$('#w5Edit').html(colName);
-		refreshCredit();
 		showMore(5);
 	});
 	
@@ -268,7 +219,6 @@ $(function(){
 		var a=$("span#copyNumber");
 		if (parseInt(a.html())<1000){
 			a.html(parseInt(a.html())+1);
-			refreshCredit();
 			refreshSlider();
 		}
 	});
@@ -277,7 +227,6 @@ $(function(){
 		var a=$("span#copyNumber");
 		if (parseInt(a.html())>1){
 			a.html(parseInt(a.html())-1);
-			refreshCredit();
 			refreshSlider();
 		}
 	});
@@ -286,7 +235,6 @@ $(function(){
 		var a=$("span#copyNumber");
 		if (parseInt(a.html())<991){
 			a.html(parseInt(a.html())+10);
-			refreshCredit();
 			refreshSlider();
 		}
 	});
@@ -295,7 +243,6 @@ $(function(){
 		var a=$("span#copyNumber");
 		if (parseInt(a.html())>10){
 			a.html(parseInt(a.html())-10);
-			refreshCredit();
 			refreshSlider();
 		}
 	});
@@ -303,13 +250,9 @@ $(function(){
 	// click w6 confirm btn
 	
 	$('#w6ConfirmBtn').click(function(){
-		var pageNumber=$("div#dynos-slider").slider('value');
 		var copyNumber=parseInt($("span#copyNumber").html());
-		$('#w6Form1').val(pageNumber);
-		$('#w6Edit1').html(page[pageNumber][0]);
-		$('#w6Form2').val(copyNumber);
-		$('#w6Edit2').html(copyNumber+'份');
-		refreshCredit();
+		$('#w6Form').val(copyNumber);
+		$('#w6Edit').html(copyNumber+'份');
 		showMore(6);
 	});
 	
@@ -320,7 +263,6 @@ $(function(){
 		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w7Form').val(col);
 		$('#w7Edit').html(colName);
-		refreshCredit();
 		showMore(7);
 	});
 		
@@ -345,25 +287,8 @@ $(function(){
 		wFade($('#w8'), 0, 0);
 		wFade($('#w'+tmpN), 1, 250);
 	});
-
-	var _slider=$("div#dynos-slider").slider({
-		animate: 'true',
-		orientation: "vertical",
-		min: 0,
-		max: 5,
-		value: 0,
-		slide: function(event, ui){
-			$('span#dynos-handle-inner-dynos').html(page[ui.value][0]);
-			$('span#pageNumber').html(page[ui.value][1]);
-			refreshCredit();
-		}
-	});
-
-	_slider.find('a').html(
-	'<span id="dynos-handle-inner"><span id="pageNumber">1</span><span id="dynos-handle-inner-dynos">1-10页</span></span>'
-	);
 	
-	_slider = $("#workers-slider").slider({
+	_slider = $("#dynos-slider").slider({
 		animate: 'true',
 		orientation: "vertical",
 		min: 0,
@@ -371,12 +296,11 @@ $(function(){
 		value: 0,
 		slide: function(event, ui){
 			$("span#copyNumber").html(copy[ui.value]);
-			refreshCredit();
 		}
 	});
 	
 	_slider.find("a").html(
-	'<span id="workers-handle-inner"><span id="workers-handle-inner-workers"><span id="copyNumber">1</span>份</span><span id="workers-handle-inner-price"></span></span>'
+	'<span id="dynos-handle-inner"><span id="dynos-handle-inner-dynos"><span id="copyNumber">1</span>份</span></span>'
 	);
 		
 	$('span.msgClose').click(function(){
