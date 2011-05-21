@@ -11,7 +11,7 @@ function showMore(n){
 		($('#w3Form1').val()!='' && $('#w3Form2').val()!=''),
 		($('#w4Form').val()!=''),
 		($('#w5Form').val()!=''),
-		($('#w6Form1').val()!='' && $('#w6Form2').val()!=''),
+		($('#w6Form').val()!=''),
 		($('#w7Form').val()!=''),
 		false
 	];
@@ -22,7 +22,7 @@ function showMore(n){
 	for (i=n+1; i<formStatus.length; i++)
 		if (formStatus[i]){
 			if ($('#btn'+i).css('display')!='block') j++;
-			$('#btn'+i).delay(250*j).show();
+			$('#btn'+i).delay(250*j).fadeIn(250);
 		}
 		else break;
 	toggleFocusBtn($('#btn'+i), 1, 250*(j+1));
@@ -35,7 +35,7 @@ function toggleFocusBtn(ob, par, del){
 	var defaultWidth=121;
 	ob.parent().delay(del);
 	defaultWidth+=10*par;
-	ob.delay(del).css('display', 'block');
+	ob.delay(del).fadeIn(250);
 	ob.parent().animate({width: defaultWidth+'px'}, 250, 'swing');
 	if (par) ob.delay(250).addClass('selected');
 	else ob.removeClass('selected');

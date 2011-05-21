@@ -17,9 +17,7 @@
 	<body>
 		<div class='lightbox'></div>
 		<div class="nav"> 
-			<div id="logo"> 
-				<a href="/">光子复制</a> 
-			</div> 
+			<a href='#' id="logo"></a> 
 			<ul class="account"> 
 	
 				<li><a href="/home.php">首页</a></li> 
@@ -44,7 +42,7 @@
 			<div class='btn'><div id='btn7' class='innerBtn'></div></div>
 			<div class='btn'><div id='btn8' class='innerBtn'></div></div>
  			<dl id='credit'>
- 				<dt>积分</dt>
+ 				<dt>信用</dt>
  				<dd id='credit1'>99</dd>
  			</dl>
 		</div> 
@@ -69,13 +67,13 @@
 			<form accept-charset="UTF-8" id='formOrder' action='submit.php' method='get'>
 				<input type='hidden' id='w1Form1' name='filename' value='' />
 				<input type='hidden' id='w1Form2' name='filehash' value='' />
-				<input type='hidden' id='w2Form' name='store' value='' />
-				<input type='hidden' id='w3Form1' name='paper' value='' />
-				<input type='hidden' id='w3Form2' name='color' value='' />
-				<input type='hidden' id='w4Form' name='double' value='' />
-				<input type='hidden' id='w5Form' name='layout' value='' />
-				<input type='hidden' id='w6Form' name='copy' value='' />
-				<input type='hidden' id='w7Form' name='bind' value='' />
+				<input type='hidden' id='w2Form' name='store' value='1' />
+				<input type='hidden' id='w3Form1' name='paper' value='1' />
+				<input type='hidden' id='w3Form2' name='color' value='1' />
+				<input type='hidden' id='w4Form' name='double' value='1' />
+				<input type='hidden' id='w5Form' name='layout' value='1' />
+				<input type='hidden' id='w6Form' name='copy' value='1' />
+				<input type='hidden' id='w7Form' name='bind' value='1' />
 				<input type='hidden' id='w8Form' name='message' />
 				<input type='hidden' id='w9Form' name='guarantee'/>
 			</form>
@@ -279,52 +277,6 @@
 		<div class='taskQueue'>
 			<div class='taskQueueL'>
 				<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
-				<div class='msgBox panel0'>
-					<h2 class='ltCorner rtCorner'>通知<span id='unread'>10</span></h2>
-					<ul class='unreadContent'>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>2</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>我知道了</span>
-						</li>
-						<li>
-							<span class='msgId'>1</span>
-							辅导教师克里夫介绍到了看风景刻录速度交罚款乐山大佛揭开了<span class='msgClose'>去看看</span>
-						</li>
-					</ul>
-					<div id='msgClearAll' class='lbCorner rbCorner'>清空</div>
-				</div> 
 			</div>
 			<div class='panel0 taskQueueR'>
 				<h2>任务队列</h2>
@@ -377,7 +329,7 @@
 	    					<tr><th>打印店</th><td><a href='#'>北京大学36楼打印店</a></td></tr>
 	    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 	    					<tr><th>客户留言</th><td>blablabla</td></tr>
-	    					<tr><th>订单操作</th><td>由于担保积分不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a href='#'>撤销订单<a></td></tr>
+	    					<tr><th>订单操作</th><td>由于信用不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a href='#'>撤销订单<a></td></tr>
 	    				</table>
 	    				</div>
     				</div>

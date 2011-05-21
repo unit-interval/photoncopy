@@ -1,6 +1,4 @@
-/**
- * general style rules
- */
+/*---------- General Style ----------*/
 
 .fleft {
 	float: left;
@@ -28,10 +26,6 @@
 .clear{
 	clear: both;
 }
-
-/**
- * index
- */
 
 body{
 	margin: 0px;

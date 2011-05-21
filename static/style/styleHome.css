@@ -20,7 +20,7 @@
 	position: relative;
 	height: 100%;
 	cursor: pointer;
-	/*display: none;*/
+	display: none;
 }
 
 #btn0{
@@ -541,9 +541,13 @@ input.uiBtn1{
 
 #w8Edit{
 	width: 126px;
+	min-width: 126px;
+	max-width: 126px;
 	background: #292929;
 	border: 2px dashed #202020;
 	height: 140px;
+	min-height: 126px;
+	max-height: 126px;
 	overflow: hidden;
 	color: #DDD;
 	font-size: 12px;
