@@ -39,6 +39,8 @@ body{
 	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
 	font-size: 14px;
 	background: #1C1C1C;
+	overflow-x: auto;
+	overflow-y: scroll;
 }
 
 h2{
@@ -59,7 +61,7 @@ li{
 a{
 	text-decoration: none;
 	outline: medium none;
-	color: #45A4FF;
+	color: inherit;
 }
 
 /*------------------------ LIGHTBOX ------------------------*/
@@ -136,6 +138,12 @@ a{
 	border-bottom: 3px solid #494573;
 }
 
+.navBar{
+	float: right;
+	padding: 10px;
+	font-size: 15px;	
+}
+
 .account{
 	margin-right: 24px;
 	float: right;
@@ -144,13 +152,25 @@ a{
 	border-radius: 7px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
-	font-size: 14px;
+	font-size: 15px;
 }
 
-.navBtn
-{
+.account li{
 	color: #45A4FF;
 	cursor: pointer;
+}
+
+.account li:hover{
+	color: #74d0f4;
+}
+
+.navBar li{
+	color: #C9C3E6;
+	cursor: pointer;
+}
+
+.navBar li:hover{
+	color: white;
 }
 
 .sep{
@@ -160,8 +180,8 @@ a{
 /*------------------------ CONTENT ------------------------*/
 
 .contentWrapper{
-	margin: 0px;
-	padding: 1px 0px;
+	margin: 0;
+	padding: 0;
 	background: #1C1C1C;
 }
 
@@ -309,6 +329,10 @@ input.uiBtn2{
 	text-shadow: #c9c3e6 0px 0px 2px;
 	border-width: 0px;
 	cursor: pointer;
+}
+
+input.uiBtn2:active{
+	background: #9E8AFF;
 }
 
 input.uiBtn3{

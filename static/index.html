@@ -14,93 +14,53 @@
 	</head>
 	<body>
 		<div id='dummyNotification'></div>
-		<div id='notificationWrapper'>
-		</div>
+		<div id='notificationWrapper'></div>
+		<div class='lightbox'></div>
 		<div class="nav">
 			<div id="logo">
 				<a href="/">光子复制</a>
 			</div>
 			<ul class="account">
 				<li>
-					<a href="home/index.html">首页</a>
-				</li>
-				<li class='sep'>
 					<a href="account.php">User1的帐户</a>
 				</li>
 				<li class="sep">
 					<a href="index.php?q=logout">退出</a>
 				</li>
 			</ul>
+			<ul class='navBar'>
+				<li>
+					<a href="home/index.html">首页</a>
+				</li>
+				<li class='sep'>
+					<a href="home/index.html">黑板报</a>
+				</li>
+			</ul>
 			<ul class="account">
 				<li id="loginBtn">
-					<span class="navBtn">登录</span>
+					登录
 				</li>
-				<li id="signupBtn" class="sep navBtn">
-					<span class="navBtn">注册</span>
-				</li>
-				<li id="forgetBtn" class="sep navBtn">
-					<span class="navBtn">取回密码</span>
+			</ul>
+			<ul class='navBar'>
+				<li>
+					<a href="home/index.html">黑板报</a>
 				</li>
 			</ul>
 		</div>
 		<div class="contentWrapper">
-			<div class="funct">
-				<div id="login" class='panel'>
-					<h2>登录</h2>
-					<form>
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" placeholder='请输入邮箱地址' class='uiText' />
-							</div>
-							<div class="field">
-								<label>密码</label>
-								<input type="password" name="psw" class='uiText'/>
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="checkbox" type="checkbox" name="publicLogin" value="yes" /><h3> 正在使用公共电脑登录</h3>
-							<input class="uiBtn submit" type="submit" value="登录" />
-						</fieldset>
-					</form>
-				</div>
-				<div id="signup" class='panel'>
-					<h2>注册</h2>
-					<form>
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" placeholder='请输入邮箱地址' class='uiText'/>
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="uiBtn submit" type="submit" value="注册" />
-						</fieldset>
-					</form>
-				</div>
-				<div id="forget" class='panel'>
-					<h2>取回密码</h2>
-					<form>
-						<fieldset>
-							<div class="field">
-								<label>邮箱</label>
-								<input type="text" name="email" placeholder='请输入邮箱地址' class='uiText' />
-							</div>
-						</fieldset>
-						<fieldset class="submit">
-							<input class="uiBtn submit" type="submit" value="取回密码" />
-						</fieldset>
-					</form>
-				</div>
-			</div>
-			<div class="content">
-				<div id="instruct">
-					<p>Step 1: blablabla</p>
-					<p>Step 2: blablabla</p>
-				</div>
-				<div id="stat">
-					<p>*** users have signed up.</p>
-					<p>*** orders have been made.</p>
+			<ul class='slideshow'>
+				<li class='slidePhoto' id='slidePhoto-1'>
+					<div class='slidePhotoWrapper'>
+						<h2>让校园生活更便捷</h2>
+						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
+						<a href='tutorial'>了解更多</a>
+					</div>
+				</li>
+			</ul>
+			<div class='content'>
+				<div class='slideshowCtrl'>
+					<input type='button' class='uiBtn2' id='signupBtn' value='免费注册'/>
+					<div class='clear'></div>
 				</div>
 			</div>
 		</div>
@@ -110,16 +70,7 @@
 					<h3>光子复制</h3>
 					<ul>
 						<li>
-							档案库
-						</li>
-						<li>
-							成长的足迹
-						</li>
-						<li>
-							联系我们
-						</li>
-						<li>
-							加入我们
+							关于我们
 						</li>
 					</ul>
 				</div>
@@ -127,22 +78,13 @@
 					<h3>合作伙伴</h3>
 					<ul>
 						<li>
-							申请店铺
-						</li>
-						<li>
-							商铺登录
-						</li>
-						<li>
-							工作流程
+							<a href='#'>商户登录</a>
 						</li>
 					</ul>
 				</div>
 				<div class="footerItem">
 					<h3>用户</h3>
 					<ul>
-						<li>
-							用户教程
-						</li>
 						<li>
 							用户协议
 						</li>
@@ -153,8 +95,6 @@
 					<dl>
 						<dt>光子复制Beta1.0启动</dt>
 						<dd>May 6, 2011</dd>
-						<dt>放两个新闻</dt>
-						<dd>在这里写日期</dd>
 					</dl>
 				</div>
 				<div class='clear'></div>

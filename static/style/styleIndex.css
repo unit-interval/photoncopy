@@ -1,15 +1,27 @@
 /*------------------------ FUNCT ------------------------*/
 
-.funct{
-	padding-top: 30px;
-	width: 400px;
-	margin: auto;
-}
-
 #login, #signup, #forget{
 	color: #8D79F2;
 	background: #272727;
-	display: none;
+	width: 400px;
+	margin: auto;
+	margin-top: 200px;
+}
+
+#forgetBtn:hover{
+	cursor: pointer;
+	color: #BFB8E5;
+}
+
+#signupBtn{
+	font-size: 15px;
+	height: 30px;
+	width: 100%;
+}
+
+.lightboxClose:hover{
+	color: #BFB8E5;
+	cursor: pointer;
 }
 
 .panel h2
@@ -43,4 +55,61 @@ input.checkbox{
 
 input.submit{
 	float: right;
+}
+
+/*------------------------ SLIDESHOW ------------------------*/
+
+ul.slideshow{
+	height: 512px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 3px solid #494573;
+}
+
+ul.slideshow li{
+	height: 100%;
+	float: left;
+	padding: 0;
+	width: 100%;
+}
+
+li.slidePhoto{
+	background-repeat: no-repeat;
+}
+
+div.slidePhotoWrapper{
+	text-align: right;
+	color: white;
+	width: 900px;
+	margin: 300px auto 0;
+}
+
+div.slidePhotoWrapper h2{
+	font-size: 40px;
+}
+
+div.slidePhotoWrapper p{
+	margin-bottom: 20px;
+}
+
+div.slidePhotoWrapper a{
+	background: rgba(255,255,255,0.2);
+	padding: 6px 15px;
+	font-size: 12px;
+}
+
+div.slidePhotoWrapper a:hover{
+	background: rgba(255,255,255,0.1);
+}
+
+#slidePhoto-1{
+	background: url(../media/images/slidePhoto1.jpg) center top no-repeat;
+}
+
+.slideshowCtrl{
+	width: 200px;
+	padding: 5px 20px;
+	margin: auto;
 }
