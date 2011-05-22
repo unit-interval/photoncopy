@@ -15,16 +15,18 @@ function removeNotification(note){
 	});
 }
 
-function showLightbox(content){
+function showLightbox(id){
+	$('div.lightbox').children().hide();
 	$('body').css('overflow', 'hidden');
-	$('div.lightbox').css('z-index', 500);
 	$('div.lightbox').css('display', 'block');
-	$('div.lightbox').html(content);
+	$(id, 'div.lightbox').fadeIn(250);
+	$(id, 'div.lightbox').addClass('inLightbox');
 }
 
 function hideLightbox(){
-	$('body').css('overflow', '');
-	$('div.lightbox').css('z-index', -500);
-	$('div.lightbox').css('display', 'none');
-	$('div.lightbox').html('');
+	$('.inLightbox', $('div.lightbox')).fadeOut(250, function(){
+		$(this).removeClass('inLightbox');
+		$('div.lightbox').css('display', 'none');
+		$('body').css('overflow', '');
+	});
 }
