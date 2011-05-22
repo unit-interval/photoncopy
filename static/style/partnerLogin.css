@@ -1,8 +1,8 @@
 /*------------------------ FUNCT ------------------------*/
 
 #login, #signup, #forget{
-	color: #8D79F2;
-	background: #272727;
+	color: #CFF0FF;
+	background: #1A2F36;
 	width: 400px;
 	margin: auto;
 	margin-top: 200px;
@@ -10,7 +10,7 @@
 
 #forgetBtn:hover{
 	cursor: pointer;
-	color: #BFB8E5;
+	color: whtie;
 }
 
 #signupBtn{
@@ -20,13 +20,13 @@
 }
 
 .lightboxClose:hover{
-	color: #BFB8E5;
+	color: white;
 	cursor: pointer;
 }
 
 .panel h2
 {
-	background: #232323;
+	background: #1B2429;
 }
 
 .field{
@@ -55,7 +55,18 @@ input.checkbox{
 
 input.submit{
 	float: right;
+	background: #CFF0FF;
 }
+
+input.submit:hover{
+	float: right;
+	background: white;
+}
+
+input.uiText{
+	background: white;
+}
+
 
 /*------------------------ SLIDESHOW ------------------------*/
 
@@ -65,10 +76,6 @@ ul.slideshow{
 	margin: 0;
 	overflow: hidden;
 	width: 100%;
-}
-
-#main ul.slideshow{
-	border-bottom: 3px solid #494573;
 }
 
 ul.slideshow li{
@@ -108,7 +115,7 @@ div.slidePhotoWrapper a:hover{
 }
 
 #slidePhoto-1{
-	background: url(/media/images/slidePhoto1.jpg) center top no-repeat;
+	background: url(../media/images/slidePhoto1.jpg) center top no-repeat;
 }
 
 .slideshowCtrl{

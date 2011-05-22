@@ -1,34 +1,9 @@
-.contentWrapper{
-	background: #F0F0F0;
-}
-
-.nav{
-	background: #3B4458;
-	border-bottom: 4px solid #5D6C90;
-}
-
-a{
-	color: inherit;
-}
-
-.account{
-	background: rgba(46, 54, 70, .5);
-	color: #92BADB;
-	-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
-	-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
-	box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
-
-}
-
-.account a:hover{
-	color: #74d0f4;
-}
-
 /*------------------------ PROFILE ------------------------*/
 
 .profile{
 	width: 960px;
-	margin: 30px auto;
+	margin: 0px auto;
+	padding: 30px 0;
 }
 
 /*------------------------ PROFILE L ------------------------*/

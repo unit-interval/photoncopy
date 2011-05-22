@@ -1,0 +1,101 @@
+#login, #signup, #forget{
+	color: #8D79F2;
+	background: #272727;
+	width: 400px;
+	margin: auto;
+	margin-top: 200px;
+}
+
+#forgetBtn:hover{
+	cursor: pointer;
+	color: #BFB8E5;
+}
+
+#signupBtn{
+	font-size: 15px;
+	height: 30px;
+	width: 100%;
+}
+
+.lightboxClose:hover{
+	color: #BFB8E5;
+	cursor: pointer;
+}
+
+.panel h2
+{
+	background: #232323;
+}
+
+.field{
+	padding-bottom: 10px;
+}
+
+fieldset{
+	padding: 30px 30px 10px 30px;
+	border-width: 0px;
+}
+
+fieldset.submit{
+	padding: 0px 30px 30px 30px;
+}
+
+label{
+	display: block;
+	padding: 0px 0px 8px 0px;
+	font-size: 14px;
+}
+
+input.checkbox{
+	width: auto;
+	margin: 11px;
+}
+
+input.submit{
+	float: right;
+}
+
+/*------------------------ ABOUT ------------------------*/
+
+.about{
+	width: 450px;
+	margin: 10px 0 30px;
+}
+
+.about.fleft{
+	text-align: left;
+}
+
+.about.fright{
+	text-align: right;
+}
+
+.about.fleft dt{
+	float: left;
+}
+
+.about.fright dt{
+	float: right;
+}
+
+dd{
+	padding: 0;
+	margin: 0;
+}
+
+dd h2{
+	color: #71A8B2;
+}
+
+dd p{
+	color: #7565C7;
+}
+
+.about dt img{
+	width: 160px;
+	height: 220px;
+	margin: 0 20px;
+	-moz-box-shadow: #151515 2px 2px 7px 0;
+	-webkit-box-shadow: #151515 2px 2px 7px 0;
+	box-shadow: #151515 2px 2px 7px 0;
+}

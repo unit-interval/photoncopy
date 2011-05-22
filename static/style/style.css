@@ -32,9 +32,9 @@ body{
 	padding: 0px;
 	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
 	font-size: 14px;
-	background: #1C1C1C;
 	overflow-x: auto;
 	overflow-y: scroll;
+	background: #1c1c1c;
 }
 
 h2{
@@ -124,17 +124,41 @@ a{
 
 #logo{
 	font-size: 10px;
-	background: url(/media/images/logo.png);
 	float: left;
 	height: 60px;
 	width: 400px;
 	margin: 15px 20px;
 }
 
+#main #logo{
+	background: url(../media/images/main-logo.png);
+}
+
+#user #logo{
+	background: url(../media/images/user-logo.png);
+}
+
+#partner #logo{
+	background: url(../media/images/partner-logo.png);
+}
+
 .nav{
 	height: 90px;
+}
+
+#main .nav{
 	background: #29264D;
 	border-bottom: 3px solid #494573;
+}
+
+#user .nav{
+	background: #3B4458;
+	border-bottom: 3px solid #5D6C90;
+}
+
+#partner .nav{
+	background: #1D2D32;
+	border-bottom: 3px solid #223B40;
 }
 
 .navBar{
@@ -148,21 +172,47 @@ a{
 	margin-top: 26px;
 	margin-right: 24px;
 	float: right;
-	background: #231D40;
-	padding: 10px;
-	border-radius: 7px;
+	padding: 10px;	
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
+	border-radius: 7px;
 	font-size: 15px;
 }
 
+#main .account{
+	background: #231D40;
+}
+
+#user .account{
+	background: rgba(46, 54, 70, .5);
+	color: #9DAAC5;
+	-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
+	-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, .05), 0 0 1px rgba(0, 0, 0, .5) inset;
+}
+
+#partner .account{
+	background: #192026;
+}
+
 .account li{
-	color: #45A4FF;
 	cursor: pointer;
 }
 
-.account li:hover{
+#main .account li, #partner .account li{
+	color: #45A4FF;
+}
+
+#user .account li{
+	color: #92BADB;
+}
+
+#main .account li:hover, #partner .account li:hover{
 	color: #74d0f4;
+}
+
+#user .account li:hover{
+	color: #74d0f4
 }
 
 .navBar li{
@@ -170,8 +220,16 @@ a{
 	cursor: pointer;
 }
 
+#partner .navBar li{
+	color: #D3E2EB;
+}
+
 .navBar li:hover{
 	color: white;
+}
+
+#partner .navBar li:hover{
+	color: #BFF740;
 }
 
 .sep{
@@ -183,7 +241,18 @@ a{
 .contentWrapper{
 	margin: 0;
 	padding: 0;
+}
+
+#main .contentWrapper{	
 	background: #1C1C1C;
+}
+
+#user .contentWrapper{
+	background: #F0F0F0;
+}
+
+#partner .contentWrapper{
+	background: #232F32;
 }
 
 .content{
@@ -202,7 +271,7 @@ a{
 
 /*------------------------ PANEL ------------------------*/
 
-.panel, .panel0{
+.panel, .panel0, .panel1{
 	-moz-border-radius: 14px;
 	-webkit-border-radius: 14px;
 	border-radius: 14px;
@@ -214,7 +283,7 @@ a{
 	box-shadow: #151515 2px 2px 7px 0;
 }
 
-.panel h2, .panel0 h2{
+.panel h2, .panel0 h2, .panel1 h2{
 	font-size: 20px;
 	padding: 10px 20px;
 	-moz-border-radius-topleft: 14px;
@@ -222,6 +291,11 @@ a{
 	-moz-border-radius-topright: 14px;
 	border-top-right-radius: 14px;
 	font-weight: normal;
+}
+
+.panel1{
+	-moz-box-shadow: 0px 0px 5px #171C1E;
+	-webkit-box-shadow: 0px 0px 5px #171C1E;
 }
 
 .lbCorner{
@@ -340,7 +414,11 @@ input.uiBtn3{
 	-webkit-border-radius: 2px;
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-webkit-user-select: none;
+	-moz-border-radius: 2px;
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-user-select: none;
 	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+	background: -moz-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
 	border: 1px solid #aaa;
 	color: #444;
 	font-size: inherit;
@@ -351,15 +429,18 @@ input.uiBtn3{
 
 input.uiBtn3:hover{
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
   	background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+  	background: #ebebeb -moz-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
   	border-color: #999;
   	color: #222;
 }
 
 input.uiBtn3:active{
   	-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
-  	-moz-box-shadow
+  	-moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
   	background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+  	background: #ebebeb -moz-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
   	color: #333;
 }
 
@@ -445,7 +526,9 @@ textarea.uiTextarea{
 
 select.uiSelect {
 	-webkit-appearance: button;
+	-moz-appearance: button;
 	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-webkit-user-select: none;

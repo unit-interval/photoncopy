@@ -1,14 +1,23 @@
+/*------------------------ GENERAL ------------------------*/
+
+.contentWrapper{
+	padding: 30px 0;
+}
+
+.panel1{
+	background: #1A2F36;
+}
+
+.panel1 h2{
+	background: #1B2429;
+	color: #CFF0FF;
+}
+
 /*------------------------ BOARD ------------------------*/
 
 .board{
 	width: 960px;
-	margin: 30px auto;
-	background: #1A2F36;
-}
-
-.board h2{
-	background: #1B2429;
-	color: #CFF0FF;
+	margin: 0px auto;
 }
 
 .board p{
@@ -83,37 +92,124 @@
 	padding-top: 8px;
 }
 
-/*------------------------ Change Status ------------------------*/
+/*------------------------ TASK QUEUE ------------------------*/
 
-/*------------------------ ORDER ------------------------*/
-
-.order{
+.taskQueue{
 	width: 960px;
 	margin: 30px auto;
-	background: #1B1F2A;
 }
 
-.order h2{
+.taskQueueL{
+	float: left;
+}
+
+.taskQueueR{
+	float: right;
+	width: 732px;
+}
+
+#taskSearch{
+	width: 160px; 
+	background-color: #1B2429;
+	border: 1px solid #1B2429;
+	-moz-box-shadow: 0px 0px 5px #171C1E;
+	-webkit-box-shadow: 0px 0px 5px #171C1E;
+}
+
+#taskSearch:-moz-placeholder{
+	color: #999;
+}
+
+/*------------------------ TASK ACCORDION ------------------------*/
+
+#taskAccordion{
+	color: #DDD;
+}
+
+.taskAccordionBottom{
+	background: #1B2429;
+	height: 14px;
+}
+
+#taskAccordion h3{
+	margin: 0;
+	padding: 18px;
+	display: block;
+	cursor: pointer;
+	background: url(../images/taskIcon.png) no-repeat 18px 18px;
+	padding-left: 58px;
+	height: 32px;
+	color: #DDD;
+	line-height: 32px;
+	font-weight: normal;
+}
+
+#taskAccordion h3:hover, #taskAccordion h3.selected{
 	color: #6CAEFF;
 }
 
-.order p{
+#taskAccordion a{
 	color: #6CAEFF;
-	text-align: center;
-	padding: 10px;
-	margin: 0px;
 }
 
-/*------------------------ DUMMY ------------------------*/
+.taskDetail{
+	display: none;
+}
 
-.dummy{
-	position: fixed;
-	background-color: black;
-	top: 0px;
-	height: 100%;
-	width: 100%;
-	padding: 25px;
-	z-index: -1;
-	filter:alpha(opacity=90);	/* for IE */
-	opacity:0.9;	/* CSS3 standard */
+#taskAccordion table{
+	padding: 0 40px;
+	margin-bottom: 20px;
+}
+
+#taskAccordion th{
+	font-weight: normal;
+	text-align: right;
+	vertical-align: top;
+	width: 60px;
+}
+
+#taskAccordion td{
+	padding: 0px 0px 10px 14px;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+.taskStatus{
+	float: right;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 0 10px;
+	color: white;
+}
+
+.taskStatus0{
+	background: #69CA94;
+}
+
+.taskStatus2{
+	background: #7F95FF;
+}
+
+.taskStatus3, .taskStatus4{
+	background: #8D79F2;
+}
+
+.taskStatus1, .taskStatus5{
+	background: #3B4458;
+}
+
+.taskItem{
+	border-bottom: 2px solid #1B2429;
+}
+
+/*---------- SCREEN LOCK ----------*/
+
+#lockMask{
+	width: 400px;
+	margin: 200px auto 0;
+}
+
+#lockMask .field{
+	padding: 30px;
 }

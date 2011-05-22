@@ -8,33 +8,33 @@
 		</title>
 		<link rel="stylesheet" type="text/css" href="./media/style/style.css" />
 		<link rel="stylesheet" type="text/css" href="./media/style/stylePartner.css" />
-		<link rel="stylesheet" type="text/css" href="./media/style/styleHome.css" />
 		<script type="text/javascript" src="./media/js/jquery.js"></script>
 		<script type="text/javascript" src="./media/js/script.js"></script>
 		<script type="text/javascript" src="./media/js/scriptPartner.js"></script>
 	</head>
-	<body>
-		<div class='dummy'>
-			<input id='lockPsw' class='uiText' placeholder='请输入短密码' type='password'/>
+	<body id='partner'>
+		<div class='lightbox'>
 		</div>
 		<div class="nav">
 			<div id="logo">
-				<a href="index.php">光子复制</a>
+				<a href="index.php"></a>
 			</div>
 			<ul class="account">
 				<li>
-					<a href="home/index.html">首页</a>
-				</li>
-				<li class='sep'>
 					<a href="account.php">User1的帐户</a>
 				</li>
 				<li class="sep">
 					<a href="index.php?q=logout">退出</a>
 				</li>
 			</ul>
+			<ul class="navBar">
+				<li>
+					<a href="home/index.html">首页</a>
+				</li>
+			</ul>
 		</div>
 		<div class="contentWrapper">
-			<div class='panel0 board'>
+			<div class='panel1 board'>
 				<h2>北京大学36楼打印店</h2>
 				<div id='storeStatus'>
 					<div id='storeCtrl'>
@@ -69,22 +69,22 @@
 				<div class="taskQueueL">
 					<input type="text" id="taskSearch" placeholder="搜索" class="uiSearch">
 				</div>
-				<div class="panel0 taskQueueR">
+				<div class="panel1 taskQueueR">
 					<h2>任务队列</h2>
 					<div id="taskAccordion">
 						<div class="taskItem">
-							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus1">新任务</span></h3>
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus0">新任务</span></h3>
 							<div class="taskDetail">
 		    				<table>
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
 		    					<tr><th>客户余额</th><td>1.2元</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
-		    					<tr><th>订单操作</th><td>请您下载文件后，根据担保积分选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>请您下载文件后，根据客户信用选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
 		    				</tbody></table>
 		    				</div>
 	    				</div>
@@ -95,11 +95,11 @@
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
 		    					<tr><th>客户余额</th><td>1.2元</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
 		    					<tr><th>订单操作</th><td>请您在打印完成订单后，通知用户订单<a href='#'>已完成</a></td></tr>
 		    				</tbody></table>
 		    				</div>
@@ -111,11 +111,11 @@
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
 		    					<tr><th>客户余额</th><td>1.2元</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
 		    					<tr>
 		    						<th>订单操作</th>
 		    						<td>
@@ -147,40 +147,40 @@
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
-		    					<tr><th>订单操作</th><td>请您下载文件后，根据担保积分选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
+		    					<tr><th>订单操作</th><td>请您下载文件后，根据客户信用选择<a href='#'>接受订单</a>或将订单转为<a href="#">自助打印</a></td></tr>
 		    				</tbody></table>
 		    				</div>
 	    				</div>
 	    				<div class='taskItem'>
-							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus4'>已撤销</span></h3>
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus1'>已撤销</span></h3>
 		    				<div class='taskDetail'>
 							<table>
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
 		    					<tr><th>订单操作</th><td>订单已被用户撤销，撤销的订单将被保留一天</td></tr>
 		    				</tbody></table>
 		    				</div>
 	    				</div>
 						<div class='taskItem'>
-							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus4'>已完成</span></h3>
+							<h3>订单 1 文件名 @ 用户 1 昵称<span class='taskStatus taskStatus5'>已完成</span></h3>
 		    				<div class='taskDetail'>
 							<table>
 		    					<tbody><tr><th>订单编号</th><td>1</td></tr>
 		    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
 		    					<tr><th>用户编号</th><td>1</td></tr>
-		    					<tr><th>用户昵称</th><td>昵称</td></tr>
+		    					<tr><th>用户名</th><td>昵称</td></tr>
 		    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>
 		    					<tr><th>客户留言</th><td>blablabla</td></tr>
-		    					<tr><th>担保积分</th><td>90</td></tr>
+		    					<tr><th>客户信用</th><td>90</td></tr>
 		    					<tr><th>订单操作</th><td>订单已完成，完成的订单将被保留一天</td></tr>
 		    				</tbody></table></div>
 	    				</div>

@@ -11,22 +11,20 @@
 	<script type="text/javascript" src="./media/js/jquery.js"></script>
 	<script type='text/javascript' src='./media/js/profile.js'></script>
 </head> 
-	<body>
+	<body id='user'>
 		<div class="nav"> 
-			<div id="logo"> 
-				<a href="/">光子复制</a> 
-			</div> 
-			<ul class="account"> 
-	
-				<li><a href="/home.php">首页</a></li> 
-				<li class="sep"> 
-					<a href="/profile.php">User1</a> 
+			<a href='#' id="logo"></a> 
+			<ul class="account">  
+				<li> 
+					<a href="/profile.php">User1的帐户</a> 
 				</li> 
 				<li class="sep"> 
 					<a href="/authorize.php?c=logout">退出</a> 
 				</li> 
-		
 			</ul> 
+			<ul class='navBar'>
+				<li><a href="/home.php">首页</a></li>
+			</ul>
 		</div> 
 	<div class='contentWrapper'> 
 		<div class='profile'>

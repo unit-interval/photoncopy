@@ -590,6 +590,10 @@ input.uiBtn1{
 	width: 160px; 
 }
 
+input#taskSearch:-moz-placeholder{
+	color: #999;
+}
+
 /*------------------------ TASK ACCORDION ------------------------*/
 
 #taskAccordion{
