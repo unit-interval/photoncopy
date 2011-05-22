@@ -80,38 +80,56 @@ function mod_msg() {
 }
 function mod_nav_account() {
 	if($_SESSION['logged_in'])
-	return '
-				<li><a href="/home.php">首页</a></li>
-				<li class="sep">
-					<a href="/profile.php">' . $_SESSION['name'] . '</a>
+	return "
+			<ul class='account'>
+				<li>
+					<a href='/profile.php'>" . $_SESSION['name'] . "的帐户</a>
 				</li>
-				<li class="sep">
-					<a href="/authorize.php?c=logout">退出</a>
+				<li class='sep'>
+					<a href='/authorize.php?c=logout'>退出</a>
 				</li>
-		';
+			</ul>
+			<ul class='navBar'>
+				<li>
+					<a href='/home.php'>首页</a>
+				</li>
+				<li class='sep'>
+					<a href='http://blog.photoncopy.com/'>黑板报</a>
+				</li>
+			</ul>
+		";
 	elseif ($_SESSION['partner'])
-	return '
-				<li><a href="/partner.php">操作面板</a></li>
-				<li class="sep">
-					<a href="/partner.php?c=profile">賬戶信息</a>
+	return "
+			<ul class='account'>
+				<li>
+					<a href='/partner/profile.php'>" . $_SESSION['name'] . "的帐户</a>
 				</li>
-				<li class="sep">
-					<a href="/partner.php?c=logout">退出</a>
+				<li class='sep'>
+					<a href='/partner.php?c=logout'>退出</a>
 				</li>
-	';
+			</ul>
+			<ul class='navBar'>
+				<li>
+					<a href='/partner.php'>首页</a>
+				</li>
+				<li class='sep'>
+					<a href='http://blog.photoncopy.com/'>黑板报</a>
+				</li>
+			</ul>
+		";
 	else
-	return '
-				<li id="loginBtn">
-					<span class="navBtn">登录</span>
-
+	return "
+			<ul class='account'>
+				<li id='loginBtn'>
+					登录
 				</li>
-				<li id="signupBtn" class="sep navBtn">
-					<span class="navBtn">注册</span>
+			</ul>
+			<ul class='navBar'>
+				<li>
+					<a href='http://blog.photoncopy.com/'>黑板报</a>
 				</li>
-				<li id="forgetBtn" class="sep navBtn">
-					<span class="navBtn">取回密码</span>
-				</li>
-		';
+			</ul>
+		";
 }
 function mod_order_queue($orders) {
 	$html = '';
