@@ -65,6 +65,9 @@ ul.slideshow{
 	margin: 0;
 	overflow: hidden;
 	width: 100%;
+}
+
+#main ul.slideshow{
 	border-bottom: 3px solid #494573;
 }
 

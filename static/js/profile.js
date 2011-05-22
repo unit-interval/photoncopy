@@ -8,9 +8,9 @@ var taskContent=[
 function showPage(page){
 	if (page=='') page='#1';
 	var pageNo=page[1];
-	$('.profileR').hide();
+	$('.profileR').fadeOut(250);
 	var pageDict=['','#accountSetting', '#taskCenter', '#creditCenter'];
-	$(pageDict[pageNo]).show();
+	$(pageDict[pageNo]).delay(250).fadeIn(250);
 }
 
 function showTaskDetail(taskNo){
