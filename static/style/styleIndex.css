@@ -105,7 +105,7 @@ div.slidePhotoWrapper a:hover{
 }
 
 #slidePhoto-1{
-	background: url(../media/images/slidePhoto1.jpg) center top no-repeat;
+	background: url(/media/images/slidePhoto1.jpg) center top no-repeat;
 }
 
 .slideshowCtrl{

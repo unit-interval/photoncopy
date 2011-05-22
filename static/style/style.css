@@ -124,7 +124,7 @@ a{
 
 #logo{
 	font-size: 10px;
-	background: url(../media/images/logo.png);
+	background: url(/media/images/logo.png);
 	float: left;
 	height: 60px;
 	width: 400px;
@@ -260,7 +260,7 @@ input.uiBtn0{
 	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
 	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
 	border: 1px solid #999;
-	background: #5b74a8 url(../images/uiBtn.png);
+	background: #5b74a8 url(/media/images/uiBtn.png);
 	background-position: 0 -48px;
 	border-color: #29447E #29447E #1A356E;
 	color: white;
@@ -299,7 +299,7 @@ input.uiBtn1{
 	-webkit-box-shadow: 0px 0px 5px #071114; /* Safari */
 	box-shadow: 0px 0px 5px #071114;	
 	border-width: 0px;
-	background: #62A141 url(../images/uiBtn1.png) repeat-x;
+	background: #62A141 url(/media/images/uiBtn1.png) repeat-x;
 	padding: 4px 16px;
 	font-size: 12px;
 	font-weight: bold;
@@ -314,7 +314,7 @@ input.uiBtn1:hover{
 }
 
 input.uiBtn2{
-	background: url(../images/button-smooth.png) #9e8aff;
+	background: url(/media/images/button-smooth.png) #9e8aff;
 	-moz-border-radius: 14px;
 	-webkit-border-radius: 14px;
 	border-radius: 14px;
@@ -393,7 +393,7 @@ input.uiSearch{
 	font-size: 100%;
 	color: #6CAEFF;
 	padding: 8px 8px 8px 34px;
-	background: #1B1F2A url(../images/search.png) left 8px no-repeat;
+	background: #1B1F2A url(/media/images/search.png) left 8px no-repeat;
 }
 
 input.uiSearch:focus{

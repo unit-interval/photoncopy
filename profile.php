@@ -80,6 +80,9 @@ if($_SESSION['logged_in'] !== true) {
 /** handle profile update here in the future */
 
 $link['css'][] = 'style';
+$link['css'][] = 'styleProfile';
+$link['js'][] = 'jquery';
+$link['js'][] = 'profile';
 
 page_meta();
 page_nav();

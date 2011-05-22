@@ -1,7 +1,7 @@
 var loginContent=
 	"<div id='login' class='panel'>"+
 		"<h2>登录<span class='lightboxClose fright'>×</span></h2>"+
-		"<form>"+
+		"<form action='/authorize.php?c=login' method='post'>"+
 			"<fieldset>"+
 				"<div class='field'>"+
 					"<label>邮箱</label>"+
@@ -9,7 +9,7 @@ var loginContent=
 				"</div>"+
 				"<div class='field'>"+
 					"<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>"+
-					"<input type='password' name='psw' placeholder='请输入密码' class='uiText'/>"+
+					"<input type='password' name='passwd' placeholder='请输入密码' class='uiText'/>"+
 				"</div>"+
 			"</fieldset>"+
 			"<fieldset class='submit'>"+
