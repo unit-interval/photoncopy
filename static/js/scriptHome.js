@@ -372,7 +372,7 @@ $(function(){
 	$('div.taskDetail').each(function(){
 		var task=this;
 		$('span.showStoreInLightbox', task).click(function(){
-			var storeId=$('input [name="pid"]', task).val();
+			var storeId=$('input[name="pid"]', task).val();
 			changeStoreInLightbox(storeId);
 			showLightbox('div.panel.board');
 		});
