@@ -109,36 +109,29 @@ function order_bind_action(expand) {
 			$(this).toggleClass('selected')
 				.next().slideToggle();
 		})
-		.next(function(){
-			this.find('a.cancel-order').click(function(){
-				var $div = $(this).closest('div.taskDetail');
-				var param = new Object();
-				param['oid'] = $('input[name="id"]', $div).val();
-				param['act'] = 0;
-				$.ajax({
-					type: "post",
-					url: "/xhr/order-action.php",
-					cache: false,
-					data: param,
-					dataType: 'json',
-					statusCode: {
-						200: function(data){
-								if(data.errno == 0) {
-									$div.parent().replaceWith(data.html);
-									order_bind_action(1);
-	//	TODO						flash order
-								}
+		.next().find('a.cancel-order').click(function(){
+			var $div = $(this).closest('div.taskDetail');
+			var param = new Object();
+			param['oid'] = $('input[name="id"]', $div).val();
+			param['act'] = 0;
+			$.ajax({
+				type: "post",
+				url: "/xhr/order-action.php",
+				cache: false,
+				data: param,
+				dataType: 'json',
+				statusCode: {
+					200: function(data){
+							if(data.errno == 0) {
+								$div.parent().replaceWith(data.html);
+								order_bind_action(1);
+//	TODO						flash order
+//	TODO						we need to bind action to storeInfo in taskDetail
 							}
-					}
-				});
+						}
+				}
 			});
-			var task=this;
-			this.find('span.showStoreInLightbox').click(function(){
-	            var storeId=$('input[name="pid"]', this).val();
-	            changeStoreInLightbox(storeId);
-	            showLightbox('div.panel.board');
-	        });
-		})
+		});
 }
 
 $(function(){
