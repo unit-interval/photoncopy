@@ -364,15 +364,18 @@ $(function(){
 	});
 	
 	$('div.storeItemInfo input[type="button"]').click(function(){
-		var storeName=$('h2', $(this).parent()).html();
 		var storeId=$('div.storeId', $(this).parent()).html();
-		var storeMsg=$('p', $(this).parent()).html();
-		$('#lightboxStoreName').html(storeName);
-		$('#lightboxStoreAvatar').attr('src', '/media/images/store/storeAvatar'+storeId+'.jpg');
-		$('#msgContent').html(storeMsg);
-		$('#storeView img').attr('src', '/media/images/store/storeView'+storeId+'.jpg');
-		$('#storeMap img').attr('src', '/media/images/store/storeMap'+storeId+'.png');
+		changeStoreInLightbox(storeId);
 		showLightbox('div.panel.board');
+	});
+	
+	$('div.taskDetail').each(function(){
+		var task=this;
+		$('span.showStoreInLightbox', task).click(function(){
+			var storeId=$('input [name="pid"]', task).val();
+			changeStoreInLightbox(storeId);
+			showLightbox('div.panel.board');
+		});
 	});
 	
 	$('ul.storeNav li').click(function(){
@@ -394,6 +397,22 @@ $(function(){
 	});
 	
 })
+
+function changeStoreInLightbox(storeId){
+	var storeName;
+	var storeMsg;
+	$('div.storeItemInfo div.storeId').each(function(){
+		if ($(this).html()==storeId){
+			storeName=$('h2', $(this).parent()).html();
+			storeMsg=$('h2', $(this).parent()).next().html();
+		}
+	})
+	$('#lightboxStoreName').html(storeName);
+	$('#lightboxStoreAvatar').attr('src', '/media/images/store/storeAvatar'+storeId+'.jpg');
+	$('#msgContent').html(storeMsg);
+	$('#storeView img').attr('src', '/media/images/store/storeView'+storeId+'.jpg');
+	$('#storeMap img').attr('src', '/media/images/store/storeMap'+storeId+'.png');
+}
 
 var UP = {
 	start: function(){

@@ -241,7 +241,7 @@ function unit_order($order) {
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
-		    						<tr><th>打印店</th><td><a href='#'>{$order['ptext']}</a></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'>{$order['ptext']}</span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]} {$t['order_color'][$order['color']]} {$t['order_back'][$order['back']]} {$t['order_layout'][$order['layout']]} {$t['order_page'][$order['page']]} {$order['copy']} {$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
