@@ -130,15 +130,15 @@ a{
 }
 
 #main #logo{
-	background: url(../media/images/main-logo.png);
+	background: url(/media/images/main-logo.png);
 }
 
 #user #logo{
-	background: url(../media/images/user-logo.png);
+	background: url(/media/images/user-logo.png);
 }
 
 #partner #logo{
-	background: url(../media/images/partner-logo.png);
+	background: url(/media/images/partner-logo.png);
 }
 
 .nav{

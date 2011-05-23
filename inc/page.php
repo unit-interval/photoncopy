@@ -272,6 +272,43 @@ function page_home($orders, $stores) {
 }
 function page_index() {
 	echo "
+		<div class='lightbox'>
+			<div id='login' class='panel'>
+				<h2>登录<span class='lightboxClose fright'>×</span></h2>
+				<form action='/authorize.php?c=login' method='post'>
+					<div class='field'><fieldset>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div>
+					<div class='field'>
+						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
+						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
+					<h3> 正在使用公共电脑登录</h3>
+					<input class='uiBtn submit' type='submit' value='登录'>
+					</fieldset>
+				</form>
+			</div>
+			<div id='signup' class='panel'>
+				<h2>注册<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='submit' value='注册'>
+			</fieldset></form></div>
+			<div id='forget' class='panel'>
+				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='submit' value='取回密码'>
+			</fieldset></form></div>
+		</div>
 		<div class='contentWrapper'>
 			<ul class='slideshow'>
 				<li class='slidePhoto' id='slidePhoto-1'>
@@ -309,50 +346,14 @@ function page_meta() {
 	echo "\t<script type='text/javascript' src='./media/js/$v.js'></script>\n";
 	echo <<<EOT
 </head>
-<body>
 EOT;
 }
-function page_nav() {
+function page_nav($body_id = 'main') {
 	// and error msg
 	echo "
+<body id='$body_id'>
 		<div id='dummyNotification'></div>
 		<div id='notificationWrapper'></div>
-		<div class='lightbox'>
-			<div id='login' class='panel'>
-				<h2>登录<span class='lightboxClose fright'>×</span></h2>
-				<form action='/authorize.php?c=login' method='post'>
-					<div class='field'>
-						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
-					</div>
-					<div class='field'>
-						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
-						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
-					</div>
-					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
-					<h3> 正在使用公共电脑登录</h3>
-					<input class='uiBtn submit' type='submit' value='登录'>
-				</form>
-			</div>
-			<div id='signup' class='panel'>
-				<h2>注册<span class='lightboxClose fright'>×</span></h2>
-				<form>
-					<div class='field'>
-						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
-					</div>
-					<input class='uiBtn submit' type='submit' value='注册'>
-			</div>
-			<div id='forget' class='panel'>
-				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
-				<form>
-					<div class='field'>
-						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
-					</div>
-					<input class='uiBtn submit' type='submit' value='取回密码'>
-			</div>
-		</div>
 		<div class='nav'>
 			<a href='/' id='logo'></a>
 	" . mod_nav_account() . '
