@@ -461,9 +461,9 @@ function makeid() {
 }
 function order_form_reset() {
 	$('#w8').hide();
-	$('#status, div.wDummy').slideUp(250);
-	$('.w').fadeOut(250).hide();
-	$('.innerBtn[id!="btn1"]').fadeOut(250).hide(250).removeClass('selected');
+	$('#status, div.wDummy').slideUp(500);
+	$('.w').fadeOut(500).hide();
+	$('.innerBtn[id!="btn1"]').fadeOut(500).hide().removeClass('selected');
 	$('form#formFile input[type="file"]').val('');
 }
 function order_list_refresh() {
