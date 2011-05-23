@@ -465,7 +465,7 @@ function order_form_reset() {
 	$('.w').fadeOut(500).hide();
 	var i;
 	$('.innerBtn').removeClass('selected');
-	for (i=8; i>1; i--) $('#btn'+i).delay((8-i)*250).fadeOut(250).hide();
+	for (i=8; i>1; i--) $('#btn'+i).delay((8-i)*250).fadeOut(250);
 	$('form#formFile input[type="file"]').val('');
 }
 function order_list_refresh() {
