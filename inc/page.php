@@ -297,7 +297,7 @@ function page_index() {
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='submit' value='注册'>
+					<input class='uiBtn submit' type='button' value='注册'>
 			</fieldset></form></div>
 			<div id='forget' class='panel'>
 				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
@@ -306,7 +306,7 @@ function page_index() {
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='submit' value='取回密码'>
+					<input class='uiBtn submit' type='button' value='取回密码'>
 			</fieldset></form></div>
 			<div id='dummyLightbox'></div>
 		</div>
@@ -319,15 +319,17 @@ function page_index() {
 						<a href='tutorial'>了解更多</a>
 					</div>
 				</li>
-			</ul>
+			</ul>";
+	if($_SESSION['logged_in'] != true)
+		echo "
 			<div class='content'>
 				<div class='slideshowCtrl'>
 					<input type='button' class='uiBtn2' id='signupBtn' value='免费注册'/>
 					<div class='clear'></div>
 				</div>
-			</div>
-		</div>
-	";
+			</div>";
+	echo "
+		</div>";
 }
 function page_meta() {
 	global $link;
