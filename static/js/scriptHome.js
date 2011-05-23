@@ -188,12 +188,7 @@ $(function(){
 		$('.'+$(this).attr('class')).removeClass('selected');
 		$(this).addClass('selected');
 	});
-	
-	// click on w1 item
-	$('input[type="file"]').change(function(){
-		if ($(this).val() != '') showMore(1);
-	});
-		
+			
 	// click on w2 item
 	$('div.w2item').click(function(){
 		if (storeItemInfoHover) return;
@@ -470,7 +465,13 @@ function order_form_reset() {
 		$(this).removeClass('selected');
 		if (i==2) peekEnable=1;
 	});
-	$('form#formFile input[type="file"]').val('');
+	$('form#formFile input[type="file"]').replaceWith('<input type="file" name="file">');
+	$('form#formFile input[type="file"]').change(function(){
+		if($(this).val() != ''){
+			UP.start();
+			showMore(1);
+		}
+	});
 }
 function order_list_refresh() {
 	$('tr.order_open').each(function() {
@@ -524,8 +525,10 @@ function order_submit() {
 
 $(function(){
 	$('#formFile input[name="file"]').change(function(){
-		if($(this).val() != '')
+		if($(this).val() != ''){
 			UP.start();
+			showMore(1);
+		}
 	});
 	$('iframe[name="ifr_upload"]').load(function(){
 		if(UP.id === undefined) return;
