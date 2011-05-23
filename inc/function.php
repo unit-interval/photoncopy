@@ -15,6 +15,11 @@ function print_re($v) {
 	echo "</pre>";
 	die;
 }
+function sanitize_email($m) {
+//	TODO write the actual check later.
+	$m = strtolower($m)
+	return $m;
+}
 function text_defs($key, $all = false) {
 	$t = array(
 		'order_action' => array(
