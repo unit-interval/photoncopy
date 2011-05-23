@@ -5,13 +5,13 @@ var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,7
 /* ---------- SHOW MORE ---------- */
 
 function refreshW8(){
-	if ($('#w2Form').val()!='') $('#w2Edit').html(order_option_text.store.($('#w2Form').val()));
-	if ($('#w3Form1').val()!='') $('#w3Edit1').html(order_option_text.paper.($('#w3Form1').val()));
-	if ($('#w3Form2').val()!='') $('#w3Edit2').html(order_option_text.color.($('#w3Form2').val()));
-	if ($('#w4Form').val()!='') $('#w4Edit').html(order_option_text.back.($('#w4Form').val()));
-	if ($('#w5Form').val()!='') $('#w5Edit').html(order_option_text.layout.($('#w5Form').val()));
+	if ($('#w2Form').val()!='') $('#w2Edit').html(order_option_text.store[$('#w2Form').val()]);
+	if ($('#w3Form1').val()!='') $('#w3Edit1').html(order_option_text.paper[$('#w3Form1').val()]);
+	if ($('#w3Form2').val()!='') $('#w3Edit2').html(order_option_text.color.[$('#w3Form2').val()]);
+	if ($('#w4Form').val()!='') $('#w4Edit').html(order_option_text.back[$('#w4Form').val()]);
+	if ($('#w5Form').val()!='') $('#w5Edit').html(order_option_text.layout[$('#w5Form').val()]);
 	if ($('#w6Form').val()!='') $('#w6Edit').html($('#w6Form').val()+'份');
-	if ($('#w7Form').val()!='') $('#w6Edit').html(order_option_text.misc.($('#w7Form').val()));
+	if ($('#w7Form').val()!='') $('#w6Edit').html(order_option_text.misc[$('#w7Form').val()]);
 }
 
 function showMore(n){
