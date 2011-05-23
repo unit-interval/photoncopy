@@ -1,18 +1,19 @@
 $(document).ready(function(){
+	$('#dummyLightbox').click(function(){
+		hideLightbox();
+	});
 	$('span.lightboxClose').click(function(){
 		hideLightbox();
 	})
 	$("#loginBtn").click(function(){
 		showLightbox('#login');
-		$('span.lightboxClose').click(function(){
-			hideLightbox();
-		})
 	});
 	$("#signupBtn").click(function(){
 		showLightbox('#signup');
 	});
 	$("#forgetBtn").click(function(){
-		hideLightbox();
-		showLightbox('#forget');
+		$('#login').removeClass('inLightbox').fadeOut(250, function(){
+			showLightbox('#forget')
+		});
 	});
 })
