@@ -461,7 +461,9 @@ function makeid() {
 }
 function order_form_reset() {
 	$('#w8').hide();
-	$('#status, div.wDummy').slideUp();
+	$('#status, div.wDummy').slideUp(250);
+	$('.w').hide(250);
+	$('.innerBtn[id!="btn1"]').hide(250);
 }
 function order_list_refresh() {
 	$('tr.order_open').each(function() {
