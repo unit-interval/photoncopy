@@ -48,6 +48,7 @@ page_meta();
 page_nav();
 page_home($orders, $stores);
 page_footer();
+script_home();
 page_close();
 
 ?>
