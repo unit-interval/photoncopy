@@ -132,8 +132,9 @@ function order_bind_action(expand) {
 					}
 				});
 			});
+			var task=this;
 			this.find('span.showStoreInLightbox').click(function(){
-	            var storeId=$('input[name="pid"]', task).val();
+	            var storeId=$('input[name="pid"]', this).val();
 	            changeStoreInLightbox(storeId);
 	            showLightbox('div.panel.board');
 	        });
