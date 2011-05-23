@@ -105,10 +105,12 @@ function page_home($orders, $stores) {
 				<div class='btn'><div id='btn6' class='innerBtn'></div></div>
 				<div class='btn'><div id='btn7' class='innerBtn'></div></div>
 				<div class='btn'><div id='btn8' class='innerBtn'></div></div>
- 				<dl id='credit'>
- 					<dt>信用</dt>
- 					<dd id='credit1'>{$_SESSION['credit'][0]}</dd>
- 				</dl>
+				<a href='/profile.php'>
+	 				<dl id='credit'>
+	 					<dt>信用</dt>
+	 					<dd id='credit1'>{$_SESSION['credit'][0]}</dd>
+	 				</dl>
+	 			</a>
 			</div>
 			<div class='drawer lbCorner rbCorner'>
 				<div id='status'>
