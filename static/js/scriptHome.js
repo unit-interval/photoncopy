@@ -359,5 +359,8 @@ $(function(){
 	$('span.storeClose').click(function(){
 		hideLightbox();
 	});
+	$('#dummyLightbox').click(function(){
+		hideLightbox();
+	});
 	
 })
