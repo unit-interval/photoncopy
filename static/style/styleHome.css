@@ -850,7 +850,7 @@ ul.storeNav li:hover, ul.storeNav li.selected{
 /*------------------------ View ------------------------*/
 
 #storeView{
-	padding: 1px;
+	padding: 0px;
 }
 
 /*------------------------ MAP ------------------------*/
