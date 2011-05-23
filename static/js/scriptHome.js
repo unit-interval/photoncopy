@@ -1,10 +1,21 @@
 var storeItemInfoHover=0;
-var peekEnable=1;
+var peekEnable=0;
 var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
 /* ---------- SHOW MORE ---------- */
 
+function refreshW8(){
+	if ($('#w2Form').val()!='') $('#w2Edit').html(order_option_text.store.($('#w2Form').val()));
+	if ($('#w3Form1').val()!='') $('#w3Edit1').html(order_option_text.paper.($('#w3Form1').val()));
+	if ($('#w3Form2').val()!='') $('#w3Edit2').html(order_option_text.color.($('#w3Form2').val()));
+	if ($('#w4Form').val()!='') $('#w4Edit').html(order_option_text.back.($('#w4Form').val()));
+	if ($('#w5Form').val()!='') $('#w5Edit').html(order_option_text.layout.($('#w5Form').val()));
+	if ($('#w6Form').val()!='') $('#w6Edit').html($('#w6Form').val()+'份');
+	if ($('#w7Form').val()!='') $('#w6Edit').html(order_option_text.misc.($('#w7Form').val()));
+}
+
 function showMore(n){
+	refreshW8();
 	var formStatus=[
 		true,
 		($('#formFile input[type="file"]').val()!=''),
@@ -199,20 +210,15 @@ $(function(){
 		$('.'+$(this).attr('class')).removeClass('selected');
 		$(this).addClass('selected');
 		$('#w2Form').val($('div.storeId', this).html());
-		$('#w2Edit').html($('h2', this).html());
 		showMore(2);
 	});
 	
 	// click on w3 item
 	$('div.w3item').click(function(){
 		col=$(this).parent().index();
-		colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		row=$(this).parent().parent().index();
-		rowName=$(this).parent().siblings().eq(0).html();
 		$('#w3Form1').val(col);
 		$('#w3Form2').val(row);
-		$('#w3Edit1').html(colName);
-		$('#w3Edit2').html(rowName);
 		showMore(3);
 	});
 	
@@ -220,9 +226,7 @@ $(function(){
 	
 	$('div.w4item').click(function(){
 		var col=$(this).parent().index();
-		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w4Form').val(col);
-		$('#w4Edit').html(colName);
 		showMore(4);
 	});
 	
@@ -230,9 +234,7 @@ $(function(){
 
 	$('div.w5item').click(function(){
 		var col=$(this).parent().index();
-		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w5Form').val(col);
-		$('#w5Edit').html(colName);
 		showMore(5);
 	});
 	
@@ -275,7 +277,6 @@ $(function(){
 	$('#w6ConfirmBtn').click(function(){
 		var copyNumber=parseInt($("span#copyNumber").html());
 		$('#w6Form').val(copyNumber);
-		$('#w6Edit').html(copyNumber+'份');
 		showMore(6);
 	});
 	
@@ -283,9 +284,7 @@ $(function(){
 	
 	$('div.w7item').click(function(){
 		var col=$(this).parent().index();
-		var colName=$(this).parent().parent().siblings().eq(0).children().eq(col).html();
 		$('#w7Form').val(col);
-		$('#w7Edit').html(colName);
 		showMore(7);
 	});
 		
