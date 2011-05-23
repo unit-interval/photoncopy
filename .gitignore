@@ -2,6 +2,7 @@
 .buildpath
 .project
 .settings
+blog/
+tmp/
+upload/
 inc/config.local.php
-tmp
-upload
