@@ -465,7 +465,7 @@ function order_form_reset() {
 	$('.w').fadeOut(500).hide();
 	var i;
 	for (i=8; i>1; i--) $('#btn'+i).delay((8-i)*250).fadeOut(250, function(){
-		this.removeClass('selected');
+		$(this).removeClass('selected');
 	});
 	$('form#formFile input[type="file"]').val('');
 }
