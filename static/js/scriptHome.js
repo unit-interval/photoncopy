@@ -103,7 +103,7 @@ $(function(){
 	}, function(){
 		$('#btn0').removeClass('hover0');
 	});
-		
+	
 	$('#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8').click(function(){
 		var pastSelectedBtn = $('.innerBtn.selected', $(this).parent().parent());
 		if ($(this).attr('id') == pastSelectedBtn.attr('id')){
