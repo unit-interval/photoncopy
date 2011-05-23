@@ -342,7 +342,7 @@ $(function(){
 		else{
 			var key=$('input#taskSearch').val();
 			$('div.taskItem', $('#taskAccordion')).each(function(){
-				var str=$('td:lt(4)', this).text()+$('span.taskStatus', this).html();
+				var str=$('td:lt(5)', this).text()+$('span.taskStatus', this).html();
 				if (str.search(key)==-1) $(this).hide(250);
 				else $(this).show(250);
 			});
