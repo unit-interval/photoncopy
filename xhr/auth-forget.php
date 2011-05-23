@@ -45,6 +45,10 @@ EOT;
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }
+function user_exists($m) {
+//	TODO check user
+	return true;
+}
 
 if(!($email = sanitize_email($_POST['email'])))
 	die(json_encode(array('errno' => 1,)));
