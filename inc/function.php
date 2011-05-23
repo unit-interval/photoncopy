@@ -17,7 +17,7 @@ function print_re($v) {
 }
 function sanitize_email($m) {
 //	TODO write the actual check later.
-	$m = strtolower($m)
+	$m = strtolower($m);
 	return $m;
 }
 function text_defs($key, $all = false) {
