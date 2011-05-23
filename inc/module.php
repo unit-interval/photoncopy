@@ -167,7 +167,7 @@ function mod_store_sel($stores) {
 		$html = "
 						<div class='w2item'> 
 							<div class='storeItemAvatar'> 
-								<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
+								<img height='100%' width='100%' src='/media/images/store/storeAvatar{$s['id']}.jpg' /> 
 							</div> 
 							<div class='storeItemInfo'> 
 								<input type='button' class='uiBtn1' value='查看详情' />

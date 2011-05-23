@@ -731,18 +731,22 @@ function page_store($store) {
 	</div>
 	";
 }
-function script_home() {
+function script_home($s) {
+	$sn = array();
+	foreach($s as $n) {
+		$sn[$n['id']] = $n['name'];
+	}
 	echo "
 <script type='text/javascript'>
 /* <![CDATA[ */
 var order_option_text = {
-	store:	{},
+	store:	".json_encode($sn).",
 	back:	".json_encode(text_defs('order_back')).",
 	color:	".json_encode(text_defs('order_color')).",
 	layout:	".json_encode(text_defs('order_layout')).",
 	misc:	".json_encode(text_defs('order_misc')).",
 	paper:	".json_encode(text_defs('order_paper')).",
-	region:	".json_encode(text_defs('store_region')).",
+	region:	".json_encode(text_defs('store_region'), JSON_FORCE_OBJECT).",
 };
 /* ]]> */
 </script>";
