@@ -1,5 +1,54 @@
 <?php
 
+function page_activate() {
+	echo "
+	<div class='contentWrapper'> 
+		<div class='profile'>
+			<div class='profileL'>
+				<div class='profileType'>
+					帐户设置
+				</div>
+			</div>
+			<div class='profileR' id='accountSetting'>
+				<div class='profileHeader'>
+					帐户设置
+				</div>
+				<div class='profileContent'>
+					<h2>初次设置</h2>
+					<p></p>
+					<form action='/profile.php' method='post'>
+					<table>
+						<tbody>
+							<tr>
+								<th>邮箱</th>
+								<td><input type='text' class='uiText2' name='email' disabled='disabled' value='abc@example.com'/></td>
+							</tr>
+							<tr>
+								<th>用户名</th>
+								<td><input type='text' class='uiText2' name='name'/></td>
+							</tr>
+							<tr>
+								<th>设定密码</th>
+								<td><input type='password' class='uiText2' name='passwd'/></td>
+							</tr>
+							<tr>
+								<th>确认密码</th>
+								<td><input type='password' class='uiText2' name='passwd-confirm'/></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><input type='submit' class='uiBtn3' value='激活帐户'></td>
+							</tr>
+						</tbody>
+					</table>
+					</form>
+				</div>
+			</div>
+			<div class='clear'></div>
+		</div> 
+	</div>
+		";
+}
 function page_close() {
 	echo '</body></html>';
 }
@@ -508,11 +557,11 @@ function page_profile() {
 						<tbody>
 							<tr>
 								<th>用户名</th>
-								<td><input type='text' class='uiText2' name='userName' value='user1' /></td>
+								<td><input type='text' class='uiText2' name='userName' value='{$_SESSION['name']}' /></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><input type='button' class='uiBtn3' value='保存设置'></td>
+								<td><input type='button' class='uiBtn3' value='保存设置'  disabled='disabled' /></td>
 							</tr>
 						</tbody>
 					</table>
@@ -523,19 +572,19 @@ function page_profile() {
 						<tbody>
 							<tr>
 								<th>邮箱</th>
-								<td><input type='text' class='uiText2' value='user1@abc.com' disabled='disabled'/></td>
+								<td><input type='text' class='uiText2' value='{$_SESSION['email']}' disabled='disabled' /></td>
 							</tr>
 							<tr>
 								<th>修改密码</th>
-								<td><input type='password' class='uiText2' name='password1'/></td>
+								<td><input type='password' class='uiText2' name='password1' /></td>
 							</tr>
 							<tr>
 								<th>确认密码</th>
-								<td><input type='password' class='uiText2' name='password2'/></td>
+								<td><input type='password' class='uiText2' name='password2' /></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><input type='button' class='uiBtn3' value='修改设置'></td>
+								<td><input type='button' class='uiBtn3' value='修改设置' disabled='disabled' /></td>
 							</tr>
 						</tbody>
 					</table>

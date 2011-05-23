@@ -4,6 +4,7 @@
 ob_start();
 
 include './config.php';
+include './inc/database.php';
 include './inc/function.php';
 include './inc/module.php';
 include './inc/page.php';
@@ -15,7 +16,7 @@ function user_exists($u) {
 	$query = "select `id` from `user`
 		where `email` = '{$db->real_escape_string($u)}'";
 	if(!($result = $db->query($query)))
-	err_redir("db error({$db->errno}).", '/error.php');
+		err_redir("db error({$db->errno}).", '/error.php');
 	$found = ($result->num_rows > 0);
 	$result->free();
 	return $found;
@@ -36,8 +37,7 @@ session_start();
 if($_SESSION['state'] === 'activating') {
 	$_SESSION['state'] = 'reg';
 	if(!verify_pro_form())
-	err_redir('error occured', '/profile.php');
-	include_once './inc/database.php';
+		err_redir('error occured', '/profile.php');
 	$query = "insert into `user` values (
 		default,
 		'{$db->real_escape_string($_SESSION['email'])}',
@@ -46,11 +46,11 @@ if($_SESSION['state'] === 'activating') {
 		default
 		)";
 	if($db->query($query) !== TRUE)
-	err_redir("db error({$db->errno}).", '/error.php');
+		err_redir("db error({$db->errno}).", '/error.php');
 	$uid = $db->insert_id;
-	$query = "insert into `credit` values ($uid, 0, 0.5)";
+	$query = "insert into `credit` values ($uid, 0, 50)";
 	if($db->query($query) !== TRUE)
-	err_redir("db error({$db->errno}).", '/error.php');
+		err_redir("db error({$db->errno}).", '/error.php');
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];
@@ -61,11 +61,10 @@ if($_SESSION['state'] === 'activating') {
 if($_SESSION['logged_in'] !== true) {
 	if(isset($_GET['n']) && isset($_GET['v'])) {
 		if(!verify_link())
-		err_redir('invalid activation link.');
+			err_redir('invalid activation link.');
 		$email = base64_decode($_GET['n']);
-		include_once './inc/database.php';
 		if(user_exists($email))
-		err_redir('email already activated. please login.');
+			err_redir('email already activated. please login.');
 		$_SESSION['email'] = $email;
 		$_SESSION['state'] = 'activating';
 		$reg = true;
@@ -74,7 +73,7 @@ if($_SESSION['logged_in'] !== true) {
 		$email = $_SESSION['email'];
 		$reg = true;
 	} else
-	err_redir();
+		err_redir();
 }
 
 /** handle profile update here in the future */
@@ -85,8 +84,8 @@ $link['js'][] = 'jquery';
 $link['js'][] = 'profile';
 
 page_meta();
-page_nav();
-($reg === true) ? page_reg($email) : page_profile();
+page_nav('user');
+($reg === true) ? page_activate($email) : page_profile();
 page_footer();
 page_close();
 

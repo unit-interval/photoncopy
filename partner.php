@@ -29,7 +29,7 @@ $link['js'][] = 'scriptPartner';
 
 
 page_meta();
-page_nav();
+page_nav('partner');
 
 /** FIXME write partner pages */
 if($_GET['c'] == 'activate') {
