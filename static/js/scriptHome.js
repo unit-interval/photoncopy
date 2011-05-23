@@ -353,7 +353,7 @@ $(function(){
 	order_bind_action();
 	
 	$('#taskAccordion > div.taskItem:first').each(function() {
-		order_apply_setting($('input', this));
+		order_apply_setting(this);
 	});
 	
 /*---------------------- LIGHTBOX ----------------------*/	
