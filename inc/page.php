@@ -45,6 +45,37 @@ function page_footer() {
 }
 function page_home($orders, $stores) {
 	echo "
+		<div class='lightbox'>
+			<div class='panel board'>
+				<h2>
+					<span id='lightboxStoreName'></span>
+					<span class='storeClose'>×</span>
+				</h2>
+				<div id='storeStatus'>
+					<div id='storeAvatar'>
+						<img id='lightboxStoreAvatar' width='100%' height='100%' src='' alt='Store Avatar'>
+					</div>
+					<div id='storeMsg'>
+						<div id='msgQuote'></div>
+						<div id='msgContent'>打印店介绍</div>
+					</div>
+					<div class='clear'></div>
+				</div>
+				<ul class='storeNav'>
+					<li class='selected'>外景照片</li>
+					<li>查看地图</li>
+				</ul>
+				<div class='storeDetail lbCorner rbCorner'>
+					<div id='storeView'>
+						<img width='100%' src='' alt='Store View'>
+					</div>
+					<div id='storeMap'>
+						<img width='100%' src='' alt='Store Map'>
+					</div>
+				</div>
+			</div>
+			<div id='dummyLightbox'></div>
+		</div>
 		<div class='contentWrapper'>
 			<div class='panel' id='btnWrapper'>
 				<div id='btn0'></div>
@@ -247,7 +278,7 @@ function page_home($orders, $stores) {
 					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
 				</div>
 				<div class='panel0 taskQueueR'>
-					<h2>任务队列</h2>
+					<h2>订单列表</h2>
 					<div id='taskAccordion'>"
 					. mod_order_queue($orders) . "
 					</div>
@@ -358,7 +389,16 @@ function page_nav($body_id = 'main') {
 	echo "
 <body id='$body_id'>
 		<div id='dummyNotification'></div>
-		<div id='notificationWrapper'></div>
+		<div id='notificationWrapper'>
+			<div id='notification'>
+				<span id='notificationCount'></span>
+				<div class='notificationContent'>
+					<span></span>
+					<input type='hidden' name='notificationId' value='notification prototype'/>
+				</div>
+				<span id='notificationClose'>×</span>
+			</div>
+		</div>
 		<div class='nav'>
 			<a href='/' id='logo'></a>
 	" . mod_nav_account() . '
