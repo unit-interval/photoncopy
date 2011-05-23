@@ -4,8 +4,9 @@
 	color: #8D79F2;
 	background: #272727;
 	width: 400px;
-	margin: auto;
-	margin-top: 200px;
+	margin-left: -200px;
+	margin-top: -150px;
+	
 }
 
 #forgetBtn:hover{
