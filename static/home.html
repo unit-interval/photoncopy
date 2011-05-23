@@ -18,12 +18,12 @@
 		<div class='lightbox'>
 			<div class="panel board">
 				<h2>
-					<span class='lightboxStoreName'>25楼打印店</span>
+					<span id='lightboxStoreName'></span>
 					<span class='storeClose'>×</span>
 				</h2>
 				<div id='storeStatus'>
 					<div id='storeAvatar'>
-						<img class='lightboxStoreAvatar'width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'>
+						<img id='lightboxStoreAvatar' width='100%' height='100%' src='' alt='Store Avatar'>
 					</div>
 					<div id='storeMsg'>
 						<div id='msgQuote'></div>
@@ -31,19 +31,18 @@
 					</div>
 					<div class='clear'></div>
 				</div>
-				<div class='storeNav'>
-					<span id='storeViewBtn'>照片</span>
-					<span id='storeMapBtn'>地图</span>
-				</div>
-				<div class='storeDetail'>
+				<ul class='storeNav'>
+					<li class='selected'>外景照片</li>
+					<li>查看地图</li>
+				</ul>
+				<div class='storeDetail lbCorner rbCorner'>
 					<div id='storeView'>
-						<img width='100%' src='/media/images/store/storeView1.jpg' alt='Store View'>
+						<img width='100%' src='' alt='Store View'>
 					</div>
 					<div id='storeMap'>
-						<img width='100%' src='/media/images/store/storeView1.jpg' alt='Store View'>
+						<img width='100%' src='' alt='Store Map'>
 					</div>
 				</div>
-				<p></p>
 			</div>
 			<div id='dummyLightbox'></div>
 		</div>
@@ -128,7 +127,7 @@
 					</div> 
 					<div class='w2item'> 
 						<div class='storeItemAvatar'> 
-							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+							<img height='100%' width='100%' src='images/store/storeAvatar3.jpg' /> 
 						</div> 
 						<div class='storeItemInfo'> 
 							<input type='button' class='uiBtn1' value='查看详情' />
@@ -142,7 +141,7 @@
 				<div class='storeR'> 
 					<div class='w2item'> 
 						<div class='storeItemAvatar'> 
-							<img height='100%' width='100%' src='images/store/storeAvatar1.jpg' /> 
+							<img height='100%' width='100%' src='images/store/storeAvatar2.jpg' /> 
 						</div> 
 						<div class='storeItemInfo'> 
 							<input type='button' class='uiBtn1' value='查看详情' /> 

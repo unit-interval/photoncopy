@@ -773,33 +773,38 @@ span.storeClose:hover{
 	color: #4E6178;
 }
 
-.storeNav{
-	margin-top: 12px;
-	padding: 0 0 8px 20px;
+ul.storeNav{
+	margin-bottom: 10px;
 }
 
-.board .storeNav > span{
-	-moz-border-radius-topleft: 7px;
-	border-top-left-radius: 7px;
-	-moz-border-radius-topright: 7px;
-	border-top-right-radius: 7px;
-	border: 1px solid #243F47;
-	background: #1B2429;
-	color: #CFF0FF;
-	padding: 8px 20px;
+ul.storeNav li{
+	margin-right: 10px;
+	padding: 10px 20px;
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
 	cursor: pointer;
-}
-
-.board .storeNav > span:hover, .board .storeNav > span.selected{
 	color: white;
-	cursor: pointer;
+	background: #35494e;
 }
 
-.board .storeDetail{
-  	-webkit-box-shadow: inset 0px 10px 3px rgba(0, 0, 0, 0.2);
-  	-moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+ul.storeNav li:hover, ul.storeNav li.selected{
+	background: #587880;
 }
 
+.storeDetail{
+	padding: 10px;
+	background: #587880;
+}
+
+.storeDetail > div{
+	display: none;
+}
+
+#storeView{
+	display: block;
+}
 /*------------------------ Status ------------------------*/
 
 #storeStatus{
