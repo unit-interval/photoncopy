@@ -23,7 +23,7 @@ function sanitize_email($m) {
 function text_defs($key, $all = false) {
 	$t = array(
 		'order_action' => array(
-			0 => "订单处在队列中，您仍可以<a href='#'>撤销订单</a>",
+			0 => "订单处在队列中，您仍可以<a class='pointerCursor cancel-order'>撤销订单</a>",
 			1 => '订单已成功撤销',
 			2 => '文件正在打印中',
 			3 => "由于担保积分不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a href='#'>撤销订单</a>",
