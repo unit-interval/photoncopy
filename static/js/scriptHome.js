@@ -462,8 +462,9 @@ function makeid() {
 function order_form_reset() {
 	$('#w8').hide();
 	$('#status, div.wDummy').slideUp(250);
-	$('.w').hide(250);
-	$('.innerBtn[id!="btn1"]').hide(250).removeClass('selected');
+	$('.w').fadeOut(250).hide();
+	$('.innerBtn[id!="btn1"]').fadeOut(250).hide(250).removeClass('selected');
+	$('form#formFile input[type="file"]').val('');
 }
 function order_list_refresh() {
 	$('tr.order_open').each(function() {
