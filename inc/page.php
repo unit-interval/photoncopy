@@ -731,4 +731,20 @@ function page_store($store) {
 	</div>
 	";
 }
+function script_home() {
+	echo "
+<script type='text/javascript'>
+/* <![CDATA[ */
+var order_option_text = {
+	store:	{},
+	back:	".json_encode(text_defs('order_back')).",
+	color:	".json_encode(text_defs('order_color')).",
+	layout:	".json_encode(text_defs('order_layout')).",
+	misc:	".json_encode(text_defs('order_misc')).",
+	paper:	".json_encode(text_defs('order_paper')).",
+	region:	".json_encode(text_defs('store_region')).",
+};
+/* ]]> */
+</script>";
+}
 ?>

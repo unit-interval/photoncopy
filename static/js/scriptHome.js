@@ -92,18 +92,22 @@ function order_apply_setting($order) {
 		$(this).val(source.val());
 	});
 }
-function order_bind_action() {
+function order_bind_action(expand) {
+	expand = expand || 0
 	$('#taskAccordion h3.newly_added')
+		.each(function(){
+			if(expand != 0) {
+				$(this).addClass('selected')
+					.find('span').each(function(){
+						objectFlash(this);
+					})
+					.end().next().show();
+			}
+		})
 		.removeClass('newly_added')
 		.click(function(){
-			if ($(this).hasClass('selected')){
-				$(this).removeClass('selected');
-				$('div.taskDetail', $(this).parent()).slideUp(250);
-			}
-			else{
-				$(this).addClass('selected');
-				$('div.taskDetail', $(this).parent()).slideDown(250);
-			}
+			$(this).toggleClass('selected')
+				.next().slideToggle();
 		})
 		.next().find('a.cancel-order').click(function(){
 			var $div = $(this).closest('div.taskDetail');
@@ -120,7 +124,7 @@ function order_bind_action() {
 					200: function(data){
 							if(data.errno == 0) {
 								$div.parent().replaceWith(data.html);
-								order_bind_action();
+								order_bind_action(1);
 //	TODO						flash order
 							}
 						}

@@ -24,6 +24,7 @@ $link['css'][] = 'styleHome';
 $link['js'][] = 'jquery';
 $link['js'][] = 'jquery-ui';
 $link['js'][] = 'jquery.scrollTo';
+$link['js'][] = 'script';
 $link['js'][] = 'scriptHome';
 
 $orders = array();
@@ -47,6 +48,7 @@ page_meta();
 page_nav();
 page_home($orders, $stores);
 page_footer();
+script_home();
 page_close();
 
 ?>

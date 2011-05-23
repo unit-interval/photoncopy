@@ -1,9 +1,9 @@
 <?php
 
 include '../config.php';
-include '../inc/database.php';
-include '../inc/function.php';
-include '../inc/module.php';
+include DIR_INC . 'database.php';
+include DIR_INC . 'function.php';
+include DIR_INC . 'module.php';
 
 session_name(SESSNAME);
 session_start();
@@ -27,14 +27,14 @@ if($_SESSION['logged_in'] != true)
 if(!isset($_POST['oid']) || !isset($_POST['act']))
 	die(json_encode(array('errno' => 2,)));
 
-$oid = intval($_GET['oid']);
-$act = intval($_GET['act']);
+$oid = intval($_POST['oid']);
+$act = intval($_POST['act']);
 
 $query = "select * from `order`
 	where `id` = $oid and `uid` = {$_SESSION['uid']}";
 $result = $db->query($query);
 if($result->num_rows == 0)
-	die(json_encode(array('errno' => 3,)));
+	die(json_encode(array('errno' => 3, 'query' => $query)));
 
 $order = $result->fetch_assoc();
 $result->free();
