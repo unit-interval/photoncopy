@@ -24,6 +24,7 @@ $link['css'][] = 'styleHome';
 $link['js'][] = 'jquery';
 $link['js'][] = 'jquery-ui';
 $link['js'][] = 'jquery.scrollTo';
+$link['js'][] = 'script';
 $link['js'][] = 'scriptHome';
 
 $orders = array();
