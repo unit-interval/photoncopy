@@ -72,6 +72,21 @@ a{
 	width: 100%;
 	z-index: 500;
 	display: none;
+	overflow: hidden;
+}
+
+.lightbox div{
+	position: relative;
+	z-index: 600;
+}
+
+.lightbox #dummyLightbox{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 500;
 }
 
 /*------------------------ NOTIFICATION ------------------------*/

@@ -16,17 +16,15 @@ function removeNotification(note){
 }
 
 function showLightbox(id){
-	$('div.lightbox').children().hide();
-	$('body').css('overflow', 'hidden');
-	$('div.lightbox').css('display', 'block');
+	$('div.lightbox > div[id!="dummyLightbox"]').hide();
+	$('div.lightbox').show();
 	$(id, 'div.lightbox').fadeIn(250);
 	$(id, 'div.lightbox').addClass('inLightbox');
 }
 
 function hideLightbox(){
-	$('.inLightbox', $('div.lightbox')).fadeOut(250, function(){
+	$('div.lightbox .inLightbox').fadeOut(250, function(){
 		$(this).removeClass('inLightbox');
-		$('div.lightbox').css('display', 'none');
-		$('body').css('overflow', '');
+		$('div.lightbox').hide();
 	});
 }

@@ -308,6 +308,7 @@ function page_index() {
 					</div></fieldset><fieldset class='submit'>
 					<input class='uiBtn submit' type='button' value='取回密码'>
 			</fieldset></form></div>
+			<div id='dummyLightbox'></div>
 		</div>
 		<div class='contentWrapper'>
 			<ul class='slideshow'>
