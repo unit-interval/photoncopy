@@ -85,7 +85,7 @@ $link['js'][] = 'jquery';
 $link['js'][] = 'profile';
 
 page_meta();
-page_nav();
+page_nav('user');
 ($reg === true) ? page_reg($email) : page_profile();
 page_footer();
 page_close();
