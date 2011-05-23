@@ -167,6 +167,10 @@
 	left: -460px;
 }
 
+#w2{
+	display: block;
+}
+
 .w h2{
 	color: #8D79F2;
 	background: #232323;
@@ -753,7 +757,8 @@ span.storeClose:hover{
 
 .board{
 	width: 960px;
-	margin: 30px auto;
+	margin-top: -291px;
+	margin-left: -480px;
 	background: #1A2F36;
 }
 
@@ -768,6 +773,38 @@ span.storeClose:hover{
 	color: #4E6178;
 }
 
+ul.storeNav{
+	margin-bottom: 10px;
+}
+
+ul.storeNav li{
+	margin-right: 10px;
+	padding: 10px 20px;
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+	color: white;
+	background: #35494e;
+}
+
+ul.storeNav li:hover, ul.storeNav li.selected{
+	background: #587880;
+}
+
+.storeDetail{
+	padding: 10px;
+	background: #587880;
+}
+
+.storeDetail > div{
+	display: none;
+}
+
+#storeView{
+	display: block;
+}
 /*------------------------ Status ------------------------*/
 
 #storeStatus{
@@ -780,6 +817,8 @@ span.storeClose:hover{
 	height: 100px;
 	padding: 5px;
 	background: #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 
@@ -788,8 +827,9 @@ span.storeClose:hover{
 	padding: 20px;
 	width: 688px;
 	min-height: 68px;
-	border-radius: 5px;
+	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
+	border-radius: 5px;
 	border: 1px solid #243F47;
 	background: #1B2429;
 	color: #CFF0FF;

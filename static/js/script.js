@@ -28,3 +28,8 @@ function hideLightbox(){
 		$('div.lightbox').hide();
 	});
 }
+
+function objectFlash(id, times){
+	var i;
+	for (i=0; i<times; i++) $(id).fadeTo(500, 0.2).fadeTo(500, 1);
+}

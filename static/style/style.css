@@ -396,11 +396,11 @@ input.uiBtn1{
 	color: #16153B;
 	text-shadow: #E1F9B5 0px 0px 3px;
 	background-position: center 0;
+	cursor: pointer;
 }
 
-input.uiBtn1:hover{
+input.uiBtn1:hover, input.uiBtn1.selected{
 	background-position: center -30px;
-	cursor: pointer;
 }
 
 input.uiBtn2{

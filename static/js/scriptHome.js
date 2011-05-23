@@ -368,18 +368,29 @@ $(function(){
 		var storeName=$('h2', $(this).parent()).html();
 		var storeId=$('div.storeId', $(this).parent()).html();
 		var storeMsg=$('p', $(this).parent()).html();
+		$('#lightboxStoreName').html(storeName);
+		$('#lightboxStoreAvatar').attr('src', '/media/images/store/storeAvatar'+storeId+'.jpg');
+		$('#msgContent').html(storeMsg);
+		$('#storeView img').attr('src', '/media/images/store/storeView'+storeId+'.jpg');
+		$('#storeMap img').attr('src', '/media/images/store/storeMap'+storeId+'.png');
 		showLightbox('div.panel.board');
 	});
 	
-	$("#toggleMap").toggle(function(){
-			$("#storeMap").slideDown();
-			$(this).html('隐藏地图');
-		},function(){
-			$("#storeMap").slideUp();
-			$(this).html('显示地图');
-		});
-		
+	$('ul.storeNav li').click(function(){
+		if (!$(this).hasClass('selected')){
+			var past=$('ul.storeNav li.selected');
+			var current=$(this);
+			past.removeClass('selected');
+			current.addClass('selected');
+			$('div.storeDetail div:eq('+past.index()+')').hide();
+			$('div.storeDetail div:eq('+current.index()+')').show();
+		}
+	})
+
 	$('span.storeClose').click(function(){
+		hideLightbox();
+	});
+	$('#dummyLightbox').click(function(){
 		hideLightbox();
 	});
 	
