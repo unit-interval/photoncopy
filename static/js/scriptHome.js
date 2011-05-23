@@ -345,28 +345,10 @@ $(function(){
 		var storeName=$('h2', $(this).parent()).html();
 		var storeId=$('div.storeId', $(this).parent()).html();
 		var storeMsg=$('p', $(this).parent()).html();
-		var content="<div class='panel board'>"+
-				"<h2>"+storeName+"<span class='storeClose'>×</span></h2>"+
-				"<div id='storeStatus'>"+
-					"<div id='storeAvatar'><img width='100%' height='100%' src='./media/images/store/storeAvatar"+storeId+".jpg' alt='Store Avatar'/></div>"+
-					"<div id='storeMsg'>"+
-						"<div id='msgQuote'></div>"+
-						"<div id='msgContent'>"+storeMsg+"</div>"+
-					"</div>"+
-					"<div class='clear'></div>"+
-				"</div>"+
-				"<div id='storeView'>"+
-					"<img width='100%' src='./media/images/store/storeView"+storeId+".jpg' alt='Store View'/>"+
-				"</div>"+
-				"<div id='storeMap'>"+
-					'<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Beijing+South+Railway+Station,+Fengtai,+Beijing,+China&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed"></iframe>'+
-				"</div>"+
-				"<p id='toggleMap'>显示地图</p>"+
-			"</div>";
-
-		showLightbox(content);
-		
-		$("#toggleMap").toggle(function(){
+		showLightbox('div.panel.board');
+	});
+	
+	$("#toggleMap").toggle(function(){
 			$("#storeMap").slideDown();
 			$(this).html('隐藏地图');
 		},function(){
@@ -374,10 +356,8 @@ $(function(){
 			$(this).html('显示地图');
 		});
 		
-		$('span.storeClose').click(function(){
+	$('span.storeClose').click(function(){
 		hideLightbox();
-	});
-
 	});
 	
 })

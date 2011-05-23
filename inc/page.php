@@ -249,7 +249,7 @@ function page_home($orders, $stores) {
 					<div id='taskAccordion'>"
 					. mod_order_queue($orders) . "
 					</div>
-					<h2 class='lbCorner rbCorner'></h2>
+					<div class='lbCorner rbCorner taskAccordionBottom'></div>
 				</div>
 				<div class='clear'></div>
 			</div> 
