@@ -49,10 +49,24 @@ function hideLightbox(){
 	});
 }
 
+/* i wrote a jquery plugin to replace this func
+ * obFlash()
+ * you can safely delete it.
 function objectFlash(id, times){
 	times = times || 5;
 	for (var i=0; i<times; i++) $(id).fadeTo(500, 0.2).fadeTo(500, 1);
 }
+ */
+
+(function($){
+	$.fn.obFlash = function(repeat) {
+		repeat = repeat || 3;
+		return this.each(function(){
+			for (var i = 0; i++ < repeat; )
+				$(this).fadeTo(500, 0.2).fadeTo(500, 1);
+		});
+	};
+})(jQuery);
 
 $(function(){
 	tryNotification();

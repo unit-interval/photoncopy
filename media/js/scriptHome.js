@@ -99,9 +99,7 @@ function order_bind_action(expand) {
 		.each(function(){
 			if(expand != 0) {
 				$(this).addClass('selected')
-					.find('span').each(function(){
-						objectFlash(this);
-					})
+					.find('span').obFlash()
 					.end().next().show();
 			}
 		})
