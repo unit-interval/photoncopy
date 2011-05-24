@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	
+	showLightbox("#lockMask");
+	
 	$('#msgChange').click(function(){
 		$('#msgNew').val($('#msgBody').html());
 		$('#msgChangePanel').slideDown(250);
@@ -9,15 +12,16 @@ $(document).ready(function(){
 	
 	$('#storeLock').click(function(){
 		showLightbox("#lockMask");
-		$('input[name="phrase"]', $('#lockMask')).keyup(function(){
-			if($(this).val() == $(this).next().val()){
-				$(this).val('');
-				hideLightbox();
-			}
-		});
 	})
 	
-		$('h3', 'div.taskItem').click(function(){
+	$('input[name="phrase"]', $('#lockMask')).keyup(function(){
+		if($(this).val() == $(this).next().val()){
+			$(this).val('');
+			hideLightbox();
+		}
+	});
+
+	$('h3', 'div.taskItem').click(function(){
 		if ($(this).hasClass('selected')){
 			$(this).removeClass('selected');
 			$('div.taskDetail', $(this).parent()).slideUp(250);

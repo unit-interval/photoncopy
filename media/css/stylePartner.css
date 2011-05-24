@@ -203,7 +203,8 @@
 
 #lockMask{
 	width: 400px;
-	margin: 200px auto 0;
+	margin-left: -200px;
+	margin-top: -70px;
 }
 
 #lockMask .field{
