@@ -3,9 +3,9 @@
 /** predefined error messages might be needed */
 function err_redir($err = '', $tar = '/') {
 	if($tar == '/error.php')
-	$_SESSION['err'] = $err;
-	else
-	$_SESSION['msg'][] = $err;
+		$_SESSION['err'] = $err;
+	elseif($err != '')
+		$_SESSION['msg'][] = $err;
 	header("Location: $tar");
 	die;
 }
@@ -125,12 +125,12 @@ function to_status_par($act = -1) {
 	);
 	return ($act === -1) ? $to : $to[$act];
 }
-function verify_login_form() {
-	/** validate input client-side with js */
-	$input = array();
-	$input['email'] = strtolower($_POST['email']);
-	$input['passwd'] = md5($_POST['passwd']);
-	$input['pub'] = (isset($_POST['pub']) ? true : false);
-	return $input;
+function user_exists($m) {
+	global $db;
+	$query = "select `id` from `user`
+		where `email` = '{$db->real_escape_string($m)}'";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	return ($result->num_rows > 0);
 }
 

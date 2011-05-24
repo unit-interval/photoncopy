@@ -18,7 +18,7 @@ function send_forget_mail($to) {
 	$addr = base64_encode($to);
 	$time = time();
 	$hash = md5( SALT_REG . $addr . $time);
-	$link = URL_BASE . "profile.php?c=signup&a=" . rawurlencode($addr). "&t=$time&v=$hash";
+	$link = URL_BASE . "authorize.php?c=reset&a=" . rawurlencode($addr). "&t=$time&v=$hash";
 	$subject = CODE_NAME . ' - 密碼重置';
 	$time = date('Y-m-d H:i:s');
 	$body = <<<EOT
@@ -44,10 +44,6 @@ EOT;
 	$header .= "Reply-To: " . CODE_NAME . " <noreply-reg@" .
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
-}
-function user_exists($m) {
-//	TODO check user
-	return true;
 }
 
 if(!($email = sanitize_email($_POST['email'])))

@@ -1,7 +1,7 @@
 <?php
 
 /** URL BASE and etc.*/
-define('SERVER_HOST', 'pq.planetb612.info');
+define('SERVER_HOST', 'photoncopy.com');
 define('URL_BASE', 'http://' . SERVER_HOST . '/');
 define('CODE_NAME', '光子复制');
 
