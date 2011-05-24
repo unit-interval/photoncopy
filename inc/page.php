@@ -506,7 +506,7 @@ function page_par_home($orders) {
 					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
 				</div>
 				<div class='panel1 taskQueueR'>
-					<h2>任务队列</h2>
+					<h2>订单列表</h2>
 					<div id='taskAccordion'>"
 						. mod_order_queue_proc($orders) .
 					"</div>

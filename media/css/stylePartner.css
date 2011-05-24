@@ -162,12 +162,14 @@
 	text-align: right;
 	vertical-align: top;
 	width: 60px;
+	padding-bottom: 10px;
 }
 
 #taskAccordion td{
 	padding: 0px 0px 10px 14px;
 	vertical-align: top;
 	font-weight: normal;
+	word-wrap: break-word;
 }
 
 .taskStatus{
