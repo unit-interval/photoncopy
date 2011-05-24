@@ -516,7 +516,7 @@ function page_par_signup() {
 		<div class='lightbox'>
 			<div id='login' class='panel'>
 				<h2>登录<span class='lightboxClose fright'>×</span></h2>
-				<form action='/authorize.php?c=login' method='post'>
+				<form action='/partner.php?c=login' method='post'>
 					<fieldset><div class='field'>
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
