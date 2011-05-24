@@ -14,9 +14,9 @@
 }
 
 .profileType{
-    background: url('../images/aside_accordion_indicator_default.png') right center no-repeat, -moz-linear-gradient(top, #f7f7f7, #ededed);
-	background: url('../images/aside_accordion_indicator_default.png') right center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#ededed));
-	background: url('../images/aside_accordion_indicator_default.png') right center no-repeat, linear-gradient(top, #f7f7f7, #ededed);
+    background: url('/media/images/aside_accordion_indicator_default.png') right center no-repeat, -moz-linear-gradient(top, #f7f7f7, #ededed);
+	background: url('/media/images/aside_accordion_indicator_default.png') right center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#ededed));
+	background: url('/media/images/aside_accordion_indicator_default.png') right center no-repeat, linear-gradient(top, #f7f7f7, #ededed);
     border: 1px solid #acb3b7;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -150,7 +150,7 @@ input.uiBtn3{
 	width: 16px;
 	height: 14px;
 	display: inline-block;
-	background: url(../images/badge.png) no-repeat 0px -26px;
+	background: url(/media/images/badge.png) no-repeat 0px -26px;
 }
 
 .badge2{

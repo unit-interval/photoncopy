@@ -61,7 +61,7 @@
 
 #msgQuote{
 	float: left;
-	background: url(../images/quotationMark.png) no-repeat;
+	background: url(/media/images/quotationMark.png) no-repeat;
 	width: 60px;
 	height: 60px;
 }
@@ -132,7 +132,7 @@
 	padding: 18px;
 	display: block;
 	cursor: pointer;
-	background: url(../images/taskIcon.png) no-repeat 18px 18px;
+	background: url(/media/images/taskIcon.png) no-repeat 18px 18px;
 	padding-left: 58px;
 	height: 32px;
 	color: #DDD;

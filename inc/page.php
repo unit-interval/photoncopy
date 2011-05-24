@@ -426,9 +426,9 @@ function page_meta() {
 	<title>' . CODE_NAME . '</title>
 	';
 	foreach($link['css'] as $v)
-	echo "\t<link rel='stylesheet' type='text/css' href='./media/css/$v.css' />\n";
+	echo "\t<link rel='stylesheet' type='text/css' href='/media/css/$v.css' />\n";
 	foreach($link['js'] as $v)
-	echo "\t<script type='text/javascript' src='./media/js/$v.js'></script>\n";
+	echo "\t<script type='text/javascript' src='/media/js/$v.js'></script>\n";
 	echo <<<EOT
 </head>
 EOT;

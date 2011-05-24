@@ -339,7 +339,7 @@ a:hover {
 	font-weight: bold;
 	text-decoration: none;
 	text-indent: -9999px;
-	background: url(http://photoncopy.com/media/images/user-logo.png);
+	background: url(/media/images/user-logo.png);
 }
 #site-description {
 	clear: right;
@@ -568,7 +568,7 @@ div.menu li:first-child {
 }
 #content .entry-title {
 	padding-left: 40px;
-	background: url(http://photoncopy.com/media/images/taskIcon.png) left center no-repeat;
+	background: url(/media/images/taskIcon.png) left center no-repeat;
 	font-size: 24px;
 	line-height: 32px;
 	margin-bottom: 8px;
@@ -1305,7 +1305,7 @@ h3#reply-title {
 	display: none;
 }
 #site-generator a {
-	background: url(images/wordpress.png) center left no-repeat;
+	background: url(/media/images/wordpress.png) center left no-repeat;
 	display: inline-block;
 	line-height: 16px;
 	padding-left: 20px;
