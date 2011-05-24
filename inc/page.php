@@ -458,48 +458,61 @@ function page_par_act() {
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
 	echo "
-		<div id='lockMask' class='dummy'>
-			<input name='phrase' type='password'/>
-			<input type='hidden' value='{$_SESSION['passphrase']}' />
-		</div>
-		<div class='contentWrapper1'>
-			<div class='panel board'>
-				<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
-				<div id='storeStatus'>
-					<div id='storeCtrl'>
-						<div id='storeAvatar'>
-						<img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'/>
-						</div>
-						<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
-					</div>
-					<div id='storeMsg'>
-						<div id='msgQuote'></div>
-						<div id='msgContent'>
-							<div id='msgBody'>" . $_SESSION['memo']. "</div>
-							<div id='msgDate'>最后一次更新于2011年5月4日</div>
-							<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
-							<div class='clear'></div>
-							<form id='msgChangePanel'>
-								<div class='uiTextareaWrapper'>
-									<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
-								</div>
-								<div class='clear'></div>
-								<div class='uiBtn1Wrapper'>
-									<input class='uiBtn1' type='submit' value='确认'/>
-									<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class='clear'></div>
+		<div class='lightbox'>
+			<div class='panel1' id='lockMask'>
+				<h2>解锁</h2>
+				<div class='field'>
+					<input name='phrase' class='uiText' placeholder='请输入短密码' type='password'/>
+					<input type='hidden' value='". $_SESSION['passphrase'] . "'>
 				</div>
 			</div>
-			<div class='panel order'>
-				<h2>打印任务队列</h2>
-				<table>"
+		</div>
+		<div class='contentWrapper1'>
+			<div class='content'>
+				<div class='panel1 board'>
+					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
+					<div id='storeStatus'>
+						<div id='storeCtrl'>
+							<div id='storeAvatar'>
+							<img width='100%' height='100%' src='/media/images/store/storeAvatar1" . ".jpg' alt='Store Avatar'/>
+							</div>
+							<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
+						</div>
+						<div id='storeMsg'>
+							<div id='msgQuote'></div>
+							<div id='msgContent'>
+								<div id='msgBody'>" . $_SESSION['memo']. "</div>
+								<div id='msgDate'>最后一次更新于2011年5月4日</div>
+								<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
+								<div class='clear'></div>
+								<form id='msgChangePanel'>
+									<div class='uiTextareaWrapper'>
+										<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
+									</div>
+									<div class='clear'></div>
+									<div class='uiBtn1Wrapper'>
+										<input class='uiBtn1' type='submit' value='确认'/>
+										<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class='clear'></div>
+					</div>
+				</div>
+			</div>
+			<div class='taskQueue'>
+				<div class='taskQueueL'>
+					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+				</div>
+				<div class='panel1 taskQueueR'>
+					<h2>任务队列</h2>
+					<div id='taskAccordion'>"
 						. mod_order_queue_proc($orders) .
-				"</table>
-				<p class='lbCorner rbCorner'>30秒后刷新</p>
+					"</div>
+					<div class='lbCorner rbCorner taskAccordionBottom'> </div>
+				</div>
+				<div class='clear'></div>
 			</div>
 		</div>
 	";
