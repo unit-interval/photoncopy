@@ -446,48 +446,61 @@ function page_nav($body_id = 'main') {
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');
 	echo "
-		<div id='lockMask' class='dummy'>
-			<input name='phrase' type='password'/>
-			<input type='hidden' value='{$_SESSION['passphrase']}' />
+		<div class='lightbox'>
+			<div class='panel1' id='lockMask'>
+				<h2>解锁</h2>
+				<div class='field'>
+					<input name='phrase' class='uiText' placeholder='请输入短密码' type='password'/>
+					<input type='hidden' value='". $_SESSION['passphrase'] . "'>
+				</div>
+			</div>
 		</div>
 		<div class='contentWrapper'>
-			<div class='panel board'>
-				<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
-				<div id='storeStatus'>
-					<div id='storeCtrl'>
-						<div id='storeAvatar'>
-						<img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar'/>
+			<div class='content'>
+				<div class='panel1 board'>
+					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
+					<div id='storeStatus'>
+						<div id='storeCtrl'>
+							<div id='storeAvatar'>
+							<img width='100%' height='100%' src='/media/images/store/storeAvatar1" . ".jpg' alt='Store Avatar'/>
+							</div>
+							<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
 						</div>
-						<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
-					</div>
-					<div id='storeMsg'>
-						<div id='msgQuote'></div>
-						<div id='msgContent'>
-							<div id='msgBody'>" . $_SESSION['memo']. "</div>
-							<div id='msgDate'>最后一次更新于2011年5月4日</div>
-							<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
-							<div class='clear'></div>
-							<form id='msgChangePanel'>
-								<div class='uiTextareaWrapper'>
-									<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
-								</div>
+						<div id='storeMsg'>
+							<div id='msgQuote'></div>
+							<div id='msgContent'>
+								<div id='msgBody'>" . $_SESSION['memo']. "</div>
+								<div id='msgDate'>最后一次更新于2011年5月4日</div>
+								<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
 								<div class='clear'></div>
-								<div class='uiBtn1Wrapper'>
-									<input class='uiBtn1' type='submit' value='确认'/>
-									<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
-								</div>
-							</form>
+								<form id='msgChangePanel'>
+									<div class='uiTextareaWrapper'>
+										<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
+									</div>
+									<div class='clear'></div>
+									<div class='uiBtn1Wrapper'>
+										<input class='uiBtn1' type='submit' value='确认'/>
+										<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
+									</div>
+								</form>
+							</div>
 						</div>
+						<div class='clear'></div>
+					</div>
+				</div>
+				<div class='taskQueue'>
+					<div class='taskQueueL'>
+						<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+					</div>
+					<div class='panel1 taskQueueR'>
+						<h2>订单列表</h2>
+						<div id='taskAccordion'>"
+							. mod_order_queue_proc($orders) .
+						"</div>
+						<div class='lbCorner rbCorner taskAccordionBottom'> </div>
 					</div>
 					<div class='clear'></div>
 				</div>
-			</div>
-			<div class='panel order'>
-				<h2>打印任务队列</h2>
-				<table>"
-						. mod_order_queue_proc($orders) .
-				"</table>
-				<p class='lbCorner rbCorner'>30秒后刷新</p>
 			</div>
 		</div>
 	";
@@ -500,24 +513,57 @@ function page_par_reg() {
 }
 function page_par_signup() {
 	$a = '/partner';
-	echo '
-		<div class="contentWrapper">
-			<div class="funct">'
-			. mod_login($a)
-			. mod_login_signup($a)
-			. mod_login_forget($a) .
-			'</div>
-			<div class="content">
-				<div id="instruct">
-					<p>Become one of our provider now!</p>
-				</div>
-				<div id="stat">
-					<p>*** users have signed up.</p>
-					<p>*** orders have been made.</p>
-				</div>
+	echo "
+		<div class='lightbox'>
+			<div id='login' class='panel'>
+				<h2>登录<span class='lightboxClose fright'>×</span></h2>
+				<form action='/partner.php?c=login' method='post'>
+					<fieldset><div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div>
+					<div class='field'>
+						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
+						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
+					<h3> 正在使用公共电脑登录</h3>
+					<input class='uiBtn submit' type='submit' value='登录'>
+					</fieldset>
+				</form>
 			</div>
+			<div id='signup' class='panel'>
+				<h2>注册<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='button' value='注册'>
+			</fieldset></form></div>
+			<div id='forget' class='panel'>
+				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='button' value='取回密码'>
+			</fieldset></form></div>
+			<div id='dummyLightbox'></div>
+		</div>"
+		. '<div class="contentWrapper">'
+		."	<ul class='slideshow'>
+				<li class='slidePhoto' id='slidePhoto-1'>
+					<div class='slidePhotoWrapper'>
+						<h2>让校园生活更便捷</h2>
+						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
+						<a href='tutorial'>了解更多</a>
+					</div>
+				</li>
+			</ul>
 		</div>
-	';
+	";
 }
 function page_profile() {
 	echo "

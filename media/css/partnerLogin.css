@@ -1,22 +1,11 @@
-/*------------------------ FUNCT ------------------------*/
-
 #login, #signup, #forget{
 	color: #CFF0FF;
 	background: #1A2F36;
-	width: 400px;
-	margin: auto;
-	margin-top: 200px;
 }
 
 #forgetBtn:hover{
 	cursor: pointer;
-	color: whtie;
-}
-
-#signupBtn{
-	font-size: 15px;
-	height: 30px;
-	width: 100%;
+	color: white;
 }
 
 .lightboxClose:hover{
@@ -27,30 +16,6 @@
 .panel h2
 {
 	background: #1B2429;
-}
-
-.field{
-	padding-bottom: 10px;
-}
-
-fieldset{
-	padding: 30px 30px 10px 30px;
-	border-width: 0px;
-}
-
-fieldset.submit{
-	padding: 0px 30px 30px 30px;
-}
-
-label{
-	display: block;
-	padding: 0px 0px 8px 0px;
-	font-size: 14px;
-}
-
-input.checkbox{
-	width: auto;
-	margin: 11px;
 }
 
 input.submit{
@@ -65,6 +30,9 @@ input.submit:hover{
 
 input.uiText{
 	background: white;
+<<<<<<< HEAD
+}
+=======
 }
 
 
@@ -123,3 +91,4 @@ div.slidePhotoWrapper a:hover{
 	padding: 5px 20px;
 	margin: auto;
 }
+>>>>>>> cb7c949e60f55fd52ba1169286cc85604f71d862

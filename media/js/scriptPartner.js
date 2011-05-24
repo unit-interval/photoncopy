@@ -1,6 +1,7 @@
-var partnerLogin="<div class='panel1' id='lockMask'><h2>解锁</h2><div class='field'><input name='phrase' class='uiText' placeholder='请输入短密码' type='password'/><input type='hidden' value='219'></div></div>";
-
 $(document).ready(function(){
+	
+	showLightbox("#lockMask");
+	
 	$('#msgChange').click(function(){
 		$('#msgNew').val($('#msgBody').html());
 		$('#msgChangePanel').slideDown(250);
@@ -10,16 +11,17 @@ $(document).ready(function(){
 	});
 	
 	$('#storeLock').click(function(){
-		showLightbox(partnerLogin);
-		$('input[name="phrase"]', $('#lockMask')).keyup(function(){
-			if($(this).val() == $(this).next().val()){
-				$(this).val('');
-				hideLightbox();
-			}
-		});
+		showLightbox("#lockMask");
 	})
 	
-		$('h3', 'div.taskItem').click(function(){
+	$('input[name="phrase"]', $('#lockMask')).keyup(function(){
+		if($(this).val() == $(this).next().val()){
+			$(this).val('');
+			hideLightbox();
+		}
+	});
+
+	$('h3', 'div.taskItem').click(function(){
 		if ($(this).hasClass('selected')){
 			$(this).removeClass('selected');
 			$('div.taskDetail', $(this).parent()).slideUp(250);

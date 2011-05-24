@@ -19,17 +19,9 @@ if($_SESSION['partner'] != true && !in_array($_GET['c'], $noLogin)) {
 }
 
 $link['css'][] = 'style';
-$link['css'][] = 'styleIndex';
-$link['css'][] = 'stylePartner';
 $link['js'][] = 'jquery';
 $link['js'][] = 'partner';
 $link['js'][] = 'script';
-$link['js'][] = 'scriptIndex';
-$link['js'][] = 'scriptPartner';
-
-
-page_meta();
-page_nav('partner');
 
 /** FIXME write partner pages */
 if($_GET['c'] == 'activate') {
@@ -68,6 +60,11 @@ if($_GET['c'] == 'activate') {
 } elseif ($_GET['c'] == 'profile') {
 } elseif ($_GET['c'] == 'reg') {
 } elseif ($_GET['c'] == 'signup') {
+	$link['css'][] = 'styleIndex';
+	$link['css'][] = 'partnerLogin';
+	$link['js'][] = 'scriptIndex';
+	page_meta();
+	page_nav('partner');
 	page_par_signup();
 } else {
 	$orders = array();
@@ -78,6 +75,10 @@ if($_GET['c'] == 'activate') {
 		$orders[$row['id']] = $row;
 		$result->free();
 	}
+	$link['css'][] = 'stylePartner';
+	$link['js'][] = 'scriptPartner';
+	page_meta();
+	page_nav('partner');
 	page_par_home($orders);
 }
 
