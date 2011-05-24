@@ -35,6 +35,9 @@ $(document).ready(function(){
 			},
 		});
 	});
+	$('input[name="noteBtn"]').click(function(){
+		addNotification(0, $('input[name="note"]').val());
+	})
 	$('#forget input[type="button"]').click(function(){
 		hideLightbox();
 //		TODO validate email

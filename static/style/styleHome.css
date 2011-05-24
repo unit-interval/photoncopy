@@ -622,8 +622,9 @@ input#taskSearch:-moz-placeholder{
 	color: #6CAEFF;
 }
 
-#taskAccordion a{
+#taskAccordion a, #taskAccordion span.showStoreInLightbox{
 	color: #8D79F2;
+	cursor: pointer;
 }
 
 .taskDetail{
@@ -647,6 +648,7 @@ input#taskSearch:-moz-placeholder{
 	padding: 0px 0px 10px 14px;
 	vertical-align: top;
 	font-weight: normal;
+	word-wrap: break-word;
 }
 
 .taskStatus{
@@ -754,7 +756,7 @@ span.storeClose:hover{
 
 .board{
 	width: 960px;
-	margin-top: -291px;
+	margin-top: -300px;
 	margin-left: -480px;
 	background: #1A2F36;
 }
@@ -848,7 +850,7 @@ ul.storeNav li:hover, ul.storeNav li.selected{
 /*------------------------ View ------------------------*/
 
 #storeView{
-	padding: 1px;
+	padding: 0px;
 }
 
 /*------------------------ MAP ------------------------*/

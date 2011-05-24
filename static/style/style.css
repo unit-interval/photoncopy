@@ -98,7 +98,9 @@ a{
 	display: none;
 }
 
-.notification{
+#notification{
+	height: 22px;
+	overflow: hidden;
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
@@ -114,19 +116,21 @@ a{
 	display: none;
 }
 
-.notificationCount{
-	float: left;
+#notificationCount{
+	position: absolute;
 	font-size: 12px;
-	margin-left: 20px;
+	top: 8px;
+	left: 20px;
 	padding: 3px 8px;
 	background: #FAD163;
 	border-radius: 5px;
 }
 
-.notificationClose{
-	float: right;
+#notificationClose{
+	position: absolute;
 	font-size: 17px;
-	margin-right: 20px;
+	top: 8px;
+	right: 20px;
 	background: #FAD163;
 	border: 2px solid #735005;
 	padding: 0 4px;
@@ -134,6 +138,10 @@ a{
 	cursor: pointer;
 	font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
 	line-height: 16px;
+}
+
+.notificationContent{
+	margin-bottom: 7px;
 }
 
 /*------------------------ NAV ------------------------*/

@@ -1,18 +1,38 @@
 function addNotification(id, content){
-	var no=$('div.notification', $('#notificationWrapper')).length+1;
-	$('#dummyNotification').slideDown('normal');
-	$('#notificationWrapper').append("<div class='notification'><span class='notificationCount'>"+no+"</span><input type='hidden' name='notificationId' value='"+id+"'/>"+content+"<span class='notificationClose'>×</span></div>");
-	$('div.notification:last', $('#notificationWrapper')).fadeIn('normal');
-	$('span.notificationClose', $('#notificationWrapper')).click(function(){
-		removeNotification($(this).parent());
-	});
+	$('#notification div.notificationContent:first').fadeOut('normal', function(){
+		$('#notificationCount').html(parseInt($('#notificationCount').html())+1);
+		$('#notification div.notificationContent:first').before($('#notification div.notificationContent:last').clone());
+		$('#notification div.notificationContent:first').hide();
+		$('#notification div.notificationContent:first span').html(content);
+		$('#notification div.notificationContent:first input[type="hidden"]').val(id);
+		$('#notification div.notificationContent').fadeIn('normal');
+	})
+	if ($('#notificationCount').html()=='1')
+	{
+		$('#dummyNotification').slideDown('normal');
+		$('#notification').delay(250).fadeIn('normal');
+	}
 }
 
-function removeNotification(note){
-	note.fadeOut('normal', function(){
-		note.remove();
-		if ($('div.notification', $('#notificationWrapper')).length==0) $('#dummyNotification').slideUp('normal'); 
-	});
+function removeNotification(){
+	$('div#notification div.notificationContent:first').remove();
+	$('#notificationCount').html(parseInt($('#notificationCount').html())-1);
+	if ($('#notificationCount').html()=='0'){
+		$('#dummyNotification').slideUp('normal');
+		$('#notification').fadeOut('normal');
+	}
+}
+
+function tryNotification(){
+	$('#notificationCount').html($('div#notification div.notificationContent').length-1);
+	$('#notificationClose').click(function(){
+		removeNotification();
+	})
+	if ($('#notificationCount').html()!='0')
+	{
+		$('#dummyNotification').delay(500).slideDown('normal');
+		$('#notification').delay(750).fadeIn('normal');
+	}
 }
 
 function showLightbox(id){
@@ -33,3 +53,7 @@ function objectFlash(id, times){
 	times = times || 5;
 	for (var i=0; i<times; i++) $(id).fadeTo(500, 0.2).fadeTo(500, 1);
 }
+
+$(function(){
+	tryNotification();
+})
