@@ -28,15 +28,15 @@ $(document).ready(function(){
 			statusCode: {
 				200: function(data) {
 						if(data.errno == 0)
-							addNotification(0, 'email successfully sent.')
+							Notification.add('email successfully sent.');
 						else if(data.errno == 4)
-							addNotification(0, 'user already exists.')
+							Notification.add('user already exists.');
 					 },
 			},
 		});
 	});
 	$('input[name="noteBtn"]').click(function(){
-		addNotification(0, $('input[name="note"]').val());
+		Notification.add($('input[name="note"]').val());
 	})
 	$('#forget input[type="button"]').click(function(){
 		hideLightbox();
@@ -50,9 +50,9 @@ $(document).ready(function(){
 			statusCode: {
 				200: function(data) {
 						if(data.errno == 0)
-							addNotification(0, 'email successfully sent.')
+							Notification.add('email successfully sent.');
 						else if(data.errno == 4)
-							addNotification(0, 'user doesn\'t exist.')
+							Notification.add('user doesn\'t exist.');
 					 },
 			},
 		});

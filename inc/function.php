@@ -5,7 +5,7 @@ function err_redir($err = '', $tar = '/') {
 	if($tar == '/error.php')
 	$_SESSION['err'] = $err;
 	else
-	$_SESSION['msg'] = $err;
+	$_SESSION['msg'][] = $err;
 	header("Location: $tar");
 	die;
 }

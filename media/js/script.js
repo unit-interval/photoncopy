@@ -55,7 +55,7 @@ var Notification = {
 		html = html || "Don't look at me. #" + this.count;
 		var $m = $('<div />').addClass('notificationContent').html(html);
 		this.$counter.html(++this.count);
-		if(this.count == 0){
+		if(this.count == 1){
 			$m.insertAfter(this.$counter);
 			this.show();
 		} else {
@@ -81,6 +81,7 @@ var Notification = {
 			this.hide();
 		this.$counter.html(this.count);
 		$m.remove();
+//		$m.slideUp('fast',function(){$(this).remove()});
 	},
 	markread: function(id){
 //		send ajax request to mark message as read.
