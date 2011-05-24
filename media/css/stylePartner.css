@@ -9,6 +9,10 @@
 	color: #CFF0FF;
 }
 
+input.uiText{
+	background: white;
+}
+
 /*------------------------ BOARD ------------------------*/
 
 .board{
