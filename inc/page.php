@@ -436,24 +436,12 @@ EOT;
 function page_nav($body_id = 'main') {
 	// and error msg
 	echo "
-<body id='$body_id'>
-		<div id='dummyNotification'></div>
-		<div id='notificationWrapper'>
-			<div id='notification'>
-				<span id='notificationCount'></span>
-				<div class='notificationContent'>
-					<span></span>
-					<input type='hidden' name='notificationId' value='notification prototype'/>
-				</div>
-				<span id='notificationClose'>×</span>
-			</div>
-		</div>
+	<body id='$body_id'>"
+		. mod_notif() . "
 		<div class='nav'>
-			<a href='/' id='logo'></a>
-	" . mod_nav_account() . '
+			<a href='/' id='logo'></a>"
+			. mod_nav_account() . '
 		</div>';
-}
-function page_par_act() {
 }
 function page_par_home($orders) {
 	$t1 = text_defs('store_region');

@@ -131,6 +131,30 @@ function mod_nav_account() {
 			</ul>
 		";
 }
+function mod_notif() {
+	$n = count($_SESSION['notif']);
+	$m = count($_SESSION['msg']);
+	$html = "
+		<div id='dummyNotification'></div>
+		<div id='notificationWrapper'>
+			<div id='notification'>
+				<span id='notificationCount'>". ($n + $m) ."</span>";
+	if($n > 0)
+		foreach($_SESSION['notif'] as $id => $msg)
+			$html .= "
+				<div class='notificationContent' data-id='$id'>$msg</div>";
+	while($m > 0) {
+		$html .= "
+				<div class='notificationContent' data-id='0'>"
+				. array_shift($_SESSION['msg']) ."</div>";
+		$m--;
+	}
+	$html .= "
+				<span id='notificationClose'>×</span>
+			</div>
+		</div>";
+	return $html;
+}
 function mod_order_queue($orders) {
 	$html = '';
 	foreach($orders as $o)

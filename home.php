@@ -44,6 +44,8 @@ if($result = $db->query($query)) {
 	$result->free();
 }
 
+$_SESSION['notif'] = array(9 => "You're not prepared.", 25 => "Elune be with you.");
+
 page_meta();
 page_nav();
 page_home($orders, $stores);
