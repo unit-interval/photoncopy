@@ -29,8 +29,12 @@ $(document).ready(function(){
 				200: function(data) {
 						if(data.errno == 0)
 							Notification.add('email successfully sent.');
-						else if(data.errno == 4)
+						else if(data.errno == 3)
 							Notification.add('user already exists.');
+						else if(data.errno == 1)
+							Notification.add('invalid input.');
+						else
+							Notification.add('Ooops.');
 					 },
 			},
 		});
@@ -51,8 +55,12 @@ $(document).ready(function(){
 				200: function(data) {
 						if(data.errno == 0)
 							Notification.add('email successfully sent.');
-						else if(data.errno == 4)
+						else if(data.errno == 3)
 							Notification.add('user doesn\'t exist.');
+						else if(data.errno == 1)
+							Notification.add('invalid input.');
+						else
+							Notification.add('Ooops.');
 					 },
 			},
 		});
