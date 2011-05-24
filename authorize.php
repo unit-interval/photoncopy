@@ -27,7 +27,10 @@ function verify_signup_form() {
 	return $input;
 }
 
-session_name(SESSNAME);
+if($_GET['c'] == 'partnerlogin' || $_GET['c'] == 'partnerlogout')
+	session_name(SESSNAME_P);
+else
+	session_name(SESSNAME);
 session_start();
 
 if($_GET['c'] == 'login') {
@@ -91,6 +94,37 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');
+} elseif($_GET['c'] == 'partnerlogin') {
+	if(!($input = verify_login_form()))
+		err_redir('Invalid Login Information.','/partner.php');
+	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
+		where `email` = '{$db->real_escape_string($input['email'])}'";
+	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
+		$user = $result->fetch_assoc();
+		$result->free();
+		$logged_in = ($user['passwd'] == $input['passwd']);
+	} else
+		$logged_in = false;
+	if(!$logged_in)
+		err_redir('login fail.','/partner.php');
+	$_SESSION['partner'] = true;
+	$_SESSION['pid'] = $user['id'];
+	$_SESSION['passphrase'] = $user['passphrase'];
+	$_SESSION['name'] = $user['name'];
+	$_SESSION['region'] = $user['region'];
+	$_SESSION['memo'] = $user['memo'];
+	$_SESSION['email'] = $input['email'];
+	$expire = time()+3600*24*7;
+	setcookie('email_p', $input['email'], $expire);
+	setcookie('pid', $user['id'], $expire);
+	setcookie('hash_p', md5(SALT_REG . $user['id']), $expire);
+	err_redir('', '/partner.php');
+} elseif($_GET['c'] == 'partnerlogout') {
+	setcookie('hash_p', '', time()-3600);
+	setcookie('pid', '', time()-3600);
+	$_SESSION = array();
+	session_destroy();
+	err_redir();
 } elseif($_SESSION['state'] === 'activate') {
 	if(!($input = verify_signup_form()))
 		err_redir('invalid input', '/profile.php');

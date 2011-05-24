@@ -78,8 +78,8 @@ function mod_msg() {
 		return $msg;
 	}
 }
-function mod_nav_account() {
-	if($_SESSION['logged_in'])
+function mod_nav_account($body_id) {
+	if($body_id != 'partner' && $_SESSION['logged_in'])
 	return "
 			<ul class='account'>
 				<li>
@@ -94,18 +94,18 @@ function mod_nav_account() {
 					<a href='/home.php'>首页</a>
 				</li>
 				<li class='sep'>
-					<a href='http://blog.photoncopy.com/'>黑板报</a>
+					<a href='http://photoncopy.com/blog/'>黑板报</a>
 				</li>
 			</ul>
 		";
-	elseif ($_SESSION['partner'])
+	elseif ($body_id == 'partner' && $_SESSION['partner'])
 	return "
 			<ul class='account'>
 				<li>
 					<a href='/partner/profile.php'>" . $_SESSION['name'] . "的帐户</a>
 				</li>
 				<li class='sep'>
-					<a href='/partner.php?c=logout'>退出</a>
+					<a href='/authorize.php?c=partnerlogout'>退出</a>
 				</li>
 			</ul>
 			<ul class='navBar'>
@@ -113,7 +113,7 @@ function mod_nav_account() {
 					<a href='/partner.php'>首页</a>
 				</li>
 				<li class='sep'>
-					<a href='http://blog.photoncopy.com/'>黑板报</a>
+					<a href='http://photoncopy.com/blog/'>黑板报</a>
 				</li>
 			</ul>
 		";
@@ -126,7 +126,7 @@ function mod_nav_account() {
 			</ul>
 			<ul class='navBar'>
 				<li>
-					<a href='http://blog.photoncopy.com/'>黑板报</a>
+					<a href='http://photoncopy.com/blog/'>黑板报</a>
 				</li>
 			</ul>
 		";

@@ -441,7 +441,7 @@ function page_nav($body_id = 'main') {
 		. mod_notif() . "
 		<div class='nav'>
 			<a href='/' id='logo'></a>"
-			. mod_nav_account() . '
+			. mod_nav_account($body_id) . '
 		</div>';
 }
 function page_par_home($orders) {
@@ -505,19 +505,16 @@ function page_par_home($orders) {
 		</div>
 	";
 }
-function page_par_logout() {
-}
 function page_par_profile() {
 }
-function page_par_reg() {
+function page_par_activate() {
 }
 function page_par_signup() {
-	$a = '/partner';
 	echo "
 		<div class='lightbox'>
 			<div id='login' class='panel'>
 				<h2>登录<span class='lightboxClose fright'>×</span></h2>
-				<form action='/partner.php?c=login' method='post'>
+				<form action='/authorize.php?c=partnerlogin' method='post'>
 					<fieldset><div class='field'>
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
@@ -526,8 +523,6 @@ function page_par_signup() {
 						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
 						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
-					<h3> 正在使用公共电脑登录</h3>
 					<input class='uiBtn submit' type='submit' value='登录'>
 					</fieldset>
 				</form>
