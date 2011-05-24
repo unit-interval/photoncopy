@@ -92,7 +92,7 @@
 
 .taskQueue{
 	width: 960px;
-	margin: 30px auto;
+	margin: 30px auto 0;
 }
 
 .taskQueueL{
@@ -160,16 +160,21 @@
 #taskAccordion th{
 	font-weight: normal;
 	text-align: right;
-	vertical-align: top;
+	vertical-align: middle;
 	width: 60px;
 	padding-bottom: 10px;
 }
 
 #taskAccordion td{
 	padding: 0px 0px 10px 14px;
-	vertical-align: top;
+	vertical-align: middle;
 	font-weight: normal;
 	word-wrap: break-word;
+}
+
+#taskAccordion td > input.uiText2{
+	width: 150px;
+	color: #111;
 }
 
 .taskStatus{

@@ -482,7 +482,6 @@ function page_par_home($orders) {
 							<div id='msgQuote'></div>
 							<div id='msgContent'>
 								<div id='msgBody'>" . $_SESSION['memo']. "</div>
-								<div id='msgDate'>最后一次更新于2011年5月4日</div>
 								<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
 								<div class='clear'></div>
 								<form id='msgChangePanel'>
