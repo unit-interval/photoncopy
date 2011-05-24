@@ -11,6 +11,8 @@ include './inc/page.php';
 session_name(SESSNAME);
 session_start();
 
+/** don't log user in at index.php to reduce db requests
+ *
 if($_SESSION['logged_in'] != true) {
 	include './inc/database.php';
 	include './inc/auth.php';
@@ -18,6 +20,7 @@ if($_SESSION['logged_in'] != true) {
 	if($_SESSION['logged_in'] == true)
 	err_redir('', '/home.php');
 }
+ */
 
 $link['css'][] = 'style';
 $link['css'][] = 'styleIndex';

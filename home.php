@@ -45,6 +45,7 @@ if($result = $db->query($query)) {
 }
 
 $_SESSION['notif'] = array(9 => "You're not prepared.", 25 => "Elune be with you.");
+//unset($_SESSION['msg']);
 
 page_meta();
 page_nav();

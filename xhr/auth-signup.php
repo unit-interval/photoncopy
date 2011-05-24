@@ -9,14 +9,15 @@ include DIR_INC . 'function.php';
  * 0	no error
  * 1	invalid email addr
  * 2	database error
- * 3	failed sending email
+ * 3	user exists
+ * 4	failed sending email
  */
 //header('content-type: application/json');
 
 function send_reg_mail($to) {
 	$addr = base64_encode($to);
 	$hash = md5( SALT_REG . $addr );
-	$link = URL_BASE . "profile.php?c=reset&a=" . rawurlencode($addr). "&v=$hash";
+	$link = URL_BASE . "authorize.php?c=signup&a=" . rawurlencode($addr). "&v=$hash";
 	$subject = CODE_NAME . ' - 註冊';
 	$body = <<<EOT
 To continue your registration, click the link below, plz.
@@ -48,8 +49,11 @@ if(!($email = sanitize_email($_POST['email'])))
 
 setcookie('email', $email, time()+3600*24*3);
 
-if(!send_reg_mail($email))
+if(user_exists($email))
 	die(json_encode(array('errno' => 3,)));
+
+if(!send_reg_mail($email))
+	die(json_encode(array('errno' => 4,)));
 
 echo(json_encode(array('errno' => 0,)));
 

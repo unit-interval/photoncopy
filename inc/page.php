@@ -1,6 +1,7 @@
 <?php
 
 function page_activate() {
+//	TODO passwd strength and form validater.
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -16,12 +17,12 @@ function page_activate() {
 				<div class='profileContent'>
 					<h2>初次设置</h2>
 					<p></p>
-					<form action='/profile.php' method='post'>
+					<form action='/authorize.php' method='post'>
 					<table>
 						<tbody>
 							<tr>
 								<th>邮箱</th>
-								<td><input type='text' class='uiText2' name='email' disabled='disabled' value='abc@example.com'/></td>
+								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
 							</tr>
 							<tr>
 								<th>用户名</th>
@@ -360,13 +361,13 @@ function page_index() {
 				<form action='/authorize.php?c=login' method='post'>
 					<fieldset><div class='field'>
 						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText' value='{$_COOKIE['email']}' />
 					</div>
 					<div class='field'>
 						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
 						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
+					<input class='checkbox' type='checkbox' name='pub' />
 					<h3> 正在使用公共电脑登录</h3>
 					<input class='uiBtn submit' type='submit' value='登录'>
 					</fieldset>
@@ -386,7 +387,7 @@ function page_index() {
 				<form><fieldset>
 					<div class='field'>
 						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText' value='{$_COOKIE['email']}' />
 					</div></fieldset><fieldset class='submit'>
 					<input class='uiBtn submit' type='button' value='取回密码'>
 			</fieldset></form></div>
