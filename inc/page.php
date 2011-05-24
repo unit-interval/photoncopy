@@ -467,7 +467,7 @@ function page_par_home($orders) {
 				</div>
 			</div>
 		</div>
-		<div class='contentWrapper1'>
+		<div class='contentWrapper'>
 			<div class='content'>
 				<div class='panel1 board'>
 					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
@@ -500,19 +500,19 @@ function page_par_home($orders) {
 						<div class='clear'></div>
 					</div>
 				</div>
-			</div>
-			<div class='taskQueue'>
-				<div class='taskQueueL'>
-					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+				<div class='taskQueue'>
+					<div class='taskQueueL'>
+						<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+					</div>
+					<div class='panel1 taskQueueR'>
+						<h2>订单列表</h2>
+						<div id='taskAccordion'>"
+							. mod_order_queue_proc($orders) .
+						"</div>
+						<div class='lbCorner rbCorner taskAccordionBottom'> </div>
+					</div>
+					<div class='clear'></div>
 				</div>
-				<div class='panel1 taskQueueR'>
-					<h2>订单列表</h2>
-					<div id='taskAccordion'>"
-						. mod_order_queue_proc($orders) .
-					"</div>
-					<div class='lbCorner rbCorner taskAccordionBottom'> </div>
-				</div>
-				<div class='clear'></div>
 			</div>
 		</div>
 	";
