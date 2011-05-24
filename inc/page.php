@@ -462,7 +462,7 @@ function page_par_home($orders) {
 			<input name='phrase' type='password'/>
 			<input type='hidden' value='{$_SESSION['passphrase']}' />
 		</div>
-		<div class='contentWrapper'>
+		<div class='contentWrapper1'>
 			<div class='panel board'>
 				<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
 				<div id='storeStatus'>
@@ -512,24 +512,57 @@ function page_par_reg() {
 }
 function page_par_signup() {
 	$a = '/partner';
-	echo '
-		<div class="contentWrapper">
-			<div class="funct">'
-			. mod_login($a)
-			. mod_login_signup($a)
-			. mod_login_forget($a) .
-			'</div>
-			<div class="content">
-				<div id="instruct">
-					<p>Become one of our provider now!</p>
-				</div>
-				<div id="stat">
-					<p>*** users have signed up.</p>
-					<p>*** orders have been made.</p>
-				</div>
+	echo "
+		<div class='lightbox'>
+			<div id='login' class='panel'>
+				<h2>登录<span class='lightboxClose fright'>×</span></h2>
+				<form action='/authorize.php?c=login' method='post'>
+					<fieldset><div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div>
+					<div class='field'>
+						<label>密码<span id='forgetBtn' class='fright'>忘记密码</span></label>
+						<input type='password' name='passwd' placeholder='请输入密码' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='checkbox' type='checkbox' name='publicLogin' value='yes'>
+					<h3> 正在使用公共电脑登录</h3>
+					<input class='uiBtn submit' type='submit' value='登录'>
+					</fieldset>
+				</form>
 			</div>
+			<div id='signup' class='panel'>
+				<h2>注册<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='button' value='注册'>
+			</fieldset></form></div>
+			<div id='forget' class='panel'>
+				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
+				<form><fieldset>
+					<div class='field'>
+						<label>邮箱</label>
+						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
+					</div></fieldset><fieldset class='submit'>
+					<input class='uiBtn submit' type='button' value='取回密码'>
+			</fieldset></form></div>
+			<div id='dummyLightbox'></div>
+		</div>"
+		. '<div class="contentWrapper">'
+		."	<ul class='slideshow'>
+				<li class='slidePhoto' id='slidePhoto-1'>
+					<div class='slidePhotoWrapper'>
+						<h2>让校园生活更便捷</h2>
+						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
+						<a href='tutorial'>了解更多</a>
+					</div>
+				</li>
+			</ul>
 		</div>
-	';
+	";
 }
 function page_profile() {
 	echo "

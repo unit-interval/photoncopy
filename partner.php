@@ -21,6 +21,7 @@ if($_SESSION['partner'] != true && !in_array($_GET['c'], $noLogin)) {
 $link['css'][] = 'style';
 $link['css'][] = 'styleIndex';
 $link['css'][] = 'stylePartner';
+$link['css'][] = 'partnerLogin';
 $link['js'][] = 'jquery';
 $link['js'][] = 'partner';
 $link['js'][] = 'script';
