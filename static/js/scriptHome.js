@@ -95,6 +95,7 @@ function order_apply_setting($order) {
 function order_bind_action(expand) {
 	expand = expand || 0
 	$('#taskAccordion h3.newly_added')
+		.removeClass('newly_added')
 		.each(function(){
 			if(expand != 0) {
 				$(this).addClass('selected')
@@ -104,7 +105,6 @@ function order_bind_action(expand) {
 					.end().next().show();
 			}
 		})
-		.removeClass('newly_added')
 		.click(function(){
 			$(this).toggleClass('selected')
 				.next().slideToggle();
@@ -125,7 +125,6 @@ function order_bind_action(expand) {
 							if(data.errno == 0) {
 								$div.parent().replaceWith(data.html);
 								order_bind_action(1);
-//	TODO						flash order
 							}
 						}
 				}
@@ -350,11 +349,8 @@ $(function(){
 	});
 
 	order_bind_action();
-	
-	$('#taskAccordion > div.taskItem:first').each(function() {
-		order_apply_setting(this);
-	});
-	
+	order_apply_setting($('#taskAccordion > div.taskItem:first'));
+
 /*---------------------- LIGHTBOX ----------------------*/	
 	
 	$('div.storeItemInfo input[type="button"]').hover(function(){
