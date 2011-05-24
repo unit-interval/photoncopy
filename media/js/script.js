@@ -1,10 +1,12 @@
+/** rewrote notification into an object
+ *
 function addNotification(id, content){
 	$('#notification div.notificationContent:first').fadeOut('normal', function(){
 		$('#notificationCount').html(parseInt($('#notificationCount').html())+1);
 		$('#notification div.notificationContent:first').before($('#notification div.notificationContent:last').clone());
 		$('#notification div.notificationContent:first').hide();
 		$('#notification div.notificationContent:first span').html(content);
-		$('#notification div.notificationContent:first input[type="hidden"]').val(id);
+//		$('#notification div.notificationContent:first input[type="hidden"]').val(id);
 		$('#notification div.notificationContent').fadeIn('normal');
 	})
 	if ($('#notificationCount').html()=='1')
@@ -24,7 +26,7 @@ function removeNotification(){
 }
 
 function tryNotification(){
-	$('#notificationCount').html($('div#notification div.notificationContent').length-1);
+//	$('#notificationCount').html($('div#notification div.notificationContent').length-1);
 	$('#notificationClose').click(function(){
 		removeNotification();
 	})
@@ -33,6 +35,56 @@ function tryNotification(){
 		$('#dummyNotification').delay(500).slideDown('normal');
 		$('#notification').delay(750).fadeIn('normal');
 	}
+}
+ */
+
+var Notification = {
+	init: function(){
+		this.$slider = $('#dummyNotification');
+		this.$container = $('#notification');
+		this.$counter = $('#notificationCount', this.$container);
+		this.count = parseInt(this.$counter.html());
+		var Notif = this;
+		$('#notificationClose').click(function(){
+			Notif.dismiss();
+		});
+		if(this.count > 0)
+			this.show('slow');
+	},
+	add: function(html){
+		html = html || "Don't look at me. #" + this.count;
+		var $m = $('<div />').addClass('notificationContent').html(html);
+		this.$counter.html(++this.count);
+		if(this.count == 0){
+			$m.insertAfter(this.$counter);
+			this.show();
+		} else {
+			var $n = $('div.notificationContent:first', this.$container)
+			$m.hide().insertBefore($n).delay(400).fadeIn();
+			$n.fadeOut(400).fadeIn();
+		}
+	},
+	show: function(duration){
+		duration = duration || 'normal';
+		this.$slider.slideDown(duration);
+		this.$container.delay(250).fadeIn(duration);
+	},
+	hide: function(){
+		this.$slider.slideUp();
+		this.$container.fadeOut();
+	},
+	dismiss: function(){
+		var mid, $m = $('div.notificationContent:first', this.$container);
+		if(mid = parseInt($m.attr('data-id')))
+			this.markread(mid);
+		if(--this.count == 0)
+			this.hide();
+		this.$counter.html(this.count);
+		$m.remove();
+	},
+	markread: function(id){
+//		send ajax request to mark message as read.
+	},
 }
 
 function showLightbox(id){
@@ -69,5 +121,6 @@ function objectFlash(id, times){
 })(jQuery);
 
 $(function(){
-	tryNotification();
+	Notification.init();
+//	tryNotification();
 })
