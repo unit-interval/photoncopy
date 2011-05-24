@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/media/css/style.css"> 
 	<link rel="stylesheet" type="text/css" href="/media/css/activation.css"> 
 	<script type="text/javascript" src="/media/js/jquery-1.5.1.min.js"></script> 
-	<script type="text/javascript" src="/media/js/scriptHome.js"></script>
+	<script type="text/javascript" src="/media/js/pswStrength.js"></script>
 </head> 
 	<body id="user">
 		<div class="nav"> 
@@ -50,19 +50,19 @@
 							</tr>
 							<tr>
 								<th>用户名</th>
-								<td><input type="text" class="uiText2" name="userName"></td>
+								<td><input type="text" id='user_login' class="uiText2" name="userName"></td>
 							</tr>
 							<tr>
 								<th>设定密码</th>
-								<td><input type="password" class="uiText2" name="password1"></td>
+								<td><input type="password" id='pass1' class="uiText2" name="password1"></td>
 							</tr>
 							<tr>
 								<th>确认密码</th>
-								<td><input type="password" class="uiText2" name="password2"></td>
+								<td><input type="password" id='pass2' class="uiText2" name="password2"></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><input type="button" class="uiBtn3" value="激活帐户"></td>
+								<td><div id='pass-strength-result'>强度</div><input type="button" id='pass-confirm' class="uiBtn3" value="激活帐户"></td>
 							</tr>
 						</tbody>
 					</table>
