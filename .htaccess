@@ -3,4 +3,4 @@
 </FilesMatch>
 
 ## private error log
-php_value error_log /home/others/proj-pq/log/php-error.log
+php_value error_log ./tmp/php-error.log

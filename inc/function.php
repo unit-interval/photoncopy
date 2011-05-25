@@ -20,13 +20,13 @@ function sanitize_email($m) {
 	$m = strtolower($m);
 	return $m;
 }
-function text_defs($key, $all = false) {
+function text_defs($key = '') {
 	$t = array(
 		'order_action' => array(
-			0 => "订单处在队列中，您仍可以<a class='pointerCursor cancel-order'>撤销订单</a>",
+			0 => "订单处在队列中，您仍可以<a class='cancel-order'>撤销订单</a>",
 			1 => '订单已成功撤销',
 			2 => '文件正在打印中',
-			3 => "由于担保积分不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a href='#'>撤销订单</a>",
+			3 => "由于担保积分不足或订单要求不明确等原因，您需要到打印店自助打印，或者<a class='cancel-order'>撤销订单</a>",
 			4 => '文件已打印完成，请您前往打印店领取',
 			5 => '订单已完成，可前往积分页面查看积分变动历史',
 		),
@@ -39,13 +39,13 @@ function text_defs($key, $all = false) {
 			2 => '彩色',
 		),
 		'order_layout' => array(
-			1 => '1x1版',
-			2 => '2x1版',
-			3 => '2x2版',
-			4 => '2x3版',
-			5 => '2x4版',
-			6 => '3x3版',
-			7 => '3x4版',
+			1 => '1x1',
+			2 => '2x1',
+			3 => '2x2',
+			4 => '2x3',
+			5 => '2x4',
+			6 => '3x3',
+			7 => '3x4',
 		),
 		'order_misc' => array(
 			1 => '无装订',
@@ -82,37 +82,41 @@ function text_defs($key, $all = false) {
 		),
 		'order_status_par' => array(
 			0 => '新任務',
-			1 => false, //已撤銷
+			1 => '已撤銷',
 			2 => '已接受',
-			3 => false, //已拒絕
+			3 => '自助打印',
 			4 => '等待領取',
-			5 => false, //付款完成
+			5 => '已完成',
 		),
 		'store_region' => array(
 			0 => '北京大學',
 		),
 	);
-	return $all ? $t : $t[$key];
+	return ($key === '') ? $t : $t[$key];
 }
-function text_queue_action_par($st = -1, $id = 0) {
+function text_queue_action_par($st = 0) {
 	$support = array(
-		0 => array(0, 1),
-		2 => array(2),
-		4 => array(3),
+		0 => array(2, 3),
+		2 => array(4),
+		3 => array(5),
+		4 => array(5),
 	);
-	if($id === 0)
-		return ($st === -1) ? $support : $support[$st];
-	$actions = array(
-		0 => "接受",
-		1 => "拒絕",
-		2 => '完成任務',
-		3 => '結帳付款',
+	if($st === 0)
+		return $support;
+	$action = array(
+		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
+		1 => "订单已被用户撤销，撤销的订单将保留一天.",
+		2 => "<input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成訂單' /> 並通知用戶前來領取.",
+		3 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
+		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
+		5 => "订单已完成，完成的订单将保留一天.",
 	);
-	$html = '';
-	foreach($support[$st] as $a) {
-		$html .= "<a>" . $actions[$a] . "</a><input type='hidden' name='act' value='$a' /> / ";
-	}
-	$html = substr($html, 0, -3);
+	if($st == 4 || $st ==3)
+		$form = "
+			    					<tr><th>应收金额</th><td><input type='text' class='uiText2' placeholder='请输入应收金额' name='cost' /> 元</td></tr>
+			    					<tr><th>实收金额</th><td><input type='text' class='uiText2' placeholder='请输入实收金额' name='paid' /> 元</td></tr>";
+	$html = $form . "
+			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
 function to_status_par($act = -1) {

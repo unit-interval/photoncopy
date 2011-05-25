@@ -328,7 +328,7 @@ function page_home($orders, $stores) {
 				<div class='panel0 taskQueueR'>
 					<h2>订单列表</h2>
 					<div id='taskAccordion'>"
-					. mod_order_queue($orders) . "
+					. mod_order_queue($orders, $stores) . "
 					</div>
 					<div class='lbCorner rbCorner taskAccordionBottom'></div>
 				</div>
@@ -442,7 +442,7 @@ function page_nav($body_id = 'main') {
 			. mod_nav_account($body_id) . '
 		</div>';
 }
-function page_par_home($orders) {
+function page_par_home($orders, $users) {
 	$t1 = text_defs('store_region');
 	echo "
 		<div class='lightbox'>
@@ -461,7 +461,7 @@ function page_par_home($orders) {
 					<div id='storeStatus'>
 						<div id='storeCtrl'>
 							<div id='storeAvatar'>
-							<img width='100%' height='100%' src='/media/images/store/storeAvatar1" . ".jpg' alt='Store Avatar'/>
+							<img width='100%' height='100%' src='/media/images/store/storeAvatar{$_SESSION['pid']}.jpg' alt='Store Avatar'/>
 							</div>
 							<input class='uiBtn1' type='button' id='storeLock' value='锁屏幕'/>
 						</div>
@@ -491,9 +491,9 @@ function page_par_home($orders) {
 						<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
 					</div>
 					<div class='panel1 taskQueueR'>
-						<h2>订单列表</h2>
+						<h2>订单队列</h2>
 						<div id='taskAccordion'>"
-							. mod_order_queue_proc($orders) .
+							. mod_order_queue_par($orders, $users) .
 						"</div>
 						<div class='lbCorner rbCorner taskAccordionBottom'> </div>
 					</div>
