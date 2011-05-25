@@ -288,31 +288,29 @@ function page_home($orders, $stores) {
 				<div class='w8content'>
 					<div class='editForm lbCorner'>
 						<h3>打印店</h3>
-						<h4 id='w2Edit'>北京大学25楼打印店</h4>
+						<h4 id='w2Edit'></h4>
 					</div>
 					<div class='editForm'>
 						<h3>纸张</h3>
-						<h4 id='w3Edit1'>A4纸</h4>
+						<h4 id='w3Edit1'></h4>
 						<h3>油墨</h3>
-						<h4 id='w3Edit2'>黑白打印</h4>
+						<h4 id='w3Edit2'></h4>
 					</div>
 					<div class='editForm'>
 						<h3>环保选项</h3>
-						<h4 id='w4Edit'>双面打印</h4>
+						<h4 id='w4Edit'></h4>
 					</div>
 					<div class='editForm'>
 						<h3>版式缩放</h3>
-						<h4 id='w5Edit'>1版</h4>
+						<h4 id='w5Edit'></h4>
 					</div>
 					<div class='editForm'>
-						<h3>页数估计</h3>
-						<h4 id='w6Edit1'>页数很少</h4>
 						<h3>打印份数</h3>
-						<h4 id='w6Edit2'>打印6份</h4>
+						<h4 id='w6Edit'></h4>
 					</div>
 					<div class='editForm'>
 						<h3>附加服务</h3>
-						<h4 id='w7Edit'>添加封面</h4>
+						<h4 id='w7Edit'></h4>
 					</div>
 					<div class='confirmForm rbCorner'>
 						<h3>客户留言</h3>
