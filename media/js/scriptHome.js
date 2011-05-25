@@ -11,7 +11,7 @@ function refreshW8(){
 	if ($('#w4Form').val()!='') $('#w4Edit').html(order_option_text.back[$('#w4Form').val()]);
 	if ($('#w5Form').val()!='') $('#w5Edit').html(order_option_text.layout[$('#w5Form').val()]);
 	if ($('#w6Form').val()!='') $('#w6Edit').html($('#w6Form').val()+'份');
-	if ($('#w7Form').val()!='') $('#w6Edit').html(order_option_text.misc[$('#w7Form').val()]);
+	if ($('#w7Form').val()!='') $('#w7Edit').html(order_option_text.misc[$('#w7Form').val()]);
 }
 
 function showMore(n){
