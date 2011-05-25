@@ -41,16 +41,17 @@ $result->free();
 
 $return = array();
 
-if($order['status'] != '0') {
-	$return['errno'] = (($order['status'] == '1') ? 4 : 5);
-} else {
+if($order['status'] == '0' || $order['status'] == '3') {
 	$query = "update `order` set `status` = 1 where `id` = $oid";
 	if($db->query($query) !== true)
 		die(json_encode(array('errno' => 6,)));
 	$order['status'] = 1;
 	$return['errno'] = 0;
+} else {
+	$return['errno'] = (($order['status'] == '1') ? 4 : 5);
 }
 
+//	TODO store name & region
 $return['html'] = unit_order($order);
 echo json_encode($return);
 

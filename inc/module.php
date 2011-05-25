@@ -155,30 +155,20 @@ function mod_notif() {
 		</div>";
 	return $html;
 }
-function mod_order_queue($orders) {
+function mod_order_queue($orders, $stores) {
 	$html = '';
-	foreach($orders as $o)
-		$html .= unit_order($o);
+	foreach($orders as $o) {
+		$s = $stores[$o['pid']];
+		$html .= unit_order($o, $s);
+	}
 	return $html;
 }
-function mod_order_queue_proc($orders) {
-	$th = "
-						<tr>
-							<th width='50px'>编号</th>
-							<th width='50px'>类型</th>
-							<th width='200px'>要求</th>
-							<th>留言</th>
-							<th width='50px'>下载</th>
-							<th width='50px'>状态</th>
-							<th width='50px'>操作</th>
-						</tr>";
-	$html = "
-					<thead>$th
-					</thead><tfoot>$th
-					</tfoot><tbody id='order_list'>";
-	foreach ($orders as $o)
-		$html .= unit_order_par($o);
-	$html .= "</tbody>";
+function mod_order_queue_par($orders, $users) {
+	$html = "";
+	foreach ($orders as $o) {
+		$u = $users[$o['uid']];
+		$html .= unit_order_par($o, $u);
+	}
 	return $html;
 }
 function mod_store_sel($stores) {
@@ -253,19 +243,19 @@ function mod_tasks($tasks, $stores) {
 		";
 	return $html;
 }
-function unit_order($order) {
-	$t = text_defs('', true);
+function unit_order($order, $store) {
+	$t = text_defs();
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
 	$flink = ($order['flink'] === '-') ? $order['fname'] : "<a href='/upload/{$order['flink']}' target='_blank'>{$order['fname']}</a>";
 	$html = "
-						<div class='taskItem $class'>
-							<h3 class='newly_added'>{$order['fname']} @ {$order['ptext']}<span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+						<div class='taskItem$class'>
+							<h3 class='newly_added'>{$order['fname']} @ {$store['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
-		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'>{$order['ptext']}</span></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'>{$t['store_region'][$store['region']]} {$store['name']}</span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]} {$t['order_color'][$order['color']]} {$t['order_back'][$order['back']]} {$t['order_layout'][$order['layout']]} {$t['order_page'][$order['page']]} {$order['copy']} {$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
@@ -281,34 +271,40 @@ function unit_order($order) {
 								<input type='hidden' name='copy' value='{$order['copy']}' />
 								<input type='hidden' name='misc' value='{$order['misc']}' />
 								<input type='hidden' name='fname' value='{$order['fname']}' />
-								<input type='hidden' name='ptext' value='{$order['ptext']}' />
 		    				</div>
 	    				</div>";
 	return $html;
 }
-function unit_order_par($order) {
-	$t1 = text_defs('order_type');
-	$t2 = text_defs('order_paper');
-	$t3 = text_defs('order_double');
-	$t4 = text_defs('order_status_par');
-	if(!$t4[$order['status']])
-		return '';
-	if($order['fname'] == '-')
-	$link = '過期';
+function unit_order_par($order, $user) {
+	$t1 = text_defs('order_action');
+	$t2 = text_defs('order_back');
+	$t3 = text_defs('order_color');
+	$t4 = text_defs('order_layout');
+	$t5 = text_defs('order_misc');
+	$t6 = text_defs('order_paper');
+	$t7 = text_defs('order_status_par');
+	if($order['flink'] == '-')
+		$link = '過期';
 	else
-	$link = "<a target='_blank' href='/upload/" . rawurlencode($order['fname']) . "'>{$order['copy']}份</a>";
+		$link = "<a target='_blank' href='/upload/" . rawurlencode($order['flink']) . "'>{$order['fname']}</a>";
+	$credit = ($_SESSION['credit'][$user['id']] ? $_SESSION['credit'][$user['id']] : 0);
 	$html = "
-					<tr class='newly_added'>
-						<td>{$order['id']}</td>
-						<td>{$order['pid']}/{$t1[$order['type']]}</td>
-						<td>{$t2[$order['paper']]} {$t3[$order['double']]} {$order['page']}頁</td>
-						<td>{$order['note']}</td>
-						<td>$link</td>
-						<td>{$t4[$order['status']]}</td>
-						<td>".text_queue_action_par($order['status'],$order['id'])."</td>
-						<input type='hidden' name='oid' value={$order['id']} />
-					</tr>
-	";
+							<div class='taskItem newly_added' data-id='{$order['id']}'>
+								<h3>#{$order['id']} {$order['fname']} @ ({$order['uid']}) {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
+								<div class='taskDetail'>
+			    				<table>
+			    					<tbody><tr><th>订单编号</th><td>{$order['id']}</td></tr>
+			    					<tr><th>打印文件</th><td>$link</td></tr>
+			    					<tr><th>用户编号</th><td>{$order['uid']}</td></tr>
+			    					<tr><th>用户名</th><td>{$user['name']}</td></tr>
+			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}纸 {$t3[$order['color']]}打印 {$t2[$order['back']]}打印 {$t4[$order['layout']]}版 {$order['copy']}份 {$t5[$order['misc']]}</td></tr>
+			    					<tr><th>客户留言</th><td>{$order['note']}</td></tr>
+			    					<tr><th>客户余额</th><td>$credit</td></tr>
+			    					<tr><th>客户信用</th><td>{$user['credit']}</td></tr>"
+									. text_queue_action_par($order['status']) . "
+			    				</tbody></table>
+			    				</div>
+		    				</div>";
 	return $html;
 }
 

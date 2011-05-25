@@ -58,16 +58,16 @@ if(!($order = verify_order_form())) {
 if(!($_fname = move_tmp_file($order['fid'], $order['_fname'])))
 	die(json_encode(array('errno' => 1,)));
 
-$query = "select `region`, `name` from `partner` where `id` = {$order['pid']}";
-$result = $db->query($query);
-if($result->num_rows == 0) {
-	header('HTTP/1.0 400 Bad Request');
-	die;
-}
-$row = $result->fetch_assoc();
-$result->free();
-$regions = text_defs('store_region');
-$order['ptext'] = $regions[$row['region']] . $row['name'];
+//$query = "select `region`, `name` from `partner` where `id` = {$order['pid']}";
+//$result = $db->query($query);
+//if($result->num_rows == 0) {
+//	header('HTTP/1.0 400 Bad Request');
+//	die;
+//}
+//$row = $result->fetch_assoc();
+//$result->free();
+//$regions = text_defs('store_region');
+//$order['ptext'] = $regions[$row['region']] . $row['name'];
 
 $query = "insert into `order` values (default,"
 	. $_SESSION['uid'] . ','
@@ -77,14 +77,17 @@ $query = "insert into `order` values (default,"
 	. $order['color'] . ','
 	. $order['back'] . ','
 	. $order['layout'] . ','
-	. $order['page'] . ','
+	. '0, '
 	. $order['copy'] . ','
 	. $order['misc'] . ','
 	. '0, '
 	. '0, '
 	. "'" . $db->real_escape_string($order['_fname']) . "',"
 	. "'" . $db->real_escape_string($_fname) . "',"
-	. "'" . $order['ptext'] . "',"
+	. 'default, '
+	. 'default, '
+	. 'default, '
+	. 'default, '
 	. "'" . $db->real_escape_string($order['_note']) . "')";
 if($db->query($query) !== TRUE)
 	die(json_encode(array('errno' => 2,)));
