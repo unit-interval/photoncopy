@@ -306,8 +306,8 @@ $(function(){
 	
 	// click on w8 item
 	$('#w8ConfirmBtn').click(function(){
-		$('#w8Form').val($('#w8Edit').val());
-		$('#w9Form').val(parseInt($('#credit0').html())-parseInt($('#credit1').html()));
+		if ($('#w8Edit').val()=='') $('#w8Form').val('无');
+		else $('#w8Form').val($('#w8Edit').val());
 		order_submit();
 	});
 				
