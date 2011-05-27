@@ -123,7 +123,6 @@ function order_bind_action(expand) {
 							if(data.errno == 0) {
 								$div.parent().replaceWith(data.html);
 								order_bind_action(1);
-//	TODO						we need to bind action to storeInfo in taskDetail
 							}
 						}
 				}
@@ -356,12 +355,6 @@ $(function(){
 		storeItemInfoHover = 1;
 	}, function(){
 		storeItemInfoHover = 0;
-	});
-	
-	$('div.storeItemInfo input[type="button"]').click(function(){
-		var storeId=$('div.storeId', $(this).parent()).html();
-		changeStoreInLightbox(storeId);
-		showLightbox('div.panel.board');
 	});
 	
 	$('div.taskDetail').each(function(){
