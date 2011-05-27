@@ -136,7 +136,7 @@ function order_bind_action(expand) {
 			});
 		})
 		.end().find('span.showStoreInLightbox').click(function(){
-			var storeId = this.parents('div.taskDetail').data('pid');
+			var storeId = $(this).parents('div.taskDetail').data('pid');
 			changeStoreInLightbox(storeId);
 			showLightbox('div.panel.board');
 		});
