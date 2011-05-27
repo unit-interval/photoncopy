@@ -649,6 +649,8 @@ input#taskSearch:-moz-placeholder{
 	vertical-align: top;
 	font-weight: normal;
 	word-wrap: break-word;
+	width: 500px;
+	display: block;
 }
 
 .taskStatus{
