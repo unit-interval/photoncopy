@@ -68,10 +68,6 @@ ul.slideshow{
 	width: 100%;
 }
 
-#main ul.slideshow{
-	border-bottom: 3px solid #494573;
-}
-
 ul.slideshow li{
 	height: 100%;
 	float: left;
@@ -115,5 +111,5 @@ div.slidePhotoWrapper a:hover{
 .slideshowCtrl{
 	width: 200px;
 	padding: 5px 20px;
-	margin: auto;
+	margin: 40px auto;
 }
