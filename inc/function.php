@@ -14,14 +14,15 @@ function json_encode_mb($ob, $options = 0) {
 // TODO following code not working
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
-function order_status_map($st = -1) {
+function order_status_map($st = '') {
 	$support = array(
 		0 => array(2, 3),
 		2 => array(4),
 		3 => array(5),
 		4 => array(5),
+		'require_form' => array(3, 4),
 	);
-	return (($st === -1) ? $support : $support[$st]);
+	return (($st === '') ? $support : $support[$st]);
 }
 function print_re($v) {
 	echo "<pre>\n";
