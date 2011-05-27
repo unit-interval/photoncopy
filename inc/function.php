@@ -14,6 +14,15 @@ function json_encode_mb($ob, $options = 0) {
 // TODO following code not working
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
+function order_status_map($st = -1) {
+	$support = array(
+		0 => array(2, 3),
+		2 => array(4),
+		3 => array(5),
+		4 => array(5),
+	);
+	return (($st === -1) ? $support : $support[$st]);
+}
 function print_re($v) {
 	echo "<pre>\n";
 	var_dump($v);
@@ -98,31 +107,6 @@ function text_defs($key = '') {
 		),
 	);
 	return ($key === '') ? $t : $t[$key];
-}
-function text_queue_action_par($st = 0) {
-	$support = array(
-		0 => array(2, 3),
-		2 => array(4),
-		3 => array(5),
-		4 => array(5),
-	);
-	if($st === 0)
-		return $support;
-	$action = array(
-		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
-		1 => "订单已被用户撤销，撤销的订单将保留一天.",
-		2 => "<input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成訂單' /> 並通知用戶前來領取.",
-		3 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		5 => "订单已完成，完成的订单将保留一天.",
-	);
-	if($st == 4 || $st ==3)
-		$form = "
-			    					<tr><th>应收金额</th><td><input type='text' class='uiText2' placeholder='请输入应收金额' name='cost' /> 元</td></tr>
-			    					<tr><th>实收金额</th><td><input type='text' class='uiText2' placeholder='请输入实收金额' name='paid' /> 元</td></tr>";
-	$html = $form . "
-			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
-	return $html;
 }
 function to_status_par($act = -1) {
 	$to = array(

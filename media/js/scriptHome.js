@@ -93,7 +93,7 @@ function order_apply_setting($order) {
 	});
 }
 function order_bind_action(expand) {
-	expand = expand || 0
+	expand = expand || 0;
 	$('#taskAccordion h3.newly_added')
 		.removeClass('newly_added')
 		.each(function(){
@@ -113,8 +113,6 @@ function order_bind_action(expand) {
 			$('span.newly_added', this).each(function(){
 				$(this).html(store[$(this).data('name')]);
 			});
-			
-
 		}).end()
 		.next().find('a.cancel-order').click(function(){
 			var $div = $(this).closest('div.taskDetail');
@@ -132,7 +130,6 @@ function order_bind_action(expand) {
 							if(data.errno == 0) {
 								$div.parent().replaceWith(data.html);
 								order_bind_action(1);
-//	TODO						we need to bind action to storeInfo in taskDetail
 							}
 						}
 				}
