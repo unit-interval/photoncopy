@@ -176,7 +176,7 @@ function mod_store_sel($stores) {
 	$html_l = '';
 	$html_r = '';
 	foreach($stores as $s) {
-		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']]/100 : 0);
+		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] / 10 : 0);
 		$html = "
 						<div class='w2item'> 
 							<div class='storeItemAvatar'> 
@@ -242,7 +242,6 @@ function mod_tasks($tasks, $stores) {
 		";
 	return $html;
 }
-
 function submod_order_action($st) {
 	$action = array(
 		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
@@ -260,8 +259,6 @@ function submod_order_action($st) {
 			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
-	
-
 function submod_order_action_par($st) {
 	$action = array(
 		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
