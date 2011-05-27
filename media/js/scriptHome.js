@@ -1,6 +1,6 @@
 var storeItemInfoHover=0;
 var peekEnable=0;
-var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
+//var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
 /* ---------- SHOW MORE ---------- */
 
@@ -413,11 +413,10 @@ var UP = {
 	start: function(){
 //		check former upload.
 		this.filename = $('#formFile input[name="file"]').val();
-		this.id = makeid();
-//		this.last_response = [];
+		this.id = this.makeid();
 		$('#formFile input[name="UPLOAD_IDENTIFIER"]').val(this.id);
 		var $bar = $('#status');
-		$('span:first', $bar).html(basename(this.filename).substr(0,30));
+		$('span:first', $bar).html(this.basename(this.filename).substr(0,30));
 		$('div > div', $bar).width('0px');
 		$bar.slideDown();
 		$('#formFile').submit();
@@ -438,10 +437,8 @@ var UP = {
 			dataType: 'json',
 			success: function(data){
 				t.ajax = false;
-//				var result = $.parseJSON(data);
 				if(data.id == 0) return;
 				$('#status > div > div').width(data.percentage + 'px');
-//				t.last_response.push(data);
 			},
 		});
 	},
@@ -460,17 +457,16 @@ var UP = {
 		$('#formOrder input[name="fname"]').val(name);
 		$('#w8ConfirmBtn').removeAttr('disabled').val('提交');
 	},
-
-}
-function basename(path) {
-	return path.replace(/\\/g, '/').replace(/.*\//, '');
-}
-function makeid() {
-    var id = '';
-    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < 8; i++ )
-        id += charset.charAt(Math.floor(Math.random() * charset.length));
-    return id;
+	basename: function(path) {
+		return path.replace(/\\/g, '/').replace(/.*\//, '');
+	},
+	makeid: function() {
+		var id = '';
+		var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for( var i=0; i < 8; i++ )
+			id += charset.charAt(Math.floor(Math.random() * charset.length));
+		return id;
+	},
 }
 function order_form_reset() {
 	peekEnable=0;

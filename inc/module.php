@@ -155,10 +155,9 @@ function mod_notif() {
 		</div>";
 	return $html;
 }
-function mod_order_queue($orders, $stores) {
+function mod_order_queue($orders) {
 	$html = '';
 	foreach($orders as $o) {
-		$s = $stores[$o['pid']];
 		$html .= unit_order($o, $s);
 	}
 	return $html;
@@ -243,19 +242,19 @@ function mod_tasks($tasks, $stores) {
 		";
 	return $html;
 }
-function unit_order($order, $store) {
+function unit_order($order) {
 	$t = text_defs();
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
 	$flink = ($order['flink'] === '-') ? $order['fname'] : "<a href='/upload/{$order['flink']}' target='_blank'>{$order['fname']}</a>";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>{$order['fname']} @ {$store['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
-							<div class='taskDetail'>
+							<h3 class='newly_added'>{$order['fname']} @ <span class='newly_added' data-name='name' data-value='{$order['pid']}'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='{$order['fname']}'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
-		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'>{$t['store_region'][$store['region']]} {$store['name']}</span></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region' data-value='{$order['pid']}'></span> <span class='newly_added' data-name='name' data-value='{$order['pid']}'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}纸 {$t['order_color'][$order['color']]}{$t['order_back'][$order['back']]}打印 {$t['order_layout'][$order['layout']]}版/页 {$order['copy']}份 {$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
@@ -267,7 +266,6 @@ function unit_order($order, $store) {
 								<input type='hidden' name='color' value='{$order['color']}' />
 								<input type='hidden' name='back' value='{$order['back']}' />
 								<input type='hidden' name='layout' value='{$order['layout']}' />
-								<input type='hidden' name='page' value='{$order['page']}' />
 								<input type='hidden' name='copy' value='{$order['copy']}' />
 								<input type='hidden' name='misc' value='{$order['misc']}' />
 								<input type='hidden' name='fname' value='{$order['fname']}' />
