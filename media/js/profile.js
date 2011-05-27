@@ -1,9 +1,9 @@
-function showPage(page){
-	if (page=='') page='#1';
-	var pageNo=page[1];
-	$('.profileR').fadeOut(250);
-	var pageDict=['','#accountSetting', '#creditCenter'];
-	$(pageDict[pageNo]).delay(250).fadeIn(250);
+function showPage(pageNo, duration){
+	if (pageNo=='') pageNo='0';
+	if ($('#profile-'+pageNo).css('display')=='none'){
+		$('.profileR').fadeOut(duration);
+		$('#profile-'+pageNo).delay(duration).fadeIn(duration);
+	}
 }
 
 function showTaskDetail(taskNo){
@@ -12,9 +12,8 @@ function showTaskDetail(taskNo){
 }
 
 $(function(){
-	showPage(location.hash);
-	
-	$('div.profileL a').click(function(){
-		showPage($(this).attr('href'));
+	showPage(location.hash.slice(1), 0);
+	$('div.profileL > ul > li').click(function(){
+		showPage($(this).data('hash'), 100);
 	})
 })
