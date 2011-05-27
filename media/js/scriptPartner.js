@@ -14,7 +14,7 @@ $(document).ready(function(){
 		showLightbox("#lockMask");
 	})
 	
-	$('input[name="phrase"]', $('#lockMask')).keyup(function(){
+	$('#lockMask input[name="phrase"]').keyup(function(){
 		if($(this).val() == $(this).next().val()){
 			$(this).val('');
 			hideLightbox();
@@ -22,14 +22,8 @@ $(document).ready(function(){
 	});
 
 	$('h3', 'div.taskItem').click(function(){
-		if ($(this).hasClass('selected')){
-			$(this).removeClass('selected');
-			$('div.taskDetail', $(this).parent()).slideUp(250);
-		}
-		else{
-			$(this).addClass('selected');
-			$('div.taskDetail', $(this).parent()).slideDown(250);
-		}
+		$(this).toggleClass('selected')
+			.next().slideToggle();
 	});
 	
 	$('span.msgClose').click(function(){
