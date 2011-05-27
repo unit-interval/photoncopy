@@ -378,7 +378,7 @@ function page_index() {
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='button' value='注册'>
+					<input class='uiBtn submit' type='submit' value='注册'>
 			</fieldset></form></div>
 			<div id='forget' class='panel'>
 				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
@@ -387,7 +387,7 @@ function page_index() {
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText' value='{$_COOKIE['email']}' />
 					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='button' value='取回密码'>
+					<input class='uiBtn submit' type='submit' value='取回密码'>
 			</fieldset></form></div>
 			<div id='dummyLightbox'></div>
 		</div>

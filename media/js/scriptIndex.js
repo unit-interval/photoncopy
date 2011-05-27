@@ -16,9 +16,9 @@ $(document).ready(function(){
 			showLightbox('#forget')
 		});
 	});
-	$('#signup input[type="button"]').click(function(){
-		hideLightbox();
+	$('#signup input[type="button"]').parents('form').submit(function(){
 //		TODO validate email
+		hideLightbox();
 		$.ajax({
 			type: "post",
 			url: "/xhr/auth-signup.php",
@@ -38,11 +38,12 @@ $(document).ready(function(){
 					 },
 			},
 		});
+		return false;
 	});
 	$('input[name="noteBtn"]').click(function(){
 		Notification.add($('input[name="note"]').val());
 	})
-	$('#forget input[type="button"]').click(function(){
+	$('#forget input[type="button"]').parents('form').submit(function(){
 		hideLightbox();
 //		TODO validate email
 		$.ajax({
@@ -64,5 +65,6 @@ $(document).ready(function(){
 					 },
 			},
 		});
+		return false;
 	});
 })
