@@ -16,7 +16,7 @@ $(document).ready(function(){
 			showLightbox('#forget')
 		});
 	});
-	$('#signup input[type="button"]').parents('form').submit(function(){
+	$('#signup input[type="submit"]').parents('form').submit(function(){
 //		TODO validate email
 		hideLightbox();
 		$.ajax({
@@ -40,10 +40,8 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-	$('input[name="noteBtn"]').click(function(){
-		Notification.add($('input[name="note"]').val());
-	})
-	$('#forget input[type="button"]').parents('form').submit(function(){
+
+	$('#forget input[type="submit"]').parents('form').submit(function(){
 		hideLightbox();
 //		TODO validate email
 		$.ajax({
