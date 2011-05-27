@@ -134,6 +134,11 @@ function order_bind_action(expand) {
 						}
 				}
 			});
+		})
+		.end().find('span.showStoreInLightbox').click(function(){
+			var storeId = this.parents('div.taskDetail').data('pid');
+			changeStoreInLightbox(storeId);
+			showLightbox('div.panel.board');
 		});
 }
 
@@ -364,13 +369,10 @@ $(function(){
 		storeItemInfoHover = 0;
 	});
 	
-	$('div.taskDetail').each(function(){
-		var task=this;
-		$('span.showStoreInLightbox', task).click(function(){
-			var storeId=$('input[name="pid"]', task).val();
-			changeStoreInLightbox(storeId);
-			showLightbox('div.panel.board');
-		});
+	$('div.storeItemInfo input[type="button"]').click(function(){
+		var storeId=$('div.storeId', $(this).parent()).html();
+		changeStoreInLightbox(storeId);
+		showLightbox('div.panel.board');
 	});
 	
 	$('ul.storeNav li').click(function(){
