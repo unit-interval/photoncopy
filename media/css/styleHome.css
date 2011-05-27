@@ -194,9 +194,12 @@
 form#formFile{
 	width: 300px;
 	height: 80px;
-	background: #292929;
-	border: 2px dashed #202020;
-	margin: auto;
+	border: 2px solid #232323;
+	margin: 50px auto;
+}
+
+form#formFile:hover{
+	background: #232323;
 }
 
 input[type='file']{
@@ -504,7 +507,7 @@ input.uiBtn1{
 	float: left;
 	width: 80px;
 	text-align: center;
-	padding: 20px;
+	padding: 20px 20px;
 	border-right: 4px solid #232323;
 	height: 230px;
 }
@@ -512,6 +515,10 @@ input.uiBtn1{
 .confirmForm{
 	width: 136px;
 	border-right-width: 0px;
+}
+
+.confirmForm.active{
+	background: #232323;
 }
 
 .editForm:hover{
@@ -524,8 +531,8 @@ input.uiBtn1{
 }
 
 #w8 h3{
-	color: #8D79F2;
-	font-size: 18px;
+	color: #C9C3E6;
+	font-size: 14px;
 	font-weight: normal;
 	margin: 0 0 14px 0;
 	display: block;
@@ -540,17 +547,14 @@ input.uiBtn1{
 }
 
 #w8Edit{
-	width: 126px;
-	min-width: 126px;
-	max-width: 126px;
-	background: #292929;
-	border: 2px dashed #202020;
+	margin: auto;
+	width: 110px;
+	min-width: 110px;
+	max-width: 110px;
 	height: 140px;
-	min-height: 126px;
-	max-height: 126px;
+	min-height: 140px;
+	max-height: 140px;
 	overflow: hidden;
-	color: #DDD;
-	font-size: 12px;
 }
 
 #w8ConfirmBtn{

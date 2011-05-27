@@ -536,13 +536,6 @@ input.uiText2, textarea.uiText2{
 
 /*------------------------ uiTextarea ------------------------*/
 
-textarea{
-	border: 1px solid #BDC7D8;
-	padding-top: 4px;
-	padding-left: 4px;
-	width: 100%;
-}
-
 textarea.uiTextarea{
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -551,6 +544,17 @@ textarea.uiTextarea{
 	color: #CFF0FF;
 	line-height: 150%
 }
+
+textarea.uiTextarea1{ 
+	font-size: 12px; 
+	padding: 7px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+	background-color: #c9c3e6; 
+	border: none; 
+	width: auto; 
+}
+
 
 /*------------------------ uiSelect ------------------------*/
 

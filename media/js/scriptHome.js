@@ -303,6 +303,12 @@ $(function(){
 	}, function(){
 		$('#btn'+$('h4', this).attr('id')[1]).removeClass('hover');
 	});
+	$('#w8Edit').focus(function(){
+		$(this).parent().addClass('active');
+	})
+	$('#w8Edit').blur(function(){
+		$(this).parent().removeClass('active');
+	})
 	
 	// click on w8 item
 	$('#w8ConfirmBtn').click(function(){
