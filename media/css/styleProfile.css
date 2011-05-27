@@ -101,7 +101,7 @@
 }
 
 .profileSection{
-	margin-bottom: 9px;
+	margin-bottom: 12px;
 }
 
 table.formTable th{
@@ -135,6 +135,18 @@ table.formTable th{
 
 #creditCenter th{
 	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+#creditCenter td{
+	padding: 0 0 4px 0;
+	vertical-align: middle;
+}
+
+#creditCenter td a{
+	color: #3772AC;
+	font-weight: bold;
 }
 
 input.uiText2{
