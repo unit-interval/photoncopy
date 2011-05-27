@@ -397,19 +397,17 @@ function page_index() {
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
 						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
-						<a href='tutorial'>了解更多</a>
-					</div>
+						<a href='tutorial'>了解更多</a>";
+						if($_SESSION['logged_in'] != true)
+						echo "
+						<div class='slideshowCtrl'>
+							<input type='button' class='uiBtn2' id='signupBtn' value='免费注册'/>
+							<div class='clear'></div>
+						</div>";
+					echo 
+					"</div>
 				</li>
-			</ul>";
-	if($_SESSION['logged_in'] != true)
-		echo "
-			<div class='content'>
-				<div class='slideshowCtrl'>
-					<input type='button' class='uiBtn2' id='signupBtn' value='免费注册'/>
-					<div class='clear'></div>
-				</div>
-			</div>";
-	echo "
+			</ul>
 		</div>";
 }
 function page_meta() {
