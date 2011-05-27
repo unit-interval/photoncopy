@@ -565,6 +565,7 @@ function page_profile() {
 					帐户中心
 				</div>
 				<ul>
+					<li data-hash='0'>帐户概要</li>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
 					<li data-hash='1-3'>认证中心</li>
@@ -585,7 +586,7 @@ function page_profile() {
 				</ul>
 			</div>
 			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>User1的帐户</div>
+				<div class='profileHeader'>帐户概要</div>
 				<div class='profileContent'>
 					<div class='profileSection'>
 						<h2>徽章架</h2>
