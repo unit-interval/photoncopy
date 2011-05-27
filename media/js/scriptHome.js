@@ -5,7 +5,7 @@ var peekEnable=0;
 /* ---------- SHOW MORE ---------- */
 
 function refreshW8(){
-	if ($('#w2Form').val()!='') $('#w2Edit').html(Vault.store[$('#w2Form').val()]);
+	if ($('#w2Form').val()!='') $('#w2Edit').html(Vault.stores[$('#w2Form').val()].name);
 	if ($('#w3Form1').val()!='') $('#w3Edit1').html(order_option_text.paper[$('#w3Form1').val()]);
 	if ($('#w3Form2').val()!='') $('#w3Edit2').html(order_option_text.color[$('#w3Form2').val()]);
 	if ($('#w4Form').val()!='') $('#w4Edit').html(order_option_text.back[$('#w4Form').val()]);
