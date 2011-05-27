@@ -565,9 +565,6 @@ function page_profile() {
 					帐户设置
 				</a>
 				<a href='#2' class='profileType'>
-					任务中心
-				</a>
-				<a class='profileType' href='#3'>
 					徽章中心
 				</a>
 			</div>
@@ -582,11 +579,11 @@ function page_profile() {
 						<tbody>
 							<tr>
 								<th>用户名</th>
-								<td><input type='text' class='uiText2' name='userName' value='{$_SESSION['name']}' /></td>
+								<td><input type='text' class='uiText2' name='userName' value='user1' /></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><input type='button' class='uiBtn3' value='保存设置'  disabled='disabled' /></td>
+								<td><input type='button' class='uiBtn3' value='保存设置'></td>
 							</tr>
 						</tbody>
 					</table>
@@ -597,34 +594,44 @@ function page_profile() {
 						<tbody>
 							<tr>
 								<th>邮箱</th>
-								<td><input type='text' class='uiText2' value='{$_SESSION['email']}' disabled='disabled' /></td>
+								<td><input type='text' class='uiText2' value='user1@abc.com' disabled='disabled'/></td>
 							</tr>
 							<tr>
 								<th>修改密码</th>
-								<td><input type='password' class='uiText2' name='password1' /></td>
+								<td><input type='password' class='uiText2' name='password1'/></td>
 							</tr>
 							<tr>
 								<th>确认密码</th>
-								<td><input type='password' class='uiText2' name='password2' /></td>
+								<td><input type='password' class='uiText2' name='password2'/></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><input type='button' class='uiBtn3' value='修改设置' disabled='disabled' /></td>
+								<td><input type='button' class='uiBtn3' value='修改设置'></td>
 							</tr>
 						</tbody>
 					</table>
 					</div>
-				</div>
-			</div>
-			<div class='profileR' id='taskCenter'>
-				<div class='profileHeader'>任务中心</div>
-				<div class='profileContent'>
 					<div class='profileSection'>
-					<p>用户可以通过完成不同的任务获得徽章并累计信用。部分任务为隐藏任务，完成后系统将自动通知您激活奖励。</p>
-					<div class='badge pointerCursor'><span class='badge1'></span><input type='hidden' name='taskNo' value='1' />献计献策</div>
-					<div class='badge pointerCursor'><span class='badge3'></span><input type='hidden' name='taskNo' value='2' />大学校</div>
-					</div>
-					<div id='taskDetail'>
+					<h2>教育邮箱认证</h2>					
+					<table class='formTable'>
+						<tbody>
+							<tr>
+								<th>教育邮箱</th>
+								<td><input type='text' class='uiText2' name='email'/> @ <select class='uiSelect' name='university'><option value='@pku.edu.cn'>pku.edu.cn (北京大学)</option></select></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><input type='button' class='uiBtn3' value='获取验证码'/></td></tr>
+							<tr>
+								<th>验证码</th>
+								<td><input type='text' class='uiText2' name='email'/></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><input type='button' class='uiBtn3' value='验证教育邮箱'/></td>
+							</tr>
+						</tbody>
+					</table>
 					</div>
 				</div>
 			</div>
@@ -633,6 +640,7 @@ function page_profile() {
 				<div class='profileContent'>
 					<div class='profileSection'>
 					<h2>徽章说明</h2>
+					<p>用户可以通过完成不同的任务获得徽章并累计信用。部分任务为隐藏任务，完成后系统将自动通知您激活奖励。</p>
 					<table>
 						<tbody>
 							<tr>
@@ -641,12 +649,17 @@ function page_profile() {
 							</tr>
 							<tr>
 								<th><div class='badge'><span class='badge2'></span>银质徽章</div></th>
-								<td>银质徽章奖励给长期使用的用户，它们并不常见，但您只需要累计良好的信用记录就能得到。</td>
+								<td>银质徽章奖励给长期使用的用户，它们不常见，但您只需要累计良好的信用记录就能得到。</td>
 							</tr>
 							<tr>
 								<th><div class='badge'><span class='badge3'></span>铜质徽章</div></th>
 								<td>铜质徽章奖励给普通用户，它们是很容易得到的。</td>
 							</tr>
+							<tr>
+								<th><div class='badge'>徽章</div> × 数字</th>
+								<td>数字表示当前获得该徽章的用户数。</td>
+							</tr>
+
 						</tbody>
 					</table>
 					</div>
@@ -665,6 +678,21 @@ function page_profile() {
 							<tr>
 								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
 								<td>对光子复制提出宝贵意见，并被采纳。</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class='profileSection'>
+					<h2>更多徽章</h2>
+					<table>
+						<tbody>
+							<tr>
+								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
+								<td>前往帐户<a href='#1'>中心认证</a>认证大学邮箱，获取更高信用。<br/>邮箱名通常为学号，需要登录校园网网关查看邮箱中的验证码。</td>
+							</tr>
+							<tr>
+								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
+								<td>前往黑板报<a href='#'>讨论专区</a>对光子复制提出意见。<br/>如被采用，我们将授予金质徽章以表彰您对光子复制作出的杰出贡献。</td>
 							</tr>
 						</tbody>
 					</table>
