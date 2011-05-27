@@ -305,11 +305,11 @@ function unit_order_par($order, $user) {
 		$link = '過期';
 	else
 		$link = "<a target='_blank' href='/upload/" . rawurlencode($order['flink']) . "'>{$order['fname']}</a>";
-	$credit = ($_SESSION['credit'][$user['id']] ? $_SESSION['credit'][$user['id']] : 0);
+	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
 								<h3>#{$order['id']} {$order['fname']} @ ({$order['uid']}) {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
-								<div class='taskDetail'>
+								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
 			    					<tbody><tr><th>订单编号</th><td>{$order['id']}</td></tr>
 			    					<tr><th>打印文件</th><td>$link</td></tr>

@@ -34,7 +34,7 @@ $query = "select * from `order`
 	where `id` = $oid and `uid` = {$_SESSION['uid']}";
 $result = $db->query($query);
 if($result->num_rows == 0)
-	die(json_encode(array('errno' => 3, 'query' => $query)));
+	die(json_encode(array('errno' => 3)));
 
 $order = $result->fetch_assoc();
 $result->free();
@@ -51,7 +51,6 @@ if($order['status'] == '0' || $order['status'] == '3') {
 	$return['errno'] = (($order['status'] == '1') ? 4 : 5);
 }
 
-//	TODO store name & region
 $return['html'] = unit_order($order);
 echo json_encode($return);
 
