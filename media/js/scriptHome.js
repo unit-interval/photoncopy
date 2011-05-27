@@ -107,6 +107,15 @@ function order_bind_action(expand) {
 			$(this).toggleClass('selected')
 				.next().slideToggle();
 		})
+		.parent().each(function(){
+			var pid = $('div.taskDetail', this).data('pid');
+			var store = Vault.stores[pid];
+			$('span.newly_added', this).each(function(){
+				$(this).html(store[$(this).data('name')]);
+			});
+			
+
+		}).end()
 		.next().find('a.cancel-order').click(function(){
 			var $div = $(this).closest('div.taskDetail');
 			var param = new Object();

@@ -249,12 +249,12 @@ function unit_order($order) {
 	$flink = ($order['flink'] === '-') ? $order['fname'] : "<a href='/upload/{$order['flink']}' target='_blank'>{$order['fname']}</a>";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>{$order['fname']} @ <span class='newly_added' data-name='name' data-value='{$order['pid']}'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>{$order['fname']} @ <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='{$order['fname']}'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
-		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region' data-value='{$order['pid']}'></span> <span class='newly_added' data-name='name' data-value='{$order['pid']}'></span></span></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span> <span class='newly_added' data-name='name'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}纸 {$t['order_color'][$order['color']]}{$t['order_back'][$order['back']]}打印 {$t['order_layout'][$order['layout']]}版/页 {$order['copy']}份 {$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>

@@ -10,7 +10,9 @@ function err_redir($err = '', $tar = '/') {
 	die;
 }
 function json_encode_mb($ob, $options = 0) {
-	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
+	return json_encode($ob, $options);
+// TODO following code not working
+//	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
 function print_re($v) {
 	echo "<pre>\n";

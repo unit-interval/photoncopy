@@ -314,7 +314,7 @@ function page_home($orders, $stores) {
 					</div>
 					<div class='confirmForm rbCorner'>
 						<h3>客户留言</h3>
-						<textarea id='w8Edit' class='uiTextarea'></textarea>
+						<textarea id='w8Edit' class='uiTextarea'>无</textarea>
 						<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
 					</div>
 					<div class='clear'></div>
@@ -848,21 +848,23 @@ function page_store($store) {
 	";
 }
 function script_home($s) {
-	$sn = array();
-	foreach($s as $n) {
-		$sn[$n['id']] = $n['name'];
-	}
+	$regions = text_defs('store_region');
+	foreach($s as &$n)
+		$n['region'] = $regions[$n['region']];
 	echo "
 <script type='text/javascript'>
 /* <![CDATA[ */
 var order_option_text = {
-	store:	".json_encode_mb($sn).",
 	back:	".json_encode_mb(text_defs('order_back')).",
 	color:	".json_encode_mb(text_defs('order_color')).",
 	layout:	".json_encode_mb(text_defs('order_layout')).",
 	misc:	".json_encode_mb(text_defs('order_misc')).",
 	paper:	".json_encode_mb(text_defs('order_paper')).",
-	region:	".json_encode_mb(text_defs('store_region'), JSON_FORCE_OBJECT).",
+	region:	".json_encode_mb($regions, JSON_FORCE_OBJECT).",
+};
+var Vault = {
+	\"stores\": ".json_encode($s, JSON_FORCE_OBJECT).",
+	\"option_text\": order_option_text,
 };
 /* ]]> */
 </script>";
