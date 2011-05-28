@@ -560,7 +560,7 @@ function page_par_signup() {
 		</div>
 	";
 }
-function page_profile($order_number_list) {
+function page_profile($num_orders) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -597,11 +597,9 @@ function page_profile($order_number_list) {
 						<div class='badge'><span class='badge3'></span>新手上路</div>
 					</div>
 					<div class='profileSection'>
-						<h2>零钱罐</h2>";
-						if (sizeof($order_number_list) > 0) echo mod_coin_list($order_number_list);
-						else echo '<p>这里将显示您打印过文档的打印店内存储的零钱，目前您尚未在任何打印店打印过文档。</p>';
-					echo 
-					"</div>
+						<h2>零钱罐</h2>"
+						. mod_pocket_list() . "
+					</div>
 				</div>
 			</div>
 			<div class='profileR' id='profile-1-1'>
@@ -755,20 +753,16 @@ function page_profile($order_number_list) {
 				<div class='profileHeader'>消费概要</div>
 				<div class='profileContent'>
 					<table class='statTable'>
-						<tbody>";
-							if (sizeof($store_number_list) > 0) echo
-							"<tr><th>商户</th><th>余额</th><th>订单</th></tr>"
-							. mod_stat_list($order_number_list);
-							else echo '<p>这里将显示您在各个打印店的消费概要，目前您尚未在任何打印店打印过文档。</p>';
-						echo	
-						"</tbody>
+						<tbody>
+							<tr><th>商户</th><th>余额</th><th>订单</th></tr>"
+						. mod_stat_credit($num_orders) . "
+						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class='clear'></div>
 		</div> 
-	</div>
-		";
+	</div>";
 }
 function page_reg($m) {
 	echo "<div class='contentWrapper'><div class='content'>

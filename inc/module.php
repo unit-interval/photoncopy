@@ -1,26 +1,4 @@
 <?php
-function mod_coin_list($order_number_list) {
-	$html = '';
-	foreach(array_keys($order_number_list) as $key)
-	$html .=
-		"<div class='coin'>
-			<div>
-				<img src='/media/images/store/storeAvatar{$key}.jpg' alt='Store Avatar' />
-			</div>
-			<dl>
-				<dt data-pid='{$key}'> {$key} </dt>
-				<dd>{$_SESSION['credit'][$key]}元</dd>
-			</dl>
-		</div>";
-	return $html;
-}
-function mod_stat_list($order_number_list){
-	$html ='';
-	foreach($order_number_list as $key => $value)
-		if ($key > 0) $html .=
-			"<tr><td data-pid='{$key}'>{$key}</td><td>{$_SESSION['credit'][$key]}元</td><td>{$order_number_list[$value]}笔</td></tr>";
-	return $html;
-}
 function mod_login($a = '/authorize') {
 	$pubCheck = "<input class='checkbox' type='checkbox' name='pub' value='yes' />
 							<h3> 正在使用公共电脑登录</h3>";
@@ -189,6 +167,35 @@ function mod_order_queue_par($orders, $users) {
 		$u = $users[$o['uid']];
 		$html .= unit_order_par($o, $u);
 	}
+	return $html;
+}
+function mod_pocket_list() {
+	if(count($_SESSION['credit']) == 1)
+		return "<p>这里将显示您打印过文档的打印店内存储的零钱，目前您尚未在任何打印店打印过文档。</p>";
+	$html = '';
+	foreach($_SESSION['credit'] as $k => $v) {
+		if($k == 0) continue;
+		$v = $v / 10;
+		$html .= "
+			<div class='coin'>
+				<div>
+					<img src='/media/images/store/storeAvatar$k.jpg' alt='Store Avatar' />
+				</div>
+				<dl>
+					<dt data-pid='$k'> $k </dt>
+					<dd>{$v} 元</dd>
+				</dl>
+			</div>";
+	}
+	return $html;
+}
+function mod_stat_credit($num_orders) {
+	if(!$num_orders)
+		return '<p>这里将显示您在各个打印店的消费概要，目前您尚未在任何打印店打印过文档。</p>';
+	$html ='';
+	foreach($num_orders as $k => $v)
+		$html .= "
+			<tr><td data-pid='$k'>$k</td><td>" . ($_SESSION['credit'][$k] / 10) . " 元</td><td>$v 笔</td></tr>";
 	return $html;
 }
 function mod_store_sel($stores) {
