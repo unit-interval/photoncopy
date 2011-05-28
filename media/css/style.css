@@ -446,8 +446,9 @@ input.uiBtn3{
 	-moz-border-radius: 2px;
 	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-moz-user-select: none;
-	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
-	background: -moz-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fafafa), color-stop(40%, #f4f4f4), to(#e5e5e5));
+	background: -moz-linear-gradient(top, #fafafa, #f4f4f4 40%, #e5e5e5);
+	background: linear-gradient(top, #fafafa, #f4f4f4 40%, #e5e5e5);
 	border: 1px solid #aaa;
 	color: #444;
 	cursor: pointer;
@@ -460,8 +461,9 @@ input.uiBtn3{
 input.uiBtn3:hover{
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  	background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
-  	background: #ebebeb -moz-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+  	background: #ebebeb -webkit-gradient(linear, left top, left bottom, from(#fefefe), color-stop(40%, #f8f8f8), to(#e9e9e9));
+  	background: #ebebeb -moz-linear-gradient(top, #fefefe, #f8f8f8 40%, #e9e9e9);
+  	background: #ebebeb linear-gradient(top, #fefefe, #f8f8f8 40%, #e9e9e9);
   	border-color: #999;
   	color: #222;
 }
@@ -469,8 +471,9 @@ input.uiBtn3:hover{
 input.uiBtn3:active{
   	-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
   	-moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
-  	background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
-  	background: #ebebeb -moz-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+  	background: #ebebeb -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), color-stop(40%, #efefef), to(#dcdcdc));
+  	background: #ebebeb -moz-linear-gradient(top, #f4f4f4, #efefef 40%, #dcdcdc);
+  	background: #ebebeb linear-gradient(top, #f4f4f4, #efefef 40%, #dcdcdc);
   	color: #333;
 }
 
@@ -567,7 +570,9 @@ select.uiSelect {
 	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	-webkit-user-select: none;
 	-moz-user-select: none;
-	background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fafafa), color-stop(40%, #f4f4f4), to(#e5e5e5));
+	background: -moz-linear-gradient(top, #fafafa, #f4f4f4 40%, #e5e5e5);
+	background: linear-gradient(top, #fafafa, #f4f4f4 40%, #e5e5e5);
 	border: 1px solid #aaa;
 	color: #555;
 	font-size: inherit;

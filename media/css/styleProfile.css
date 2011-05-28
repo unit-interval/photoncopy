@@ -137,23 +137,22 @@ table.formTable th{
 }
 
 .badge{
-	color: white;
-	background-color: #333;
-	border: 1px solid #333;
-	margin: 0 3px 3px 0;
-	padding: 0px 6px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F6FC), to(#CDDFF1));
+	background: -moz-linear-gradient(top, #F0F6FC, #CDDFF1);
+	background: linear-gradient(top, #F0F6FC, #CDDFF1);
+	border: 1px solid #A1B8D6;
+	-moz-border-radius: 32px;
+	-webkit-border-radius: 32px;
+	border-radius: 32px;
+	-moz-box-shadow: 0 1px 1px white;
+	-webkit-box-shadow: 0 1px 1px white;
+	box-shadow: 0 1px 1px white;
+	color: #4D5765;
+	font-weight: bold;
+	margin: 0 2px 0 0;
+	padding: 3px 12px 3px 8px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
 	display: inline-block;
-	text-decoration: none;
-	line-height: 2;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	font-weight: normal;
-}
-
-.badge.pointerCursor:hover, .badge.pointerCursor.selected{
-	background-color: #555;
-	border-color: #555;
 }
 
 table.badgeTable{
@@ -164,11 +163,13 @@ table.badgeTable th{
 	text-align: left;
 	white-space: nowrap;
 	vertical-align: middle;
+	padding: 5px 20px 5px 0;
 }
 
 table.badgeTable td{
 	padding: 0 0 4px 0;
 	vertical-align: middle;
+	padding: 5px 0;
 }
 
 table.badgeTable td a{
@@ -202,9 +203,11 @@ input.uiBtn3{
 /*------------------------ COIN ------------------------*/
 
 .coin{
-	color: white;
-	background-color: #333;
-	border: 1px solid #333;
+	color: #4D5765;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F6FC), to(#CDDFF1));
+	background: -moz-linear-gradient(top, #F0F6FC, #CDDFF1);
+	background: linear-gradient(top, #F0F6FC, #CDDFF1);
+	border: 1px solid #A1B8D6;
 	margin: 0 3px 3px 0;
 	padding: 10px;
 	display: inline-block;
@@ -219,9 +222,9 @@ input.uiBtn3{
 }
 
 .coin > div{
-	box-shadow: 0px 0px 4px #171C1E;
-	-moz-box-shadow: 0px 0px 4px #171C1E;
-	-webkit-box-shadow: 0px 0px 4px #171C1E;
+	box-shadow: 0px 0px 2px #171C1E;
+	-moz-box-shadow: 0px 0px 2px #171C1E;
+	-webkit-box-shadow: 0px 0px 2px #171C1E;
 	height: 64px;
 	width: 64px;
 	border-radius: 5px;
@@ -243,7 +246,7 @@ input.uiBtn3{
 }
 
 .coin > dl > dt{
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid #4D5765;
 }
 
 .coin > dl > dd{
@@ -257,19 +260,24 @@ table.statTable{
 }
 
 table.statTable th, table.statTable td{
-	border: 1px solid gray;
+	border: 1px solid #A1B8D6;
 	text-align: center;
 	margin: 0px;
 	padding: 8px;
 }
 
 table.statTable th{
-	color: white;
-	background: #666;
+	color: #4D5765;
+	background: #CDDFF1;
+}
+
+table.statTable tr{
+	color: #4D5765;
+	background: #F0F6FC;
 }
 
 table.statTable tr.alt{
-	background: #CCC;
+	background: #CDDFF1;
 }
 
 
