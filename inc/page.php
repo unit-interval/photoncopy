@@ -524,14 +524,18 @@ function page_par_signup() {
 				</form>
 			</div>
 			<div id='signup' class='panel'>
-				<h2>注册<span class='lightboxClose fright'>×</span></h2>
-				<form><fieldset>
-					<div class='field'>
-						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
-					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='button' value='注册'>
-			</fieldset></form></div>
+				<h2>申请<span class='lightboxClose fright'>×</span></h2>
+				<form>
+					<fieldset>
+						<div class='field'><label>邮箱</label><input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'></div>
+						<div class='field'><label>联系方式</label><input type='text' name='phone' placeholder='请输入手机或电话号码' class='uiText'></div>
+						<div class='field'><label>店址</label><input type='text' name='address' placeholder='请输入商铺的具体地址' class='uiText'></div>
+					</fieldset>
+					<fieldset class='submit'>
+						<input class='uiBtn submit' type='submit' value='申请'>
+					</fieldset>
+				</form>
+			</div>
 			<div id='forget' class='panel'>
 				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
 				<form><fieldset>
