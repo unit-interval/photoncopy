@@ -51,7 +51,7 @@ function send_reg_mail($to) {
 			</tr>
 		</tbody></table>	
 EOT;
-	$header = "Content-type: text/plain; charset=utf-8\r\n";
+	$header = "Content-type: text/html; charset=utf-8\r\n";
 	$header .= "From: " . CODE_NAME . " <noreply-reg@" .
 	SERVER_HOST . ">\r\n";
 	$header .= "Reply-To: " . CODE_NAME . " <noreply-reg@" .
