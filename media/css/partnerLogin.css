@@ -3,6 +3,10 @@
 	background: #1A2F36;
 }
 
+#signup{
+	margin-top: -180px;
+}
+
 #forgetBtn:hover{
 	cursor: pointer;
 	color: white;
@@ -30,65 +34,16 @@ input.submit:hover{
 
 input.uiText{
 	background: white;
-<<<<<<< HEAD
-}
-=======
 }
 
-
-/*------------------------ SLIDESHOW ------------------------*/
-
-ul.slideshow{
-	height: 512px;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	width: 100%;
-}
-
-ul.slideshow li{
-	height: 100%;
-	float: left;
-	padding: 0;
-	width: 100%;
-}
-
-li.slidePhoto{
-	background-repeat: no-repeat;
-}
-
-div.slidePhotoWrapper{
-	text-align: right;
+input.uiBtn2{
+	background: -webkit-gradient(linear, left top, left bottom, from(#45686f), to(#1d2d32));
+	background: -moz-linear-gradient(top, #45686f, #1d2d32);
+	background: linear-gradient(top, #45686f, #1d2d32);
 	color: white;
-	width: 900px;
-	margin: 300px auto 0;
+	text-shadow: #1d2d32 0px 0px 2px;
 }
 
-div.slidePhotoWrapper h2{
-	font-size: 40px;
+input.uiBtn2:active{
+	background: #1d2d32;
 }
-
-div.slidePhotoWrapper p{
-	margin-bottom: 20px;
-}
-
-div.slidePhotoWrapper a{
-	background: rgba(255,255,255,0.2);
-	padding: 6px 15px;
-	font-size: 12px;
-}
-
-div.slidePhotoWrapper a:hover{
-	background: rgba(255,255,255,0.1);
-}
-
-#slidePhoto-1{
-	background: url(/media/images/slidePhoto1.jpg) center top no-repeat;
-}
-
-.slideshowCtrl{
-	width: 200px;
-	padding: 5px 20px;
-	margin: auto;
-}
->>>>>>> cb7c949e60f55fd52ba1169286cc85604f71d862
