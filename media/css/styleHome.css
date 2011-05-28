@@ -285,7 +285,7 @@ input[type='file']{
 	padding: 0px;
 	margin: 8px 0px 13px;
 	line-height: 18px;
-	word-break: break-all;
+	word-wrap: break-word;
 }
 
 .storeItemInfo h3{
