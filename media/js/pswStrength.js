@@ -52,7 +52,7 @@ function b(){
 }
 
 $(function(){
-	$('#user_login').val("").keyup(b);
-	$("#pass1").val("").keyup(b);
-	$("#pass2").val("").keyup(b);
+	$('#user_login').keyup(b);
+	$("#pass1").keyup(b);
+	$("#pass2").keyup(b);
 })
