@@ -314,7 +314,7 @@ function page_home($orders, $stores) {
 					</div>
 					<div class='confirmForm rbCorner'>
 						<h3>客户留言</h3>
-						<textarea id='w8Edit' class='uiTextarea'></textarea>
+						<textarea id='w8Edit' class='uiTextarea1'></textarea>
 						<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
 					</div>
 					<div class='clear'></div>
