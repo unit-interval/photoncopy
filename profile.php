@@ -17,22 +17,40 @@ if($_SESSION['state'] === 'activate')
 elseif($_SESSION['state'] === 'resetpw')
 	$state = 2;
 elseif($_SESSION['logged_in'] == true) {
+	$badges = array();
+	$badges_won = array();
+	$num_orders = array();
+	$stores = array();
+	$query = "select * from `badge`";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	while($row = $result->fetch_assoc())
+		$badges[$row['id']] = $row;
+	$result->free();
+	$query = "select `bid`, `won` from `badge-won` where `uid` = {$_SESSION['uid']}";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	if($result->num_rows == 0)
+		$badges_won = false;
+	else
+		while($row = $result->fetch_assoc())
+			$badges_won[$row['bid']] = $row;
+	$result->free();
 	$query = "select `pid`, count(`id`) as 'count' from `order`
 		where `uid` = {$_SESSION['uid']} and `status` = 5 group by `pid`";
-	$result = $db->query($query);
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	if($result->num_rows == 0)
 		$num_orders = false;
-	else {
-		$num_orders = array();
+	else
 		while($row = $result->fetch_assoc())
 			$num_orders[$row['pid']] = $row['count'];
-	}
 	$result->free();
 	$query = "select `id`, `name` from `partner`";
-	$result = $db->query($query);
-	$store_name = array();
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	while($row = $result->fetch_assoc())
-		$store_name[$row['id']] = $row['name'];
+		$stores[$row['id']] = $row;
 	$result->free();
 } else
 	err_redir('', '/home.php');
@@ -51,7 +69,7 @@ if($state === 1)
 elseif($state === 2)
 	page_resetpasswd();
 else
-	page_profile($num_orders, $store_name);
+	page_profile($badges, $badges_won, $num_orders, $stores);
 page_footer();
 page_close();
 

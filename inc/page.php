@@ -561,7 +561,7 @@ function page_par_signup() {
 		</div>
 	";
 }
-function page_profile($num_orders, $store_name) {
+function page_profile($badges, $badges_won, $num_orders, $stores) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -594,12 +594,12 @@ function page_profile($num_orders, $store_name) {
 				<div class='profileHeader'>帐户概要</div>
 				<div class='profileContent'>
 					<div class='profileSection'>
-						<h2>徽章架</h2>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
+						<h2>徽章架</h2>"
+						. mod_badge_summary($badges, $badges_won) . "
 					</div>
 					<div class='profileSection'>
 						<h2>零钱罐</h2>"
-						. mod_pocket_list($store_name) . "
+						. mod_pocket_list($stores) . "
 					</div>
 				</div>
 			</div>
@@ -716,19 +716,8 @@ function page_profile($num_orders, $store_name) {
 				<div class='profileHeader'>我的徽章</div>
 				<div class='profileContent'>
 					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>新手上路</div> × 570</th>
-								<td>欢迎来到光子复制，我们将为您提供最便利的生活类应用服务。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>已经认证大学邮箱。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>对光子复制提出宝贵意见，并被采纳。</td>
-							</tr>
+						<tbody>"
+						. mod_badge_won($badges, $badges_won) ."
 						</tbody>
 					</table>
 				</div>
@@ -737,15 +726,8 @@ function page_profile($num_orders, $store_name) {
 				<div class='profileHeader'>更多徽章</div>
 				<div class='profileContent'>
 					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>前往<a href='#1'>认证中心</a>填写大学邮箱，获取更高信用。<br/>邮箱名通常为学号，需要登录校园网网关查看邮箱中的验证码。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>前往光子复制黑板报的<a href='#' target='_blank'>讨论专区</a>对光子复制提出意见。<br/>如被采用，我们将授予金质徽章以表彰您对光子复制作出的杰出贡献。</td>
-							</tr>
+						<tbody>"
+						. mod_badge_rest($badges, $badges_won) . "
 						</tbody>
 					</table>
 				</div>
@@ -753,7 +735,7 @@ function page_profile($num_orders, $store_name) {
 			<div class='profileR' id='profile-3-1'>
 				<div class='profileHeader'>消费概要</div>
 				<div class='profileContent'>"
-					. mod_stat_credit($num_orders, $store_name) . "
+					. mod_stat_credit($num_orders, $stores) . "
 				</div>
 			</div>
 			<div class='clear'></div>

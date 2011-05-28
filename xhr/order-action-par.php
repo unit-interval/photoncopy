@@ -46,8 +46,8 @@ if(in_array($to, order_status_map($order['status']))) {
 		$cost = intval($_POST['cost'] * 10);
 		$paid = intval($_POST['paid'] * 10);
 		$delta = $paid - $cost;
-		$query = "update `credit` set `credit` = `credit` + $delta
-			where `uid` = {$order['uid']} and `pid` = {$_SESSION['pid']}";
+		$query = "insert into `credit` values ({$order['uid']}, {$_SESSION['pid']}, $delta)
+			on duplicate key update `credit` = `credit` + $delta";
 		if($db->query($query) !== TRUE)
 			die(json_encode(array('errno' => 5, 'query' => $query)));
 		$_SESSION['credit'][$order['uid']] += $delta;
