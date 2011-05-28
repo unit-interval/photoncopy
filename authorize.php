@@ -4,34 +4,34 @@ include './config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
 
-function send_confirm_email($to, $name){
-	$addr = base64_encode($to);
+function send_confirm_email(){
+	$addr = base64_encode($_SESSION['email']);
 	$subject = CODE_NAME . ' - 欢迎来到光子复制';
-	$body = <<<EOT
-		<table width="650" align="center" style="color: #444; margin: 30px auto; font-size: 14px; font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,STHeiti; box-shadow: 0 0 10px gray; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; overflow: hidden" cellpadding="0" cellspacing="0">
-			<tr id="header">
-				<td height="102" background="http://photoncopy.com/media/images/email/header_bg.png" bgcolor="#E6F1FB" align="center">
-					<table width="95%">
+	$body = "
+		<table width='650' align='center' style='color: #444; margin: 30px auto; font-size: 14px; font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,STHeiti; box-shadow: 0 0 10px gray; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; overflow: hidden' cellpadding='0' cellspacing='0'>
+			<tr id='header'>
+				<td height='102' background='http://photoncopy.com/media/images/email/header_bg.png' bgcolor='#E6F1FB' align='center'>
+					<table width='95%'>
 						<tr>
-							<td align="left">
-								<img src="http://photoncopy.com/media/images/email/email_logo.png" />
+							<td align='left'>
+								<img src='http://photoncopy.com/media/images/email/email_logo.png' />
 							</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
-			<tr id="content">
-				<td bgcolor="#F4FAFF" align="center">
-					<table width="95%" cellpadding="30">
+			<tr id='content'>
+				<td bgcolor='#F4FAFF' align='center'>
+					<table width='95%' cellpadding='30'>
 						<tr>
-							<td align="left">
-								$name ，您好，<br />
+							<td align='left'>
+								{$_SESSION['name']} ，您好，<br />
 								<br />
 								欢迎来到光子复制，光子复制为您提供如下服务：<br />
 								<br />
 								<table width='100%'>
 									<tr>
-										<td width="20"></td>
+										<td width='20'></td>
 										<td>
 											<font size='+1' color='#1F75CC'>让文印服务更便捷</font>
 											<br />
@@ -40,25 +40,25 @@ function send_confirm_email($to, $name){
 										</td>
 									</tr>
 									<tr>
-										<td width="20"></td>
+										<td width='20'></td>
 										<td>
 											<font size='+1' color='#1F75CC'>让用户体验更完美</font>
 											<br />
 											<img style='float: left; margin: 10px' width='64px' width='64px' height='64px' src='http://photoncopy.com/media/images/email/chrome.png' alt='google chrome'>
 											<br />光子复制采用现代的互联网语言编写，为了让您获得更好的用户体验。
 											<br />在此我们推荐您使用Google Chrome浏览器（<a style='color: #1F75CC; text-decoration: none' href='http://www.google.com/chrome' target='_blank'>了解 Google Chrome</a>）。
-											<br />我们推荐IE控用户使用360极速浏览器（<a style='color: #1F75CC; text-decoration: none' href='http://chrome.360.cn/' target='_blank'>了解 360极速</a>）。
+											<br />我们推荐IE深度用户使用360极速浏览器（<a style='color: #1F75CC; text-decoration: none' href='http://chrome.360.cn/' target='_blank'>了解 360极速</a>）。
 										</td>
 									</tr>
 									<tr>
-										<td width="20"></td>
+										<td width='20'></td>
 										<td>
 											<font size='+1' color='#1F75CC'>一切都是免费的</font>
 											<br />
 											<img style='float: left; margin: 10px' width='64px' width='64px' height='64px' src='http://photoncopy.com/media/images/email/free.png' alt='free'>
-											<br />由于网站创始人都是大学生，所以光子复制可能是最了解您的需求。
-											<br />并且本着服务大学生的想法，您得到的一切服务都是免费的。
-											<br />在此我们期望您能为我们的网站添砖加瓦，贡献您的一份力量。
+											<br />由于网站创始人都是大学生，所以光子复制可能是最了解您需求的。
+											<br />本着服务大学生的想法，您得到的一切服务都将是免费的。
+											<br />在此我们期望您能<a style='color: #1F75CC; text-decoration: none' href='http://photoncopy.com/blog/about' target='_blank'>加入我们</a>，贡献一份力量。
 										</td>
 									</tr>
 								</table><br />想了解更多光子复制的相关讯息？请来<a style='color: #1F75CC; text-decoration: none' href='http://photoncopy.com/blog' target='_blank'>黑板报</a>看看。<br />
@@ -70,7 +70,7 @@ function send_confirm_email($to, $name){
 				</td>
 			</tr>
 		</table>
-EOT;
+";
 	$header = "Content-type: text/html; charset=utf-8\r\n";
 	$header .= "From: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
@@ -158,7 +158,7 @@ if($_GET['c'] == 'login') {
 		err_redir("邮箱($email)已在光子复制注册，请直接登录");
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'activate';
-	err_redir('Welcome!', '/profile.php');
+	err_redir('', '/profile.php');
 } elseif($_GET['c'] == 'reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
@@ -228,7 +228,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];
 	$_SESSION['credit'] = array(0 => 10);
-	send_confirm_email($_SESSION['email'], $_SESSION['name']);
+	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 } elseif($_SESSION['state'] === 'resetpw') {
 } else {
