@@ -16,7 +16,25 @@ if($_SESSION['state'] === 'activate')
 	$state = 1;
 elseif($_SESSION['state'] === 'resetpw')
 	$state = 2;
-elseif($_SESSION['logged_in'] !== true)
+elseif($_SESSION['logged_in'] == true) {
+	$query = "select `pid`, count(`id`) as 'count' from `order`
+		where `uid` = {$_SESSION['uid']} and `status` = 5 group by `pid`";
+	$result = $db->query($query);
+	if($result->num_rows == 0)
+		$num_orders = false;
+	else {
+		$num_orders = array();
+		while($row = $result->fetch_assoc())
+			$num_orders[$row['pid']] = $row['count'];
+	}
+	$result->free();
+	$query = "select `id`, `name` from `partner`";
+	$result = $db->query($query);
+	$store_name = array();
+	while($row = $result->fetch_assoc())
+		$store_name[$row['id']] = $row['name'];
+	$result->free();
+} else
 	err_redir('', '/home.php');
 
 $link['css'][] = 'style';
@@ -32,14 +50,8 @@ if($state === 1)
 	page_activate();
 elseif($state === 2)
 	page_resetpasswd();
-else{
-	$query = "select `pid`, count (`id`) as 'count' from `order` where `uid` = {$_SESSION['uid']} and `status` = 5 group by `pid`";
-	$result = $db->query($query);
-	while($row = $result->fetch_assoc())
-		$orders_number_list[$row['pid']] = $row['count'];
-	$result->free();
-	page_profile($order_number_list);
-}
+else
+	page_profile($num_orders, $store_name);
 page_footer();
 page_close();
 
