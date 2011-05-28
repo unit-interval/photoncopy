@@ -9,7 +9,7 @@ function page_activate() {
 					初次设置
 				</div>
 			</div>
-			<div class='profileR' id='accountSetting'>
+			<div class='profileR' id='profile-0'>
 				<div class='profileHeader'>
 					初次设置
 				</div>
@@ -19,7 +19,7 @@ function page_activate() {
 							<tbody>
 								<tr>
 									<th>邮箱</th>
-									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='abc@example.com'></td>
+									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='{$_SESSION['email']}'></td>
 								</tr>
 								<tr>
 									<th>用户名</th>
@@ -550,7 +550,11 @@ function page_par_signup() {
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
 						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
-						<a href='tutorial'>了解更多</a>
+						<a href='/blog/tutorial'>了解更多</a>
+						<div class='slideshowCtrl'>
+							<input type='button' class='uiBtn2' id='signupBtn' value='申请店铺'/>
+							<div class='clear'></div>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -569,7 +573,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					<li data-hash='0'>帐户概要</li>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
-					<li data-hash='1-3'>认证中心</li>
+					<li data-hash='1-3' style='display: none'>认证中心</li>
 				</ul>
 				<div class='profileType'>
 					徽章中心
