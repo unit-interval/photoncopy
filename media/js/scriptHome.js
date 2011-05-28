@@ -99,7 +99,7 @@ function order_bind_action(expand) {
 		.each(function(){
 			if(expand != 0) {
 				$(this).addClass('selected')
-					.find('span').obFlash()
+					.find('span.taskStatus').obFlash()
 					.end().next().show();
 			}
 		})

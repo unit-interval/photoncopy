@@ -16,4 +16,5 @@ $(function(){
 	$('div.profileL > ul > li').click(function(){
 		showPage($(this).data('hash'), 100);
 	})
+	$('table.statTable tr:even').addClass('alt');
 })

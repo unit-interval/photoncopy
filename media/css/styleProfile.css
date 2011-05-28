@@ -268,12 +268,10 @@ table.statTable th, table.statTable td{
 
 table.statTable th{
 	color: #4D5765;
-	background: #CDDFF1;
 }
 
 table.statTable tr{
 	color: #4D5765;
-	background: #F0F6FC;
 }
 
 table.statTable tr.alt{
