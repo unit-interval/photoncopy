@@ -9,7 +9,7 @@ function page_activate() {
 					初次设置
 				</div>
 			</div>
-			<div class='profileR' id='accountSetting'>
+			<div class='profileR' id='profile-0'>
 				<div class='profileHeader'>
 					初次设置
 				</div>
@@ -19,7 +19,7 @@ function page_activate() {
 							<tbody>
 								<tr>
 									<th>邮箱</th>
-									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='abc@example.com'></td>
+									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='{$_SESSION['email']}'></td>
 								</tr>
 								<tr>
 									<th>用户名</th>
