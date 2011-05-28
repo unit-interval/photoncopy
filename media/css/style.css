@@ -30,7 +30,7 @@ a, .pointerCursor{
 body{
 	margin: 0px;
 	padding: 0px;
-	font-family: "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
 	font-size: 14px;
 	overflow-x: auto;
 	overflow-y: scroll;

@@ -12,4 +12,7 @@ $(function(){
 		showPage($(this).data('hash'), 100);
 	})
 	$('table.statTable tr:even').addClass('alt');
+	$('.storeNamePending').each(function(){
+		$(this).html($(this).data('pid'));
+	})
 })

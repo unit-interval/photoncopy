@@ -290,7 +290,6 @@ sub {
 }
 input[type="text"],
 textarea {
-	border: 1px solid #BDC7D8;
 	padding: 4px;
 	outline-width: 0px;
 }
@@ -463,13 +462,21 @@ div.menu li:first-child {
 	font-size: 13px;
 }
 #content p,
-#content ul,
-#content ol,
 #content dd,
 #content pre,
 #content hr {
 	line-height: 20px;
 	margin: 0 0 22px 0;
+}
+#content ul,
+#content ol {
+	margin: 0 0 22px 0;
+	padding: 0 0 0 24px;
+	line-height: 20px;
+}
+#content li {
+	list-style-type: disc;
+	margin: 0 0 8px 0;
 }
 #content ul ul,
 #content ol ol,
@@ -626,7 +633,7 @@ div.menu li:first-child {
 	padding: 0 24px;
 }
 .entry-content input {
-	margin: 0 0 24px 0;
+	margin: 0;
 }
 .entry-content input.file,
 .entry-content input.button {
@@ -1293,12 +1300,29 @@ h3#reply-title {
 /* =Table of Contents
 -------------------------------------------------------------- */
 
+ul#table-of-contents{
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 4px;
+}
+
 ul#table-of-contents > li {
 	background: url("http://photoncopy.com/media/images/wordpress/index_li_bullet.png") left center no-repeat;
 	padding: 0 0 0 22px;
 	list-style: none;
 	line-height: 18px;
 	margin: 0 0 8px 0;
+}
+
+/* =Content Form
+-------------------------------------------------------------- */
+
+#content .required{
+	color: #FF4B33;
+	font-weight: bold;
+}
+
+#content input[type='text'], #content textarea{
+	width: 95%;
 }
 
 /* =Footer

@@ -1,47 +1,44 @@
 <?php
 
 function page_activate() {
-//	TODO passwd strength and form validater.
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
 			<div class='profileL'>
 				<div class='profileType'>
-					帐户设置
+					初次设置
 				</div>
 			</div>
 			<div class='profileR' id='accountSetting'>
 				<div class='profileHeader'>
-					帐户设置
+					初次设置
 				</div>
 				<div class='profileContent'>
-					<h2>初次设置</h2>
-					<p></p>
 					<form action='/authorize.php' method='post'>
-					<table>
-						<tbody>
-							<tr>
-								<th>邮箱</th>
-								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
-							</tr>
-							<tr>
-								<th>用户名</th>
-								<td><input type='text' class='uiText2' name='name'/></td>
-							</tr>
-							<tr>
-								<th>设定密码</th>
-								<td><input type='password' class='uiText2' name='passwd'/></td>
-							</tr>
-							<tr>
-								<th>确认密码</th>
-								<td><input type='password' class='uiText2' name='passwd-confirm'/></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td><input type='submit' class='uiBtn3' value='激活帐户'></td>
-							</tr>
-						</tbody>
-					</table>
+						<table>
+							<tbody>
+								<tr>
+									<th>邮箱</th>
+									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='abc@example.com'></td>
+								</tr>
+								<tr>
+									<th>用户名</th>
+									<td><input type='text' id='user_login' class='uiText2' name='userName'></td>
+								</tr>
+								<tr>
+									<th>设定密码</th>
+									<td><input type='password' id='pass1' class='uiText2' name='password1'></td>
+								</tr>
+								<tr>
+									<th>确认密码</th>
+									<td><input type='password' id='pass2' class='uiText2' name='password2'></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td><div id='pass-strength-result'>强度</div><input type='button' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
+								</tr>
+							</tbody>
+						</table>
 					</form>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ function mod_coin_list($order_number_list) {
 				<img src='/media/images/store/storeAvatar{$key}.jpg' alt='Store Avatar' />
 			</div>
 			<dl>
-				<dt data-pid='{$key}'> {$key} </dt>
+				<dt class='storeNamePending' data-pid='{$key}'> {$key} </dt>
 				<dd>{$_SESSION['credit'][$key]}元</dd>
 			</dl>
 		</div>";
@@ -18,7 +18,7 @@ function mod_stat_list($order_number_list){
 	$html ='';
 	foreach($order_number_list as $key => $value)
 		if ($key > 0) $html .=
-			"<tr><td data-pid='{$key}'>{$key}</td><td>{$_SESSION['credit'][$key]}元</td><td>{$order_number_list[$value]}笔</td></tr>";
+			"<tr><td class='storeNamePending' data-pid='{$key}'> {$key} </td><td>{$_SESSION['credit'][$key]}元</td><td>{$order_number_list[$value]}笔</td></tr>";
 	return $html;
 }
 function mod_login($a = '/authorize') {
