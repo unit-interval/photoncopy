@@ -946,9 +946,9 @@ function page_store($store) {
 	</div>
 	";
 }
-function script_home($s) {
+function script_home($stores) {
 	$regions = text_defs('store_region');
-	foreach($s as &$n)
+	foreach($stores as &$n)
 		$n['region'] = $regions[$n['region']];
 	echo "
 <script type='text/javascript'>
@@ -962,7 +962,7 @@ var order_option_text = {
 	region:	".json_encode_mb($regions, JSON_FORCE_OBJECT).",
 };
 var Vault = {
-	\"stores\": ".json_encode($s, JSON_FORCE_OBJECT).",
+	\"stores\": ".json_encode($stores, JSON_FORCE_OBJECT).",
 	\"option_text\": order_option_text,
 };
 /* ]]> */
