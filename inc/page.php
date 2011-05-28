@@ -573,7 +573,7 @@ function page_profile($num_orders, $store_name) {
 					<li data-hash='0'>帐户概要</li>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
-					<li data-hash='1-3'>认证中心</li>
+					<li data-hash='1-3' style='display: none'>认证中心</li>
 				</ul>
 				<div class='profileType'>
 					徽章中心
