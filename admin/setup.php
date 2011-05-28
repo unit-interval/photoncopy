@@ -50,6 +50,30 @@ function resetTable($table) {
 }
 
 $tables = array(
+	'badge' => array(
+		'col' => '`id` smallint unsigned not null auto_increment primary key,
+			`type` tinyint unsigned not null,
+			`hidden` bool not null,
+			`count` smallint unsigned not null,
+			`name` varchar(32) not null,
+			`desc` varchar(1024) not null,
+			`hint` varchar(1024) not null',
+		'row' => array(
+			"default, 1, false, 0, '新手上路', '成功提交第一次打印任务', '前往<a href=\'/home.php\'>首页</a>提交任务。'",
+			"default, 3, false, 0, '献计献策', '对光子复制提出宝贵意见，并被采纳。', '前往<a href=\'/blog/discussion/\'>讨论专区</a>。'",
+		),
+	),
+	'badge-won' => array(
+		'col' => '`uid` mediumint unsigned not null,
+			`bid` smallint unsigned not null,
+			`won` timestamp not null default current_timestamp,
+			unique `id` (`uid`, `bid`)',
+		'row' => array(
+			'1, 1, default',
+			'1, 2, default',
+			'2, 1, default',
+		),
+	),
 	'credit' => array(
 		'col' => '`uid` MEDIUMINT UNSIGNED NOT NULL ,
 			`pid` MEDIUMINT UNSIGNED NOT NULL ,
