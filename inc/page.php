@@ -314,7 +314,7 @@ function page_home($orders, $stores) {
 					</div>
 					<div class='confirmForm rbCorner'>
 						<h3>客户留言</h3>
-						<textarea id='w8Edit' class='uiTextarea'></textarea>
+						<textarea id='w8Edit' class='uiTextarea1'></textarea>
 						<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
 					</div>
 					<div class='clear'></div>
@@ -524,14 +524,18 @@ function page_par_signup() {
 				</form>
 			</div>
 			<div id='signup' class='panel'>
-				<h2>注册<span class='lightboxClose fright'>×</span></h2>
-				<form><fieldset>
-					<div class='field'>
-						<label>邮箱</label>
-						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
-					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='button' value='注册'>
-			</fieldset></form></div>
+				<h2>申请<span class='lightboxClose fright'>×</span></h2>
+				<form>
+					<fieldset>
+						<div class='field'><label>邮箱</label><input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'></div>
+						<div class='field'><label>联系方式</label><input type='text' name='phone' placeholder='请输入手机或电话号码' class='uiText'></div>
+						<div class='field'><label>店址</label><input type='text' name='address' placeholder='请输入商铺的具体地址' class='uiText'></div>
+					</fieldset>
+					<fieldset class='submit'>
+						<input class='uiBtn submit' type='submit' value='申请'>
+					</fieldset>
+				</form>
+			</div>
 			<div id='forget' class='panel'>
 				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
 				<form><fieldset>
@@ -556,7 +560,7 @@ function page_par_signup() {
 		</div>
 	";
 }
-function page_profile() {
+function page_profile($order_number_list) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -591,20 +595,13 @@ function page_profile() {
 					<div class='profileSection'>
 						<h2>徽章架</h2>
 						<div class='badge'><span class='badge3'></span>新手上路</div>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
 					</div>
 					<div class='profileSection'>
-						<h2>零钱罐</h2>
-						<div class='coin'>
-							<div>
-								<img src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar' />
-							</div>
-							<dl>
-								<dt>北京大学36楼223打印店</dt>
-								<dd>0元</dd>
-							</dl>
-						</div>
-					</div>
+						<h2>零钱罐</h2>";
+						if (sizeof($order_number_list) > 0) echo mod_coin_list($order_number_list);
+						else echo '<p>这里将显示您打印过文档的打印店内存储的零钱，目前您尚未在任何打印店打印过文档。</p>';
+					echo 
+					"</div>
 				</div>
 			</div>
 			<div class='profileR' id='profile-1-1'>
@@ -615,7 +612,7 @@ function page_profile() {
 							<tbody>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' class='uiText2' name='userName' value='user1' /></td>
+									<td><input type='text' class='uiText2' id='user_login' name='userName' value='{$_SESSION['name']}' /></td>
 								</tr>
 								<tr>
 									<th></th>
@@ -634,19 +631,22 @@ function page_profile() {
 							<tbody>
 								<tr>
 									<th>邮箱</th>
-									<td><input type='text' class='uiText2' value='user1@abc.com' disabled='disabled'/></td>
+									<td><input type='text' class='uiText2' value='{$_SESSION['email']}' disabled='disabled'/></td>
 								</tr>
 								<tr>
 									<th>修改密码</th>
-									<td><input type='password' class='uiText2' name='password1'/></td>
+									<td><input type='password' class='uiText2' id='pass1' name='password1'/></td>
 								</tr>
 								<tr>
 									<th>确认密码</th>
-									<td><input type='password' class='uiText2' name='password2'/></td>
+									<td><input type='password' class='uiText2' id='pass2' name='password2'/></td>
 								</tr>
 								<tr>
 									<th></th>
-									<td><input type='submit' class='uiBtn3' value='修改设置'></td>
+									<td>
+										<div id='pass-strength-result'>强度</div>
+										<input type='button' id='pass-confirm' class='uiBtn3' value='修改设置'>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -755,18 +755,13 @@ function page_profile() {
 				<div class='profileHeader'>消费概要</div>
 				<div class='profileContent'>
 					<table class='statTable'>
-						<tbody>
-							<tr><th>商户</th><th>余额</th><th>订单</th></tr>
-							<tr>
-								<td>北京大学36楼223打印店</td><td>1元</td><td>0笔</td>
-							</tr>
-							<tr class='alt'>
-								<td>北京大学36楼219打印店</td><td>2元</td><td>0笔</td>
-							</tr>
-							<tr>
-								<td>北京大学35楼打印店</td><td>2元</td><td>0笔</td>
-							</tr>
-						</tbody>
+						<tbody>";
+							if (sizeof($store_number_list) > 0) echo
+							"<tr><th>商户</th><th>余额</th><th>订单</th></tr>"
+							. mod_stat_list($order_number_list);
+							else echo '<p>这里将显示您在各个打印店的消费概要，目前您尚未在任何打印店打印过文档。</p>';
+						echo	
+						"</tbody>
 					</table>
 				</div>
 			</div>

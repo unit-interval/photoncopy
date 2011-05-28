@@ -1,5 +1,5 @@
 function showPage(pageNo, duration){
-	if (pageNo=='') pageNo='0';
+	if (pageNo=='') pageNo='2-1';
 	if ($('#profile-'+pageNo).css('display')=='none'){
 		$('.profileR').fadeOut(duration);
 		$('#profile-'+pageNo).delay(duration).fadeIn(duration);

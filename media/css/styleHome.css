@@ -572,7 +572,8 @@ input.uiBtn1{
 
 .taskQueue{
 	width: 960px;
-	margin: 30px auto;
+	margin: 30px auto 0;
+	padding-bottom: 30px;
 }
 
 .taskQueueL{

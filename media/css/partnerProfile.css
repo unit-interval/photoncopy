@@ -32,7 +32,34 @@
     padding: 6px 8px;
     position: relative;
     text-shadow: 0 1px 1px #fff;
+    cursor: default;
+}
+
+div.profileL > ul{
+	background: rgba(59, 68, 88, .1);
+	border: 1px solid #cacaca;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	-moz-box-shadow: 0 1px 2px rgba(255, 255, 255, .1);
+	-webkit-box-shadow: 0 1px 2px rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+	list-style: none;
+	margin: -3px 0 0 0;
+	padding: 2px 0;
 	margin-bottom: 6px;
+}
+
+div.profileL > ul > li{
+	font-size: 14px;
+	line-height: 1;
+	margin: 0;
+	padding: 6px 8px;
+	color: #5A5E67;
+	display: list-item;
 	cursor: pointer;
 }
 
@@ -49,7 +76,7 @@
     color: #333;
     float: right;
     width: 730px;
-    display: block;
+    display: none;
 }
 
 .profileHeader{
@@ -82,7 +109,7 @@
 	color: #666;
 	font-size: 20px;
 	font-weight: normal;
-	margin: 0 0 18px 0;
+	margin: 0 0 12px 0;
 }
 
 .profileContent table{
@@ -98,11 +125,10 @@
 
 .profileContent th{
 	padding-right: 21px;
-	text-align: right;
 }
 
 .profileSection{
-	margin-bottom: 9px;
+	margin-bottom: 12px;
 }
 
 table.formTable th{
@@ -117,4 +143,107 @@ input.uiText2{
 
 input.uiBtn3{
 	margin: 7px 0;
+}
+
+input[type='file']{
+	margin: 7px 0;
+}
+
+/*------------------------ COIN ------------------------*/
+
+.coin{
+	color: #4D5765;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F6FC), to(#CDDFF1));
+	background: -moz-linear-gradient(top, #F0F6FC, #CDDFF1);
+	background: linear-gradient(top, #F0F6FC, #CDDFF1);
+	border: 1px solid #A1B8D6;
+	margin: 0 3px 3px 0;
+	padding: 10px;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 2;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	font-weight: normal;
+	text-align: center;
+	margin-right: 20px;
+}
+
+.coin > div{
+	box-shadow: 0px 0px 2px #171C1E;
+	-moz-box-shadow: 0px 0px 2px #171C1E;
+	-webkit-box-shadow: 0px 0px 2px #171C1E;
+	height: 64px;
+	width: 64px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	overflow: hidden;
+	float: left;
+	margin-right: 10px;
+}
+
+.coin > div > img{
+	height: 100%;
+	width: 100%;
+}
+
+.coin > dl{
+	margin: 5px 0 0 0;
+	float: right;
+}
+
+.coin > dl > dt{
+	border-bottom: 1px solid #4D5765;
+}
+
+.coin > dl > dd{
+	margin: 0;
+}
+
+table.statTable{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.statTable th, table.statTable td{
+	border: 1px solid #A1B8D6;
+	text-align: center;
+	margin: 0px;
+	padding: 8px;
+}
+
+table.statTable th{
+	color: #4D5765;
+}
+
+table.statTable tr{
+	color: #4D5765;
+}
+
+table.statTable tr.alt{
+	background: #CDDFF1;
+}
+
+
+/*------------------------ TASK DETAIL ------------------------*/
+
+#taskDetail{
+	padding: 14px 0 0 0;
+	display: none;
+}
+
+#taskDetail textarea{
+	width: 685px;
+	margin: 7px 0;
+}
+
+#taskDetail input{
+	margin: 7px 0;
+}
+
+#taskCenter > div.profileContent > div.profileSection{
+	border-bottom: 3px dashed #999;
+	padding-bottom: 18px;
 }

@@ -1,6 +1,6 @@
 var storeItemInfoHover=0;
 var peekEnable=0;
-//var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
+var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
 /* ---------- SHOW MORE ---------- */
 
@@ -99,7 +99,7 @@ function order_bind_action(expand) {
 		.each(function(){
 			if(expand != 0) {
 				$(this).addClass('selected')
-					.find('span').obFlash()
+					.find('span.taskStatus').obFlash()
 					.end().next().show();
 			}
 		})

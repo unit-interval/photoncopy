@@ -7,9 +7,9 @@
 	<meta http-equiv="content-language" content="zh-CN" /> 
 	<title>光子复制</title> 
 	<link rel='stylesheet' type='text/css' href='/media/css/style.css' /> 
-	<link rel='stylesheet' type='text/css' href='/media/css/styleProfile.css' />
+	<link rel='stylesheet' type='text/css' href='/media/css/partnerProfile.css' />
 	<script type="text/javascript" src="/media/js/jquery.js"></script>
-	<script type='text/javascript' src='/media/js/profile.js'></script>
+	<script type='text/javascript' src='/media/js/partnerProfile.js'></script>
 </head> 
 	<body id='user'>
 		<div class="nav"> 
@@ -35,44 +35,13 @@
 				<ul>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
-					<li data-hash='1-3'>认证中心</li>
-				</ul>
-				<div class='profileType'>
-					徽章中心
-				</div>
-				<ul>
-					<li data-hash='2-1'>徽章说明</li>
-					<li data-hash='2-2'>我的徽章</li>
-					<li data-hash='2-3'>更多徽章</li>
 				</ul>
 				<div class='profileType'>
 					统计中心
 				</div>
 				<ul>
-					<li data-hash='3-1'>消费概要</li>
+					<li data-hash='2-1'>储蓄概要</li>
 				</ul>
-			</div>
-			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>User1的帐户</div>
-				<div class='profileContent'>
-					<div class='profileSection'>
-						<h2>徽章架</h2>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
-					</div>
-					<div class='profileSection'>
-						<h2>零钱罐</h2>
-						<div class='coin'>
-							<div>
-								<img src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar' />
-							</div>
-							<dl>
-								<dt>北京大学36楼223打印店</dt>
-								<dd>0元</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class='profileR' id='profile-1-1'>
 				<div class='profileHeader'>基本信息</div>
@@ -81,8 +50,34 @@
 						<table class='formTable'>
 							<tbody>
 								<tr>
-									<th>用户名</th>
-									<td><input type='text' class='uiText2' name='userName' value='user1' /></td>
+									<th>店名</th>
+									<td><input type='text' class='uiText2' name='parName' value='user1' /></td>
+								</tr>
+								<tr>
+									<th>网络</th>
+									<td>
+										<select class='uiSelect' name='parNetwork'>
+											<option value='@pku.edu.cn'>北京大学</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th>头像</th>
+									<td>
+										<input type='file' name='parAvatar' /> 建议大小: 100像素×100像素
+									</td>
+								</tr>
+								<tr>
+									<th>外景</th>
+									<td>
+										<input type='file' name='parView' /> 建议大小: 940像素×345像素
+									</td>
+								</tr>
+								<tr>
+									<th>地图</th>
+									<td>
+										<input type='file' name='parView' /> 建议大小: 940像素×345像素
+									</td>
 								</tr>
 								<tr>
 									<th></th>
@@ -154,86 +149,24 @@
 				</div>
 			</div>
 			<div class='profileR' id='profile-2-1'>
-				<div class='profileHeader'>徽章说明</div>
-				<div class='profileContent'>
-					<p>用户可以通过完成不同的任务获得徽章并累计信用。部分任务为隐藏任务，完成后系统将自动通知您激活奖励。</p>
-					<table>
-						<table class='badgeTable'>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>金质徽章</div></th>
-								<td>金质徽章非常稀少，只有做出杰出贡献的用户才能获得它们。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge2'></span>银质徽章</div></th>
-								<td>银质徽章奖励给长期使用的用户，它们不常见，但您只需要累计良好的信用记录就能得到。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>铜质徽章</div></th>
-								<td>铜质徽章奖励给普通用户，它们是很容易得到的。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'>徽章</div> × 数字</th>
-								<td>数字表示当前拥有该徽章的用户数。</td>
-							</tr>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class='profileR' id='profile-2-2'>
-				<div class='profileHeader'>我的徽章</div>
-				<div class='profileContent'>
-					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>新手上路</div> × 570</th>
-								<td>欢迎来到光子复制，我们将为您提供最便利的生活类应用服务。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>已经认证大学邮箱。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>对光子复制提出宝贵意见，并被采纳。</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class='profileR' id='profile-2-3'>
-				<div class='profileHeader'>更多徽章</div>
-				<div class='profileContent'>
-					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>前往<a href='#1'>认证中心</a>填写大学邮箱，获取更高信用。<br/>邮箱名通常为学号，需要登录校园网网关查看邮箱中的验证码。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>前往光子复制黑板报的<a href='#' target='_blank'>讨论专区</a>对光子复制提出意见。<br/>如被采用，我们将授予金质徽章以表彰您对光子复制作出的杰出贡献。</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class='profileR' id='profile-3-1'>
-				<div class='profileHeader'>消费概要</div>
+				<div class='profileHeader'>储蓄概要</div>
 				<div class='profileContent'>
 					<table class='statTable'>
 						<tbody>
 							<tr>
-								<th>商户</th><th>余额</th><th>订单</th>
+								<th>编号</th><th>用户名</th><th>储蓄</th><th>订单</th>
 							</tr>
 							<tr>
-								<td>北京大学36楼223打印店</td><td>1元</td><td>0笔</td>
+								<td>1</td><td>libragold</td><td>1元</td><td>1笔</td>
 							</tr>
 							<tr>
-								<td>北京大学36楼219打印店</td><td>2元</td><td>0笔</td>
+								<td>2</td><td>fjdsklfjslf</td><td>2元</td><td>2笔</td>
 							</tr>
 							<tr>
-								<td>北京大学35楼打印店</td><td>2元</td><td>0笔</td>
+								<td>3</td><td>jlsjkfs</td><td>2元</td><td>3笔</td>
+							</tr>
+							<tr>
+								<th>汇总</th><th>3位用户</th><th>6元</th><th>6笔</th>
 							</tr>
 						</tbody>
 					</table>

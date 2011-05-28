@@ -24,6 +24,7 @@ $link['css'][] = 'styleProfile';
 $link['js'][] = 'jquery';
 $link['js'][] = 'script';
 $link['js'][] = 'profile';
+$link['js'][] = 'pswStrength';
 
 page_meta();
 page_nav('user');
@@ -31,8 +32,14 @@ if($state === 1)
 	page_activate();
 elseif($state === 2)
 	page_resetpasswd();
-else
-	page_profile();
+else{
+	$query = "select `pid`, count (`id`) as 'count' from `order` where `uid` = {$_SESSION['uid']} and `status` = 5 group by `pid`";
+	$result = $db->query($query);
+	while($row = $result->fetch_assoc())
+		$orders_number_list[$row['pid']] = $row['count'];
+	$result->free();
+	page_profile($order_number_list);
+}
 page_footer();
 page_close();
 
