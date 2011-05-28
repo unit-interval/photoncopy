@@ -116,7 +116,7 @@ function objectFlash(id, times){
 		repeat = repeat || 3;
 		return this.each(function(){
 			for (var i = 0; i++ < repeat; )
-				$(this).fadeTo(500, 0.2).fadeTo(500, 1);
+				$(this).fadeTo(1000, 0.1).fadeTo(1000, 1);
 		});
 	};
 })(jQuery);
