@@ -1,4 +1,34 @@
 <?php
+function mod_badge_rest($badges, $badges_won) {
+	foreach($badges_won as $b)
+		unset($badges[$b['bid']]);
+	if(count($badges) == 0)
+		return "您已获得网站测试阶段的所有徽章，正式上线后将开启隐藏成就，敬请期待。";
+	$html = '';
+	foreach($badges as $b)
+		$html .= "
+			<tr><th><div class='badge'><span class='badge{$b['type']}'></span>{$b['name']}</div> × {$b['count']}</th>
+			<td>{$b['desc']}<br />{$b['hint']}</td></tr>";
+	return $html;
+}
+function mod_badge_summary($badges, $badges_won) {
+	if(!$badges_won)
+		return "您得到的徽章将显示在此。";
+	$html = '';
+	foreach($badges_won as $b)
+		$html .= "<div class='badge'><span class='badge{$badges[$b['bid']]['type']}'></span>{$badges[$b['bid']]['name']}</div>";
+	return $html;
+}
+function mod_badge_won($badges, $badges_won) {
+	if(!$badges_won)
+		return "您得到的徽章将显示在此。";
+	$html = '';
+	foreach($badges_won as $b)
+		$html .= "
+			<tr><th><div class='badge'><span class='badge{$badges[$b['bid']]['type']}'></span>{$badges[$b['bid']]['name']}</div> × {$badges[$b['bid']]['count']}</th>
+			<td>{$badges[$b['bid']]['desc']}</td></tr>";
+	return $html;
+}
 function mod_login($a = '/authorize') {
 	$pubCheck = "<input class='checkbox' type='checkbox' name='pub' value='yes' />
 							<h3> 正在使用公共电脑登录</h3>";
@@ -169,7 +199,7 @@ function mod_order_queue_par($orders, $users) {
 	}
 	return $html;
 }
-function mod_pocket_list($store_name) {
+function mod_pocket_list($stores) {
 	if(count($_SESSION['credit']) == 1)
 		return "<p>这里将显示您打印过文档的打印店内存储的零钱，目前您尚未在任何打印店打印过文档。</p>";
 	$html = '';
@@ -182,14 +212,14 @@ function mod_pocket_list($store_name) {
 					<img src='/media/images/store/storeAvatar$k.jpg' alt='Store Avatar' />
 				</div>
 				<dl>
-					<dt> $store_name[$k] </dt>
+					<dt> {$stores[$k]['name']} </dt>
 					<dd>{$v} 元</dd>
 				</dl>
 			</div>";
 	}
 	return $html;
 }
-function mod_stat_credit($num_orders, $store_name) {
+function mod_stat_credit($num_orders, $stores) {
 	if(!$num_orders)
 		return '<p>这里将显示您在各个打印店的消费概要，目前您尚未在任何打印店打印过文档。</p>';
 	$html =	"		<table class='statTable'>
@@ -197,7 +227,7 @@ function mod_stat_credit($num_orders, $store_name) {
 							<tr><th>商户</th><th>余额</th><th>订单</th></tr>";
 	foreach($num_orders as $k => $v)
 		$html .= "
-			<tr><td> $store_name[$k] </td><td>" . ($_SESSION['credit'][$k] / 10) . " 元</td><td>$v 笔</td></tr>";
+			<tr><td> {$stores[$k]['name']} </td><td>" . ($_SESSION['credit'][$k] / 10) . " 元</td><td>$v 笔</td></tr>";
 	$html .= "			</tbody>
 					</table>";
 	return $html;
