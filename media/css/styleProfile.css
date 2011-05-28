@@ -150,7 +150,7 @@ table.formTable th{
 	color: #4D5765;
 	font-weight: bold;
 	margin: 0 2px 0 0;
-	padding: 3px 12px 3px 8px;
+	padding: 3px 8px 3px 8px;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
 	display: inline-block;
 }
@@ -188,6 +188,7 @@ input.uiBtn3{
 .badge1, .badge2, .badge3{
 	width: 16px;
 	height: 14px;
+	margin-left: -4px;
 	display: inline-block;
 	background: url(/media/images/badge.png) no-repeat 0px -26px;
 }
