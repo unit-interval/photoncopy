@@ -52,9 +52,9 @@ function send_reg_mail($to) {
 		</tbody></table>	
 EOT;
 	$header = "Content-type: text/html; charset=utf-8\r\n";
-	$header .= "From: " . CODE_NAME . " <noreply-reg@" .
+	$header .= "From: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
-	$header .= "Reply-To: " . CODE_NAME . " <noreply-reg@" .
+	$header .= "Reply-To: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }
