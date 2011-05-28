@@ -183,7 +183,7 @@ function mod_pocket_list($store_name) {
 				</div>
 				<dl>
 					<dt> $store_name[$k] </dt>
-					<dd>{$v} 元</dd>
+					<dd> {$v} 元</dd>
 				</dl>
 			</div>";
 	}

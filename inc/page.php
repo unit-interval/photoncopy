@@ -550,7 +550,11 @@ function page_par_signup() {
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
 						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
-						<a href='tutorial'>了解更多</a>
+						<a href='/blog/tutorial'>了解更多</a>
+						<div class='slideshowCtrl'>
+							<input type='button' class='uiBtn2' id='signupBtn' value='申请店铺'/>
+							<div class='clear'></div>
+						</div>
 					</div>
 				</li>
 			</ul>
