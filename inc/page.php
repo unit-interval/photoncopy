@@ -58,7 +58,7 @@ function page_footer() {
 					<h3>光子复制</h3>
 					<ul>
 						<li>
-							关于我们
+							<a href='/blog/about/'>关于我们</a>
 						</li>
 					</ul>
 				</div>
@@ -74,15 +74,15 @@ function page_footer() {
 					<h3>用户</h3>
 					<ul>
 						<li>
-							用户教程
+							<a href='/blog/tutorial/'>用户教程</a>
 						</li>
 					</ul>
 				</div>
 				<div class='latestNews'>
 					<h3>近期新闻</h3>
 					<dl>
-						<dt>光子复制Beta1.0启动</dt>
-						<dd>May 6, 2011</dd>
+						<dt><a href='/blog/2011/05/dev-alpha/'>光子复制内测<a></dt>
+						<dd>May 29, 2011</dd>
 					</dl>
 				</div>
 				<div class='clear'></div>

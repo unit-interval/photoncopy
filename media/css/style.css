@@ -597,7 +597,7 @@ select.uiSelect {
 .footerItem{
 	float: left;
 	width: 136px;
-	padding: 18px;
+	padding: 12px;
 }
 
 .footer h3, .latestNews h3{
@@ -616,7 +616,7 @@ select.uiSelect {
 
 .latestNews{
 	float: right;
-	padding: 18px;
+	padding: 12px;
 	text-align: right;	
 }
 
@@ -629,4 +629,6 @@ select.uiSelect {
 	padding-bottom: 12px;
 }
 
-
+.latestNews dl{
+	margin-bottom: 0;
+}
