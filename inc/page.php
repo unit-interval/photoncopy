@@ -570,7 +570,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					帐户中心
 				</div>
 				<ul>
-					<li data-hash='0'>帐户概要</li>
+					<li data-hash='0'>我的帐户</li>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
 					<li data-hash='1-3' style='display: none'>认证中心</li>
@@ -590,8 +590,9 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					<li data-hash='3-1'>消费概要</li>
 				</ul>
 			</div>
+			<div class='profileRWrapper'>
 			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>帐户概要</div>
+				<div class='profileHeader'>我的帐户</div>
 				<div class='profileContent'>
 					<div class='profileSection'>
 						<h2>徽章架</h2>"
@@ -737,6 +738,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 				<div class='profileContent'>"
 					. mod_stat_credit($num_orders, $stores) . "
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 
