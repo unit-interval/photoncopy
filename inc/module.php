@@ -8,7 +8,7 @@ function mod_badge_rest($badges, $badges_won) {
 	foreach($badges as $b)
 		$html .= "
 			<tr><th><div class='badge'><span class='badge{$b['type']}'></span>{$b['name']}</div> × {$b['count']}</th>
-			<td>{$b['desc']}<br />{$b['hint']}</td></tr>";
+			<td>{$b['desc']}{$b['hint']}</td></tr>";
 	return $html;
 }
 function mod_badge_summary($badges, $badges_won) {
