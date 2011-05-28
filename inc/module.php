@@ -8,7 +8,7 @@ function mod_badge_rest($badges, $badges_won) {
 	foreach($badges as $b)
 		$html .= "
 			<tr><th><div class='badge'><span class='badge{$b['type']}'></span>{$b['name']}</div> × {$b['count']}</th>
-			<td>{$b['desc']}<br />{$b['hint']}</td></tr>";
+			<td>{$b['desc']}{$b['hint']}</td></tr>";
 	return $html;
 }
 function mod_badge_summary($badges, $badges_won) {
@@ -353,7 +353,7 @@ function unit_order($order) {
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
-		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}纸 {$t['order_color'][$order['color']]}{$t['order_back'][$order['back']]}打印 {$t['order_layout'][$order['layout']]}版/页 {$order['copy']}份 {$t['order_misc'][$order['misc']]}</td></tr>
+		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
 								" . $cost . $paid . "

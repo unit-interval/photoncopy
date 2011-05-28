@@ -58,7 +58,7 @@ function page_footer() {
 					<h3>光子复制</h3>
 					<ul>
 						<li>
-							关于我们
+							<a href='/blog/about/'>关于我们</a>
 						</li>
 					</ul>
 				</div>
@@ -74,15 +74,15 @@ function page_footer() {
 					<h3>用户</h3>
 					<ul>
 						<li>
-							用户教程
+							<a href='/blog/tutorial/'>用户教程</a>
 						</li>
 					</ul>
 				</div>
 				<div class='latestNews'>
 					<h3>近期新闻</h3>
 					<dl>
-						<dt>光子复制Beta1.0启动</dt>
-						<dd>May 6, 2011</dd>
+						<dt><a href='/blog/2011/05/dev-alpha/'>光子复制内测<a></dt>
+						<dd>May 29, 2011</dd>
 					</dl>
 				</div>
 				<div class='clear'></div>
@@ -570,7 +570,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					帐户中心
 				</div>
 				<ul>
-					<li data-hash='0'>帐户概要</li>
+					<li data-hash='0'>我的帐户</li>
 					<li data-hash='1-1'>基本信息</li>
 					<li data-hash='1-2'>安全设置</li>
 					<li data-hash='1-3' style='display: none'>认证中心</li>
@@ -590,8 +590,9 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					<li data-hash='3-1'>消费概要</li>
 				</ul>
 			</div>
+			<div class='profileRWrapper'>
 			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>帐户概要</div>
+				<div class='profileHeader'>我的帐户</div>
 				<div class='profileContent'>
 					<div class='profileSection'>
 						<h2>徽章架</h2>"
@@ -737,6 +738,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 				<div class='profileContent'>"
 					. mod_stat_credit($num_orders, $stores) . "
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 

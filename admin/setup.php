@@ -59,8 +59,8 @@ $tables = array(
 			`desc` varchar(1024) not null,
 			`hint` varchar(1024) not null',
 		'row' => array(
-			"default, 3, false, 0, '新手上路', '成功提交第一次打印任务', '前往<a href=\'/home.php\'>首页</a>提交任务。'",
-			"default, 1, false, 0, '献计献策', '对光子复制提出宝贵意见，并被采纳。', '前往<a href=\'/blog/discussion/\'>讨论专区</a>。'",
+			"default, 3, false, 0, '新手上路', '第一次成功提交订单。', '前往<a href=\'/home.php\'>首页</a>提交订单。'",
+			"default, 1, false, 0, '献计献策', '对光子复制提出宝贵意见，并被采纳。', '前往<a href=\'/blog/discussion/\'>讨论专区</a>留言。'",
 		),
 	),
 	'badge-won' => array(
@@ -148,9 +148,9 @@ $tables = array(
 			`memo` VARCHAR( 256 ) NOT NULL ,
 			UNIQUE (`email`)',
 		'row' => array(
-			"default, 'p1@abc.com', '".md5('p1')."', '123', '25楼打印店', 0, '位置: 北京大学36楼北侧'",
-			"default, 'p2@abc.com', '".md5('p2')."', '123', '博實打印店', 0, '营业时间: 8AM-8PM'",
-			"default, 'p3@abc.com', '".md5('p3')."', '123', '學五打印店', 0, '单面打印: 1角/张 | 双面打印: 7分/面'",
+			"default, 'p1@abc.com', '".md5('p1')."', '223', '36楼223打印店', 0, '位置: 北京大学36楼223 | 内测阶段虚拟的打印店'",
+			"default, 'p2@abc.com', '".md5('p2')."', '219', '36楼219打印店', 0, '位置: 北京大学36楼219 | 内测阶段虚拟的打印店'",
+			"default, 'p3@abc.com', '".md5('p3')."', '123', '35楼打印店', 0, '位置: 北京大学35楼北侧 | 营业时间: 8AM-8PM <br /> 单面打印: 1角/张 | 双面打印: 7分/面'",
 		),
 	),
 	'user' => array(
