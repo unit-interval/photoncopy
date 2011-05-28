@@ -80,8 +80,8 @@ $query = "insert into `order` values (default,"
 	. '0, '
 	. $order['copy'] . ','
 	. $order['misc'] . ','
-	. '0, '
-	. '0, '
+	. 'default, '
+	. 'default, '
 	. "'" . $db->real_escape_string($order['_fname']) . "',"
 	. "'" . $db->real_escape_string($_fname) . "',"
 	. 'default, '
