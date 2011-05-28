@@ -1,5 +1,13 @@
 <?php
 
+function badge_criteria($class) {
+	$cr = array(
+		'num_submit' => array(
+			1 => 1,
+		),
+	);
+	return $cr[$class];
+}
 /** predefined error messages might be needed */
 function err_redir($err = '', $tar = '/') {
 	if($tar == '/error.php')
