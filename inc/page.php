@@ -9,6 +9,7 @@ function page_activate() {
 					初次设置
 				</div>
 			</div>
+			<div class='profileRWrapper'>
 			<div class='profileR' id='profile-0'>
 				<div class='profileHeader'>
 					初次设置
@@ -41,6 +42,7 @@ function page_activate() {
 						</table>
 					</form>
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 
