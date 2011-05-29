@@ -63,6 +63,7 @@ function order_list_fetch_new() {
 		statusCode: {
 			200: function(data){
 					$tbody.prepend(data);
+					order_bind_action_par(1);
 				}
 		}
 	})
