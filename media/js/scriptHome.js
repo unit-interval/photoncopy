@@ -514,7 +514,7 @@ function order_status(row) {
 					var $html = $(data);
                     $(row).replaceWith($html);
                     $html.find('span.taskStatus').obFlash();
-                    order_bind_action();
+                    order_bind_action(1);
 				}
 		}
 	});
