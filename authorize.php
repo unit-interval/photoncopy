@@ -130,18 +130,18 @@ if($_GET['c'] == 'login') {
 		$logged_in = false;
 	if(!$logged_in)
 		err_redir('登录失败，邮箱未被注册或用户名密码有误，请重新登录');
-	$query = "select `pid`, `credit` from `credit` where `uid` = {$user['id']}";
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$credit = array();
-	while($row = $result->fetch_assoc())
-		$credit[$row['pid']] = $row['credit'];
-	$result->free();
+//	$query = "select `pid`, `credit` from `credit` where `uid` = {$user['id']}";
+//	if(!($result = $db->query($query)))
+//		err_redir("db error({$db->errno}). query:$query", '/error.php');
+//	$credit = array();
+//	while($row = $result->fetch_assoc())
+//		$credit[$row['pid']] = $row['credit'];
+//	$result->free();
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $user['id'];
 	$_SESSION['name'] = $user['name'];
 	$_SESSION['email'] = $input['email'];
-	$_SESSION['credit'] = $credit;
+//	$_SESSION['credit'] = $credit;
 	if(!$input['pub']) {
 		$expire = time()+3600*24*30;
 		$stamp = date('YmdHis');
@@ -206,13 +206,13 @@ if($_GET['c'] == 'login') {
 		$logged_in = false;
 	if(!$logged_in)
 		err_redir('抱歉，登录失败','/partner.php');
-	$query = "select `uid`, `credit` from `credit` where `pid` = {$user['id']}";
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$credit = array();
-	while($row = $result->fetch_assoc())
-		$credit[$row['uid']] = $row['credit'];
-	$result->free();
+//	$query = "select `uid`, `credit` from `credit` where `pid` = {$user['id']}";
+//	if(!($result = $db->query($query)))
+//		err_redir("db error({$db->errno}). query:$query", '/error.php');
+//	$credit = array();
+//	while($row = $result->fetch_assoc())
+//		$credit[$row['uid']] = $row['credit'];
+//	$result->free();
 	$_SESSION['partner'] = true;
 	$_SESSION['pid'] = $user['id'];
 	$_SESSION['passphrase'] = $user['passphrase'];
@@ -220,7 +220,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['region'] = $user['region'];
 	$_SESSION['memo'] = $user['memo'];
 	$_SESSION['email'] = $input['email'];
-	$_SESSION['credit'] = $credit;
+//	$_SESSION['credit'] = $credit;
 	$expire = time()+3600*24*7;
 	setcookie('email_p', $input['email'], $expire);
 	setcookie('pid', $user['id'], $expire);
@@ -252,7 +252,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];
-	$_SESSION['credit'] = array(0 => 10);
+//	$_SESSION['credit'] = array(0 => 10);
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 } elseif($_SESSION['state'] === 'resetpw') {
@@ -260,15 +260,15 @@ if($_GET['c'] == 'login') {
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$credit = array();
-	while($row = $result->fetch_assoc())
-		$credit[$row['pid']] = $row['credit'];
-	$result->free();
+//	$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
+//	if(!($result = $db->query($query)))
+//		err_redir("db error({$db->errno}). query:$query", '/error.php');
+//	$credit = array();
+//	while($row = $result->fetch_assoc())
+//		$credit[$row['pid']] = $row['credit'];
+//	$result->free();
 	$_SESSION['logged_in'] = true;
-	$_SESSION['credit'] = $credit;
+//	$_SESSION['credit'] = $credit;
 	unset($_SESSION['state']);
 	err_redir('恭喜您成功找回密码', '/home.php');
 } else {
