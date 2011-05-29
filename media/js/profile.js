@@ -20,4 +20,7 @@ $(function(){
 		ob=$('#user_login');
 		if (ob.val() == '' || ob.val() == ob.attr('title')) return false;
 	})
+	$('#profile-0 form').submit(function(){
+		if ($('#user_login').val() == '' || $('#pass1').val() != $('#pass2').val() || $('#pass1').val() == '') return false;
+	})
 })
