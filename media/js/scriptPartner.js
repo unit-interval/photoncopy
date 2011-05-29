@@ -62,7 +62,7 @@ function order_list_fetch_new() {
 		dataType: 'html',
 		statusCode: {
 			200: function(data){
-					tbody.prepend(data);
+					$tbody.prepend(data);
 				}
 		}
 	})
