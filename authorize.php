@@ -181,11 +181,16 @@ if($_GET['c'] == 'login') {
 	if (!($input=verify_update_name_form()))
 		err_redir('用户名不能为空', '/profile.php');
 	$query = "update `user` set `name` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
-	err_redir('用户名修改成功', '/profile.php');
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	$_SESSION['name'] = $db->real_escape_string($input);
+	err_redir('用户名修改成功', '/profile.php#1-1');
 } elseif($_GET['c'] == 'update-password'){
 	$input=verify_update_password_form();
-	$query = "update `user` set `passwd` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
-	err_redir('密码修改成功', '/profile.php');	
+	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	err_redir('密码修改成功', '/profile.php#1-2');	
 } elseif($_GET['c'] == 'partnerlogin') {
 	if(!($input = verify_login_form()))
 		err_redir('Invalid Login Information.','/partner.php');

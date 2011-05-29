@@ -570,24 +570,24 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 					帐户中心
 				</div>
 				<ul>
-					<li data-hash='0'>我的帐户</li>
-					<li data-hash='1-1'>基本信息</li>
-					<li data-hash='1-2'>安全设置</li>
-					<li data-hash='1-3' style='display: none'>认证中心</li>
+					<li><a href='#0'>我的帐户</a></li>
+					<li><a href='#1-1'>基本信息</a></li>
+					<li><a href='#1-2'>安全设置</a></li>
+					<li style='display: none'><a href='#1-3'>认证中心</a></li>
 				</ul>
 				<div class='profileType'>
 					徽章中心
 				</div>
 				<ul>
-					<li data-hash='2-1'>徽章说明</li>
-					<li data-hash='2-2'>我的徽章</li>
-					<li data-hash='2-3'>更多徽章</li>
+					<li><a href='#2-1'>徽章说明</a></li>
+					<li><a href='#2-2'>我的徽章</a></li>
+					<li><a href='#2-3'>更多徽章</a></li>
 				</ul>
 				<div class='profileType'>
 					统计中心
 				</div>
 				<ul>
-					<li data-hash='3-1'>消费概要</li>
+					<li><a href='#3-1'>消费概要</a></li>
 				</ul>
 			</div>
 			<div class='profileRWrapper'>
@@ -612,7 +612,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 							<tbody>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' class='uiText2' id='user_login' name='name' value='{$_SESSION['name']}' /></td>
+									<td><input type='text' class='uiText2' id='user_login' name='name' title='{$_SESSION['name']}' value='{$_SESSION['name']}' /></td>
 								</tr>
 								<tr>
 									<th></th>
@@ -645,7 +645,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 									<th></th>
 									<td>
 										<div id='pass-strength-result'>强度</div>
-										<input type='button' id='pass-confirm' class='uiBtn3' value='修改设置'>
+										<input type='submit' id='pass-confirm' class='uiBtn3' value='修改设置'>
 									</td>
 								</tr>
 							</tbody>
