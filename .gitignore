@@ -2,7 +2,7 @@
 .buildpath
 .project
 .settings
-blog/
+blog
 tmp/
 upload/
 inc/config.local.php
