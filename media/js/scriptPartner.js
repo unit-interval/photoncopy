@@ -109,6 +109,6 @@ $(function(){
 	});
 
 	order_bind_action_par();
-//	setInterval(order_list_fetch_new, 10000);
+	setInterval(order_list_fetch_new, 60000);
 //
 })

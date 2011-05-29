@@ -10,7 +10,14 @@ function showPage(pageNo, duration){
 $(function(){
 	showPage(location.hash.slice(1), 0);
 	$('div.profileL > ul > li').click(function(){
-		showPage($(this).data('hash'), 250);
+		showPage($(this).find('a').attr('href').slice(1), 250);
 	})
 	$('table.statTable tr:even').addClass('alt');
+	$('#profile-1-2 form').submit(function(){
+		if ($('#pass1').val() != $('#pass2').val() || $('#pass1').val() == '') return false;
+	})
+	$('#profile-1-1 form').submit(function(){
+		ob=$('#user_login');
+		if (ob.val() == '' || ob.val() == ob.attr('title')) return false;
+	})
 })
