@@ -59,7 +59,7 @@ $tables = array(
 			`desc` varchar(1024) not null,
 			`hint` varchar(1024) not null',
 		'row' => array(
-			"default, 3, false, 0, '新手上路', '第一次成功提交订单。', '前往<a href=\'/home.php\'>首页</a>提交订单。'",
+			"default, 3, false, 0, '新手上路', '第一次成功提交订单。', '前往<a href=\'/home.php\'>示波器</a>提交订单。'",
 			"default, 1, false, 0, '献计献策', '对光子复制提出宝贵意见，并被采纳。', '前往<a href=\'/blog/discussion/\'>讨论专区</a>留言。'",
 		),
 	),
