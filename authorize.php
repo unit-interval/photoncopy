@@ -129,7 +129,7 @@ if($_GET['c'] == 'login') {
 	} else
 		$logged_in = false;
 	if(!$logged_in)
-		err_redir('登录失败，用户名或密码有误，请重新登录');
+		err_redir('登录失败，邮箱未被注册或用户名密码有误，请重新登录');
 	$query = "select `pid`, `credit` from `credit` where `uid` = {$user['id']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');

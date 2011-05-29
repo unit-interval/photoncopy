@@ -122,6 +122,7 @@ if($bid = reach_new_badge($count)) {
 	}
 	$query = "update `credit` set `credit` = `credit` + $credit where `uid` = {$_SESSION['uid']} and `pid` = 0";
 	$db->query($query);
+	$_SESSION['credit'][0] += $credit;
 }
 
 $return['errno'] = 0;
