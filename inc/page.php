@@ -9,6 +9,7 @@ function page_activate() {
 					初次设置
 				</div>
 			</div>
+			<div class='profileRWrapper'>
 			<div class='profileR' id='profile-0'>
 				<div class='profileHeader'>
 					初次设置
@@ -23,24 +24,25 @@ function page_activate() {
 								</tr>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' id='user_login' class='uiText2' name='userName'></td>
+									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
 								</tr>
 								<tr>
 									<th>设定密码</th>
-									<td><input type='password' id='pass1' class='uiText2' name='password1'></td>
+									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
 								</tr>
 								<tr>
 									<th>确认密码</th>
-									<td><input type='password' id='pass2' class='uiText2' name='password2'></td>
+									<td><input type='password' id='pass2' class='uiText2'></td>
 								</tr>
 								<tr>
 									<th></th>
-									<td><div id='pass-strength-result'>强度</div><input type='button' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
+									<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
 								</tr>
 							</tbody>
 						</table>
 					</form>
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 

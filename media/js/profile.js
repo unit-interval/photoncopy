@@ -3,7 +3,7 @@ function showPage(pageNo, duration){
 	if ($('#profile-'+pageNo).css('display')=='none'){
 		$('.profileR').fadeOut(duration);
 		$('#profile-'+pageNo).delay(duration).fadeIn(duration);
-		$('div.profileRWrapper').animate({'height': $('#profile-'+pageNo).css('height')});
+		$('div.profileRWrapper').animate({'height': $('#profile-'+pageNo).css('height')}, duration);
 	}
 }
 
@@ -19,5 +19,8 @@ $(function(){
 	$('#profile-1-1 form').submit(function(){
 		ob=$('#user_login');
 		if (ob.val() == '' || ob.val() == ob.attr('title')) return false;
+	})
+	$('#profile-0 form').submit(function(){
+		if ($('#user_login').val() == '' || $('#pass1').val() != $('#pass2').val() || $('#pass1').val() == '') return false;
 	})
 })
