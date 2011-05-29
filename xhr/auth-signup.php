@@ -40,7 +40,7 @@ function send_reg_mail($to) {
 								您好，<br>
 								<br>
 								感谢您注册光子复制，请点击确认<a style="color: #1F75CC; text-decoration: none" href="$link" target="_blank">绑定邮箱</a>。
-								<br><br><font size="-1" color="gray">如果链接无效，请将以下链接复制到浏览器地址栏访问：<br>$link</font>
+								<br><br><font size="-1" color="gray" style="word-wrap: break-word; display: block; width: 550px;">如果链接无效，请将以下链接复制到浏览器地址栏访问：<br>$link</font>
 								<br>
 								<br>
 								光子复制团队 敬上<br>
@@ -51,10 +51,10 @@ function send_reg_mail($to) {
 			</tr>
 		</tbody></table>	
 EOT;
-	$header = "Content-type: text/plain; charset=utf-8\r\n";
-	$header .= "From: " . CODE_NAME . " <noreply-reg@" .
+	$header = "Content-type: text/html; charset=utf-8\r\n";
+	$header .= "From: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
-	$header .= "Reply-To: " . CODE_NAME . " <noreply-reg@" .
+	$header .= "Reply-To: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }

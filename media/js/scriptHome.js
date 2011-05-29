@@ -1,6 +1,6 @@
 var storeItemInfoHover=0;
 var peekEnable=0;
-//var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
+var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
 /* ---------- SHOW MORE ---------- */
 
@@ -495,15 +495,14 @@ function order_form_reset() {
 	});
 }
 function order_list_refresh() {
-	$('tr.order_open').each(function() {
+	$('div.order_open').each(function() {
 		order_status(this);
 	});
 }
 function order_status(row) {
 	var param = new Object();
-	param['oid'] = $('td:first', row).html();
-	param['status'] = $('input[name="status"]', row).val();
-	console.log(param);
+	param['oid'] = $('div.taskDetail', row).data('id');
+	param['status'] = $('div.taskDetail', row).data('status');
 	$.ajax({
 		type: "get",
 		url: "/xhr/order-unit-status.php",
@@ -512,8 +511,10 @@ function order_status(row) {
 		dataType: 'html',
 		statusCode: {
 			200: function(data){
-					$(row).replaceWith(data);
-					order_bind_action();
+					var $html = $(data);
+                    $(row).replaceWith($html);
+                    $html.find('span.taskStatus').obFlash();
+                    order_bind_action(1);
 				}
 		}
 	});
@@ -526,17 +527,13 @@ function order_submit() {
 		data: $('#formOrder').serialize(),
 		dataType: 'json',
 		statusCode: {
-			400: function() {
-					console.log('400');
-				 },
-			403: function() {
-					console.log('403');
-				 },
 			200: function(data){
 					if(data.errno == 0) {
 						$('#taskAccordion').prepend(data.html);
 						order_bind_action();
 						order_form_reset();
+						if(data.badge)
+							Notification.add("<a href='/profile.php#2-2'>恭喜！您获得了" + data.badge.name + "徽章，点击查看详情。</a>");
 					}
 				}
 		}
@@ -562,5 +559,5 @@ $(function(){
 			UP.success(c);
 	});
 
-//	setInterval(order_list_refresh, 30000);
+	setInterval(order_list_refresh, 60000);
 });

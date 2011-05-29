@@ -49,10 +49,11 @@ function order_bind_action_par(expand) {
 }
 
 function order_list_fetch_new() {
-	var tbody = $('#order_list');
-	var first_id = $('tr:first > td:first', tbody).html();
-	var param = new Object();
-	param['since'] = Math.max(first_id, latest_oid);
+	var $tbody = $('#taskAccordion');
+	var first_id = $('div.taskItem:first', $tbody).data('id');
+	var param = {};
+	latest_oid = Math.max(first_id, latest_oid);
+	param['since'] = latest_oid;
 	$.ajax({
 		type: "get",
 		url: "/xhr/order-fetch-new.php",
@@ -60,12 +61,9 @@ function order_list_fetch_new() {
 		data: param,
 		dataType: 'html',
 		statusCode: {
-			204: function() {
-					console.log('204');
-				 },
 			200: function(data){
-					tbody.prepend(data);
-					console.log(data);
+					$tbody.prepend(data);
+					order_bind_action_par(1);
 				}
 		}
 	})
@@ -109,6 +107,6 @@ $(function(){
 	});
 
 	order_bind_action_par();
-//	setInterval(order_list_fetch_new, 10000);
+	setInterval(order_list_fetch_new, 60000);
 //
 })

@@ -1,49 +1,48 @@
 <?php
 
 function page_activate() {
-//	TODO passwd strength and form validater.
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
 			<div class='profileL'>
 				<div class='profileType'>
-					帐户设置
+					初次设置
 				</div>
 			</div>
-			<div class='profileR' id='accountSetting'>
+			<div class='profileRWrapper'>
+			<div class='profileR' id='profile-0'>
 				<div class='profileHeader'>
-					帐户设置
+					初次设置
 				</div>
 				<div class='profileContent'>
-					<h2>初次设置</h2>
-					<p></p>
 					<form action='/authorize.php' method='post'>
-					<table>
-						<tbody>
-							<tr>
-								<th>邮箱</th>
-								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
-							</tr>
-							<tr>
-								<th>用户名</th>
-								<td><input type='text' class='uiText2' name='name'/></td>
-							</tr>
-							<tr>
-								<th>设定密码</th>
-								<td><input type='password' class='uiText2' name='passwd'/></td>
-							</tr>
-							<tr>
-								<th>确认密码</th>
-								<td><input type='password' class='uiText2' name='passwd-confirm'/></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td><input type='submit' class='uiBtn3' value='激活帐户'></td>
-							</tr>
-						</tbody>
-					</table>
+						<table>
+							<tbody>
+								<tr>
+									<th>邮箱</th>
+									<td><input type='text' class='uiText2' name='email' disabled='disabled' value='{$_SESSION['email']}'></td>
+								</tr>
+								<tr>
+									<th>用户名</th>
+									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
+								</tr>
+								<tr>
+									<th>设定密码</th>
+									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
+								</tr>
+								<tr>
+									<th>确认密码</th>
+									<td><input type='password' id='pass2' class='uiText2'></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
+								</tr>
+							</tbody>
+						</table>
 					</form>
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 
@@ -61,7 +60,7 @@ function page_footer() {
 					<h3>光子复制</h3>
 					<ul>
 						<li>
-							关于我们
+							<a href='/blog/about/'>关于我们</a>
 						</li>
 					</ul>
 				</div>
@@ -77,15 +76,15 @@ function page_footer() {
 					<h3>用户</h3>
 					<ul>
 						<li>
-							用户教程
+							<a href='/blog/tutorial/'>用户教程</a>
 						</li>
 					</ul>
 				</div>
 				<div class='latestNews'>
 					<h3>近期新闻</h3>
 					<dl>
-						<dt>光子复制Beta1.0启动</dt>
-						<dd>May 6, 2011</dd>
+						<dt><a href='/blog/2011/05/dev-alpha/'>光子复制内测<a></dt>
+						<dd>May 29, 2011</dd>
 					</dl>
 				</div>
 				<div class='clear'></div>
@@ -553,14 +552,18 @@ function page_par_signup() {
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
 						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
-						<a href='tutorial'>了解更多</a>
+						<a href='/blog/tutorial'>了解更多</a>
+						<div class='slideshowCtrl'>
+							<input type='button' class='uiBtn2' id='signupBtn' value='申请店铺'/>
+							<div class='clear'></div>
+						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
 	";
 }
-function page_profile() {
+function page_profile($badges, $badges_won, $num_orders, $stores) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -569,57 +572,49 @@ function page_profile() {
 					帐户中心
 				</div>
 				<ul>
-					<li data-hash='0'>帐户概要</li>
-					<li data-hash='1-1'>基本信息</li>
-					<li data-hash='1-2'>安全设置</li>
-					<li data-hash='1-3'>认证中心</li>
+					<li><a href='#0'>我的帐户</a></li>
+					<li><a href='#1-1'>基本信息</a></li>
+					<li><a href='#1-2'>安全设置</a></li>
+					<li style='display: none'><a href='#1-3'>认证中心</a></li>
 				</ul>
 				<div class='profileType'>
 					徽章中心
 				</div>
 				<ul>
-					<li data-hash='2-1'>徽章说明</li>
-					<li data-hash='2-2'>我的徽章</li>
-					<li data-hash='2-3'>更多徽章</li>
+					<li><a href='#2-1'>徽章说明</a></li>
+					<li><a href='#2-2'>我的徽章</a></li>
+					<li><a href='#2-3'>更多徽章</a></li>
 				</ul>
 				<div class='profileType'>
 					统计中心
 				</div>
 				<ul>
-					<li data-hash='3-1'>消费概要</li>
+					<li><a href='#3-1'>消费概要</a></li>
 				</ul>
 			</div>
+			<div class='profileRWrapper'>
 			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>帐户概要</div>
+				<div class='profileHeader'>我的帐户</div>
 				<div class='profileContent'>
 					<div class='profileSection'>
-						<h2>徽章架</h2>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
-						<div class='badge'><span class='badge3'></span>新手上路</div>
+						<h2>徽章架</h2>"
+						. mod_badge_summary($badges, $badges_won) . "
 					</div>
 					<div class='profileSection'>
-						<h2>零钱罐</h2>
-						<div class='coin'>
-							<div>
-								<img src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar' />
-							</div>
-							<dl>
-								<dt>北京大学36楼223打印店</dt>
-								<dd>0元</dd>
-							</dl>
-						</div>
+						<h2>零钱罐</h2>"
+						. mod_pocket_list($stores) . "
 					</div>
 				</div>
 			</div>
 			<div class='profileR' id='profile-1-1'>
 				<div class='profileHeader'>基本信息</div>
 				<div class='profileContent'>
-					<form>
+					<form action='authorize.php?c=update-name' method='post'>
 						<table class='formTable'>
 							<tbody>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' class='uiText2' name='userName' value='user1' /></td>
+									<td><input type='text' class='uiText2' id='user_login' name='name' title='{$_SESSION['name']}' value='{$_SESSION['name']}' /></td>
 								</tr>
 								<tr>
 									<th></th>
@@ -633,24 +628,27 @@ function page_profile() {
 			<div class='profileR' id='profile-1-2'>
 				<div class='profileHeader'>安全设置</div>
 				<div class='profileContent'>
-					<form>
+					<form action='authorize.php?c=update-password' method='post'>
 						<table class='formTable'>
 							<tbody>
 								<tr>
 									<th>邮箱</th>
-									<td><input type='text' class='uiText2' value='user1@abc.com' disabled='disabled'/></td>
+									<td><input type='text' class='uiText2' value='{$_SESSION['email']}' disabled='disabled'/></td>
 								</tr>
 								<tr>
 									<th>修改密码</th>
-									<td><input type='password' class='uiText2' name='password1'/></td>
+									<td><input type='password' class='uiText2' id='pass1' name='passwd'/></td>
 								</tr>
 								<tr>
 									<th>确认密码</th>
-									<td><input type='password' class='uiText2' name='password2'/></td>
+									<td><input type='password' class='uiText2' id='pass2'/></td>
 								</tr>
 								<tr>
 									<th></th>
-									<td><input type='submit' class='uiBtn3' value='修改设置'></td>
+									<td>
+										<div id='pass-strength-result'>强度</div>
+										<input type='submit' id='pass-confirm' class='uiBtn3' value='修改设置'>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -721,19 +719,8 @@ function page_profile() {
 				<div class='profileHeader'>我的徽章</div>
 				<div class='profileContent'>
 					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>新手上路</div> × 570</th>
-								<td>欢迎来到光子复制，我们将为您提供最便利的生活类应用服务。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>已经认证大学邮箱。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>对光子复制提出宝贵意见，并被采纳。</td>
-							</tr>
+						<tbody>"
+						. mod_badge_won($badges, $badges_won) ."
 						</tbody>
 					</table>
 				</div>
@@ -742,42 +729,22 @@ function page_profile() {
 				<div class='profileHeader'>更多徽章</div>
 				<div class='profileContent'>
 					<table class='badgeTable'>
-						<tbody>
-							<tr>
-								<th><div class='badge'><span class='badge3'></span>大学校</div> × 570</th>
-								<td>前往<a href='#1'>认证中心</a>填写大学邮箱，获取更高信用。<br/>邮箱名通常为学号，需要登录校园网网关查看邮箱中的验证码。</td>
-							</tr>
-							<tr>
-								<th><div class='badge'><span class='badge1'></span>献计献策</div> × 2</th>
-								<td>前往光子复制黑板报的<a href='#' target='_blank'>讨论专区</a>对光子复制提出意见。<br/>如被采用，我们将授予金质徽章以表彰您对光子复制作出的杰出贡献。</td>
-							</tr>
+						<tbody>"
+						. mod_badge_rest($badges, $badges_won) . "
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class='profileR' id='profile-3-1'>
 				<div class='profileHeader'>消费概要</div>
-				<div class='profileContent'>
-					<table class='statTable'>
-						<tbody>
-							<tr><th>商户</th><th>余额</th><th>订单</th></tr>
-							<tr>
-								<td>北京大学36楼223打印店</td><td>1元</td><td>0笔</td>
-							</tr>
-							<tr class='alt'>
-								<td>北京大学36楼219打印店</td><td>2元</td><td>0笔</td>
-							</tr>
-							<tr>
-								<td>北京大学35楼打印店</td><td>2元</td><td>0笔</td>
-							</tr>
-						</tbody>
-					</table>
+				<div class='profileContent'>"
+					. mod_stat_credit($num_orders, $stores) . "
 				</div>
+			</div>
 			</div>
 			<div class='clear'></div>
 		</div> 
-	</div>
-		";
+	</div>";
 }
 function page_reg($m) {
 	echo "<div class='contentWrapper'><div class='content'>
@@ -950,9 +917,9 @@ function page_store($store) {
 	</div>
 	";
 }
-function script_home($s) {
+function script_home($stores) {
 	$regions = text_defs('store_region');
-	foreach($s as &$n)
+	foreach($stores as &$n)
 		$n['region'] = $regions[$n['region']];
 	echo "
 <script type='text/javascript'>
@@ -966,7 +933,7 @@ var order_option_text = {
 	region:	".json_encode_mb($regions, JSON_FORCE_OBJECT).",
 };
 var Vault = {
-	\"stores\": ".json_encode($s, JSON_FORCE_OBJECT).",
+	\"stores\": ".json_encode($stores, JSON_FORCE_OBJECT).",
 	\"option_text\": order_option_text,
 };
 /* ]]> */

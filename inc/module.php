@@ -1,5 +1,34 @@
 <?php
-
+function mod_badge_rest($badges, $badges_won) {
+	foreach($badges_won as $b)
+		unset($badges[$b['bid']]);
+	if(count($badges) == 0)
+		return "您已获得网站测试阶段的所有徽章，正式上线后将开启隐藏成就，敬请期待。";
+	$html = '';
+	foreach($badges as $b)
+		$html .= "
+			<tr><th><div class='badge'><span class='badge{$b['type']}'></span>{$b['name']}</div> × {$b['count']}</th>
+			<td>{$b['desc']}{$b['hint']}</td></tr>";
+	return $html;
+}
+function mod_badge_summary($badges, $badges_won) {
+	if(!$badges_won)
+		return "您得到的徽章将显示在此。";
+	$html = '';
+	foreach($badges_won as $b)
+		$html .= "<div class='badge'><span class='badge{$badges[$b['bid']]['type']}'></span>{$badges[$b['bid']]['name']}</div>";
+	return $html;
+}
+function mod_badge_won($badges, $badges_won) {
+	if(!$badges_won)
+		return "您得到的徽章将显示在此。";
+	$html = '';
+	foreach($badges_won as $b)
+		$html .= "
+			<tr><th><div class='badge'><span class='badge{$badges[$b['bid']]['type']}'></span>{$badges[$b['bid']]['name']}</div> × {$badges[$b['bid']]['count']}</th>
+			<td>{$badges[$b['bid']]['desc']}</td></tr>";
+	return $html;
+}
 function mod_login($a = '/authorize') {
 	$pubCheck = "<input class='checkbox' type='checkbox' name='pub' value='yes' />
 							<h3> 正在使用公共电脑登录</h3>";
@@ -170,6 +199,39 @@ function mod_order_queue_par($orders, $users) {
 	}
 	return $html;
 }
+function mod_pocket_list($stores) {
+	if(count($_SESSION['credit']) == 1)
+		return "<p>这里将显示您打印过文档的打印店内存储的零钱，目前您尚未在任何打印店打印过文档。</p>";
+	$html = '';
+	foreach($_SESSION['credit'] as $k => $v) {
+		if($k == 0) continue;
+		$v = $v / 10;
+		$html .= "
+			<div class='coin'>
+				<div>
+					<img src='/media/images/store/storeAvatar$k.jpg' alt='Store Avatar' />
+				</div>
+				<dl>
+					<dt> {$stores[$k]['name']} </dt>
+					<dd> {$v} 元</dd>
+				</dl>
+			</div>";
+	}
+	return $html;
+}
+function mod_stat_credit($num_orders, $stores) {
+	if(!$num_orders)
+		return '<p>这里将显示您在各个打印店的消费概要，目前您尚未在任何打印店打印过文档。</p>';
+	$html =	"		<table class='statTable'>
+						<tbody>
+							<tr><th>商户</th><th>余额</th><th>订单</th></tr>";
+	foreach($num_orders as $k => $v)
+		$html .= "
+			<tr><td> {$stores[$k]['name']} </td><td>" . ($_SESSION['credit'][$k] / 10) . " 元</td><td>$v 笔</td></tr>";
+	$html .= "			</tbody>
+					</table>";
+	return $html;
+}
 function mod_store_sel($stores) {
 	$t1 = text_defs('store_region');
 	$i = 0;
@@ -291,7 +353,7 @@ function unit_order($order) {
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
-		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}纸 {$t['order_color'][$order['color']]}{$t['order_back'][$order['back']]}打印 {$t['order_layout'][$order['layout']]}版/页 {$order['copy']}份 {$t['order_misc'][$order['misc']]}</td></tr>
+		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
 								" . $cost . $paid . "

@@ -290,7 +290,6 @@ sub {
 }
 input[type="text"],
 textarea {
-	border: 1px solid #BDC7D8;
 	padding: 4px;
 	outline-width: 0px;
 }
@@ -463,13 +462,21 @@ div.menu li:first-child {
 	font-size: 13px;
 }
 #content p,
-#content ul,
-#content ol,
 #content dd,
 #content pre,
 #content hr {
 	line-height: 20px;
 	margin: 0 0 22px 0;
+}
+#content ul,
+#content ol {
+	margin: 0 0 22px 0;
+	padding: 0 0 0 24px;
+	line-height: 20px;
+}
+#content li {
+	list-style-type: disc;
+	margin: 0 0 8px 0;
 }
 #content ul ul,
 #content ol ol,
@@ -492,14 +499,24 @@ div.menu li:first-child {
 	color: #000;
 }
 #content h1,
-#content h2,
-#content h3,
 #content h4,
 #content h5,
 #content h6 {
-	color: #6BB4FB;
-	line-height: 1.5em;
-	margin: 0 0 20px 0;
+	color: #666;
+	font-weight: normal;
+}
+
+#content h2{
+	color: #666;
+	font-size: 20px;
+	margin: 0 0 18px 0;
+}
+
+#content h3 {
+	border-bottom: 1px solid #E5E5E5;
+	font-size: 15px;
+	margin: 0 0 12px 0;
+	padding: 0 0 5px 0;
 }
 #content table {
 	border: 1px solid #e7e7e7;
@@ -533,7 +550,7 @@ div.menu li:first-child {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .25), 0 -1px 1px rgba(113, 123, 149, .2);
 	color: #333;
 	padding: 18px;
-	padding-right: 118px;
+	padding-right: 224px;
 }
 .home .sticky {
 	background: #f2f7fc;
@@ -616,7 +633,7 @@ div.menu li:first-child {
 	padding: 0 24px;
 }
 .entry-content input {
-	margin: 0 0 24px 0;
+	margin: 0;
 }
 .entry-content input.file,
 .entry-content input.button {
@@ -827,10 +844,11 @@ img.aligncenter {
 .wp-caption img {
 	margin: 5px 5px 0;
 }
+
 .wp-caption p.wp-caption-text {
 	color: #888;
 	font-size: 12px;
-	margin: 5px;
+	margin: 5px !important;
 }
 .wp-smiley {
 	margin: 0;
@@ -1124,10 +1142,10 @@ h3#reply-title {
 }
 #respond input {
 	margin: 0 0 9px;
-	width: 98%;
+	width: 95%;
 }
 #respond textarea {
-	width: 98%;
+	width: 95%;
 }
 #respond .form-allowed-tags {
 	color: #888;
@@ -1279,6 +1297,33 @@ h3#reply-title {
 #footer-widget-area {
 }
 
+/* =Table of Contents
+-------------------------------------------------------------- */
+
+ul#table-of-contents{
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 4px;
+}
+
+ul#table-of-contents > li {
+	background: url("http://photoncopy.com/media/images/wordpress/index_li_bullet.png") left center no-repeat;
+	padding: 0 0 0 22px;
+	list-style: none;
+	line-height: 18px;
+	margin: 0 0 8px 0;
+}
+
+/* =Content Form
+-------------------------------------------------------------- */
+
+#content .required{
+	color: #FF4B33;
+	font-weight: bold;
+}
+
+#content input[type='text'], #content textarea{
+	width: 95%;
+}
 
 /* =Footer
 -------------------------------------------------------------- */
