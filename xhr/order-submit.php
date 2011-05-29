@@ -109,11 +109,20 @@ if($bid = reach_new_badge($count)) {
 	$query = "select `type`, `name` from `badge` where `id` = $bid";
 	if(!($result = $db->query($query)))
 		die(json_encode(array('errno' => 2,)));
-	$return['badge'] = $result->fetch_assoc();
+	$badge = $result->fetch_assoc();
+	$return['badge'] = $badge;
 	$result->free();
 	$query = "update `badge` set `count` = `count` + 1 where `id` = $bid";
 	if($db->query($query) !== TRUE)
 		die(json_encode(array('errno' => 2,)));
+	switch ($badge['type']){
+		case 1: $credit=50; break;
+		case 2: $credit=20; break;
+		default: $credit=10;
+	}
+	$query = "update `credit` set `credit` = `credit` + $credit where `uid` = {$_SESSION['uid']} and `pid` = 0";
+	$db->query($query);
+	$_SESSION['credit'][0] += $credit;
 }
 
 $return['errno'] = 0;
