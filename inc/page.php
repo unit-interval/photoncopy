@@ -24,15 +24,15 @@ function page_activate() {
 								</tr>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' id='user_login' class='uiText2' name='userName'></td>
+									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
 								</tr>
 								<tr>
 									<th>设定密码</th>
-									<td><input type='password' id='pass1' class='uiText2' name='password1'></td>
+									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
 								</tr>
 								<tr>
 									<th>确认密码</th>
-									<td><input type='password' id='pass2' class='uiText2' name='password2'></td>
+									<td><input type='password' id='pass2' class='uiText2'></td>
 								</tr>
 								<tr>
 									<th></th>
