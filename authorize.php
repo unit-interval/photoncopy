@@ -172,8 +172,8 @@ if($_GET['c'] == 'login') {
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
 	$email = base64_decode($_GET['a']);
-	if(!($user=user_exists($email)))
-		err_redir("user not found. ($email)");
+	if(($user=user_exists($email))==false)
+		err_redir("邮箱 $email 尚未注册");
 	$_SESSION['name'] = $user['name'];
 	$_SESSION['uid'] = $user['id'];
 	$_SESSION['email'] = $email;

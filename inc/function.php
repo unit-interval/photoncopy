@@ -121,7 +121,7 @@ function to_status_par($act = -1) {
 }
 function user_exists($m) {
 	global $db;
-	$query = "select `id`, `user` from `user`
+	$query = "select `id`, `name` from `user`
 		where `email` = '{$db->real_escape_string($m)}'";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');

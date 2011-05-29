@@ -66,7 +66,7 @@ if(!($email = sanitize_email($_POST['email'])))
 
 setcookie('email', $email, time()+3600*24*3);
 
-if(!user_exists($email))
+if(user_exists($email) == false)
 	die(json_encode(array('errno' => 3,)));
 
 if(!send_forget_mail($email))
