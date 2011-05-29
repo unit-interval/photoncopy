@@ -21,6 +21,7 @@ elseif($_SESSION['logged_in'] == true) {
 	$badges_won = array();
 	$num_orders = array();
 	$stores = array();
+	$credit = array();
 	$query = "select * from `badge`";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
@@ -52,6 +53,14 @@ elseif($_SESSION['logged_in'] == true) {
 	while($row = $result->fetch_assoc())
 		$stores[$row['id']] = $row;
 	$result->free();
+	$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	while($row = $result->fetch_assoc())
+		$credit[$row['pid']] = $row['credit'];
+	$result->free();
+
+	$_SESSION['credit'] = $credit;
 } else
 	err_redir('', '/home.php');
 

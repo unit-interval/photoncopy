@@ -394,7 +394,7 @@ function unit_order_par($order, $user) {
 			    					<tr><th>打印文件</th><td>$link</td></tr>
 			    					<tr><th>用户编号</th><td>{$order['uid']}</td></tr>
 			    					<tr><th>用户名</th><td>{$user['name']}</td></tr>
-			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}纸 {$t3[$order['color']]}打印 {$t2[$order['back']]}打印 {$t4[$order['layout']]}版 {$order['copy']}份 {$t5[$order['misc']]}</td></tr>
+			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}——{$t3[$order['color']]}——{$t2[$order['back']]}——{$t4[$order['layout']]}——{$order['copy']}——{$t5[$order['misc']]}</td></tr>
 			    					<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 			    					<tr><th>客户余额</th><td>$credit</td></tr>
 			    					<tr><th>客户信用</th><td>{$user['credit']}</td></tr>"

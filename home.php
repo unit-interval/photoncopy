@@ -29,6 +29,7 @@ $link['js'][] = 'scriptHome';
 
 $orders = array();
 $stores = array();
+$credit = array();
 
 $query = "select * from `order` where `uid` = {$_SESSION['uid']}
 	order by `id` desc";
@@ -43,8 +44,19 @@ if($result = $db->query($query)) {
 	$stores[$row['id']] = $row;
 	$result->free();
 }
+$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
+if(!($result = $db->query($query)))
+	err_redir("db error({$db->errno}). query:$query", '/error.php');
+while($row = $result->fetch_assoc())
+	$credit[$row['pid']] = $row['credit'];
+$result->free();
 
-$_SESSION['notif'] = array();
+$_SESSION['credit'] = $credit;
+
+/** TODO
+ * work on notif system
+ * $_SESSION['notif'] = array();
+ */
 
 page_meta();
 page_nav();
