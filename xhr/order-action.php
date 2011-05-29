@@ -17,7 +17,7 @@ session_start();
  * 4	status already cancelled
  * 5	status already changed
  * 6	database error
- * 3	failed sending email
+ * 7	failed sending email
  */
 //header('content-type: application/json');
 

@@ -85,6 +85,8 @@ $tables = array(
 			"1, 2, 90",
 			"2, 0, 50",
 			"2, 1, 20",
+			"3, 0, 10",
+			"4, 0, 10",
 		),
 	),
 	'order' => array(
@@ -162,6 +164,7 @@ $tables = array(
 			"default, 'user1@example.com', '".md5('user1')."', 'User1', default",
 			"default, 'user2@example.com', '".md5('user2')."', 'User2', default",
 			"default, 'user3@example.com', '".md5('user3')."', 'User3', default",
+			"default, 'user4@example.com', '".md5('user4')."', 'User4', default",
 		),
 	),
 );

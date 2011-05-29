@@ -526,17 +526,13 @@ function order_submit() {
 		data: $('#formOrder').serialize(),
 		dataType: 'json',
 		statusCode: {
-			400: function() {
-					console.log('400');
-				 },
-			403: function() {
-					console.log('403');
-				 },
 			200: function(data){
 					if(data.errno == 0) {
 						$('#taskAccordion').prepend(data.html);
 						order_bind_action();
 						order_form_reset();
+						if(data.badge)
+							Notification.add("恭喜！您获得了新的徽章<a href='/profile.php#2-2'>" + data.badge.name + "</a>，点击查看详情。");
 					}
 				}
 		}
