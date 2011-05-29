@@ -121,10 +121,13 @@ function to_status_par($act = -1) {
 }
 function user_exists($m) {
 	global $db;
-	$query = "select `id` from `user`
+	$query = "select `id`, `user` from `user`
 		where `email` = '{$db->real_escape_string($m)}'";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	return ($result->num_rows > 0);
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		return $row;
+	}
+	return false;
 }
-

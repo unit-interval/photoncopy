@@ -1,5 +1,55 @@
 <?php
 
+function page_resetpasswd(){
+	echo "
+	<div class='contentWrapper'> 
+		<div class='profile'>
+			<div class='profileL'>
+				<div class='profileType'>
+					密码重置
+				</div>
+			</div>
+			<div class='profileRWrapper'>
+			<div class='profileR' id='profile-0'>
+				<div class='profileHeader'>
+					密码重置
+				</div>
+				<div class='profileContent'>
+					<form action='/authorize.php' method='post'>
+						<table>
+							<tbody>
+								<tr>
+									<th>邮箱</th>
+									<td><input type='text' class='uiText2' name='email' disabled='true' value='{$_SESSION['email']}'></td>
+								</tr>
+								<tr>
+									<th>用户名</th>
+									<td><input type='text' id='user_login' class='uiText2' name='name' value='{$_SESSION['name']}' disabled='true'></td>
+								</tr>
+								<tr>
+									<th>设定密码</th>
+									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
+								</tr>
+								<tr>
+									<th>确认密码</th>
+									<td><input type='password' id='pass2' class='uiText2'></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			</div>
+			<div class='clear'></div>
+		</div> 
+	</div>
+		";
+}
+
 function page_activate() {
 	echo "
 	<div class='contentWrapper'> 
@@ -396,7 +446,7 @@ function page_index() {
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
 						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
-						<a href='tutorial'>了解更多</a>";
+						<a href='/blog/tutorial/'>了解更多</a>";
 						if($_SESSION['logged_in'] != true)
 						echo "
 						<div class='slideshowCtrl'>

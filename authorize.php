@@ -172,8 +172,10 @@ if($_GET['c'] == 'login') {
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
 	$email = base64_decode($_GET['a']);
-	if(!user_exists($email))
+	if(!($user=user_exists($email)))
 		err_redir("user not found. ($email)");
+	$_SESSION['name'] = $user['name'];
+	$_SESSION['uid'] = $user['id'];
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');
@@ -254,6 +256,21 @@ if($_GET['c'] == 'login') {
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 } elseif($_SESSION['state'] === 'resetpw') {
+	$input=verify_update_password_form();
+	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	$credit = array();
+	while($row = $result->fetch_assoc())
+		$credit[$row['pid']] = $row['credit'];
+	$result->free();
+	$_SESSION['logged_in'] = true;
+	$_SESSION['credit'] = $credit;
+	unset($_SESSION['state']);
+	err_redir('恭喜您成功找回密码', '/home.php');
 } else {
 	err_redir();
 }
