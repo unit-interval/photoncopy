@@ -532,7 +532,7 @@ function order_submit() {
 						order_bind_action();
 						order_form_reset();
 						if(data.badge)
-							Notification.add("恭喜！您获得了新的徽章<a href='/profile.php#2-2'>" + data.badge.name + "</a>，点击查看详情。");
+							Notification.add("<a href='/profile.php#2-2'>恭喜！您获得了" + data.badge.name + "徽章，点击查看详情。</a>");
 					}
 				}
 		}
