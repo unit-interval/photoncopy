@@ -562,5 +562,5 @@ $(function(){
 			UP.success(c);
 	});
 
-//	setInterval(order_list_refresh, 30000);
+	setInterval(order_list_refresh, 60000);
 });
