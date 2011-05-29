@@ -120,7 +120,7 @@ function mod_nav_account($body_id) {
 			</ul>
 			<ul class='navBar'>
 				<li>
-					<a href='/home.php'>首页</a>
+					<a href='/home.php'>示波器</a>
 				</li>
 				<li class='sep'>
 					<a href='http://photoncopy.com/blog/'>黑板报</a>
@@ -139,7 +139,7 @@ function mod_nav_account($body_id) {
 			</ul>
 			<ul class='navBar'>
 				<li>
-					<a href='/partner.php'>首页</a>
+					<a href='/partner.php'>工作台</a>
 				</li>
 				<li class='sep'>
 					<a href='http://photoncopy.com/blog/'>黑板报</a>

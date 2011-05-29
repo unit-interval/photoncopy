@@ -138,7 +138,7 @@ function page_home($orders, $stores) {
 				<div class='btn'><div id='btn8' class='innerBtn'></div></div>
 				<a href='/profile.php'>
 	 				<dl id='credit'>
-	 					<dt>信用</dt>
+	 					<dt>量子数</dt>
 	 					<dd id='credit1'>{$_SESSION['credit'][0]}</dd>
 	 				</dl>
 	 			</a>
@@ -691,7 +691,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 			<div class='profileR' id='profile-2-1'>
 				<div class='profileHeader'>徽章说明</div>
 				<div class='profileContent'>
-					<p>用户可以通过完成不同的任务获得徽章并累计信用。部分任务为隐藏任务，完成后系统将自动通知您激活奖励。</p>
+					<p>用户可以通过完成不同任务获取徽章并增加量子数。部分任务为隐藏任务，触发任务条件后系统将自动通知您。</p>
 					<table>
 						<table class='badgeTable'>
 							<tr>

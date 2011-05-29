@@ -16,7 +16,7 @@ if($_SESSION['logged_in'] != true) {
 	include './inc/auth.php';
 	cookie_auth();
 	if($_SESSION['logged_in'] != true)
-	err_redir('Please Login.');
+	err_redir('请先登录');
 }
 
 $link['css'][] = 'style';

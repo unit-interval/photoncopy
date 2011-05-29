@@ -40,22 +40,22 @@ $query = "select `status` from `order`
 	where `id` = $oid and `uid` = {$_SESSION['uid']}";
 $result = $db->query($query);
 if($result->num_rows == 0)
-err_redir('無效訂單', '/home.php');
+err_redir('无效订单', '/home.php');
 
 $row = $result->fetch_row();
 $result->free();
 
 if($act !==0)
-err_redir('無效訂單', '/home.php');
+err_redir('无效订单', '/home.php');
 
 $query = "update `order` set `status` = 1
 	where `id` = $oid";
 if($db->query($query) !== TRUE)
 	err_redir("db error({$db->errno}).", '/error.php');
 } else
-	err_redir('無效訂單', '/home.php');
+	err_redir('无效订单', '/home.php');
 
-err_redir('成功修改訂單狀態', '/home.php');
+err_redir('成功修改订单状态', '/home.php');
 
 function verify_order_form() {
 	if (!isset($_POST['store']))
