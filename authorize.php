@@ -259,10 +259,10 @@ if($_GET['c'] == 'login') {
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
-		err_redir("db error({$db->errno}).", '/error.php');
+		err_redir("db error({$db->errno}).$query", '/error.php');
 	$query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
-		err_redir("db error({$db->errno}).", '/error.php');
+		err_redir("db error({$db->errno}).$query", '/error.php');
 	$credit = array();
 	while($row = $result->fetch_assoc())
 		$credit[$row['pid']] = $row['credit'];
