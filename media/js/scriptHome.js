@@ -495,15 +495,14 @@ function order_form_reset() {
 	});
 }
 function order_list_refresh() {
-	$('tr.order_open').each(function() {
+	$('div.order_open').each(function() {
 		order_status(this);
 	});
 }
 function order_status(row) {
 	var param = new Object();
-	param['oid'] = $('td:first', row).html();
-	param['status'] = $('input[name="status"]', row).val();
-	console.log(param);
+	param['oid'] = $('div.taskDetail', row).data('id');
+	param['status'] = $('div.taskDetail', row).data('status');
 	$.ajax({
 		type: "get",
 		url: "/xhr/order-unit-status.php",
