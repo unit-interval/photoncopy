@@ -101,6 +101,15 @@ function verify_signup_form() {
 	$input['passwd'] = md5($_POST['passwd']);
 	return $input;
 }
+function verify_update_name_form() {
+//	TODO validate input client-side with js
+	if ($_POST['name'] == '') return false;
+	return $_POST['name'];
+}
+function verify_update_password_form() {
+//	TODO validate input client-side with js
+	return md5($_POST['passwd']);
+}
 
 if($_GET['c'] == 'partnerlogin' || $_GET['c'] == 'partnerlogout')
 	session_name(SESSNAME_P);
@@ -168,6 +177,15 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');
+} elseif($_GET['c'] == 'update-name'){
+	if (!($input=verify_update_name_form()))
+		err_redir('用户名不能为空', '/profile.php');
+	$query = "update `user` set `name` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
+	err_redir('用户名修改成功', '/profile.php');
+} elseif($_GET['c'] == 'update-password'){
+	$input=verify_update_password_form();
+	$query = "update `user` set `passwd` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
+	err_redir('密码修改成功', '/profile.php');	
 } elseif($_GET['c'] == 'partnerlogin') {
 	if(!($input = verify_login_form()))
 		err_redir('Invalid Login Information.','/partner.php');

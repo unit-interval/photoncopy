@@ -607,12 +607,12 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 			<div class='profileR' id='profile-1-1'>
 				<div class='profileHeader'>基本信息</div>
 				<div class='profileContent'>
-					<form>
+					<form action='authorize.php?c=update-name' method='post'>
 						<table class='formTable'>
 							<tbody>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' class='uiText2' id='user_login' name='userName' value='{$_SESSION['name']}' /></td>
+									<td><input type='text' class='uiText2' id='user_login' name='name' value='{$_SESSION['name']}' /></td>
 								</tr>
 								<tr>
 									<th></th>
@@ -626,7 +626,7 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 			<div class='profileR' id='profile-1-2'>
 				<div class='profileHeader'>安全设置</div>
 				<div class='profileContent'>
-					<form>
+					<form action='authorize.php?c=update-password' method='post'>
 						<table class='formTable'>
 							<tbody>
 								<tr>
@@ -635,11 +635,11 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 								</tr>
 								<tr>
 									<th>修改密码</th>
-									<td><input type='password' class='uiText2' id='pass1' name='password1'/></td>
+									<td><input type='password' class='uiText2' id='pass1' name='passwd'/></td>
 								</tr>
 								<tr>
 									<th>确认密码</th>
-									<td><input type='password' class='uiText2' id='pass2' name='password2'/></td>
+									<td><input type='password' class='uiText2' id='pass2'/></td>
 								</tr>
 								<tr>
 									<th></th>
