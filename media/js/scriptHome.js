@@ -511,9 +511,9 @@ function order_status(row) {
 		dataType: 'html',
 		statusCode: {
 			200: function(data){
-					$(row).replaceWith(data).find('span.taskStatus').obFlash();
-					order_bind_action();
-					row.find()
+                    $(row).replaceWith(data);
+                    $(row).find('span.taskStatus').obFlash();
+                    order_bind_action();
 				}
 		}
 	});
