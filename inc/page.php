@@ -696,7 +696,7 @@ function page_par_activate() {
 							</tr>
 							<tr>
 								<th>管理员邮箱</th>
-								<td><input type='password' class='uiText2' name='adminEmail' /></td>
+								<td><input type='text' class='uiText2' name='adminEmail' /></td>
 							</tr>
 							<tr>
 								<th>管理员密码</th>

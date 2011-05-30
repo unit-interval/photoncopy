@@ -321,6 +321,8 @@ if($_GET['c'] == 'login') {
 	session_start();
 	if(!($input = verify_signup_form_par()))
 		err_redir('您提供的信息有误，请重新输入', '/partner.php');
+	if($input['admin_email'] != '3.14159' || $input['admin_passwd'] != md5('95141.3'))
+		err_redir('请在工作人员的陪同下完成账户激活.', '/partner.php');
 	$query = "insert into `partner` (`email`, `passwd`, `passphrase`, `name`, `region`) values (
 		'{$db->real_escape_string($input['email'])}',
 		'{$input['passwd']}',
