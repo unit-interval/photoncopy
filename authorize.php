@@ -316,7 +316,8 @@ if($_GET['c'] == 'login') {
 //	$_SESSION['credit'] = array(0 => 10);
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
-} elseif($_SESSION['state'] === 'activate_par') {
+//} elseif($_SESSION['state'] === 'activate_par') {
+} elseif($_GET['c'] === 'activatepar') {
 	session_name(SESSNAME_P);
 	session_start();
 	if(!($input = verify_signup_form_par()))

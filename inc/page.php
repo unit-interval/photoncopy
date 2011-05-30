@@ -668,7 +668,7 @@ function page_par_activate() {
 					初次设置
 				</div>
 				<div class='profileContent'>
-					<form action='/authorize.php' method='post'> 
+					<form action='/authorize.php?c=activatepar' method='post'> 
 					<table class='formTable'>
 						<tbody>
 							<tr>

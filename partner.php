@@ -45,19 +45,21 @@ if ($_SESSION['state'] === 'par_resetpw') {
 		where `pid` = {$_SESSION['pid']} and `status` = 5 group by `uid`";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	while($row = $result->fetch_assoc())
-		$users[$row['uid']] = $row;
-	$result->free();
-	$query_part = '';
-	foreach(array_keys($users) as $id)
-		$query_part .= " `id` = $id or";
-	$query_part = substr($query_part, 0, -3);
-	$query = "select `id`, `name` from `user` where" . $query_part;
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	while($row = $result->fetch_assoc())
-		$users[$row['id']]['name'] = $row['name'];
-	$result->free();
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc())
+			$users[$row['uid']] = $row;
+		$result->free();
+		$query_part = '';
+		foreach(array_keys($users) as $id)
+			$query_part .= " `id` = $id or";
+		$query_part = substr($query_part, 0, -3);
+		$query = "select `id`, `name` from `user` where" . $query_part;
+		if(!($result = $db->query($query)))
+			err_redir("db error({$db->errno}). query:$query", '/error.php');
+		while($row = $result->fetch_assoc())
+			$users[$row['id']]['name'] = $row['name'];
+		$result->free();
+	}
 	$query = "select `uid`, `credit` from `credit` where `pid` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
@@ -76,33 +78,35 @@ if ($_SESSION['state'] === 'par_resetpw') {
 		order by `id` desc";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	while($row = $result->fetch_assoc()) {
-		$orders[$row['id']] = $row;
-		$users[] = $row['uid'];
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$orders[$row['id']] = $row;
+			$users[] = $row['uid'];
+		}
+		$result->free();
+		$users = array_unique($users, SORT_NUMERIC);
+		$query_part1 = '';
+		$query_part2 = '';
+		foreach($users as $id) {
+			$query_part1 .= " `id` = $id or";
+			$query_part2 .= " `uid` = $id or";
+		}
+		$query_part1 = substr($query_part1, 0, -3);
+		$query_part2 = substr($query_part2, 0, -3);
+		$users = array();
+		$query = "select `id`, `name` from `user` where" . $query_part1;
+		if(!($result = $db->query($query)))
+			err_redir("db error({$db->errno}). query:$query", '/error.php');
+		while($row = $result->fetch_assoc())
+			$users[$row['id']] = $row;
+		$result->free();
+		$query = "select `uid`, `credit` from `credit` where `pid` = 0 and (" . $query_part2 . ")";
+		if(!($result = $db->query($query)))
+			err_redir("db error({$db->errno}). query:$query", '/error.php');
+		while($row = $result->fetch_assoc())
+			$users[$row['uid']]['credit'] = $row['credit'];
+		$result->free();
 	}
-	$result->free();
-	$users = array_unique($users, SORT_NUMERIC);
-	$query_part1 = '';
-	$query_part2 = '';
-	foreach($users as $id) {
-		$query_part1 .= " `id` = $id or";
-		$query_part2 .= " `uid` = $id or";
-	}
-	$query_part1 = substr($query_part1, 0, -3);
-	$query_part2 = substr($query_part2, 0, -3);
-	$users = array();
-	$query = "select `id`, `name` from `user` where" . $query_part1;
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	while($row = $result->fetch_assoc())
-		$users[$row['id']] = $row;
-	$result->free();
-	$query = "select `uid`, `credit` from `credit` where `pid` = 0 and (" . $query_part2 . ")";
-	if(!($result = $db->query($query)))
-		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	while($row = $result->fetch_assoc())
-		$users[$row['uid']]['credit'] = $row['credit'];
-	$result->free();
 	$query = "select `uid`, `credit` from `credit` where `pid` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
