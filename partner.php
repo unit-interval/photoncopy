@@ -17,6 +17,7 @@ $link['js'][] = 'script';
 if ($_SESSION['state'] === 'par_resetpw') {
 	$link['css'][] = 'partnerProfile';
 	$link['js'][] = 'partnerProfile';
+	$link['js'][] = 'pswStrength';
 	$state = 3;
 }
 elseif ($_GET['c'] == 'signup') {
@@ -27,6 +28,7 @@ elseif ($_GET['c'] == 'signup') {
 } elseif($_GET['c'] == 'activate') {
 	$link['css'][] = 'partnerProfile';
 	$link['js'][] = 'partnerProfile';
+	$link['js'][] = 'pswStrength';
 	$state = 2;
 } elseif($_SESSION['partner'] != true) {
 	include './inc/auth.php';
@@ -36,6 +38,7 @@ elseif ($_GET['c'] == 'signup') {
 } elseif ($_GET['c'] == 'profile') {
 	$link['css'][] = 'styleProfile';
 	$link['js'][] = 'partnerProfile';
+	$link['js'][] = 'pswStrength';
 	$state = 4;
 	$users = array();
 	$credit = array();

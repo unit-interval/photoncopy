@@ -573,7 +573,7 @@ function page_par_profile($users) {
 				<div class='profileR' id='profile-1-1'>
 					<div class='profileHeader'>基本信息</div>
 					<div class='profileContent'>
-						<form action='/authorize.php?c=par_update_info' method='post'>
+						<form action='/authorize.php?c=update_par_info' enctype='multipart/form-data' method='post'>
 							<table class='formTable'>
 								<tbody>
 									<tr>
@@ -581,9 +581,13 @@ function page_par_profile($users) {
 										<td><input type='text' class='uiText2' name='name' value='{$_SESSION['name']}' /></td>
 									</tr>
 									<tr>
+										<th>短密码</th>
+										<td><input type='password' class='uiText2' name='passphrase' /></td>
+									</tr>
+									<tr>
 										<th>网络</th>
 										<td>
-											<select class='uiSelect' name='parNetwork'>
+											<select class='uiSelect'>
 												<option value='0'>北京大学</option>
 											</select>
 										</td>
@@ -627,15 +631,15 @@ function page_par_profile($users) {
 									</tr>
 									<tr>
 										<th>修改密码</th>
-										<td><input type='password' class='uiText2' name='passwd' /></td>
+										<td><input type='password' id='pass1' class='uiText2' name='passwd' /></td>
 									</tr>
 									<tr>
 										<th>确认密码</th>
-										<td><input type='password' class='uiText2' /></td>
+										<td><input type='password' id='pass2' class='uiText2' /></td>
 									</tr>
 									<tr>
 										<th></th>
-										<td><input type='submit' class='uiBtn3' value='修改设置' /></td>
+										<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='修改设置'></td>
 									</tr>
 								</tbody>
 							</table>

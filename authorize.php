@@ -255,6 +255,21 @@ if($_GET['c'] == 'login') {
 	$_SESSION = array();
 	session_destroy();
 	err_redir();
+} elseif ($_GET['c'] == 'update_par_password') {
+	session_name(SESSNAME_P);
+	session_start();
+	$input=verify_update_password_form();
+	$query = "update `partner` set `passwd` = '" . $input . "' where `id` = {$_SESSION['pid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	err_redir('密码修改成功', '/partner.php?c=profile#1-2');
+} elseif ($_GET['c'] == 'update_par_info') {
+	session_name(SESSNAME_P);
+	session_start();
+	if (($passphrase=$_POST['passphrase']) != '') {
+		$query= "update `partner` set `passphrase` = '{$db->real_escape_string($passphrase)}' where `id` = {$_SESSION['pid']}";
+	}
+	
 } elseif($_SESSION['state'] === 'activate') {
 	session_name(SESSNAME);
 	session_start();
