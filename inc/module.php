@@ -342,13 +342,14 @@ function unit_order($order) {
 	$t = text_defs();
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
-	$flink = ($order['flink'] === '-') ? $order['fname'] : "<a href='/upload/{$order['flink']}' target='_blank'>{$order['fname']}</a>";
+	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
+	$flink = ($order['flink'] === '-') ? "(已过期)$fname" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
 	$cost = ($order['cost'] == null) ? '' : "<tr><th>应付金额</th><td>".($order['cost'] / 10)." 元</td></tr>";
 	$paid = ($order['paid'] == null) ? '' : "<tr><th>实付金额</th><td>".($order['paid'] / 10)." 元</td></tr>";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>{$order['fname']} @ <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
-							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='{$order['fname']}'>
+							<h3 class='newly_added'>$fname @ <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</a></tr>
@@ -380,18 +381,16 @@ function unit_order_par($order, $user) {
 	$t5 = text_defs('order_misc');
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
-	if($order['flink'] == '-')
-		$link = '過期';
-	else
-		$link = "<a target='_blank' href='/upload/" . rawurlencode($order['flink']) . "'>{$order['fname']}</a>";
+	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
+	$flink = ($order['flink'] === '-') ? "(已过期)$fname" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
-								<h3>#{$order['id']} {$order['fname']} @ ({$order['uid']}) {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
+								<h3>#{$order['id']} $fname @ ({$order['uid']}) {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
 			    					<tbody><tr><th>订单编号</th><td>{$order['id']}</td></tr>
-			    					<tr><th>打印文件</th><td>$link</td></tr>
+			    					<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>用户编号</th><td>{$order['uid']}</td></tr>
 			    					<tr><th>用户名</th><td>{$user['name']}</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}——{$t3[$order['color']]}——{$t2[$order['back']]}——{$t4[$order['layout']]}——{$order['copy']}——{$t5[$order['misc']]}</td></tr>
