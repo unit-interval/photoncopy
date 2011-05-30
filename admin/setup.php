@@ -156,6 +156,7 @@ $tables = array(
 			"default, 'p3@abc.com', '".md5('p123123')."', '123', '35楼打印店', 0, '位置: 北京大学35楼北侧 | 营业时间: 8AM-8PM <br /> 单面打印: 1角/张 | 双面打印: 7分/面'",
 		),
 	),
+//	TODO add last_visit ?
 	'user' => array(
 		'col' => 'id mediumint unsigned not null auto_increment primary key,
 			email varchar(64) not null,
