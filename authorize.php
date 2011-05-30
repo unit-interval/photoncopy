@@ -111,13 +111,9 @@ function verify_update_password_form() {
 	return md5($_POST['passwd']);
 }
 
-if($_GET['c'] == 'partnerlogin' || $_GET['c'] == 'partnerlogout')
-	session_name(SESSNAME_P);
-else
-	session_name(SESSNAME);
-session_start();
-
 if($_GET['c'] == 'login') {
+	session_name(SESSNAME);
+	session_start();
 	if(!($input = verify_login_form()))
 		err_redir('邮箱或密码输入有误，请重新登录');
 	$query = "select `id`, `passwd`, `name` from `user`
@@ -153,6 +149,8 @@ if($_GET['c'] == 'login') {
 		setcookie('email', '', time()-3600);
 	err_redir('', '/home.php');
 } elseif($_GET['c'] == 'logout') {
+	session_name(SESSNAME);
+	session_start();
 	setcookie('hash', '', time()-3600);
 	setcookie('uid', '', time()-3600);
 	setcookie('stamp', '', time()-3600);
@@ -160,6 +158,8 @@ if($_GET['c'] == 'login') {
 	session_destroy();
 	err_redir();
 } elseif($_GET['c'] == 'signup' && isset($_GET['a']) && isset($_GET['v'])) {
+	session_name(SESSNAME);
+	session_start();
 	if(!verify_link_signup())
 		err_redir('您访问的激活链接无效');
 	$email = base64_decode($_GET['a']);
@@ -169,6 +169,8 @@ if($_GET['c'] == 'login') {
 	$_SESSION['state'] = 'activate';
 	err_redir('', '/profile.php');
 } elseif($_GET['c'] == 'reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
+	session_name(SESSNAME);
+	session_start();
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
 	$email = base64_decode($_GET['a']);
@@ -179,7 +181,22 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');
+} elseif($_GET['c'] == 'par_reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
+	session_name(SESSNAME_P);
+	session_start();
+	if(!verify_link_reset())
+		err_redir('您的密码重置链接已失效');
+	$par_email = base64_decode($_GET['a']);
+	if(($partner=user_exists_par($email))==false)
+		err_redir("邮箱 $email 尚未注册");
+	$_SESSION['name'] = $partner['name'];
+	$_SESSION['pid'] = $partner['id'];
+	$_SESSION['email'] = $par_email;
+	$_SESSION['state'] = 'par_resetpw';
+	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'update-name'){
+	session_name(SESSNAME);
+	session_start();
 	if (!($input=verify_update_name_form()))
 		err_redir('用户名不能为空', '/profile.php');
 	$query = "update `user` set `name` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
@@ -188,12 +205,16 @@ if($_GET['c'] == 'login') {
 	$_SESSION['name'] = $db->real_escape_string($input);
 	err_redir('用户名修改成功', '/profile.php#1-1');
 } elseif($_GET['c'] == 'update-password'){
+	session_name(SESSNAME);
+	session_start();
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
 	err_redir('密码修改成功', '/profile.php#1-2');	
 } elseif($_GET['c'] == 'partnerlogin') {
+	session_name(SESSNAME_P);
+	session_start();
 	if(!($input = verify_login_form()))
 		err_redir('Invalid Login Information.','/partner.php');
 	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
@@ -227,12 +248,16 @@ if($_GET['c'] == 'login') {
 	setcookie('hash_p', md5(SALT_REG . $user['id']), $expire);
 	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'partnerlogout') {
+	session_name(SESSNAME_P);
+	session_start();
 	setcookie('hash_p', '', time()-3600);
 	setcookie('pid', '', time()-3600);
 	$_SESSION = array();
 	session_destroy();
 	err_redir();
 } elseif($_SESSION['state'] === 'activate') {
+	session_name(SESSNAME);
+	session_start();
 	if(!($input = verify_signup_form()))
 		err_redir('您提供的信息有误，请重新输入', '/profile.php');
 	$query = "insert into `user` values (
@@ -256,6 +281,8 @@ if($_GET['c'] == 'login') {
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 } elseif($_SESSION['state'] === 'resetpw') {
+	session_name(SESSNAME);
+	session_start();
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
@@ -271,7 +298,22 @@ if($_GET['c'] == 'login') {
 //	$_SESSION['credit'] = $credit;
 	unset($_SESSION['state']);
 	err_redir('恭喜您成功找回密码', '/home.php');
-} else {
+} elseif($_SESSION['state'] === 'par_resetpw') {
+	session_name(SESSNAME_P);
+	session_start();
+	$input=verify_update_password_form();
+	$query = "update `partner` set `passwd` = '" . $input . "' where `id` = {$_SESSION['pid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	$query = "select `passphrase`, `region`, `memo` from `partner` wehre `id` = {$_SESSION['pid']}";
+	$_SESSION['partner'] = true;
+	$_SESSION['passphrase'] = $user['passphrase'];
+	$_SESSION['region'] = $user['region'];
+	$_SESSION['memo'] = $user['memo'];
+	unset($_SESSION['state']);
+	err_redir('恭喜您成功找回密码', '/partner.php');
+}
+else {
 	err_redir();
 }
 

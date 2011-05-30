@@ -131,3 +131,15 @@ function user_exists($m) {
 	}
 	return false;
 }
+function user_exists_par($m) {
+	global $db;
+	$query = "select `id`, `name` from `partner`
+		where `email` = '{$db->real_escape_string($m)}'";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		return $row;
+	}
+	return false;
+}
