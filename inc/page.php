@@ -692,7 +692,8 @@ function page_par_activate() {
 							</tr>
 							<tr>
 								<th></th>
-								<td><div id='pass-strength-result'>强度</div><input type='button' id='pass-confirm' class='uiBtn3' value='激活帐户' /></td>
+								<td><div id='pass-strength-result'>强度</div>
+								<input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户' /></td>
 							</tr>
 							<tr>
 								<th>管理员邮箱</th>
