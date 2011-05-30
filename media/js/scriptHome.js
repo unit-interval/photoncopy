@@ -304,10 +304,10 @@ $(function(){
 		$('#btn'+$('h4', this).attr('id')[1]).removeClass('hover');
 	});
 	$('#w8Edit').focus(function(){
-		$(this).parent().addClass('active');
+		$(this).parents('div.confirmForm').addClass('active');
 	})
 	$('#w8Edit').blur(function(){
-		$(this).parent().removeClass('active');
+		$(this).parents('div.confirmForm').removeClass('active');
 	})
 	
 	// click on w8 item
@@ -463,7 +463,7 @@ var UP = {
 		$('#status span:last').html('上傳完成 (' + size + ')');
 		$('#formOrder input[name="fid"]').val(this.id);
 		$('#formOrder input[name="fname"]').val(name);
-		$('#w8ConfirmBtn').removeAttr('disabled').val('提交');
+		$('#w8ConfirmBtn').removeAttr('disabled').val('确认并提交订单');
 	},
 	basename: function(path) {
 		return path.replace(/\\/g, '/').replace(/.*\//, '');

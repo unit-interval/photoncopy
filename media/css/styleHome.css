@@ -503,18 +503,23 @@ input.uiBtn1{
 
 /*------------------------ W8 ------------------------*/
 
-.editForm, .confirmForm{
+.editForm{
 	float: left;
-	width: 80px;
+	width: 110px;
 	text-align: center;
-	padding: 20px 20px;
+	padding: 20px;
 	border-right: 4px solid #232323;
-	height: 230px;
+	border-bottom: 4px solid #232323;
+	height: 120px;
+	cursor: pointer;
+}
+
+.editForm.last{
+	border-right-width: 0px;
 }
 
 .confirmForm{
-	width: 136px;
-	border-right-width: 0px;
+	padding: 14px 40px;
 }
 
 .confirmForm.active{
@@ -523,7 +528,10 @@ input.uiBtn1{
 
 .editForm:hover{
 	background: #232323;
-	cursor: pointer;
+}
+
+#w8 .confirmForm h3{
+	margin: 0px;
 }
 
 .w8content{
@@ -547,18 +555,15 @@ input.uiBtn1{
 }
 
 #w8Edit{
-	margin: auto;
-	width: 110px;
-	min-width: 110px;
-	max-width: 110px;
-	height: 140px;
-	min-height: 140px;
-	max-height: 140px;
-	overflow: hidden;
+	margin-left: 20px;
+	width: 560px;
 }
 
 #w8ConfirmBtn{
-	margin-top: 14px;
+	margin-top: 2px;
+	height: 28px;
+	font-size: 15px;
+	float: right;
 }
 
 /*------------------------ DUMMY ------------------------*/
