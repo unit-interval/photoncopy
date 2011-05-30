@@ -39,7 +39,7 @@ function send_reg_mail_par($to, $num, $address) {
 							<td align="left">
 								您好，<br>
 								<br>
-								感谢您注册光子复制，请点击确认<a style="color: #1F75CC; text-decoration: none" href="$link" target="_blank">绑定邮箱</a>。
+								感谢您向光子复制申请商铺，我们将尽快与您取得联系。请在管理员的协助下<a style="color: #1F75CC; text-decoration: none" href="$link" target="_blank">设置商铺信息</a>。
 								<br><br><font size="-1" color="gray" style="word-wrap: break-word; display: block; width: 550px;">如果链接无效，请将以下链接复制到浏览器地址栏访问：<br>$link</font>
 								<br>
 								<br>
