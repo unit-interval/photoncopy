@@ -22,7 +22,7 @@ function send_reg_mail($to) {
 	$body = <<<EOT
 		<table width="650" align="center" style="color: #444; margin: 30px auto; font-size: 14px; font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,STHeiti; box-shadow: 0 0 10px gray; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; overflow: hidden" cellpadding="0" cellspacing="0">
 			<tbody><tr id="header">
-				<td height="102" background="/media/images/email/header_bg.png" bgcolor="#E6F1FB" align="center">
+				<td height="102" background="http://photoncopy.com/media/images/email/header_bg.png" bgcolor="#E6F1FB" align="center">
 					<table width="95%">
 						<tbody><tr>
 							<td align="left">

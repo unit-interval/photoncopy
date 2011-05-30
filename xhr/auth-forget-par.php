@@ -14,7 +14,7 @@ include DIR_INC . 'function.php';
  */
 //header('content-type: application/json');
 
-function send_forget_mail($to) {
+function send_forget_mail_par($to) {
 	$addr = base64_encode($to);
 	$time = time();
 	$hash = md5( SALT_REG . $addr . $time);
@@ -66,10 +66,10 @@ if(!($email = sanitize_email($_POST['email'])))
 
 setcookie('email', $email, time()+3600*24*3);
 
-if(user_exists($email) == false)
+if(user_exists_par($email) == false)
 	die(json_encode(array('errno' => 3,)));
 
-if(!send_forget_mail($email))
+if(!send_forget_mail_par($email))
 	die(json_encode(array('errno' => 4,)));
 
 echo(json_encode(array('errno' => 0,)));
