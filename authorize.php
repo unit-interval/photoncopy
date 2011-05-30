@@ -255,6 +255,10 @@ if($_GET['c'] == 'login') {
 	$_SESSION = array();
 	session_destroy();
 	err_redir();
+} elseif ($_GET['c'] == 'update_par_password') {
+	session_name(SESSNAME_P);
+	session_start();
+	
 } elseif($_SESSION['state'] === 'activate') {
 	session_name(SESSNAME);
 	session_start();

@@ -633,7 +633,7 @@ function page_par_profile($users) {
 									</tr>
 									<tr>
 										<th></th>
-										<td><input type='submit' class='uiBtn3' value='修改设置' /></td>
+										<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='修改设置'></td>
 									</tr>
 								</tbody>
 							</table>
