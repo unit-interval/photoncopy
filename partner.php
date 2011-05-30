@@ -20,13 +20,17 @@ if ($_GET['c'] == 'signup') {
 	$link['js'][] = 'scriptIndex';
 	$state = 1;
 } elseif($_GET['c'] == 'activate') {
+	$state = 2;
 } elseif($_GET['c'] == 'forget') {
+	$state = 3;
 } elseif($_SESSION['partner'] != true) {
 	include './inc/auth.php';
 	cookie_auth_par();
 	if($_SESSION['partner'] !== true)
 	err_redir('', '/partner.php?c=signup');
 } elseif ($_GET['c'] == 'profile') {
+	$link['css'][] = 'partnerProfile';
+	$state = 4;
 } else {
 	$orders = array();
 	$users = array();
