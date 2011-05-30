@@ -335,7 +335,7 @@ function page_home($orders, $stores) {
 				<h2>确认订单</h2>
 				<p>订单仍可进一步修改，如需定制化服务请给打印店留言，并留下联系方式。</p>
 				<div class='w8content'>
-					<div class='editForm lbCorner'>
+					<div class='editForm'>
 						<h3>打印店</h3>
 						<h4 id='w2Edit'></h4>
 					</div>
