@@ -3,6 +3,10 @@
 include './config.php';
 include './inc/function.php';
 
+//	TODO
+//	error handle
+//	check all include paths
+
 session_name(SESSNAME);
 session_start();
 $s = $_SESSION;
