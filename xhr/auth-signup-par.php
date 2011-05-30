@@ -17,7 +17,7 @@ include DIR_INC . 'function.php';
 function send_reg_mail_par($to, $num, $address) {
 	$addr = base64_encode($to);
 	$hash = md5( SALT_REG . $addr );
-	$link = URL_BASE . "authorize.php?c=signup&a=" . rawurlencode($addr). "&v=$hash";
+	$link = URL_BASE . "authorize.php?c=signuppar&a=" . rawurlencode($addr). "&v=$hash";
 	$subject = CODE_NAME . ' - 注册确认函';
 	$body = <<<EOT
 		<table width="650" align="center" style="color: #444; margin: 30px auto; font-size: 14px; font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,STHeiti; box-shadow: 0 0 10px gray; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; overflow: hidden" cellpadding="0" cellspacing="0">

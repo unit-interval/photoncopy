@@ -19,17 +19,16 @@ if ($_SESSION['state'] === 'par_resetpw') {
 	$link['js'][] = 'partnerProfile';
 	$link['js'][] = 'pswStrength';
 	$state = 3;
-}
-elseif ($_GET['c'] == 'signup') {
+} elseif($_SESSION['state'] == 'activate_par') {
+	$link['css'][] = 'styleProfile';
+	$link['js'][] = 'partnerProfile';
+	$link['js'][] = 'pswStrength';
+	$state = 2;
+} elseif ($_GET['c'] == 'signup') {
 	$link['css'][] = 'styleIndex';
 	$link['css'][] = 'partnerLogin';
 	$link['js'][] = 'partnerIndex';
 	$state = 1;
-} elseif($_GET['c'] == 'activate') {
-	$link['css'][] = 'partnerProfile';
-	$link['js'][] = 'partnerProfile';
-	$link['js'][] = 'pswStrength';
-	$state = 2;
 } elseif($_SESSION['partner'] != true) {
 	include './inc/auth.php';
 	cookie_auth_par();

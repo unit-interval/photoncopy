@@ -49,7 +49,6 @@ function page_resetpasswd(){
 	</div>
 		";
 }
-
 function page_activate() {
 	echo "
 	<div class='contentWrapper'> 
@@ -655,53 +654,53 @@ function page_par_profile($users) {
 	</div>";
 }
 function page_par_activate() {
-	echo '
-	<div class="contentWrapper"> 
-		<div class="profile">
-			<div class="profileL">
-				<div class="profileType">
+	echo "
+	<div class='contentWrapper'> 
+		<div class='profile'>
+			<div class='profileL'>
+				<div class='profileType'>
 					初次设置
 				</div>
 			</div>
-			<div class="profileRWrapper">
-			<div class="profileR" id="profile-0">
-				<div class="profileHeader">
+			<div class='profileRWrapper'>
+			<div class='profileR' id='profile-0'>
+				<div class='profileHeader'>
 					初次设置
 				</div>
-				<div class="profileContent">
-					<form action="/authorize.php?c=par_activate" method="post"> 
-					<table class="formTable">
+				<div class='profileContent'>
+					<form action='/authorize.php' method='post'> 
+					<table class='formTable'>
 						<tbody>
 							<tr>
 								<th>邮箱</th>
-								<td><input type="text" class="uiText2" name="email" disabled="disabled" value="abc@example.com" /></td>
+								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
 							</tr>
 							<tr>
 								<th>店名</th>
-								<td><input type="text" id="user_login" class="uiText2" name="name" /></td>
+								<td><input type='text' id='user_login' class='uiText2' name='name' /></td>
 							</tr>
 							<tr>
 								<th>短密码</th>
-								<td><input type="password" id="pass0" class="uiText2" name="short" />
+								<td><input type='password' id='pass0' class='uiText2' name='short' />
 							<tr>
 								<th>设定密码</th>
-								<td><input type="password" id="pass1" class="uiText2" name="passwd" /></td>
+								<td><input type='password' id='pass1' class='uiText2' name='passwd' /></td>
 							</tr>
 							<tr>
 								<th>确认密码</th>
-								<td><input type="password" id="pass2" class="uiText2" /></td>
+								<td><input type='password' id='pass2' class='uiText2' /></td>
 							</tr>
 							<tr>
 								<th></th>
-								<td><div id="pass-strength-result">强度</div><input type="button" id="pass-confirm" class="uiBtn3" value="激活帐户" /></td>
+								<td><div id='pass-strength-result'>强度</div><input type='button' id='pass-confirm' class='uiBtn3' value='激活帐户' /></td>
 							</tr>
 							<tr>
 								<th>管理员邮箱</th>
-								<td><input type="password" class="uiText2" name="adminEmail" /></td>
+								<td><input type='password' class='uiText2' name='adminEmail' /></td>
 							</tr>
 							<tr>
 								<th>管理员密码</th>
-								<td><input type="password" class="uiText2" name="adminPasswd" /></td>
+								<td><input type='password' class='uiText2' name='adminPasswd' /></td>
 							</tr>
 						</tbody>
 					</table>
@@ -709,10 +708,10 @@ function page_par_activate() {
 				</div>
 			</div>
 			</div>
-			<div class="clear"></div>
+			<div class='clear'></div>
 		</div> 
 	</div>
-	';
+	";
 }
 function page_par_signup() {
 	echo "

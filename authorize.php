@@ -101,6 +101,17 @@ function verify_signup_form() {
 	$input['passwd'] = md5($_POST['passwd']);
 	return $input;
 }
+function verify_signup_form_par() {
+//	TODO validate input client-side with js
+	$input = array();
+	$input['email'] = $_SESSION['email'];
+	$input['name'] = $_POST['name'];
+	$input['passwd'] = md5($_POST['passwd']);
+	$input['passphrase'] = $_POST['short'];
+	$input['admin_email'] = strtolower($_POST['adminEmail']);
+	$input['admin_passwd'] = md5($_POST['adminPasswd']);
+	return $input;
+}
 function verify_update_name_form() {
 //	TODO validate input client-side with js
 	if ($_POST['name'] == '') return false;
@@ -168,6 +179,17 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'activate';
 	err_redir('', '/profile.php');
+} elseif($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
+	session_name(SESSNAME_P);
+	session_start();
+	if(!verify_link_signup())
+		err_redir('您访问的激活链接无效');
+	$email = base64_decode($_GET['a']);
+	if(user_exists_par($email))
+		err_redir("邮箱($email)已在光子复制注册，请直接登录", '/partner.php');
+	$_SESSION['email'] = $email;
+	$_SESSION['state'] = 'activate_par';
+	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
 	session_name(SESSNAME);
 	session_start();
@@ -241,7 +263,6 @@ if($_GET['c'] == 'login') {
 	$_SESSION['region'] = $user['region'];
 	$_SESSION['memo'] = $user['memo'];
 	$_SESSION['email'] = $input['email'];
-//	$_SESSION['credit'] = $credit;
 	$expire = time()+3600*24*7;
 	setcookie('email_p', $input['email'], $expire);
 	setcookie('pid', $user['id'], $expire);
@@ -269,7 +290,6 @@ if($_GET['c'] == 'login') {
 	if (($passphrase=$_POST['passphrase']) != '') {
 		$query= "update `partner` set `passphrase` = '{$db->real_escape_string($passphrase)}' where `id` = {$_SESSION['pid']}";
 	}
-	
 } elseif($_SESSION['state'] === 'activate') {
 	session_name(SESSNAME);
 	session_start();
@@ -295,6 +315,35 @@ if($_GET['c'] == 'login') {
 //	$_SESSION['credit'] = array(0 => 10);
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
+} elseif($_SESSION['state'] === 'activate_par') {
+	session_name(SESSNAME);
+	session_start();
+	if(!($input = verify_signup_form_par()))
+		err_redir('您提供的信息有误，请重新输入', '/partner.php');
+	$query = "insert into `partner` (`email`, `passwd`, `passphrase`, `name`, `region`) values (
+		'{$db->real_escape_string($input['email'])}',
+		'{$input['passwd']}',
+		'{$db->real_escape_string($input['passphrase'])}',
+		'{$db->real_escape_string($input['name'])}',
+		0
+		)";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	$pid = $db->insert_id;
+	unset($_SESSION['state']);
+	$_SESSION['partner'] = true;
+	$_SESSION['pid'] = $pid;
+	$_SESSION['passphrase'] = $input['passphrase'];
+	$_SESSION['name'] = $input['name'];
+	$_SESSION['region'] = 0;
+	$_SESSION['memo'] = '';
+	$_SESSION['email'] = $input['email'];
+	$expire = time()+3600*24*7;
+	setcookie('email_p', $input['email'], $expire);
+	setcookie('pid', $pid, $expire);
+	setcookie('hash_p', md5(SALT_REG . $pid), $expire);
+//	send_confirm_email();
+	err_redir('恭喜您已成功注册光子复制帐号', '/partner.php');
 } elseif($_SESSION['state'] === 'resetpw') {
 	session_name(SESSNAME);
 	session_start();
