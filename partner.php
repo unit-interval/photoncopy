@@ -14,15 +14,20 @@ $link['js'][] = 'jquery';
 $link['js'][] = 'script';
 
 /** FIXME write partner pages */
-if ($_GET['c'] == 'signup') {
+if ($_SESSION['state'] === 'par_resetpw') {
+	$link['css'][] = 'partnerProfile';
+	$link['js'][] = 'partnerProfile';
+	$state = 3;
+}
+elseif ($_GET['c'] == 'signup') {
 	$link['css'][] = 'styleIndex';
 	$link['css'][] = 'partnerLogin';
-	$link['js'][] = 'scriptIndex';
+	$link['js'][] = 'partnerIndex';
 	$state = 1;
 } elseif($_GET['c'] == 'activate') {
+	$link['css'][] = 'partnerProfile';
+	$link['js'][] = 'partnerProfile';
 	$state = 2;
-} elseif($_GET['c'] == 'forget') {
-	$state = 3;
 } elseif($_SESSION['partner'] != true) {
 	include './inc/auth.php';
 	cookie_auth_par();
@@ -30,6 +35,7 @@ if ($_GET['c'] == 'signup') {
 	err_redir('', '/partner.php?c=signup');
 } elseif ($_GET['c'] == 'profile') {
 	$link['css'][] = 'partnerProfile';
+	$link['js'][] = 'partnerProfile';
 	$state = 4;
 } else {
 	$orders = array();
@@ -72,10 +78,13 @@ if ($_GET['c'] == 'signup') {
 
 page_meta();
 page_nav('partner');
-if($state === 1)
-	page_par_signup();
-else
-	page_par_home($orders, $users);
+switch ($state){
+	case 1: page_par_signup(); break;
+	case 2: page_par_activate(); break;
+	case 3: page_resetpswd(); break;
+	case 4: page_par_profile(); break;
+	default: page_par_home($orders, $users); 
+}
 page_footer();
 page_close();
 
