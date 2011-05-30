@@ -454,13 +454,13 @@ var UP = {
 		clearInterval(this.timer);
 	},
 	fail: function() {
-		$('#status span:last').html('上傳失敗.');
+		$('#status span:last').html('上传失败.');
 	},
 	success: function(html) {
 		var size = $('#upload-size', html).text();
 		var name = $('#upload-name', html).text();
 		$('#status > div > div').width('200px');
-		$('#status span:last').html('上傳完成 (' + size + ')');
+		$('#status span:last').html('上传完成 (' + size + ')');
 		$('#formOrder input[name="fid"]').val(this.id);
 		$('#formOrder input[name="fname"]').val(name);
 		$('#w8ConfirmBtn').removeAttr('disabled').val('确认并提交订单');
