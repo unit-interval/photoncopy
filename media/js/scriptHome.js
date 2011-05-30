@@ -446,7 +446,7 @@ var UP = {
 			success: function(data){
 				t.ajax = false;
 				if(data.id == 0) return;
-				$('#status > div > div').animate({width: data.percentage});
+				$('#status > div > div').animate({width: data.percentage}, 500);
 			},
 		});
 	},
@@ -463,7 +463,7 @@ var UP = {
 		$('#status span:last').html('上传完成 (' + size + ')');
 		$('#formOrder input[name="fid"]').val(this.id);
 		$('#formOrder input[name="fname"]').val(name);
-		$('#w8ConfirmBtn').attr('disabled', 'false').val('确认并提交订单');
+		$('#w8ConfirmBtn').removeAttr('disabled').val('确认并提交订单');
 	},
 	basename: function(path) {
 		return path.replace(/\\/g, '/').replace(/.*\//, '');
