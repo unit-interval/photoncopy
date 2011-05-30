@@ -734,7 +734,7 @@ function page_par_signup() {
 			</div>
 			<div id='signup' class='panel'>
 				<h2>申请<span class='lightboxClose fright'>×</span></h2>
-				<form>
+				<form id='signupForm'>
 					<fieldset>
 						<div class='field'><label>邮箱</label><input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'></div>
 						<div class='field'><label>联系方式</label><input type='text' name='phone' placeholder='请输入手机或电话号码' class='uiText'></div>
@@ -747,12 +747,12 @@ function page_par_signup() {
 			</div>
 			<div id='forget' class='panel'>
 				<h2>取回密码<span class='lightboxClose fright'>×</span></h2>
-				<form><fieldset>
+				<form id='forgetForm'><fieldset>
 					<div class='field'>
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>
 					</div></fieldset><fieldset class='submit'>
-					<input class='uiBtn submit' type='button' value='取回密码'>
+					<input class='uiBtn submit' type='submit' value='取回密码'>
 			</fieldset></form></div>
 			<div id='dummyLightbox'></div>
 		</div>"

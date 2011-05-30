@@ -16,14 +16,14 @@ $(document).ready(function(){
 			showLightbox('#forget')
 		});
 	});
-	$('#signup input[type="submit"]').parents('form').submit(function(){
+	$('#signupForm').submit(function(){
 //		TODO validate email
 		hideLightbox();
 		$.ajax({
 			type: "post",
-			url: "/xhr/auth-signup.php",
+			url: "/xhr/auth-signup-par.php",
 			cache: false,
-			data: $('#signup form').serialize(),
+			data: $('#signupForm').serialize(),
 			dataType: 'json',
 			statusCode: {
 				200: function(data) {
@@ -41,14 +41,14 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$('#forget input[type="submit"]').parents('form').submit(function(){
+	$('#forgetForm').submit(function(){
 		hideLightbox();
 //		TODO validate email
 		$.ajax({
 			type: "post",
-			url: "/xhr/auth-forget.php",
+			url: "/xhr/auth-forget-par.php",
 			cache: false,
-			data: $('#forget form').serialize(),
+			data: $('#forgetForm').serialize(),
 			dataType: 'json',
 			statusCode: {
 				200: function(data) {

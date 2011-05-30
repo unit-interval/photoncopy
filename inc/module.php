@@ -233,6 +233,19 @@ function mod_stat_credit($num_orders, $stores) {
 	return $html;
 }
 function mod_stat_par($users) {
+	$i = 0;
+	$sum_credit = 0;
+	$sum_orders = 0;
+	$html = '';
+	foreach($users as $u) {
+		$credit = $_SESSION['credit'][$u['uid']] / 10;
+		$sum_credit += $credit;
+		$sum_orders += $u['num_orders'];
+		$html .= "
+								<tr>
+									<td>" . ++ $i . "</td><td>{$u['name']}</td><td>" . $credit . " 元</td><td>{$u['num_orders']} 笔</td>
+								</tr>";
+	}
 	$html = "
 					<div class='profileHeader'>储蓄概要</div>
 					<div class='profileContent'>
@@ -242,15 +255,9 @@ function mod_stat_par($users) {
 									<th>编号</th><th>用户名</th><th>储蓄</th><th>订单</th>
 								</tr>
 								<tr>
-									<th>汇总</th><th>共3位用户</th><th>6元</th><th>6笔</th>
-								</tr>";
-	$i = 1;
-	foreach($users as $u)
-		$html .= "
-								<tr>
-									<td>" . $i ++ . "</td><td>{$u['name']}</td><td>{$_SESSION['credit'][$u['uid']]}元</td><td>{$u['num_orders']}笔</td>
-								</tr>";
-	$html .= "
+									<th>汇总</th><th>共 $i 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
+								</tr>
+								$html
 							</tbody>
 						</table>
 					</div>";
