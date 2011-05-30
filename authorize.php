@@ -269,7 +269,7 @@ if($_GET['c'] == 'login') {
 	if (($passphrase=$_POST['passphrase']) != '') {
 		$query= "update `partner` set `passphrase` = '{$db->real_escape_string($passphrase)}' where `id` = {$_SESSION['pid']}";
 	}
-	
+	err_redir('商铺基本设置修改成功', '/partner.php?c=profile#1-1');
 } elseif($_SESSION['state'] === 'activate') {
 	session_name(SESSNAME);
 	session_start();
