@@ -459,7 +459,7 @@ var UP = {
 	success: function(html) {
 		var size = $('#upload-size', html).text();
 		var name = $('#upload-name', html).text();
-		$('#status > div > div').width('200px');
+		$('#status > div > div').dequeue().animate({width: 200}, 500);
 		$('#status span:last').html('上传完成 (' + size + ')');
 		$('#formOrder input[name="fid"]').val(this.id);
 		$('#formOrder input[name="fname"]').val(name);
