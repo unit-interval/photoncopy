@@ -357,16 +357,14 @@ function page_home($orders, $stores) {
 						<h3>打印份数</h3>
 						<h4 id='w6Edit'></h4>
 					</div>
-					<div class='editForm'>
+					<div class='editForm last'>
 						<h3>附加服务</h3>
 						<h4 id='w7Edit'></h4>
 					</div>
-					<div class='confirmForm rbCorner'>
-						<h3>客户留言</h3>
-						<textarea id='w8Edit' class='uiTextarea1'></textarea>
-						<input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/>
-					</div>
 					<div class='clear'></div>
+					<div class='confirmForm lbCorner rbCorner'>
+						<h3>客户留言<input type='text' class='uiText' id='w8Edit' class='uiTextarea1' /><input type='button' id='w8ConfirmBtn' class='uiBtn2' disabled='disabled' value='请稍等'/></h3>
+					</div>
 				</div>
 			</div>
 			<div class='wDummy'></div>
