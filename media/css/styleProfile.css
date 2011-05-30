@@ -187,7 +187,7 @@ input.uiText2{
 	margin: 7px 0;
 }
 
-input.uiBtn3{
+input.uiBtn3, select.uiSelect, input[type='file']{
 	margin: 7px 0;
 }
 

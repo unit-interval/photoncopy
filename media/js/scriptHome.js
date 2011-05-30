@@ -446,7 +446,7 @@ var UP = {
 			success: function(data){
 				t.ajax = false;
 				if(data.id == 0) return;
-				$('#status > div > div').width(data.percentage + 'px');
+				$('#status > div > div').animate({width: data.percentage});
 			},
 		});
 	},
@@ -454,16 +454,16 @@ var UP = {
 		clearInterval(this.timer);
 	},
 	fail: function() {
-		$('#status span:last').html('上傳失敗.');
+		$('#status span:last').html('上传失败');
 	},
 	success: function(html) {
 		var size = $('#upload-size', html).text();
 		var name = $('#upload-name', html).text();
 		$('#status > div > div').width('200px');
-		$('#status span:last').html('上傳完成 (' + size + ')');
+		$('#status span:last').html('上传完成 (' + size + ')');
 		$('#formOrder input[name="fid"]').val(this.id);
 		$('#formOrder input[name="fname"]').val(name);
-		$('#w8ConfirmBtn').removeAttr('disabled').val('确认并提交订单');
+		$('#w8ConfirmBtn').attr('disabled', 'false').val('确认并提交订单');
 	},
 	basename: function(path) {
 		return path.replace(/\\/g, '/').replace(/.*\//, '');
@@ -485,6 +485,8 @@ function order_form_reset() {
 	for (i=8; i>1; i--) $('#btn'+i).delay((8-i)*250).fadeOut(250, function(){
 		$(this).removeClass('selected');
 		if (i==2) peekEnable=1;
+		$('#w8ConfirmBtn').val('文件上传中');
+		$('#w8ConfirmBtn').attr('disabled', 'true');
 	});
 	$('form#formFile input[type="file"]').replaceWith('<input type="file" name="file">');
 	$('form#formFile input[type="file"]').change(function(){
