@@ -113,7 +113,7 @@ elseif ($_GET['c'] == 'signup') {
 page_meta();
 switch ($state) {
 	case 1:
-		page_nav('partner', 'user');
+		page_nav('partner');
 		page_par_signup();
 		break;
 	case 2:
