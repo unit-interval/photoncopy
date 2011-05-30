@@ -232,6 +232,30 @@ function mod_stat_credit($num_orders, $stores) {
 					</table>";
 	return $html;
 }
+function mod_stat_par($users) {
+	$html = "
+					<div class='profileHeader'>储蓄概要</div>
+					<div class='profileContent'>
+						<table class='statTable'>
+							<tbody>
+								<tr>
+									<th>编号</th><th>用户名</th><th>储蓄</th><th>订单</th>
+								</tr>
+								<tr>
+									<th>汇总</th><th>共3位用户</th><th>6元</th><th>6笔</th>
+								</tr>";
+	$i = 1;
+	foreach($users as $u)
+		$html .= "
+								<tr>
+									<td>" . $i ++ . "</td><td>{$u['name']}</td><td>{$_SESSION['credit'][$u['uid']]}元</td><td>{$u['num_orders']}笔</td>
+								</tr>";
+	$html .= "
+							</tbody>
+						</table>
+					</div>";
+	return $html;
+}
 function mod_store_sel($stores) {
 	$t1 = text_defs('store_region');
 	$i = 0;

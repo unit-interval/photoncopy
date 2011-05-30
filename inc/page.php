@@ -548,126 +548,105 @@ function page_par_home($orders, $users) {
 		</div>
 	";
 }
-function page_par_profile() {
-	echo '
-	<div class="contentWrapper"> 
-		<div class="profile">
-			<div class="profileL">
-				<div class="profileType">
+function page_par_profile($users) {
+	echo "
+	<div class='contentWrapper'> 
+		<div class='profile'>
+			<div class='profileL'>
+				<div class='profileType'>
 					帐户中心
 				</div>
 				<ul>
-					<li><a href="#1-1">基本信息</a></li>
-					<li><a href="#1-2">安全设置</a></li>
+					<li><a href='#1-1'>基本信息</a></li>
+					<li><a href='#1-2'>安全设置</a></li>
 				</ul>
-				<div class="profileType">
+				<div class='profileType'>
 					统计中心
 				</div>
 				<ul>
-					<li><a href="#0">储蓄概要</a></li>
+					<li><a href='#0'>储蓄概要</a></li>
 				</ul>
 			</div>
-			<div class="profileRWrapper">
-			<div class="profileR" id="profile-1-1">
-				<div class="profileHeader">基本信息</div>
-				<div class="profileContent">
-					<form action="/authorize.php?c=par_update_info" method="post">
-						<table class="formTable">
-							<tbody>
-								<tr>
-									<th>店名</th>
-									<td><input type="text" class="uiText2" name="parName" value="user1" /></td>
-								</tr>
-								<tr>
-									<th>网络</th>
-									<td>
-										<select class="uiSelect" name="parNetwork">
-											<option value="0">北京大学</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<th>头像</th>
-									<td>
-										<input type="file" name="parAvatar" /> 100像素×100像素的JPG文件
-									</td>
-								</tr>
-								<tr>
-									<th>外景</th>
-									<td>
-										<input type="file" name="parView" /> 940像素×345像素的JPG文件
-									</td>
-								</tr>
-								<tr>
-									<th>地图</th>
-									<td>
-										<input type="file" name="parView" /> 940像素×345像素的PNG文件
-									</td>
-								</tr>
-								<tr>
-									<th></th>
-									<td><input type="submit" class="uiBtn3" value="保存设置" 、></td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+			<div class='profileRWrapper'>
+				<div class='profileR' id='profile-1-1'>
+					<div class='profileHeader'>基本信息</div>
+					<div class='profileContent'>
+						<form action='/authorize.php?c=par_update_info' method='post'>
+							<table class='formTable'>
+								<tbody>
+									<tr>
+										<th>店名</th>
+										<td><input type='text' class='uiText2' name='name' value='{$_SESSION['name']}' /></td>
+									</tr>
+									<tr>
+										<th>网络</th>
+										<td>
+											<select class='uiSelect' name='parNetwork'>
+												<option value='0'>北京大学</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<th>头像</th>
+										<td>
+											<input type='file' name='avatar' /> 100像素×100像素的JPG文件
+										</td>
+									</tr>
+									<tr>
+										<th>外景</th>
+										<td>
+											<input type='file' name='photo' /> 940像素×345像素的JPG文件
+										</td>
+									</tr>
+									<tr>
+										<th>地图</th>
+										<td>
+											<input type='file' name='map' /> 940像素×345像素的PNG文件
+										</td>
+									</tr>
+									<tr>
+										<th></th>
+										<td><input type='submit' class='uiBtn3' value='保存设置' /></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class='profileR' id='profile-1-2'>
+					<div class='profileHeader'>安全设置</div>
+					<div class='profileContent'>
+						<form action='/authorize.php?c=update_par_password' method='post'>
+							<table class='formTable'>
+								<tbody>
+									<tr>
+										<th>邮箱</th>
+										<td><input type='text' class='uiText2' value='{$_SESSION['email']}' disabled='disabled'></td>
+									</tr>
+									<tr>
+										<th>修改密码</th>
+										<td><input type='password' class='uiText2' name='passwd' /></td>
+									</tr>
+									<tr>
+										<th>确认密码</th>
+										<td><input type='password' class='uiText2' /></td>
+									</tr>
+									<tr>
+										<th></th>
+										<td><input type='submit' class='uiBtn3' value='修改设置' /></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class='profileR' id='profile-0'>"
+				. mod_stat_par($users) . "
 				</div>
 			</div>
-			<div class="profileR" id="profile-1-2">
-				<div class="profileHeader">安全设置</div>
-				<div class="profileContent">
-					<form action="/authorize.php?c=update_par_password" method="post">
-						<table class="formTable">
-							<tbody>
-								<tr>
-									<th>邮箱</th>
-									<td><input type="text" class="uiText2" value="user1@abc.com" disabled="disabled"></td>
-								</tr>
-								<tr>
-									<th>修改密码</th>
-									<td><input type="password" class="uiText2" name="passwd1" /></td>
-								</tr>
-								<tr>
-									<th>确认密码</th>
-									<td><input type="password" class="uiText2" name="passwd2" /></td>
-								</tr>
-								<tr>
-									<th></th>
-									<td><input type="submit" class="uiBtn3" value="修改设置" /></td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-				</div>
-			</div>
-			<div class="profileR" id="profile-0">
-				<div class="profileHeader">储蓄概要</div>
-				<div class="profileContent">
-					<table class="statTable">
-						<tbody>
-							<tr>
-								<th>编号</th><th>用户名</th><th>储蓄</th><th>订单</th>
-							</tr>
-							<tr>
-								<th>汇总</th><th>共3位用户</th><th>6元</th><th>6笔</th>
-							</tr>
-							<tr>
-								<td>1</td><td>libragold</td><td>1元</td><td>1笔</td>
-							</tr>
-							<tr>
-								<td>2</td><td>fjdsklfjslf</td><td>2元</td><td>2笔</td>
-							</tr>
-							<tr>
-								<td>3</td><td>jlsjkfs</td><td>2元</td><td>3笔</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			</div>
-			<div class="clear"></div>
+			<div class='clear'></div>
 		</div> 
-	</div>';
+	</div>";
 }
 function page_par_activate() {
 	echo '
