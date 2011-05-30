@@ -477,10 +477,12 @@ function page_meta() {
 </head>
 EOT;
 }
-function page_nav($body_id = 'main') {
+function page_nav($body_id = 'main', $body_style = '') {
 	// and error msg
+	if($body_style === '')
+		$body_style = $body_id;
 	echo "
-	<body id='$body_id'>"
+	<body id='$body_style'>"
 		. mod_notif() . "
 		<div class='nav'>
 			<a href='/' id='logo'></a>"

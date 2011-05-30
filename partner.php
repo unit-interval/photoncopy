@@ -40,7 +40,7 @@ elseif ($_GET['c'] == 'signup') {
 	$users = array();
 	$credit = array();
 	$query = "select `uid`, count(`id`) as `num_orders` from `order`
-		where `pid` = {$_SESSION['pid']} group by `uid`";
+		where `pid` = {$_SESSION['pid']} and `status` = 5 group by `uid`";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	while($row = $result->fetch_assoc())
@@ -49,14 +49,14 @@ elseif ($_GET['c'] == 'signup') {
 	$query_part = '';
 	foreach(array_keys($users) as $id)
 		$query_part .= " `id` = $id or";
-	$query_part = substr($query_part1, 0, -3);
+	$query_part = substr($query_part, 0, -3);
 	$query = "select `id`, `name` from `user` where" . $query_part;
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	while($row = $result->fetch_assoc())
-		$user[$row['id']]['name'] = $row['name'];
+		$users[$row['id']]['name'] = $row['name'];
 	$result->free();
-	$query = "select `uid`, `credit` from `credit` where `pid` = {$user['id']}";
+	$query = "select `uid`, `credit` from `credit` where `pid` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	while($row = $result->fetch_assoc())
@@ -101,7 +101,7 @@ elseif ($_GET['c'] == 'signup') {
 	while($row = $result->fetch_assoc())
 		$users[$row['uid']]['credit'] = $row['credit'];
 	$result->free();
-	$query = "select `uid`, `credit` from `credit` where `pid` = {$user['id']}";
+	$query = "select `uid`, `credit` from `credit` where `pid` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	while($row = $result->fetch_assoc())
@@ -111,13 +111,27 @@ elseif ($_GET['c'] == 'signup') {
 }
 
 page_meta();
-page_nav('partner');
-switch ($state){
-	case 1: page_par_signup(); break;
-	case 2: page_par_activate(); break;
-	case 3: page_resetpswd(); break;
-	case 4: page_par_profile($users); break;
-	default: page_par_home($orders, $users); 
+switch ($state) {
+	case 1:
+		page_nav('partner', 'user');
+		page_par_signup();
+		break;
+	case 2:
+		page_nav('partner', 'user');
+		page_par_activate();
+		break;
+	case 3:
+		page_nav('partner', 'user');
+		page_resetpswd();
+		break;
+	case 4:
+		page_nav('partner', 'user');
+		page_par_profile($users);
+		break;
+	default:
+		page_nav('partner');
+		page_par_home($orders, $users);
+		break;
 }
 page_footer();
 page_close();
