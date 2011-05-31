@@ -241,8 +241,8 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
 	$par_email = base64_decode($_GET['a']);
-	if(($partner=user_exists_par($email))==false)
-		err_redir("邮箱 $email 尚未注册");
+	if(($partner=user_exists_par($par_email))==false)
+		err_redir("邮箱 $par_email 尚未注册", '/partner.php');
 	$_SESSION['name'] = $partner['name'];
 	$_SESSION['pid'] = $partner['id'];
 	$_SESSION['email'] = $par_email;
