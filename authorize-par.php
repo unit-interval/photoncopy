@@ -120,9 +120,9 @@ function verify_login_form() {
 function verify_par_info_form() {
 	$input = array();
 	if($_POST['name'] != $_SESSION['name'])
-		$input['name'] = $_POST['name'];
+		$input['name'] = strip_tags($_POST['name']);
 	if($_POST['passphrase'] != '')
-		$input['passphrase'] = $_POST['passphrase'];
+		$input['passphrase'] = strip_tags($_POST['passphrase']);
 	return $input;
 }
 /*function verify_signup_form() {
@@ -137,9 +137,9 @@ function verify_signup_form_par() {
 //	TODO validate input client-side with js
 	$input = array();
 	$input['email'] = $_SESSION['email'];
-	$input['name'] = $_POST['name'];
+	$input['name'] = strip_tags($_POST['name']);
 	$input['passwd'] = md5($_POST['passwd']);
-	$input['passphrase'] = $_POST['short'];
+	$input['passphrase'] = strip_tags($_POST['short']);
 	$input['admin_email'] = strtolower($_POST['adminEmail']);
 	$input['admin_passwd'] = md5($_POST['adminPasswd']);
 	return $input;
@@ -216,7 +216,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 //	session_start();
 	if(!verify_link_signup())
 		err_redir('您访问的激活链接无效');
-	$email = base64_decode($_GET['a']);
+	$email = strtolower(base64_decode($_GET['a']));
 	if(user_exists_par($email))
 		err_redir("邮箱($email)已在光子复制注册，请直接登录", '/partner.php');
 	$_SESSION['email'] = $email;
@@ -240,7 +240,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 //	session_start();
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
-	$par_email = base64_decode($_GET['a']);
+	$par_email = strtolower(base64_decode($_GET['a']));
 	if(($partner=user_exists_par($par_email))==false)
 		err_redir("邮箱 $par_email 尚未注册", '/partner.php');
 	$_SESSION['name'] = $partner['name'];

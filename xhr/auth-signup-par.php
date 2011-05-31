@@ -73,7 +73,7 @@ EOT;
 	return (mail($to, $subject, $body, $header) && $return);
 }
 
-if(!($email = sanitize_email($_POST['email'])))
+if(!($email = strtolower(sanitize_email($_POST['email']))))
 	die(json_encode(array('errno' => 1,)));
 
 setcookie('email_p', $email, time()+3600*24*3);
@@ -81,7 +81,7 @@ setcookie('email_p', $email, time()+3600*24*3);
 if(user_exists_par($email))
 	die(json_encode(array('errno' => 3,)));
 
-if(!send_reg_mail_par($email, $_POST['phone'], $_POST['address']))
+if(!send_reg_mail_par($email, strip_tags($_POST['phone']), strip_tags($_POST['address'])))
 	die(json_encode(array('errno' => 4,)));
 
 echo(json_encode(array('errno' => 0,)));
