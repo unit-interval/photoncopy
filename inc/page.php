@@ -490,6 +490,7 @@ function page_nav($body_id = 'main', $body_style = '') {
 }
 function page_par_home($orders, $users) {
 	$t1 = text_defs('store_region');
+	$memo = nl2br($_SESSION['memo']);
 	echo "
 		<div class='lightbox'>
 			<div class='panel1' id='lockMask'>
@@ -514,12 +515,12 @@ function page_par_home($orders, $users) {
 						<div id='storeMsg'>
 							<div id='msgQuote'></div>
 							<div id='msgContent'>
-								<div id='msgBody'>" . $_SESSION['memo']. "</div>
+								<div id='msgBody'>$memo</div>
 								<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
 								<div class='clear'></div>
-								<form id='msgChangePanel'>
+								<form id='msgChangePanel' action='/authorize-par.php?c=update_par_memo' method='post' />
 									<div class='uiTextareaWrapper'>
-										<textarea class='uiTextarea' id='msgNew' rows='3'></textarea>
+										<textarea name='memo'class='uiTextarea' id='msgNew' rows='3'>{$_SESSION['memo']}</textarea>
 									</div>
 									<div class='clear'></div>
 									<div class='uiBtn1Wrapper'>

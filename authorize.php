@@ -316,6 +316,17 @@ if($_GET['c'] == 'login') {
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
 	err_redir('密码修改成功', '/partner.php?c=profile#1-2');
+} elseif ($_GET['c'] == 'update_par_memo') {
+	session_name(SESSNAME_P);
+	session_start();
+	if($memo = (($_POST['memo'] == $_SESSION['memo']) ? false : $_POST['memo'])) {
+		$memo = strip_tags($memo);
+		$query = "update `partner` set `memo` = '" . $db->real_escape_string($memo) . "' where `id` = {$_SESSION['pid']}";
+		if($db->query($query) !== TRUE)
+			err_redir("db error({$db->errno}).", '/error.php');
+		$_SESSION['memo'] = $memo;
+	}
+	err_redir('状态修改成功', '/partner.php');
 } elseif ($_GET['c'] == 'update_par_info') {
 	session_name(SESSNAME_P);
 	session_start();
