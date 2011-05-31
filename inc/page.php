@@ -519,12 +519,12 @@ function page_par_home($orders, $users) {
 								<div class='clear'></div>
 								<form id='msgChangePanel'>
 									<div class='uiTextareaWrapper'>
-										<textarea class='uiTextarea' id='msgNew' rows='5'></textarea>
+										<textarea class='uiTextarea' id='msgNew' rows='3'></textarea>
 									</div>
 									<div class='clear'></div>
 									<div class='uiBtn1Wrapper'>
-										<input class='uiBtn1' type='submit' value='确认'/>
 										<input class='uiBtn1' id='msgCancel'type='button' value='取消'/>
+										<input class='uiBtn1' type='submit' value='确认'/>
 									</div>
 								</form>
 							</div>
@@ -572,7 +572,7 @@ function page_par_profile($users) {
 				<div class='profileR' id='profile-1-1'>
 					<div class='profileHeader'>基本信息</div>
 					<div class='profileContent'>
-						<form action='/authorize.php?c=update_par_info' enctype='multipart/form-data' method='post'>
+						<form action='/authorize-par.php?c=update_par_info' enctype='multipart/form-data' method='post'>
 							<table class='formTable'>
 								<tbody>
 									<tr>
@@ -621,7 +621,7 @@ function page_par_profile($users) {
 				<div class='profileR' id='profile-1-2'>
 					<div class='profileHeader'>安全设置</div>
 					<div class='profileContent'>
-						<form action='/authorize.php?c=update_par_password' method='post'>
+						<form action='/authorize-par.php?c=update_par_password' method='post'>
 							<table class='formTable'>
 								<tbody>
 									<tr>
@@ -668,7 +668,7 @@ function page_par_activate() {
 					初次设置
 				</div>
 				<div class='profileContent'>
-					<form action='/authorize.php?c=activatepar' method='post'> 
+					<form action='/authorize-par.php?c=activatepar' method='post'> 
 					<table class='formTable'>
 						<tbody>
 							<tr>
@@ -719,7 +719,7 @@ function page_par_signup() {
 		<div class='lightbox'>
 			<div id='login' class='panel'>
 				<h2>登录<span class='lightboxClose fright'>×</span></h2>
-				<form action='/authorize.php?c=partnerlogin' method='post'>
+				<form action='/authorize-par.php?c=partnerlogin' method='post'>
 					<fieldset><div class='field'>
 						<label>邮箱</label>
 						<input type='text' name='email' placeholder='请输入邮箱地址' class='uiText'>

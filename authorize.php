@@ -4,7 +4,10 @@ include './config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
 
-function handle_par_upload() {
+session_name(SESSNAME);
+session_start();
+
+/*function handle_par_upload() {
 //	TODO handle other upload errors.
 	if($_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
 		if(!move_uploaded_file($_FILES['avatar']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeAvatar{$_SESSION['pid']}.jpg"))
@@ -25,7 +28,7 @@ function handle_par_upload() {
 	} else
 		return false;
 	return true;
-}
+}*/
 function send_confirm_email(){
 	$addr = base64_encode($_SESSION['email']);
 	$subject = CODE_NAME . ' - 欢迎来到光子复制';
@@ -114,14 +117,14 @@ function verify_login_form() {
 	$input['pub'] = (isset($_POST['pub']) ? true : false);
 	return $input;
 }
-function verify_par_info_form() {
+/*function verify_par_info_form() {
 	$input = array();
 	if($_POST['name'] != $_SESSION['name'])
 		$input['name'] = $_POST['name'];
 	if($_POST['passphrase'] != '')
 		$input['passphrase'] = $_POST['passphrase'];
 	return $input;
-}
+}*/
 function verify_signup_form() {
 //	TODO validate input client-side with js
 	$input = array();
@@ -130,7 +133,7 @@ function verify_signup_form() {
 	$input['passwd'] = md5($_POST['passwd']);
 	return $input;
 }
-function verify_signup_form_par() {
+/*function verify_signup_form_par() {
 //	TODO validate input client-side with js
 	$input = array();
 	$input['email'] = $_SESSION['email'];
@@ -140,7 +143,7 @@ function verify_signup_form_par() {
 	$input['admin_email'] = strtolower($_POST['adminEmail']);
 	$input['admin_passwd'] = md5($_POST['adminPasswd']);
 	return $input;
-}
+}*/
 function verify_update_name_form() {
 //	TODO validate input client-side with js
 	if ($_POST['name'] == '') return false;
@@ -152,8 +155,8 @@ function verify_update_password_form() {
 }
 
 if($_GET['c'] == 'login') {
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	if(!($input = verify_login_form()))
 		err_redir('邮箱或密码输入有误，请重新登录');
 	$query = "select `id`, `passwd`, `name` from `user`
@@ -189,8 +192,8 @@ if($_GET['c'] == 'login') {
 		setcookie('email', '', time()-3600);
 	err_redir('', '/home.php');
 } elseif($_GET['c'] == 'logout') {
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	setcookie('hash', '', time()-3600);
 	setcookie('uid', '', time()-3600);
 	setcookie('stamp', '', time()-3600);
@@ -198,8 +201,8 @@ if($_GET['c'] == 'login') {
 	session_destroy();
 	err_redir();
 } elseif($_GET['c'] == 'signup' && isset($_GET['a']) && isset($_GET['v'])) {
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	if(!verify_link_signup())
 		err_redir('您访问的激活链接无效');
 	$email = base64_decode($_GET['a']);
@@ -208,20 +211,20 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'activate';
 	err_redir('', '/profile.php');
-} elseif($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
-	session_name(SESSNAME_P);
-	session_start();
-	if(!verify_link_signup())
-		err_redir('您访问的激活链接无效');
-	$email = base64_decode($_GET['a']);
-	if(user_exists_par($email))
-		err_redir("邮箱($email)已在光子复制注册，请直接登录", '/partner.php');
-	$_SESSION['email'] = $email;
-	$_SESSION['state'] = 'activate_par';
-	err_redir('', '/partner.php');
+//} elseif($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
+//	session_name(SESSNAME_P);
+//	session_start();
+//	if(!verify_link_signup())
+//		err_redir('您访问的激活链接无效');
+//	$email = base64_decode($_GET['a']);
+//	if(user_exists_par($email))
+//		err_redir("邮箱($email)已在光子复制注册，请直接登录", '/partner.php');
+//	$_SESSION['email'] = $email;
+//	$_SESSION['state'] = 'activate_par';
+//	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
 	$email = base64_decode($_GET['a']);
@@ -232,22 +235,22 @@ if($_GET['c'] == 'login') {
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');
-} elseif($_GET['c'] == 'par_reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
-	session_name(SESSNAME_P);
-	session_start();
-	if(!verify_link_reset())
-		err_redir('您的密码重置链接已失效');
-	$par_email = base64_decode($_GET['a']);
-	if(($partner=user_exists_par($email))==false)
-		err_redir("邮箱 $email 尚未注册");
-	$_SESSION['name'] = $partner['name'];
-	$_SESSION['pid'] = $partner['id'];
-	$_SESSION['email'] = $par_email;
-	$_SESSION['state'] = 'par_resetpw';
-	err_redir('', '/partner.php');
+//} elseif($_GET['c'] == 'par_reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
+//	session_name(SESSNAME_P);
+//	session_start();
+//	if(!verify_link_reset())
+//		err_redir('您的密码重置链接已失效');
+//	$par_email = base64_decode($_GET['a']);
+//	if(($partner=user_exists_par($email))==false)
+//		err_redir("邮箱 $email 尚未注册");
+//	$_SESSION['name'] = $partner['name'];
+//	$_SESSION['pid'] = $partner['id'];
+//	$_SESSION['email'] = $par_email;
+//	$_SESSION['state'] = 'par_resetpw';
+//	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'update-name'){
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	if (!($input=verify_update_name_form()))
 		err_redir('用户名不能为空', '/profile.php');
 	$query = "update `user` set `name` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
@@ -256,14 +259,14 @@ if($_GET['c'] == 'login') {
 	$_SESSION['name'] = $db->real_escape_string($input);
 	err_redir('用户名修改成功', '/profile.php#1-1');
 } elseif($_GET['c'] == 'update-password'){
-	session_name(SESSNAME);
-	session_start();
+//	session_name(SESSNAME);
+//	session_start();
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
 	err_redir('密码修改成功', '/profile.php#1-2');	
-} elseif($_GET['c'] == 'partnerlogin') {
+/*} elseif($_GET['c'] == 'partnerlogin') {
 	session_name(SESSNAME_P);
 	session_start();
 	if(!($input = verify_login_form()))
@@ -328,10 +331,8 @@ if($_GET['c'] == 'login') {
 	}
 	if(!handle_par_upload())
 		err_redir('文件上传出错, 请重试.', '/partner.php?c=profile#1-1');
-	err_redir('商铺基本设置修改成功', '/partner.php?c=profile#1-1');
+	err_redir('商铺基本设置修改成功', '/partner.php?c=profile#1-1');*/
 } elseif($_SESSION['state'] === 'activate') {
-	session_name(SESSNAME);
-	session_start();
 	if(!($input = verify_signup_form()))
 		err_redir('您提供的信息有误，请重新输入', '/profile.php');
 	$query = "insert into `user` values (
@@ -355,7 +356,7 @@ if($_GET['c'] == 'login') {
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 //} elseif($_SESSION['state'] === 'activate_par') {
-} elseif($_GET['c'] === 'activatepar') {
+/*} elseif($_GET['c'] === 'activatepar') {
 	session_name(SESSNAME_P);
 	session_start();
 	if(!($input = verify_signup_form_par()))
@@ -385,10 +386,8 @@ if($_GET['c'] == 'login') {
 	setcookie('pid', $pid, $expire);
 	setcookie('hash_p', md5(SALT_REG . $pid), $expire);
 //	send_confirm_email();
-	err_redir('恭喜您已成功注册光子复制帐号', '/partner.php');
+	err_redir('恭喜您已成功注册光子复制帐号', '/partner.php');*/
 } elseif($_SESSION['state'] === 'resetpw') {
-	session_name(SESSNAME);
-	session_start();
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
@@ -404,7 +403,7 @@ if($_GET['c'] == 'login') {
 //	$_SESSION['credit'] = $credit;
 	unset($_SESSION['state']);
 	err_redir('恭喜您成功找回密码', '/home.php');
-} elseif($_SESSION['state'] === 'par_resetpw') {
+/*} elseif($_SESSION['state'] === 'par_resetpw') {
 	session_name(SESSNAME_P);
 	session_start();
 	$input=verify_update_password_form();
@@ -417,7 +416,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['region'] = $user['region'];
 	$_SESSION['memo'] = $user['memo'];
 	unset($_SESSION['state']);
-	err_redir('恭喜您成功找回密码', '/partner.php');
+	err_redir('恭喜您成功找回密码', '/partner.php');*/
 }
 else {
 	err_redir();
