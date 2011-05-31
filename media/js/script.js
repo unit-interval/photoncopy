@@ -4,6 +4,7 @@ var Notification = {
 		this.$slider = $('#dummyNotification');
 		this.$container = $('#notification');
 		this.$counter = $('#notificationCount', this.$container);
+		this.sound = document.getElementById('notif-sound');
 		this.count = parseInt(this.$counter.html());
 		var Notif = this;
 		$('#notificationClose').click(function(){
@@ -46,6 +47,9 @@ var Notification = {
 	},
 	markread: function(id){
 //		send ajax request to mark message as read.
+	},
+	playsound: function(){
+		this.sound.play();
 	},
 }
 

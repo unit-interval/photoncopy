@@ -141,6 +141,7 @@ function page_footer() {
 				<div class='clear'></div>
 			</div>
 		</div>
+		<audio id='notif-sound' src='/media/audio/notif-sound.ogg'></audio>
 	";
 }
 function page_home($orders, $stores) {
