@@ -10,7 +10,7 @@ var Notification = {
 			Notif.dismiss();
 		});
 		if(this.count > 0)
-			this.show('slow');
+			this.delay(250).show(250);
 	},
 	add: function(html){
 		html = html || "Don't look at me. #" + this.count;
@@ -21,8 +21,8 @@ var Notification = {
 			this.show();
 		} else {
 			var $n = $('div.notificationContent:first', this.$container)
-			$m.hide().insertBefore($n).delay(400).fadeIn();
-			$n.fadeOut(400).fadeIn();
+			$m.hide().insertBefore($n).delay(250).fadeIn(250);
+			$n.fadeOut(250).fadeIn(250);
 		}
 	},
 	show: function(duration){
