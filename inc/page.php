@@ -1,6 +1,6 @@
 <?php
 
-function page_resetpasswd(){
+function page_resetpasswd($p = false){
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -15,7 +15,9 @@ function page_resetpasswd(){
 					密码重置
 				</div>
 				<div class='profileContent'>
-					<form action='/authorize.php' method='post'>
+					<form action='/authorize";
+					if ($p) echo "-par";
+					echo ".php' method='post'>
 						<table>
 							<tbody>
 								<tr>
