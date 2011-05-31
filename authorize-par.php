@@ -331,9 +331,9 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 //	session_name(SESSNAME_P);
 //	session_start();
 	if(count($input = verify_par_info_form()) > 0) {
-		$query = "update `partner` ";
+		$query = "update `partner` set ";
 		foreach($input as $k => $v) {
-			$query .= "set `$k` = '" . $db->real_escape_string($v) . "' , ";
+			$query .= "`$k` = '" . $db->real_escape_string($v) . "' , ";
 			$_SESSION[$k] = $v;
 		}
 		$query = substr($query, 0, -2) . "where `id` = {$_SESSION['pid']}";
