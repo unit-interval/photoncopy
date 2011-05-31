@@ -10,6 +10,7 @@ define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('DIR_INC', DIR_ROOT . '/inc/');
 define('DIR_UPLD', DIR_ROOT . '/upload/');
 define('DIR_UPLD_TMP', DIR_UPLD . 'tmp/');
+define('DIR_UPLD_MEDIA', DIR_UPLD . 'media/');
 
 /** session name */
 define('SESSNAME', 'photonsess');

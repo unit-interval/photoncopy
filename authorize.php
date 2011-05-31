@@ -4,6 +4,28 @@ include './config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
 
+function handle_par_upload() {
+//	TODO handle other upload errors.
+	if($_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+		if(!move_uploaded_file($_FILES['avatar']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeAvatar{$_SESSION['pid']}.jpg"))
+			return false;
+	} elseif($_FILES['avatar']['error'] === UPLOAD_ERR_NO_FILE) {
+	} else
+		return false;
+	if($_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+		if(!move_uploaded_file($_FILES['photo']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeView{$_SESSION['pid']}.jpg"))
+			return false;
+	} elseif($_FILES['photo']['error'] === UPLOAD_ERR_NO_FILE){
+	} else
+		return false;
+	if($_FILES['avatar']['map'] === UPLOAD_ERR_OK) {
+		if(!move_uploaded_file($_FILES['map']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeMap{$_SESSION['pid']}.png"))
+			return false;
+	} elseif($_FILES['map']['error'] === UPLOAD_ERR_NO_FILE){
+	} else
+		return false;
+	return true;
+}
 function send_confirm_email(){
 	$addr = base64_encode($_SESSION['email']);
 	$subject = CODE_NAME . ' - 欢迎来到光子复制';
@@ -78,7 +100,6 @@ function send_confirm_email(){
 	SERVER_HOST . ">\r\n";
 	return mail($to, $subject, $body, $header);
 }
-
 function verify_link_reset() {
 	return (($_GET['v'] == md5(SALT_REG . $_GET['a'] . $_GET['t'])) && (date_diff(date_create('@' . $_GET['t']), date_create())->h < 4));
 }
@@ -91,6 +112,14 @@ function verify_login_form() {
 	$input['email'] = strtolower($_POST['email']);
 	$input['passwd'] = md5($_POST['passwd']);
 	$input['pub'] = (isset($_POST['pub']) ? true : false);
+	return $input;
+}
+function verify_par_info_form() {
+	$input = array();
+	if($_POST['name'] != $_SESSION['name'])
+		$input['name'] = $_POST['name'];
+	if($_POST['passphrase'] != '')
+		$input['passphrase'] = $_POST['passphrase'];
 	return $input;
 }
 function verify_signup_form() {
@@ -287,9 +316,18 @@ if($_GET['c'] == 'login') {
 } elseif ($_GET['c'] == 'update_par_info') {
 	session_name(SESSNAME_P);
 	session_start();
-	if (($passphrase=$_POST['passphrase']) != '') {
-		$query= "update `partner` set `passphrase` = '{$db->real_escape_string($passphrase)}' where `id` = {$_SESSION['pid']}";
+	if(count($input = verify_par_info_form()) > 0) {
+		$query = "update `partner` ";
+		foreach($input as $k => $v) {
+			$query .= "set `$k` = '" . $db->real_escape_string($v) . "' , ";
+			$_SESSION[$k] = $v;
+		}
+		$query = substr($query, 0, -2) . "where `id` = {$_SESSION['pid']}";
+		if($db->query($query) !== TRUE)
+			err_redir("db error({$db->errno}).", '/error.php');
 	}
+	if(!handle_par_upload())
+		err_redir('文件上传出错, 请重试.', '/partner.php?c=profile#1-1');
 	err_redir('商铺基本设置修改成功', '/partner.php?c=profile#1-1');
 } elseif($_SESSION['state'] === 'activate') {
 	session_name(SESSNAME);
