@@ -74,7 +74,7 @@ $(function(){
 	showLightbox("#lockMask");
 	
 	$('#msgChange').click(function(){
-		$('#msgNew').val($('#msgBody').html());
+//		$('#msgNew').val($('#msgBody').html());
 		$('#msgChangePanel').slideDown(250);
 	});
 	$('#msgCancel').click(function(){
@@ -108,5 +108,4 @@ $(function(){
 
 	order_bind_action_par();
 	setInterval(order_list_fetch_new, 60000);
-//
 })

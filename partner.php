@@ -69,7 +69,6 @@ if ($_SESSION['state'] === 'par_resetpw') {
 	$_SESSION['credit'] = $credit;
 } else {
 	$link['css'][] = 'stylePartner';
-	$link['js'][] = 'partner';
 	$link['js'][] = 'scriptPartner';
 	$orders = array();
 	$users = array();
