@@ -21,7 +21,7 @@ function handle_par_upload() {
 	} elseif($_FILES['photo']['error'] === UPLOAD_ERR_NO_FILE){
 	} else
 		return false;
-	if($_FILES['avatar']['map'] === UPLOAD_ERR_OK) {
+	if($_FILES['map']['error'] === UPLOAD_ERR_OK) {
 		if(!move_uploaded_file($_FILES['map']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeMap{$_SESSION['pid']}.png"))
 			return false;
 	} elseif($_FILES['map']['error'] === UPLOAD_ERR_NO_FILE){
@@ -331,14 +331,14 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 //	session_name(SESSNAME_P);
 //	session_start();
 	if(count($input = verify_par_info_form()) > 0) {
-		$query = "update `partner` ";
+		$query = "update `partner` set ";
 		foreach($input as $k => $v) {
-			$query .= "set `$k` = '" . $db->real_escape_string($v) . "' , ";
+			$query .= "`$k` = '" . $db->real_escape_string($v) . "' , ";
 			$_SESSION[$k] = $v;
 		}
 		$query = substr($query, 0, -2) . "where `id` = {$_SESSION['pid']}";
 		if($db->query($query) !== TRUE)
-			err_redir("db error({$db->errno}).", '/error.php');
+			err_redir("db error({$db->errno}). >$query", '/error.php');
 	}
 	if(!handle_par_upload())
 		err_redir('文件上传出错, 请重试.', '/partner.php?c=profile#1-1');
