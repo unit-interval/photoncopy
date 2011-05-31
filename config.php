@@ -1,5 +1,7 @@
 <?php
 
+setlocale(LC_ALL, 'en_US.utf8');
+
 /** URL BASE and etc.*/
 define('SERVER_HOST', 'photoncopy.com');
 define('URL_BASE', 'http://' . SERVER_HOST . '/');
