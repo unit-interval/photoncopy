@@ -338,7 +338,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 		}
 		$query = substr($query, 0, -2) . "where `id` = {$_SESSION['pid']}";
 		if($db->query($query) !== TRUE)
-			err_redir("db error({$db->errno}).", '/error.php');
+			err_redir("db error({$db->errno}). >$query", '/error.php');
 	}
 	if(!handle_par_upload())
 		err_redir('文件上传出错, 请重试.', '/partner.php?c=profile#1-1');
