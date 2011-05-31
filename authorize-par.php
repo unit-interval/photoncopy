@@ -425,7 +425,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$query = "update `partner` set `passwd` = '" . $input . "' where `id` = {$_SESSION['pid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$query = "select `passphrase`, `region`, `memo` from `partner` wehre `id` = {$_SESSION['pid']}";
+	$query = "select `passphrase`, `region`, `memo` from `partner` where `id` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	$user = $result->fetch_assoc();
