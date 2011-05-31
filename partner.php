@@ -127,7 +127,7 @@ switch ($state) {
 		break;
 	case 3:
 		page_nav('partner', 'user');
-		page_resetpasswd();
+		page_resetpasswd(true);
 		break;
 	case 4:
 		page_nav('partner', 'user');
