@@ -518,7 +518,7 @@ function page_par_home($orders, $users) {
 								<div id='msgBody'>$memo</div>
 								<input class='uiBtn1' type='button' id='msgChange' value='更改状态' />
 								<div class='clear'></div>
-								<form id='msgChangePanel' action='/authorize.php?c=update_par_memo' method='post' />
+								<form id='msgChangePanel' action='/authorize-par.php?c=update_par_memo' method='post' />
 									<div class='uiTextareaWrapper'>
 										<textarea name='memo'class='uiTextarea' id='msgNew' rows='3'>{$_SESSION['memo']}</textarea>
 									</div>
