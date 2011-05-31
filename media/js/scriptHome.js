@@ -127,11 +127,20 @@ function order_bind_action(expand) {
 				dataType: 'json',
 				statusCode: {
 					200: function(data){
-							if(data.errno == 0) {
+						switch (data.errno){
+							case 5:
+								Notification.add('订单正在打印，无法撤消');
+							case 0: 
+							case 4: 
 								$div.parent().replaceWith(data.html);
 								order_bind_action(1);
-							}
+								break;
+							case 6:
+								Notification.add('啊哦，服务器开小差了，请稍候再试');
+								break;
+							default: window.location.reload();
 						}
+					}
 				}
 			});
 		})
