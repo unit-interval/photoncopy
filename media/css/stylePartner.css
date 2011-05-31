@@ -80,8 +80,17 @@ input.uiText{
 	float: right;
 }
 
+#msgContent textarea{
+	width: 100%;
+	font-size: 14px;
+}
+
 #msgChangePanel{
 	display: none;
+}
+
+#msgCancel{
+	margin-left: 12px;
 }
 
 .uiTextareaWrapper{
