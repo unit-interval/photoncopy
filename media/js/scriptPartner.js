@@ -32,11 +32,20 @@ function order_bind_action_par(expand) {
 					dataType: 'json',
 					statusCode: {
 						200: function(data){
-								if(data.errno == 0) {
+							switch (data.errno){
+								case 4:
+									Notification.add('订单状态已改变，请重新核查订单详情');
+								case 0:
 									$(div).replaceWith(data.html);
 									order_bind_action_par(1);
-								}
-							},
+									break;
+								case 5:
+									Notification.add('啊哦，服务器开小差了，请稍候再试');
+									break;
+								default:
+									window.location.reload();
+							}
+						},
 					},
 				});
 			});
