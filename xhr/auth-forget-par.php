@@ -18,7 +18,7 @@ function send_forget_mail_par($to) {
 	$addr = base64_encode($to);
 	$time = time();
 	$hash = md5( SALT_REG . $addr . $time);
-	$link = URL_BASE . "authorize-par.php?c=reset&a=" . rawurlencode($addr). "&t=$time&v=$hash";
+	$link = URL_BASE . "authorize-par.php?c=par_reset&a=" . rawurlencode($addr). "&t=$time&v=$hash";
 	$subject = CODE_NAME . ' - 密码重置';
 	$time = date('Y-m-d H:i:s');
 	$body = <<<EOT

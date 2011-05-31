@@ -15,7 +15,7 @@ $link['js'][] = 'script';
 
 /** FIXME write partner pages */
 if ($_SESSION['state'] === 'par_resetpw') {
-	$link['css'][] = 'partnerProfile';
+	$link['css'][] = 'styleProfile';
 	$link['js'][] = 'partnerProfile';
 	$link['js'][] = 'pswStrength';
 	$state = 3;
