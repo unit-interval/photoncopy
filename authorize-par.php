@@ -21,7 +21,7 @@ function handle_par_upload() {
 	} elseif($_FILES['photo']['error'] === UPLOAD_ERR_NO_FILE){
 	} else
 		return false;
-	if($_FILES['avatar']['map'] === UPLOAD_ERR_OK) {
+	if($_FILES['map']['error'] === UPLOAD_ERR_OK) {
 		if(!move_uploaded_file($_FILES['map']['tmp_name'], DIR_UPLD_MEDIA . "partner/storeMap{$_SESSION['pid']}.png"))
 			return false;
 	} elseif($_FILES['map']['error'] === UPLOAD_ERR_NO_FILE){
