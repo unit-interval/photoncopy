@@ -355,12 +355,12 @@ function submod_order_action($st) {
 }
 function submod_order_action_par($st) {
 	$action = array(
-		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
-		1 => "订单已被用户撤销，撤销的订单将保留一天.",
-		2 => "<input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成訂單' /> 並通知用戶前來領取.",
+		0 => "请下载文件并核对打印要求后，决定<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受订单' /> 或将该订单转为 <input type='button' class='uiBtn3' data-form='0' data-to='3' value='自助打印' />",
+		1 => "该订单已被用户撤销",
+		2 => "请在订单打印完成后，确认<input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成打印' />",
 		3 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
 		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		5 => "订单已完成，完成的订单将保留一天.",
+		5 => "用户已到店付款，该订单已关闭",
 	);
 	if($st == 4 || $st ==3)
 		$form = "
@@ -425,7 +425,7 @@ function unit_order_par($order, $user) {
 			    					<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>用户编号</th><td>{$order['uid']}</td></tr>
 			    					<tr><th>用户名</th><td>{$user['name']}</td></tr>
-			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}——{$t3[$order['color']]}——{$t2[$order['back']]}——{$t4[$order['layout']]}——{$order['copy']}——{$t5[$order['misc']]}</td></tr>
+			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
 			    					<tr><th>客户留言</th><td>{$order['note']}</td></tr>
 			    					<tr><th>客户余额</th><td>$credit</td></tr>
 			    					<tr><th>客户信用</th><td>{$user['credit']}</td></tr>"
