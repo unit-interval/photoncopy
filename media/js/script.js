@@ -11,7 +11,7 @@ var Notification = {
 			Notif.dismiss();
 		});
 		if(this.count > 0)
-			this.delay(250).show(250);
+			this.show(250);
 	},
 	add: function(html){
 		html = html || "Don't look at me. #" + this.count;

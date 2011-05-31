@@ -270,7 +270,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 //	session_name(SESSNAME_P);
 //	session_start();
 	if(!($input = verify_login_form()))
-		err_redir('Invalid Login Information.','/partner.php');
+		err_redir('用户名或密码有误，请重新填写','/partner.php');
 	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
 		where `email` = '{$db->real_escape_string($input['email'])}'";
 	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
