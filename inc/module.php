@@ -134,7 +134,7 @@ function mod_nav_account($body_id) {
 					<a href='/partner.php?c=profile'>" . $_SESSION['name'] . "的帐户</a>
 				</li>
 				<li class='sep'>
-					<a href='/authorize.php?c=partnerlogout'>退出</a>
+					<a href='/authorize-par.php?c=partnerlogout'>退出</a>
 				</li>
 			</ul>
 			<ul class='navBar'>
