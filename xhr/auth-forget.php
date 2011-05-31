@@ -61,7 +61,7 @@ EOT;
 	return mail($to, $subject, $body, $header);
 }
 
-if(!($email = sanitize_email($_POST['email'])))
+if(!($email = strtolower(sanitize_email($_POST['email']))))
 	die(json_encode(array('errno' => 1,)));
 
 setcookie('email', $email, time()+3600*24*3);

@@ -35,9 +35,9 @@ function verify_order_form() {
 		'page' => intval($_POST['page']),
 		'copy' => intval($_POST['copy']),
 		'misc' => intval($_POST['misc']),
-		'fid' => $_POST['fid'],
-		'_fname' => str_replace('/', '_', $_POST['fname']),
-		'_note' => $_POST['note'],
+		'fid' => strip_tags($_POST['fid']),
+		'_fname' => strip_tags(str_replace('/', '_', $_POST['fname'])),
+		'_note' => strip_tags($_POST['note']),
 	);
 	return $o;
 }

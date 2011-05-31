@@ -16,7 +16,7 @@ if(!isset($_POST['UPLOAD_IDENTIFIER'])) {
 	die;
 }
 
-$fid = $_POST['UPLOAD_IDENTIFIER'];
+$fid = strip_tags($_POST['UPLOAD_IDENTIFIER']);
 
 
 if ($_FILES["file"]["error"] === UPLOAD_ERR_OK) {

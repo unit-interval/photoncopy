@@ -129,7 +129,7 @@ function verify_signup_form() {
 //	TODO validate input client-side with js
 	$input = array();
 	$input['email'] = $_SESSION['email'];
-	$input['name'] = $_POST['name'];
+	$input['name'] = strip_tags($_POST['name']);
 	$input['passwd'] = md5($_POST['passwd']);
 	return $input;
 }
@@ -146,8 +146,9 @@ function verify_signup_form() {
 }*/
 function verify_update_name_form() {
 //	TODO validate input client-side with js
-	if ($_POST['name'] == '') return false;
-	return $_POST['name'];
+	$name=strip_tags($_POST['name']);
+	if ($name == '') return false;
+	return $name;
 }
 function verify_update_password_form() {
 //	TODO validate input client-side with js
@@ -205,7 +206,7 @@ if($_GET['c'] == 'login') {
 //	session_start();
 	if(!verify_link_signup())
 		err_redir('您访问的激活链接无效');
-	$email = base64_decode($_GET['a']);
+	$email = strtolower(base64_decode($_GET['a']));
 	if(user_exists($email))
 		err_redir("邮箱($email)已在光子复制注册，请直接登录");
 	$_SESSION['email'] = $email;
@@ -227,7 +228,7 @@ if($_GET['c'] == 'login') {
 //	session_start();
 	if(!verify_link_reset())
 		err_redir('您的密码重置链接已失效');
-	$email = base64_decode($_GET['a']);
+	$email = strtolower(base64_decode($_GET['a']));
 	if(($user=user_exists($email))==false)
 		err_redir("邮箱 $email 尚未注册");
 	$_SESSION['name'] = $user['name'];
