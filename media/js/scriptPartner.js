@@ -59,9 +59,9 @@ function order_bind_action_par(expand) {
 
 function order_list_fetch_new() {
 	var $tbody = $('#taskAccordion');
-	var first_id = $('div.taskItem:first', $tbody).data('id') || 0;
+	var first_id = $('div.taskItem:first', $tbody).data('id');
 	var param = {};
-	latest_oid = Math.max(first_id, latest_oid);
+	latest_oid = Math.max(first_id, latest_oid) || 0;
 	param['since'] = latest_oid;
 	$.ajax({
 		type: "get",
