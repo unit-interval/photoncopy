@@ -159,6 +159,7 @@ function order_bind_action(expand) {
 							case 0: 
 							case 4: 
 								$div.slideUp(500, function(){
+									Notification.playsound();
 									$div.parent().replaceWith(data.html);
 									order_bind_action(1);
 									refresh_filter();
@@ -559,6 +560,7 @@ function order_status(row) {
 			200: function(data){
 					var $html = $(data);
 					$(row).find('div.taskDetail').slideUp(500, function(){
+						Notification.playsound();
 	                    $(row).replaceWith($html);
 	                    $(row).next().slideDown(500);
 	                    refresh_filter();
