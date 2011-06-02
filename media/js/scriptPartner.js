@@ -1,5 +1,33 @@
 var latest_oid = 0;
 
+function refresh_filter() {
+	var a = new Array();
+	var b = 0;
+	for (var i = 0; i < 6; i++) {
+		a[i] = $('span.taskStatus'+i).length;
+		b += a[i];
+	}
+	$('#orderFilter > div').each(function(){
+		if ($(this).data('status') == 'all') $('span', this).html(b);
+		else $('span', this).html(a[$(this).data('status')]);
+	})
+}
+
+function show_filtered_order(s) {
+	if (s == 'all') $('div.taskItem', $('#taskAccordion')).show(250);
+	else $('div.taskItem', $('#taskAccordion')).each(function() {
+		if ($('span.taskStatus', this).hasClass('taskStatus'+s)) $(this).show(250);
+		else $(this).hide(250);
+	});
+}
+
+function minimize_store_status(d) {
+	if ($('#minimizePanel').html() == '+') $('#minimizePanel').html('－');
+	else $('#minimizePanel').html('+');
+	$('#storeStatus').slideToggle(d);
+	$('#minimizePanel').parent().toggleClass('lbCorner').toggleClass('rbCorner');
+}
+
 function order_bind_action_par(expand) {
 	expand = expand || 0;
 	$('#taskAccordion > div.newly_added')
@@ -9,7 +37,7 @@ function order_bind_action_par(expand) {
 				$('h3', this)
 					.addClass('selected')
 					.find('span').obFlash().end()
-					.next().show();
+					.next().slideDown(500);
 			}
 			var div = this;
 			var param = {};
@@ -35,9 +63,11 @@ function order_bind_action_par(expand) {
 							switch (data.errno){
 								case 4:
 									Notification.add('订单状态已改变，请重新核查订单详情');
+									refresh_filter();
 								case 0:
 									$(div).replaceWith(data.html);
-									order_bind_action_par(1);
+									order_bind_action_par();
+									refresh_filter();
 									break;
 								case 5:
 									Notification.add('啊哦，服务器开小差了，请稍候再试');
@@ -72,7 +102,8 @@ function order_list_fetch_new() {
 		statusCode: {
 			200: function(data){
 					$tbody.prepend(data);
-					order_bind_action_par(1);
+					order_bind_action_par();
+					refresh_filter();
 					Notification.playsound();
 				}
 		}
@@ -115,7 +146,19 @@ $(function(){
 			});
 		}
 	});
+		
+	// minimize the msg panel
+	$('#minimizePanel').click(function() {
+		minimize_store_status(250);
+	});
+	
+	$('#orderFilter > div').click(function() {
+		refresh_filter();
+		show_filtered_order($(this).data('status'));
+	});
 
+	minimize_store_status(0);
+	refresh_filter();
 	order_bind_action_par();
 	setInterval(order_list_fetch_new, 60000);
 })

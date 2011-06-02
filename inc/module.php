@@ -141,9 +141,6 @@ function mod_nav_account($body_id) {
 				<li>
 					<a href='/partner.php'>工作台</a>
 				</li>
-				<li class='sep'>
-					<a href='http://photoncopy.com/blog/'>黑板报</a>
-				</li>
 			</ul>
 		";
 	else
@@ -358,9 +355,9 @@ function submod_order_action_par($st) {
 		0 => "请下载文件并核对打印要求后，决定 <input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受订单' /> 或转为 <input type='button' class='uiBtn3' data-form='0' data-to='3' value='自助打印' />",
 		1 => "该订单已被用户撤销",
 		2 => "请在订单打印完成后，确认 <input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成打印' />",
-		3 => "用户到店付款后，请点击 <input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
+		3 => "用户到店自助打印后，请点击 <input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
 		4 => "用户到店付款后，请点击 <input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		5 => "用户已到店付款，该订单已关闭",
+		5 => "用户已到店付款，订单已关闭",
 	);
 	if($st == 4 || $st ==3)
 		$form = "
@@ -375,7 +372,7 @@ function unit_order($order) {
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "(已过期)$fname" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
+	$flink = ($order['flink'] === '-') ? "$fname (文件已过期)" : "$fname <a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='下载文件'></a>";
 	$cost = ($order['cost'] == null) ? '' : "<tr><th>应付金额</th><td>".($order['cost'] / 10)." 元</td></tr>";
 	$paid = ($order['paid'] == null) ? '' : "<tr><th>实付金额</th><td>".($order['paid'] / 10)." 元</td></tr>";
 	$html = "
@@ -384,7 +381,7 @@ function unit_order($order) {
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
 		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
-		    						<tr><th>打印文件</th><td>$flink</a></tr>
+		    						<tr><th>打印文件</th><td>$flink</tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
@@ -414,21 +411,16 @@ function unit_order_par($order, $user) {
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "(已过期)$fname" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
+	$flink = ($order['flink'] === '-') ? "$fname （文件已过期）" : "$fname <a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='下载文件'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
-								<h3>#{$order['id']} $fname @ ({$order['uid']}) {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
+								<h3>订单 {$order['id']} $fname 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
-			    					<tbody><tr><th>订单编号</th><td>{$order['id']}</td></tr>
 			    					<tr><th>打印文件</th><td>$flink</td></tr>
-			    					<tr><th>用户编号</th><td>{$order['uid']}</td></tr>
-			    					<tr><th>用户名</th><td>{$user['name']}</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
-			    					<tr><th>客户留言</th><td>{$order['note']}</td></tr>
-			    					<tr><th>客户余额</th><td>$credit</td></tr>
-			    					<tr><th>客户信用</th><td>{$user['credit']}</td></tr>"
+			    					<tr><th>用户讯息</th><td>留言: {$order['note']} | 余额: $credit | 信用: {$user['credit']}</td></tr>"
 									. submod_order_action_par($order['status']) . "
 			    				</tbody></table>
 			    				</div>
