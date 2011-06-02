@@ -372,21 +372,19 @@ function unit_order($order) {
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "$fname (文件已过期)" : "$fname <a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='下载文件'></a>";
-	$cost = ($order['cost'] == null) ? '' : "<tr><th>应付金额</th><td>".($order['cost'] / 10)." 元</td></tr>";
-	$paid = ($order['paid'] == null) ? '' : "<tr><th>实付金额</th><td>".($order['paid'] / 10)." 元</td></tr>";
+	$flink = ($order['flink'] === '-') ? "$fname（文件已过期）" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
+	$cost = ($order['cost'] == null) ? '' : " | 应付金额 : " . ($order['cost'] / 10) . " 元";
+	$paid = ($order['paid'] == null) ? '' : " | 实付金额 : " . ($order['paid'] / 10) . " 元";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>$fname @ <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>订单 {$order['id']} $fname 在 <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
-		    						<tr><th>订单编号</th><td>{$order['id']}</td></tr>
 		    						<tr><th>打印文件</th><td>$flink</tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>
 		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
-		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}</td></tr>
-								" . $cost . $paid . "
+		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}" . $cost . $paid . "</td></tr>
 		    					</table>
 								<input type='hidden' name='id' value='{$order['id']}' />
 								<input type='hidden' name='pid' value='{$order['pid']}' />
@@ -420,7 +418,7 @@ function unit_order_par($order, $user) {
 			    				<table>
 			    					<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
-			    					<tr><th>用户讯息</th><td>留言: {$order['note']} | 余额: $credit | 信用: {$user['credit']}</td></tr>"
+			    					<tr><th>用户信息</th><td>留言: {$order['note']} | 余额: $credit | 信用: {$user['credit']}</td></tr>"
 									. submod_order_action_par($order['status']) . "
 			    				</tbody></table>
 			    				</div>

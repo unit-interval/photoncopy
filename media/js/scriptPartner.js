@@ -157,7 +157,6 @@ $(function(){
 	});
 	
 	$('#orderFilter > div').click(function() {
-		refresh_filter();
 		show_filtered_order($(this).data('status'));
 	});
 
