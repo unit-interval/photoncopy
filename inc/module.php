@@ -233,13 +233,13 @@ function mod_stat_par($users) {
 	$sum_credit = 0;
 	$sum_orders = 0;
 	$html = '';
-	foreach($users as $u => $id) {
+	foreach($users as $id => $u) {
 		$credit = $_SESSION['credit'][$u['uid']] / 10;
 		$sum_credit += $credit;
 		$sum_orders += $u['num_orders'];
 		$html .= "
 								<tr>
-									<td>{$id}</td><td>{$u['name']}</td><td>" . $credit . " 元</td><td>{$u['num_orders']} 笔</td>
+									<td>" . $id . "</td><td>{$u['name']}</td><td>" . $credit . " 元</td><td>{$u['num_orders']} 笔</td>
 								</tr>";
 	}
 	$html = "
@@ -251,7 +251,7 @@ function mod_stat_par($users) {
 									<th>用户</th><th>用户名</th><th>储蓄</th><th>订单</th>
 								</tr>
 								<tr>
-									<th>汇总</th><th>共 {sizeof($users)} 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
+									<th>汇总</th><th>共 " . sizeof($users) . " 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
 								</tr>
 								$html
 							</tbody>
