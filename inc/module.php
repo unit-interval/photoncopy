@@ -350,7 +350,7 @@ function submod_order_action($st) {
 			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
-function submod_order_action_par($st, $flink) {
+function submod_order_action_par($st) {
 	switch ($st) {
 		case 1: case 5: return '';
 		case 4: case 3: 
@@ -365,7 +365,7 @@ function submod_order_action_par($st, $flink) {
 		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
 	);
 	$html = $form . "
-			    					<tr><th>订单操作</th><td>{$flink}{$action[$st]}</td></tr>";
+			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
 function unit_order($order) {
@@ -410,7 +410,7 @@ function unit_order_par($order, $user) {
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信/网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
+	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
@@ -423,7 +423,7 @@ function unit_order_par($order, $user) {
 	if ($order['note'] != '') $html .= "
 									<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
 	$html .= 
-									submod_order_action_par($order['status'], $flink) . "
+									submod_order_action_par($order['status']) . "
 			    				</tbody></table>
 			    				</div>
 		    				</div>";
