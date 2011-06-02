@@ -1,6 +1,6 @@
 <?php
 
-define('QUERY_URI', 'http://photoncopy.com/upload/');
+define('QUERY_BASE', 'http://photoncopy.com/upload/');
 
 
 
@@ -9,9 +9,10 @@ if(!isset($_GET['q'])) {
 	die;
 }
 $fn = basename($_GET['q']);
-if(!($handle = @fopen(QUERY_URI . $fn, 'r'))) {
+$url = QUERY_BASE . $fn;
+if(!($handle = @fopen($url, 'r'))) {
 	header('HTTP/1.0 400 Bad Request');
-	die;
+	die('文件不存在: ' . $url);
 }
 header('Content-Type: application/octet-stream');
 header('Content-Disposition: attachment; filename="' . $fn . '"');
