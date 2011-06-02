@@ -230,17 +230,16 @@ function mod_stat_credit($num_orders, $stores) {
 	return $html;
 }
 function mod_stat_par($users) {
-	$i = 0;
 	$sum_credit = 0;
 	$sum_orders = 0;
 	$html = '';
-	foreach($users as $u) {
+	foreach($users as $id => $u) {
 		$credit = $_SESSION['credit'][$u['uid']] / 10;
 		$sum_credit += $credit;
 		$sum_orders += $u['num_orders'];
 		$html .= "
 								<tr>
-									<td>" . ++ $i . "</td><td>{$u['name']}</td><td>" . $credit . " 元</td><td>{$u['num_orders']} 笔</td>
+									<td>{$id}</td><td>{$u['name']}</td><td>" . $credit . " 元</td><td>{$u['num_orders']} 笔</td>
 								</tr>";
 	}
 	$html = "
@@ -249,10 +248,10 @@ function mod_stat_par($users) {
 						<table class='statTable'>
 							<tbody>
 								<tr>
-									<th>编号</th><th>用户名</th><th>储蓄</th><th>订单</th>
+									<th></th><th>用户</th><th>储蓄</th><th>订单</th>
 								</tr>
 								<tr>
-									<th>汇总</th><th>共 $i 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
+									<th>ID</th><th>共 " . sizeof($users) . " 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
 								</tr>
 								$html
 							</tbody>
@@ -350,7 +349,7 @@ function submod_order_action($st) {
 			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
-function submod_order_action_par($st, $flink) {
+function submod_order_action_par($st) {
 	switch ($st) {
 		case 1: case 5: return '';
 		case 4: case 3: 
@@ -365,7 +364,7 @@ function submod_order_action_par($st, $flink) {
 		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
 	);
 	$html = $form . "
-			    					<tr><th>订单操作</th><td>{$flink}{$action[$st]}</td></tr>";
+			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
 function unit_order($order) {
@@ -378,13 +377,14 @@ function unit_order($order) {
 	$paid = ($order['paid'] == null) ? '' : " | 实付金额 : " . ($order['paid'] / 10) . " 元";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>订单 {$order['id']} $fname 在 <span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>订单 {$order['id']} 在 <span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
 		    						<tr><th>打印文件</th><td>$flink</tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
-		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>
-		    						<tr><th>客户留言</th><td>{$order['note']}</td></tr>
+		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>";
+	if ($order['note'] != "") $html .= "<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
+	$html .= "
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}" . $cost . $paid . "</td></tr>
 		    					</table>
 								<input type='hidden' name='id' value='{$order['id']}' />
@@ -409,21 +409,21 @@ function unit_order_par($order, $user) {
 	$t5 = text_defs('order_misc');
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
-	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信/网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
+//	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
+	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
-								<h3>订单 {$order['id']} $fname 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
+								<h3>订单 {$order['id']} 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
 									<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
-			    					<tr><th>客户信息</th><td>余额 $credit 元，信用 {$user['credit']}</td></tr>";
+			    					<tr><th>客户信息</th><td>余额 : $credit 元 | 信用 : {$user['credit']}</td></tr>";
 	if ($order['note'] != '') $html .= "
 									<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
 	$html .= 
-									submod_order_action_par($order['status'], $flink) . "
+									submod_order_action_par($order['status']) . "
 			    				</tbody></table>
 			    				</div>
 		    				</div>";

@@ -65,6 +65,7 @@ function order_bind_action_par(expand) {
 									Notification.add('订单状态已改变，请重新核查订单详情');
 								case 0:
 									$(div).slideUp(500, function(){
+										Notification.playsound();
 										$(div).replaceWith(data.html);
 										order_bind_action_par(1);
 										refresh_filter();
