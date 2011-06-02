@@ -388,6 +388,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$pid = $db->insert_id;
 	symlink("../../../media/images/storeAvatar-default.jpg", DIR_UPLD_MEDIA . "partner/storeAvatar{$pid}.jpg");
 	symlink("../../../media/images/storeView-default.jpg", DIR_UPLD_MEDIA . "partner/storeView{$pid}.jpg");
+	symlink("../../../media/images/storeView-default.jpg", DIR_UPLD_MEDIA . "partner/storeMap{$pid}.png");
 	unset($_SESSION['state']);
 	$_SESSION['partner'] = true;
 	$_SESSION['pid'] = $pid;
