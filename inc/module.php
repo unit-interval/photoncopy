@@ -417,6 +417,7 @@ function unit_order_par($order, $user) {
 								<h3>订单 {$order['id']} $fname 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
+									<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
 			    					<tr><th>客户信息</th><td>余额 $credit 元，信用 {$user['credit']}</td></tr>";
 	if ($order['note'] != '') $html .= "
