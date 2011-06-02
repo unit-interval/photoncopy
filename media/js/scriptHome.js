@@ -560,7 +560,6 @@ function order_status(row) {
 			200: function(data){
 					var $html = $(data);
 					$(row).find('div.taskDetail').slideUp(500, function(){
-						Notification.playsound();
 	                    $(row).replaceWith($html);
 	                    $(row).next().slideDown(500);
 	                    refresh_filter();
