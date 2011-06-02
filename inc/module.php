@@ -383,8 +383,9 @@ function unit_order($order) {
 		    					<table>
 		    						<tr><th>打印文件</th><td>$flink</tr>
 		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
-		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>"
-		    						. ($order['note'] == '') ? '' : "<tr><th>客户留言</th><td>{$order['note']}</td></tr>" . "
+		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>";
+	if ($order['note'] != "") $html .= "<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
+	$html .= "
 		    						<tr><th>订单操作</th><td>{$t['order_action'][$order['status']]}" . $cost . $paid . "</td></tr>
 		    					</table>
 								<input type='hidden' name='id' value='{$order['id']}' />
@@ -409,12 +410,12 @@ function unit_order_par($order, $user) {
 	$t5 = text_defs('order_misc');
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
-	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
+//	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
 	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
-								<h3>订单 {$order['id']} $fname 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
+								<h3>订单 {$order['id']} 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
 									<tr><th>打印文件</th><td>$flink</td></tr>
