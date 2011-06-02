@@ -26,6 +26,7 @@ function reach_new_badge($count) {
 function verify_order_form() {
 	if (!isset($_POST['pid']))
 	return FALSE;
+	$needle = array('/', ' ', "\t");
 	$o = array(
 		'pid' => intval($_POST['pid']),
 		'paper' => intval($_POST['paper']),
@@ -36,8 +37,8 @@ function verify_order_form() {
 		'copy' => intval($_POST['copy']),
 		'misc' => intval($_POST['misc']),
 		'fid' => strip_tags($_POST['fid']),
-		'_fname' => strip_tags(str_replace('/', '_', $_POST['fname'])),
-		'_note' => strip_tags($_POST['note']),
+		'fname' => strip_tags(str_replace($needle, '_', $_POST['fname'])),
+		'note' => strip_tags($_POST['note']),
 	);
 	return $o;
 }
@@ -64,7 +65,7 @@ if(!($order = verify_order_form())) {
  * 2	database error
  */
 $return = array();
-if(!($_fname = move_tmp_file($order['fid'], $order['_fname'])))
+if(!($fname = move_tmp_file($order['fid'], $order['fname'])))
 	die(json_encode(array('errno' => 1,)));
 
 $query = "insert into `order` values (default,"
@@ -80,21 +81,19 @@ $query = "insert into `order` values (default,"
 	. $order['misc'] . ','
 	. 'default, '
 	. 'default, '
-	. "'" . $db->real_escape_string($order['_fname']) . "',"
-	. "'" . $db->real_escape_string($_fname) . "',"
+	. "'" . $db->real_escape_string($order['fname']) . "',"
+	. "'" . $db->real_escape_string($fname) . "',"
 	. 'default, '
 	. 'default, '
 	. 'default, '
 	. 'default, '
-	. "'" . $db->real_escape_string($order['_note']) . "')";
+	. "'" . $db->real_escape_string($order['note']) . "')";
 if($db->query($query) !== TRUE)
 	die(json_encode(array('errno' => 2,)));
 
 $order['id'] = $db->insert_id;
 $order['status'] = 0;
 $order['flink'] = $_fname;
-$order['fname'] = $order['_fname'];
-$order['note'] = $order['_note'];
 
 $return['html'] = unit_order($order);
 
