@@ -251,7 +251,7 @@ function mod_stat_par($users) {
 									<th></th><th>用户</th><th>储蓄</th><th>订单</th>
 								</tr>
 								<tr>
-									<th>ID</th><th>共 " . sizeof($users) . " 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
+									<th>ID</th><th>共 " . count($users) . " 位用户</th><th>$sum_credit 元</th><th>$sum_orders 笔</th>
 								</tr>
 								$html
 							</tbody>
@@ -372,7 +372,7 @@ function unit_order($order) {
 	$open = " order_open";
 	$class = (in_array($order['status'], $t['order_status']['open'])) ? $open : '';
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "$fname（文件已过期）" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
+	$flink = ($order['flink'] === '-') ? "$fname (文件已过期)" : "<a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'>$fname</a>";
 	$cost = ($order['cost'] == null) ? '' : " | 应付金额 : " . ($order['cost'] / 10) . " 元";
 	$paid = ($order['paid'] == null) ? '' : " | 实付金额 : " . ($order['paid'] / 10) . " 元";
 	$html = "
@@ -411,7 +411,7 @@ function unit_order_par($order, $user) {
 	$t7 = text_defs('order_status_par');
 	$suf = defined('SUB_DOMAIN') ? '&s=' . SUB_DOMAIN : '';
 //	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) . $suf . "' target='_blank'><input type='button' class='uiBtn3' value='电信网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
+	$flink = ($order['flink'] === '-') ? "(文件已过期)" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) . $suf . "' target='_blank'><input type='button' class='uiBtn3' value='电信网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
