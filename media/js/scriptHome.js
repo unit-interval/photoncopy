@@ -558,10 +558,14 @@ function order_status(row) {
 		statusCode: {
 			200: function(data){
 					var $html = $(data);
-                    $(row).replaceWith($html);
-                    $html.find('span.taskStatus').obFlash();
-                    order_bind_action(1);
-					Notification.playsound();
+					$(row).next().slideUp(500, function(){
+	                    $(row).replaceWith($html);
+	                    $(row).next().slideDown(500);
+	                    refresh_filter();
+	                    $html.find('span.taskStatus').obFlash();
+	                    order_bind_action(1);
+						Notification.playsound();						
+					})
 				}
 		}
 	});
@@ -579,6 +583,7 @@ function order_submit() {
 						$('#taskAccordion').prepend(data.html);
 						order_bind_action();
 						order_form_reset();
+						refresh_filter();
 						if(data.badge)
 							Notification.add("<a href='/profile.php#2-2'>恭喜！您获得了" + data.badge.name + "徽章，点击查看详情。</a>");
 					}

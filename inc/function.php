@@ -92,7 +92,7 @@ function text_defs($key = '') {
 			2 => '正在打印',
 			3 => '自助打印',
 			4 => '完成待取',
-			5 => '任务完成',
+			5 => '订单完成',
 			'open' => array(0, 2, 4),
 		),
 		'order_status_par' => array(

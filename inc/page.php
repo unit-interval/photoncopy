@@ -376,11 +376,11 @@ function page_home($orders, $stores) {
 					<div class='panel1' id='orderFilter'>
 						<h2>筛选订单</h2>
 						<div data-status='0'>队列中<span>0</span></div>
-						<div data-status='2'>已接受<span>0</span></div>
+						<div data-status='2'>正在打印<span>0</span></div>
 						<div data-status='3'>自助打印<span>0</span></div>
-						<div data-status='4'>等待领取<span>0</span></div>
-						<div data-status='1'>已撤消<span>0</span></div>
-						<div data-status='5'>已完成<span>0</span></div>
+						<div data-status='4'>完成待取<span>0</span></div>
+						<div data-status='1'>成功撤消<span>0</span></div>
+						<div data-status='5'>订单完成<span>0</span></div>
 						<div class='lbCorner rbCorner' data-status='all'>全部订单<span>0</span></div>
 					</div>
 				</div>
