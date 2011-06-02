@@ -2,6 +2,29 @@ var storeItemInfoHover=0;
 var peekEnable=0;
 var copy=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000];
 
+/* ---------- FILTER ---------- */
+
+function refresh_filter() {
+	var a = new Array();
+	var b = 0;
+	for (var i = 0; i < 6; i++) {
+		a[i] = $('span.taskStatus'+i).length;
+		b += a[i];
+	}
+	$('#orderFilter > div').each(function(){
+		if ($(this).data('status') == 'all') $('span', this).html(b);
+		else $('span', this).html(a[$(this).data('status')]);
+	})
+}
+
+function show_filtered_order(s) {
+	if (s == 'all') $('div.taskItem', $('#taskAccordion')).show(250);
+	else $('div.taskItem', $('#taskAccordion')).each(function() {
+		if ($('span.taskStatus', this).hasClass('taskStatus'+s)) $(this).show(250);
+		else $(this).hide(250);
+	});
+}
+
 /* ---------- SHOW MORE ---------- */
 
 function refreshW8(){
@@ -100,12 +123,15 @@ function order_bind_action(expand) {
 			if(expand != 0) {
 				$(this).addClass('selected')
 					.find('span.taskStatus').obFlash()
-					.end().next().show();
+					.end().next().slideDown(500);
 			}
 		})
 		.click(function(){
+			$(this).parent().siblings('div.taskItem').find('h3.selected').each(function(){
+				$(this).removeClass('selected').next().slideUp(500);
+			});
 			$(this).toggleClass('selected')
-				.next().slideToggle();
+				.next().slideToggle(500);
 		})
 		.parent().each(function(){
 			var pid = $('div.taskDetail', this).data('pid');
@@ -132,8 +158,11 @@ function order_bind_action(expand) {
 								Notification.add('订单正在打印，无法撤消');
 							case 0: 
 							case 4: 
-								$div.parent().replaceWith(data.html);
-								order_bind_action(1);
+								$div.slideUp(500, function(){
+									$div.parent().replaceWith(data.html);
+									order_bind_action(1);
+									refresh_filter();
+								})
 								break;
 							case 6:
 								Notification.add('啊哦，服务器开小差了，请稍候再试');
@@ -372,6 +401,12 @@ $(function(){
 			});
 		}
 	});
+
+	$('#orderFilter > div').click(function() {
+		show_filtered_order($(this).data('status'));
+	});
+
+	refresh_filter();
 
 	order_bind_action();
 	order_apply_setting($('#taskAccordion > div.taskItem:first'));

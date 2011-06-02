@@ -43,7 +43,7 @@
 		<div class="contentWrapper">
 			<div class='content'>
 				<div class='panel1 board'>
-					<h2>北京大学36楼打印店</h2>
+					<h2>北京大学36楼打印店<span class='fright' id='minimizePanel'>－</span></h2>
 					<div id='storeStatus'>
 						<div id='storeCtrl'>
 							<div id='storeAvatar'>
@@ -76,16 +76,26 @@
 				<div class="taskQueue">
 					<div class="taskQueueL">
 						<input type="text" id="taskSearch" placeholder="搜索" class="uiSearch">
+						<div class='panel1' id='orderFilter'>
+							<h2>筛选订单</h2>
+							<div data-status='0'>新任务<span>0</span></div>
+							<div data-status='2'>已接受<span>0</span></div>
+							<div data-status='3'>自助打印<span>0</span></div>
+							<div data-status='4'>等待领取<span>0</span></div>
+							<div data-status='1'>已撤消<span>0</span></div>
+							<div data-status='5'>已完成<span>0</span></div>
+							<div class='lbCorner rbCorner' data-status='all'>全部订单<span>0</span></div>
+						</div>
 					</div>
 					<div class="panel1 taskQueueR">
 						<h2>任务队列</h2>
 						<div id="taskAccordion">
 							<div class="taskItem">
-								<h3>订单 1 文件名 @ 用户 1 昵称<span class="taskStatus taskStatus0">新任务</span></h3>
+								<h3>订单 1 文件名 来自 用户 1 昵称<span class="taskStatus taskStatus0">新任务</span></h3>
 								<div class="taskDetail">
 			    				<table>
 			    					<tbody><tr><th>订单编号</th><td>1</td></tr>
-			    					<tr><th>打印文件</th><td><a href='#'>blablabla.pdf</a></td></tr>
+			    					<tr><th>打印文件</th><td><a href="#"><input type='button' class='uiBtn3' value='blablabla.pdf' /></a></td></tr>
 			    					<tr><th>用户编号</th><td>1</td></tr>
 			    					<tr><th>用户名</th><td>昵称</td></tr>
 			    					<tr><th>订单要求</th><td>A4纸 黑白打印 单面打印 1版 1-10页 1份 简易装订</td></tr>

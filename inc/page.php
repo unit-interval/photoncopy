@@ -163,7 +163,7 @@ function page_home($orders, $stores) {
 					<div class='clear'></div>
 				</div>
 				<ul class='storeNav'>
-					<li class='selected'>外景照片</li>
+					<li class='selected'>实景照片</li>
 					<li>查看地图</li>
 				</ul>
 				<div class='storeDetail lbCorner rbCorner'>
@@ -373,6 +373,16 @@ function page_home($orders, $stores) {
 			<div class='taskQueue'>
 				<div class='taskQueueL'>
 					<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+					<div class='panel1' id='orderFilter'>
+						<h2>筛选订单</h2>
+						<div data-status='0'>队列中<span>0</span></div>
+						<div data-status='2'>已接受<span>0</span></div>
+						<div data-status='3'>自助打印<span>0</span></div>
+						<div data-status='4'>等待领取<span>0</span></div>
+						<div data-status='1'>已撤消<span>0</span></div>
+						<div data-status='5'>已完成<span>0</span></div>
+						<div class='lbCorner rbCorner' data-status='all'>全部订单<span>0</span></div>
+					</div>
 				</div>
 				<div class='panel0 taskQueueR'>
 					<h2>订单列表</h2>
@@ -507,7 +517,7 @@ function page_par_home($orders, $users) {
 		<div class='contentWrapper'>
 			<div class='content'>
 				<div class='panel1 board'>
-					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "</h2>
+					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "<span class='fright' id='minimizePanel'>－</span></h2>
 					<div id='storeStatus'>
 						<div id='storeCtrl'>
 							<div id='storeAvatar'>
@@ -539,6 +549,16 @@ function page_par_home($orders, $users) {
 				<div class='taskQueue'>
 					<div class='taskQueueL'>
 						<input type='text' id='taskSearch' placeholder='搜索' class='uiSearch'>
+						<div class='panel1' id='orderFilter'>
+							<h2>筛选订单</h2>
+							<div data-status='0'>新任务<span>1</span></div>
+							<div data-status='2'>已接受<span>1</span></div>
+							<div data-status='3'>自助打印<span>1</span></div>
+							<div data-status='4'>等待领取<span>1</span></div>
+							<div data-status='1'>已撤消<span>1</span></div>
+							<div data-status='5'>已完成<span>1</span></div>
+							<div class='lbCorner rbCorner' data-status='all'>全部订单<span>6</span></div>
+						</div>
 					</div>
 					<div class='panel1 taskQueueR'>
 						<h2>订单队列</h2>

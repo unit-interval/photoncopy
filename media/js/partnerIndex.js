@@ -28,7 +28,7 @@ $(document).ready(function(){
 			statusCode: {
 				200: function(data) {
 						if(data.errno == 0)
-							Notification.add('邮件已成功发送，请查收注册确认函');
+							window.location='/partner.php';
 						else if(data.errno == 3)
 							Notification.add('邮箱已被注册，请直接登录');
 						else if(data.errno == 1)
