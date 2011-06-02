@@ -410,7 +410,7 @@ function unit_order_par($order, $user) {
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "" : "<a href='" MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信/网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
+	$flink = ($order['flink'] === '-') ? "" : "<a href='" . MIRROR_PKUAIR . urlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='电信/网通线路'></a><a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='教育网线路'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
