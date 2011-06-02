@@ -8,7 +8,7 @@ define('URL_BASE', 'http://' . SERVER_HOST . '/');
 define('CODE_NAME', '光子复制');
 
 /** mirrors */
-define('MIRROR_PKUAIR', 'http://pkuair.com/photoncopy/file.php?');
+define('MIRROR_PKUAIR', 'http://pkuair.com/photoncopy/file.php?q=');
 
 /** PATH */
 define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT']);
