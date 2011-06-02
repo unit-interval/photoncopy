@@ -1,9 +1,9 @@
 <?php
 
-define('QUERY_BASE', 'http://photoncopy.com/upload/');
+define('QUERY_BASE', 'http://dev.photoncopy.com/upload/');
 
 if(!isset($_GET['q'])) {
-	header('Location: http://photoncopy.com/');
+	header('Location: http://dev.photoncopy.com/');
 	die;
 }
 
