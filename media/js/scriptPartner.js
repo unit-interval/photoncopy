@@ -63,13 +63,12 @@ function order_bind_action_par(expand) {
 							switch (data.errno){
 								case 4:
 									Notification.add('订单状态已改变，请重新核查订单详情');
-									refresh_filter();
 								case 0:
 									$(div).slideUp(500, function(){
 										$(div).replaceWith(data.html);
 										order_bind_action_par(1);
+										refresh_filter();
 									})
-									refresh_filter();
 									break;
 								case 5:
 									Notification.add('啊哦，服务器开小差了，请稍候再试');
