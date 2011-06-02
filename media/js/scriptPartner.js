@@ -37,7 +37,7 @@ function order_bind_action_par(expand) {
 				$('h3', this)
 					.addClass('selected')
 					.find('span').obFlash().end()
-					.next().slideDown();
+					.next().slideDown(500);
 			}
 			var div = this;
 			var param = {};
@@ -65,7 +65,7 @@ function order_bind_action_par(expand) {
 									Notification.add('订单状态已改变，请重新核查订单详情');
 									refresh_filter();
 								case 0:
-									$(div).slideUp(function(){
+									$(div).slideUp(500, function(){
 										$(div).replaceWith(data.html);
 										order_bind_action_par(1);
 									})
@@ -84,10 +84,10 @@ function order_bind_action_par(expand) {
 		})
 		.find('h3').click(function(){
 			$(this).parent().siblings('div.taskItem').find('h3.selected').each(function(){
-				$(this).removeClass('selected').next().slideUp();
+				$(this).removeClass('selected').next().slideUp(500);
 			});
 			$(this).toggleClass('selected')
-				.next().slideToggle();
+				.next().slideToggle(500);
 		}).end();
 
 }
@@ -121,10 +121,10 @@ $(function(){
 	
 	$('#msgChange').click(function(){
 //		$('#msgNew').val($('#msgBody').html());
-		$('#msgChangePanel').slideDown(250);
+		$('#msgChangePanel').slideDown();
 	});
 	$('#msgCancel').click(function(){
-		$('#msgChangePanel').slideUp(250);
+		$('#msgChangePanel').slideUp();
 	});
 	
 	$('#storeLock').click(function(){
@@ -154,7 +154,7 @@ $(function(){
 		
 	// minimize the msg panel
 	$('#minimizePanel').click(function() {
-		minimize_store_status(250);
+		minimize_store_status(500);
 	});
 	
 	$('#orderFilter > div').click(function() {
