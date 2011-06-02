@@ -1,14 +1,16 @@
 <?php
 
-define('QUERY_BASE', 'http://dev.photoncopy.com/upload/');
-
 if(!isset($_GET['q'])) {
-	header('Location: http://dev.photoncopy.com/');
+	header('Location: http://photoncopy.com/');
 	die;
 }
+if($_GET['s'] = 'dev')
+	$server = 'http://dev.photoncopy.com/upload/';
+else
+	$server = 'http://photoncopy.com/upload/';
 
 $fn = basename($_GET['q']);
-$url = QUERY_BASE . $fn;
+$url = $server . $fn;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
