@@ -9,7 +9,7 @@ if(!isset($_GET['q'])) {
 	die;
 }
 $fn = basename($_GET['q']);
-$url = urlencode(QUERY_BASE . $fn);
+$url = QUERY_BASE . urlencode($fn);
 if(!($handle = @fopen($url, 'r'))) {
 	header('HTTP/1.0 400 Bad Request');
 	die('文件不存在: ' . $url);
