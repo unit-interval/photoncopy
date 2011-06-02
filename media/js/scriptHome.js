@@ -350,7 +350,7 @@ $(function(){
 	
 	// click on w8 item
 	$('#w8ConfirmBtn').click(function(){
-		if ($('#w8Edit').val()=='') $('#w8Form').val('无');
+		if ($('#w8Edit').val()=='') $('#w8Form').val('');
 		else $('#w8Form').val($('#w8Edit').val());
 		order_submit();
 	});
