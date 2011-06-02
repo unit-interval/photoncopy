@@ -558,7 +558,7 @@ function order_status(row) {
 		statusCode: {
 			200: function(data){
 					var $html = $(data);
-					$(row).next().slideUp(500, function(){
+					$(row).find('div.taskDetail').slideUp(500, function(){
 	                    $(row).replaceWith($html);
 	                    $(row).next().slideDown(500);
 	                    refresh_filter();
