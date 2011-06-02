@@ -350,21 +350,22 @@ function submod_order_action($st) {
 			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
-function submod_order_action_par($st) {
-	$action = array(
-		0 => "请下载文件并核对打印要求后，决定 <input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受订单' /> 或转为 <input type='button' class='uiBtn3' data-form='0' data-to='3' value='自助打印' />",
-		1 => "该订单已被用户撤销",
-		2 => "请在订单打印完成后，确认 <input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成打印' />",
-		3 => "用户到店自助打印后，请点击 <input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		4 => "用户到店付款后，请点击 <input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		5 => "用户已到店付款，订单已关闭",
-	);
-	if($st == 4 || $st ==3)
-		$form = "
+function submod_order_action_par($st, $flink) {
+	switch ($st) {
+		case 1: case 5: return '';
+		case 4: case 3: 
+					$form = "
 			    					<tr><th>应收金额</th><td><input type='text' class='uiText2' placeholder='请输入应收金额' name='cost' /> 元</td></tr>
 			    					<tr><th>实收金额</th><td><input type='text' class='uiText2' placeholder='请输入实收金额' name='paid' /> 元</td></tr>";
+	}
+	$action = array(
+		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受订单' /><input type='button' class='uiBtn3' data-form='0' data-to='3' value='自助打印' />",
+		2 => "<input type='button' class='uiBtn3' data-form='0' data-to='4' value='通知领取' />",
+		3 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
+		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
+	);
 	$html = $form . "
-			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
+			    					<tr><th>订单操作</th><td>{$flink}{$action[$st]}</td></tr>";
 	return $html;
 }
 function unit_order($order) {
@@ -409,17 +410,17 @@ function unit_order_par($order, $user) {
 	$t6 = text_defs('order_paper');
 	$t7 = text_defs('order_status_par');
 	$fname = (mb_strlen($order['fname']) < 30) ? $order['fname'] : (mb_substr($order['fname'], 0, 29) . '...');
-	$flink = ($order['flink'] === '-') ? "$fname （文件已过期）" : "$fname <a href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='下载文件'></a>";
+	$flink = ($order['flink'] === '-') ? "" : "<a class='fright' href='/upload/" . rawurlencode($order['flink']) ."' target='_blank'><input type='button' class='uiBtn3' value='下载文件'></a>";
 	$credit = ($_SESSION['credit'][$user['id']] ? ($_SESSION['credit'][$user['id']] / 10) : 0);
 	$html = "
 							<div class='taskItem newly_added' data-id='{$order['id']}'>
 								<h3>订单 {$order['id']} $fname 来自 用户 {$order['uid']} {$user['name']}<span class='taskStatus taskStatus{$order['status']}'>{$t7[$order['status']]}</span></h3>
 								<div class='taskDetail' data-id='{$order['id']}'>
 			    				<table>
-			    					<tr><th>打印文件</th><td>$flink</td></tr>
 			    					<tr><th>订单要求</th><td>{$t6[$order['paper']]}－{$t3[$order['color']]}－{$t2[$order['back']]}－{$t4[$order['layout']]}－{$order['copy']}份－{$t5[$order['misc']]}</td></tr>
-			    					<tr><th>用户信息</th><td>留言: {$order['note']} | 余额: $credit | 信用: {$user['credit']}</td></tr>"
-									. submod_order_action_par($order['status']) . "
+			    					<tr><th>客户信息</th><td>余额 $credit 元，信用 {$user['credit']}</td></tr>
+									<tr><th>客户留言</th><td>{$order['note']}</td></tr>"
+									. submod_order_action_par($order['status'], $flink) . "
 			    				</tbody></table>
 			    				</div>
 		    				</div>";
