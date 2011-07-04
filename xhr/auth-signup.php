@@ -20,6 +20,18 @@ function send_reg_mail($to) {
 	$link = URL_BASE . "authorize.php?c=signup&a=" . rawurlencode($addr). "&v=$hash";
 	$subject = CODE_NAME . ' - 注册确认函';
 	$body = <<<EOT
+	
+欢迎来到光子复制！我们需要您核实Email地址，请点击下面的链接：
+
+$link
+
+此致，
+
+光子复制团队
+
+EOT;
+
+/**	$body = <<<EOT
 		<table width="650" align="center" style="color: #444; margin: 30px auto; font-size: 14px; font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,STHeiti; box-shadow: 0 0 10px gray; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; overflow: hidden" cellpadding="0" cellspacing="0">
 			<tbody><tr id="header">
 				<td height="102" background="http://photoncopy.com/media/images/email/header_bg.png" bgcolor="#E6F1FB" align="center">
@@ -49,9 +61,10 @@ function send_reg_mail($to) {
 					</tbody></table>
 				</td>
 			</tr>
-		</tbody></table>	
-EOT;
-	$header = "Content-type: text/html; charset=utf-8\r\n";
+		</tbody></table>
+EOT;**/
+//	$header = "Content-type: text/html; charset=utf-8\r\n";
+	$header = "Content-type: text/plain; charset=utf-8\r\n";
 	$header .= "From: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
 	$header .= "Reply-To: " . CODE_NAME . " <service@" .
