@@ -1,5 +1,7 @@
 <?php
 
+/** site landing page */
+
 /** turn on output buffering */
 ob_start();
 

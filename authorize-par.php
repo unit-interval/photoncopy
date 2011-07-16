@@ -1,5 +1,9 @@
 <?php
 
+/** wrapper file for partner authorization
+ * no output
+ */
+
 include './config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';

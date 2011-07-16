@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * wapper file for user authorizaion
+ * no output
+ */
+
 include './config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
@@ -114,6 +119,17 @@ function verify_update_password_form() {
 	return md5($_POST['passwd']);
 }
 
+/**
+ * if($_GET['c'] == 'login') {
+ * } elseif($_GET['c'] == 'logout') {
+ * } elseif($_GET['c'] == 'signup' && isset($_GET['a']) && isset($_GET['v'])) {
+ * } elseif($_GET['c'] == 'reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
+ * } elseif($_GET['c'] == 'update-name'){
+ * } elseif($_GET['c'] == 'update-password'){
+ * } elseif($_SESSION['state'] === 'activate') {
+ * } elseif($_SESSION['state'] === 'resetpw') {
+ * } else
+ */
 if($_GET['c'] == 'login') {
 	if(!($input = verify_login_form()))
 		err_redir('邮箱或密码输入有误，请重新登录');
