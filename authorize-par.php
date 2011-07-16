@@ -67,6 +67,21 @@ function verify_update_password_form() {
 	return md5($_POST['passwd']);
 }
 
+/**
+ * possible requests:
+ * 
+ * if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
+ * } elseif($_GET['c'] == 'par_reset' && isset($_GET['a']) && isset($_GET['t']) && isset($_GET['v'])) {
+ * } elseif($_GET['c'] == 'partnerlogin') {
+ * } elseif($_GET['c'] == 'partnerlogout') {
+ * } elseif ($_GET['c'] == 'update_par_memo') {
+ * } elseif ($_GET['c'] == 'update_par_password') {
+ * } elseif ($_GET['c'] == 'update_par_info') {
+ * } elseif($_GET['c'] === 'activatepar') {
+ * } elseif($_SESSION['state'] === 'par_resetpw') {
+ * } else
+ *
+ */
 if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	if(!verify_link_signup())
 		err_redir('您访问的激活链接无效');
@@ -195,8 +210,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$_SESSION['memo'] = $user['memo'];
 	unset($_SESSION['state']);
 	err_redir('恭喜您成功找回密码', '/partner.php');
-}
-else {
+} else {
 	err_redir();
 }
 
