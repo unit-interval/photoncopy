@@ -40,7 +40,7 @@ function mod_location_sel($sel = 0) {
 	$result->free();
 
 	$val = ($sel == 0) ? '' : $sel;
-	$html = "<select name='location' data-val='$val'>";
+	$html = "<select class='uiSelect' name='location' data-val='$val'>";
 	foreach($loc as $id => $name) {
 		$selected = ($sel == $id) ? " selected='$id'" : '';
 		$html .= "

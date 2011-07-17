@@ -564,11 +564,7 @@ function page_par_profile($users) {
 									</tr>
 									<tr>
 										<th>网络</th>
-										<td>
-											<select class='uiSelect'>
-												<option value='0'>北京大学</option>
-											</select>
-										</td>
+										<td>" . location_id2name($_SESSION['location']) ."</td>
 									</tr>
 									<tr>
 										<th>头像</th>
@@ -655,7 +651,7 @@ function page_par_activate() {
 								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
 							</tr>
 							<tr>
-								<th>选择服务地区</th>
+								<th>选择地区</th>
 								<td>"
 								. mod_location_sel() . "
 								</td>

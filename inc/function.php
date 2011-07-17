@@ -24,6 +24,19 @@ function json_encode_mb($ob, $options = 0) {
 	return json_encode($ob, $options);
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
+function location_id2name($id) {
+	static $locations = 0;
+	if ($locations === 0) {
+		$locations = array();
+		$query = "select `id`, `name` from `location`";
+		if(!($result = $db->query($query)))
+			err_redir("db error({$db->errno}). query:$query", '/error.php');
+		while($row = $result->fetch_assoc())
+			$locations[$row['id']] = $row['name'];
+		$result->free();
+	}
+	return $locations[$id];
+}
 function order_status_map($st = '') {
 	$support = array(
 		0 => array(2, 3),
