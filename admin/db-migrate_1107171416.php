@@ -16,6 +16,8 @@ $rows = array(
 	"default, '北京大學'",
 );
 
+echo '<h1>Add table "location"</h1>';
+
 global $db;
 echo 'mysql server connected: ' . $db->host_info . "<br />";
 
