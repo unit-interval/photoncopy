@@ -24,8 +24,10 @@ $query = "create table `$table_name` ( $columns )";
 echo "query: $query <br />";
 if($db->query($query) === TRUE)
 	echo 'table successfully created.<br />';
-else
+else {
 	echo "error creating table: $db->error <br />";
+	die;
+}
 
 echo 'adding seed rows.';
 $query = "insert into `$table_name` values ";
