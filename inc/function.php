@@ -25,6 +25,7 @@ function json_encode_mb($ob, $options = 0) {
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
 function location_id2name($id) {
+	global $db;
 	static $locations = 0;
 	if ($locations === 0) {
 		$locations = array();
