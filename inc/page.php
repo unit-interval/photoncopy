@@ -655,6 +655,12 @@ function page_par_activate() {
 								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
 							</tr>
 							<tr>
+								<th>选择服务地区</th>
+								<td>"
+								. mod_location_sel() . "
+								</td>
+							</tr>
+							<tr>
 								<th>店名</th>
 								<td><input type='text' id='user_login' class='uiText2' name='name' /></td>
 							</tr>

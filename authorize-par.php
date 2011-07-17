@@ -59,6 +59,7 @@ function verify_signup_form_par() {
 //	TODO validate input client-side with js
 	$input = array();
 	$input['email'] = $_SESSION['email'];
+	$input['location'] = intval($_POST['location']);
 	$input['name'] = strip_tags($_POST['name']);
 	$input['passwd'] = md5($_POST['passwd']);
 	$input['passphrase'] = strip_tags($_POST['short']);
@@ -173,8 +174,10 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 		err_redir('您提供的信息有误，请重新输入', '/partner.php');
 	if($input['admin_email'] != '3.14159' || $input['admin_passwd'] != md5('95141.3'))
 		err_redir('请在工作人员的陪同下完成账户激活.', '/partner.php');
-	$query = "insert into `partner` (`email`, `passwd`, `passphrase`, `name`, `region`) values (
+	$query = "insert into `partner`
+		(`email`, `location`, `passwd`, `passphrase`, `name`, `region`) values (
 		'{$db->real_escape_string($input['email'])}',
+		{$input['location']},
 		'{$input['passwd']}',
 		'{$db->real_escape_string($input['passphrase'])}',
 		'{$db->real_escape_string($input['name'])}',
@@ -191,7 +194,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$_SESSION['pid'] = $pid;
 	$_SESSION['passphrase'] = $input['passphrase'];
 	$_SESSION['name'] = $input['name'];
-	$_SESSION['region'] = 0;
+	$_SESSION['location'] = $input['location'];
 	$_SESSION['memo'] = '';
 	$_SESSION['email'] = $input['email'];
 	$expire = time()+3600*24*7;
