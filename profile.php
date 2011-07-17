@@ -1,6 +1,6 @@
 <?php
 
-/* user profile and etc"
+/* user profile and etc */
 
 /** turn on output buffering */
 ob_start();
