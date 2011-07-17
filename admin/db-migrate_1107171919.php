@@ -16,7 +16,7 @@ echo 'mysql server connected: ' . $db->host_info . "<br />";
 
 $query = "alter table `user`
 	add column `location` smallint unsigned not null default 1 after `id`,
-	add index (`id)";
+	add index (`id`)";
 echo "query: $query <br />";
 if($db->query($query) === TRUE)
 	echo 'column successfully added.<br />';
@@ -25,7 +25,7 @@ else
 
 $query = "alter table `partner`
 	add column `location` smallint unsigned not null default 1 after `id`,
-	add index (`id)";
+	add index (`id`)";
 echo "query: $query <br />";
 if($db->query($query) === TRUE)
 	echo 'column successfully added.<br />';
