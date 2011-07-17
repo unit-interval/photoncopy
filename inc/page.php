@@ -27,6 +27,12 @@ function page_activate() {
 									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
 								</tr>
 								<tr>
+									<th>选择地区</th>
+									<td>"
+									. mod_location_sel() . "
+									</td>
+								</tr>
+								<tr>
 									<th>设定密码</th>
 									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
 								</tr>
@@ -798,6 +804,12 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 								<tr>
 									<th>用户名</th>
 									<td><input type='text' class='uiText2' id='user_login' name='name' title='{$_SESSION['name']}' value='{$_SESSION['name']}' /></td>
+								</tr>
+								<tr>
+									<th>服务地区</th>
+									<th>"
+									. mod_location_sel($_SESSION['location']) . "
+									</th>
 								</tr>
 								<tr>
 									<th></th>

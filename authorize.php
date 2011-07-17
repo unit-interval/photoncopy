@@ -105,8 +105,13 @@ function verify_signup_form() {
 	$input = array();
 	$input['email'] = $_SESSION['email'];
 	$input['name'] = strip_tags($_POST['name']);
+	$input['location'] = intval($_POST['location']);
 	$input['passwd'] = md5($_POST['passwd']);
 	return $input;
+}
+function verify_update_location_form() {
+//	TODO validate input client-side with js
+	return intval($_POST['location']);
 }
 function verify_update_name_form() {
 //	TODO validate input client-side with js
@@ -186,12 +191,20 @@ if($_GET['c'] == 'login') {
 	err_redir('', '/profile.php');
 } elseif($_GET['c'] == 'update-name'){
 	if (!($input=verify_update_name_form()))
-		err_redir('用户名不能为空', '/profile.php');
+		err_redir('用户名格式有误', '/profile.php');
 	$query = "update `user` set `name` = '" . $db->real_escape_string($input) . "' where `id` = {$_SESSION['uid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
 	$_SESSION['name'] = $db->real_escape_string($input);
-	err_redir('用户名修改成功', '/profile.php#1-1');
+	err_redir('用户信息更新成功', '/profile.php#1-1');
+	if (!($input=verify_update_location_form()))
+		err_redir('更新服务地区失败', '/profile.php');
+	$query = "update `user` set `location` = '$input'
+	   where `id` = {$_SESSION['uid']}";
+	if($db->query($query) !== TRUE)
+		err_redir("db error({$db->errno}).", '/error.php');
+	$_SESSION['location'] = $input;
+	err_redir('用户信息更新成功', '/profile.php#1-1');
 } elseif($_GET['c'] == 'update-password'){
 	$input=verify_update_password_form();
 	$query = "update `user` set `passwd` = '" . $input . "' where `id` = {$_SESSION['uid']}";
@@ -201,12 +214,12 @@ if($_GET['c'] == 'login') {
 } elseif($_SESSION['state'] === 'activate') {
 	if(!($input = verify_signup_form()))
 		err_redir('您提供的信息有误，请重新输入', '/profile.php');
-	$query = "insert into `user` values (
-		default,
+	$query = "insert into `user`
+		(`email`, `name`, `passwd`, `location`) values (
 		'{$db->real_escape_string($input['email'])}',
-		'{$input['passwd']}',
 		'{$db->real_escape_string($input['name'])}',
-		default
+		'{$input['passwd']}',
+		{$input['location']}
 		)";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
@@ -218,6 +231,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['logged_in'] = true;
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $input['name'];
+	$_SESSION['location'] = $input['location'];
 	send_confirm_email();
 	err_redir('恭喜您已成功注册光子复制帐号', '/home.php');
 } elseif($_SESSION['state'] === 'resetpw') {

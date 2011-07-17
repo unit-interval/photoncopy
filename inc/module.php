@@ -29,6 +29,26 @@ function mod_badge_won($badges, $badges_won) {
 			<td>{$badges[$b['bid']]['desc']}</td></tr>";
 	return $html;
 }
+function mod_location_sel($sel = 0) {
+	global $db;
+	$query = "select `id`, `name` from `location`";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	$loc = array();
+	while($row = $result->fetch_assoc())
+		$loc[$row['id']] = $row['name'];
+	$result->free();
+
+	$val = ($sel == 0) ? '' : $sel;
+	$html = "<select name='location' data-val='$val'>";
+	foreach($loc as $id => $name) {
+		$selected = ($sel == $id) ? " selected='$id'" : '';
+		$html .= "
+			<option value='$id'$selected>$name</option>";
+	}
+	$html .= "</select>";
+	return $html;
+}
 function mod_nav_account($body_id) {
 	if($body_id != 'partner' && $_SESSION['logged_in'])
 	return "
