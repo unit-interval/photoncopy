@@ -455,7 +455,7 @@ function page_index() {
 				<li class='slidePhoto' id='slidePhoto-1'>
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
-						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
+						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成。</p>
 						<a href='/blog/tutorial/'>了解更多</a>";
 						if($_SESSION['logged_in'] != true)
 						echo "
