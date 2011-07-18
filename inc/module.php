@@ -208,12 +208,12 @@ function mod_stat_par($users) {
 	return $html;
 }
 function mod_store_sel($stores) {
-	$t1 = text_defs('store_region');
 	$i = 0;
 	$html_l = '';
 	$html_r = '';
 	$needle = array("\r\n", "\n", "\r");
 	foreach($stores as $s) {
+		$loc = location_id2name($s['location']);
 		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] / 10 : 0);
 		$html = "
 						<div class='w2item'> 
@@ -223,7 +223,7 @@ function mod_store_sel($stores) {
 							<div class='storeItemInfo'> 
 								<input type='button' class='uiBtn1' value='查看详情' />
 								<div class='storeId'>{$s['id']}</div>
-								<h2>{$t1[$s['region']]}{$s['name']}</h2>
+								<h2>{$loc}{$s['name']}</h2>
 								<p>" . nl2br($s['memo']) . "</p>
 								<p>余额: $credit 元</p>
 							</div> 

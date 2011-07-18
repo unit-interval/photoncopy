@@ -24,7 +24,7 @@ function json_encode_mb($ob, $options = 0) {
 	return json_encode($ob, $options);
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
-function location_id2name($id) {
+function location_id2name($id = 0) {
 	global $db;
 	static $locations = 0;
 	if ($locations === 0) {
@@ -36,7 +36,7 @@ function location_id2name($id) {
 			$locations[$row['id']] = $row['name'];
 		$result->free();
 	}
-	return $locations[$id];
+	return ($id == 0) ? $locations : $locations[$id];
 }
 function order_status_map($st = '') {
 	$support = array(
@@ -112,9 +112,6 @@ function text_defs($key = '') {
 			3 => '自助打印',
 			4 => '等待領取',
 			5 => '已完成',
-		),
-		'store_region' => array(
-			0 => '北京大学',
 		),
 	);
 	return ($key === '') ? $t : $t[$key];
