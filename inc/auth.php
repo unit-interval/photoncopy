@@ -1,5 +1,7 @@
 <?
 
+/** authorization related functions */
+
 function cookie_auth() {
 	global $db;
 	if(!cookie_verify_hash()) {

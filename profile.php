@@ -1,5 +1,7 @@
 <?php
 
+/* user profile and etc */
+
 /** turn on output buffering */
 ob_start();
 
@@ -12,6 +14,12 @@ include DIR_INC . 'page.php';
 session_name(SESSNAME);
 session_start();
 
+/**
+if($_SESSION['state'] === 'activate')
+elseif($_SESSION['state'] === 'resetpw')
+elseif($_SESSION['logged_in'] == true) {
+} else
+ */
 if($_SESSION['state'] === 'activate')
 	$state = 1;
 elseif($_SESSION['state'] === 'resetpw')

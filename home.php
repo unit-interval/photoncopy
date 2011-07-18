@@ -1,5 +1,9 @@
 <?php
 
+/** 
+ * main page for user activities
+ */
+
 /** turn on output buffering */
 ob_start();
 
@@ -27,10 +31,12 @@ $link['js'][] = 'jquery.scrollTo';
 $link['js'][] = 'script';
 $link['js'][] = 'scriptHome';
 
+/* global arrays to hold necessary info */
 $orders = array();
 $stores = array();
 $credit = array();
 
+/* all orders for current user */
 $query = "select * from `order` where `uid` = {$_SESSION['uid']}
 	order by `id` desc";
 if($result = $db->query($query)) {
@@ -46,6 +52,7 @@ if($result = $db->query($query)) {
 	$stores[$row['id']] = $row;
 	$result->free();
 }
+/* user credit */
 $query = "select `pid`, `credit` from `credit` where `uid` = {$_SESSION['uid']}";
 if(!($result = $db->query($query)))
 	err_redir("db error({$db->errno}). query:$query", '/error.php');
