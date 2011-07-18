@@ -51,7 +51,7 @@ function page_resetpasswd($p = false){
 	</div>
 		";
 }
-function page_activate() {
+function page_activate($regions) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -76,6 +76,14 @@ function page_activate() {
 								<tr>
 									<th>用户名</th>
 									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
+								</tr>
+								<tr>
+									<th>服务区</th>
+									<td>
+										<select class='uiSelect'>"
+											. mod_region_option($regions) .
+										"</select>
+									</td>
 								</tr>
 								<tr>
 									<th>设定密码</th>
@@ -573,7 +581,7 @@ function page_par_home($orders, $users) {
 		</div>
 	";
 }
-function page_par_profile($users) {
+function page_par_profile($users, $regions) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -610,9 +618,9 @@ function page_par_profile($users) {
 									<tr>
 										<th>网络</th>
 										<td>
-											<select class='uiSelect'>
-												<option value='0'>北京大学</option>
-											</select>
+											<select class='uiSelect'>"
+												. mod_region_option($regions) .
+											"</select>
 										</td>
 									</tr>
 									<tr>
