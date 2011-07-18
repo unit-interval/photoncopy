@@ -1,4 +1,10 @@
 <?php
+function mod_region_option($regions) {
+	$html = "<option name='region' value='0'>请选择服务区域</option>";
+	foreach($regions as $key => $value)
+		$html .= "<option name='region' value='{$key}'>{$value}</option>";
+	return $html;
+}
 function mod_badge_rest($badges, $badges_won) {
 	foreach($badges_won as $b)
 		unset($badges[$b['bid']]);
