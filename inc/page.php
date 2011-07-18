@@ -457,7 +457,7 @@ function page_nav($body_id = 'main', $body_style = '') {
 		</div>';
 }
 function page_par_home($orders, $users) {
-	$t1 = text_defs('store_region');
+	$loc = location_id2name($_SESSION['location']);
 	$memo = nl2br($_SESSION['memo']);
 	echo "
 		<div class='lightbox'>
@@ -472,7 +472,7 @@ function page_par_home($orders, $users) {
 		<div class='contentWrapper'>
 			<div class='content'>
 				<div class='panel1 board'>
-					<h2>" . $t1[$_SESSION['region']] . $_SESSION['name'] . "<span class='fright' id='minimizePanel'>－</span></h2>
+					<h2>$loc" . $_SESSION['name'] . "<span class='fright' id='minimizePanel'>－</span></h2>
 					<div id='storeStatus'>
 						<div id='storeCtrl'>
 							<div id='storeAvatar'>
@@ -528,7 +528,7 @@ function page_par_home($orders, $users) {
 		</div>
 	";
 }
-function page_par_profile($users, $regions) {
+function page_par_profile($users) {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -564,14 +564,7 @@ function page_par_profile($users, $regions) {
 									</tr>
 									<tr>
 										<th>网络</th>
-										<td>
-											<select class='uiSelect'>"
-												. mod_region_option($regions) .
-											"</select>
-										</td>
-										<td>" 
-											. location_id2name($_SESSION['location']) .
-										"</td>
+										<td>" . location_id2name($_SESSION['location']) ."</td>
 									</tr>
 									<tr>
 										<th>头像</th>
@@ -1002,9 +995,9 @@ function page_resetpasswd($p = false){
 		";
 }
 function script_home($stores) {
-	$regions = text_defs('store_region');
+	$locations = location_id2name();
 	foreach($stores as &$n)
-		$n['region'] = $regions[$n['region']];
+		$n['location'] = $locations[$n['location']];
 	echo "
 <script type='text/javascript'>
 /* <![CDATA[ */
@@ -1014,7 +1007,7 @@ var order_option_text = {
 	layout:	".json_encode_mb(text_defs('order_layout')).",
 	misc:	".json_encode_mb(text_defs('order_misc')).",
 	paper:	".json_encode_mb(text_defs('order_paper')).",
-	region:	".json_encode_mb($regions, JSON_FORCE_OBJECT).",
+	location:	".json_encode_mb($locations, JSON_FORCE_OBJECT).",
 };
 var Vault = {
 	\"stores\": ".json_encode($stores, JSON_FORCE_OBJECT).",

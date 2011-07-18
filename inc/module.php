@@ -1,10 +1,4 @@
 <?php
-function mod_region_option($regions) {
-	$html = "<option name='region' value='0'>请选择服务区域</option>";
-	foreach($regions as $key => $value)
-		$html .= "<option name='region' value='{$key}'>{$value}</option>";
-	return $html;
-}
 function mod_badge_rest($badges, $badges_won) {
 	foreach($badges_won as $b)
 		unset($badges[$b['bid']]);
@@ -208,12 +202,12 @@ function mod_stat_par($users) {
 	return $html;
 }
 function mod_store_sel($stores) {
-	$t1 = text_defs('store_region');
 	$i = 0;
 	$html_l = '';
 	$html_r = '';
 	$needle = array("\r\n", "\n", "\r");
 	foreach($stores as $s) {
+		$loc = location_id2name($s['location']);
 		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] / 10 : 0);
 		$html = "
 						<div class='w2item'> 
@@ -223,7 +217,7 @@ function mod_store_sel($stores) {
 							<div class='storeItemInfo'> 
 								<input type='button' class='uiBtn1' value='查看详情' />
 								<div class='storeId'>{$s['id']}</div>
-								<h2>{$t1[$s['region']]}{$s['name']}</h2>
+								<h2>{$loc}{$s['name']}</h2>
 								<p>" . nl2br($s['memo']) . "</p>
 								<p>余额: $credit 元</p>
 							</div> 
@@ -271,11 +265,11 @@ function unit_order($order) {
 	$paid = ($order['paid'] == null) ? '' : " | 实付金额 : " . ($order['paid'] / 10) . " 元";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>订单 {$order['id']} 在 <span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>订单 {$order['id']} 在 <span class='newly_added' data-name='location'></span><span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
 		    						<tr><th>打印文件</th><td>$flink</tr>
-		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='location'></span><span class='newly_added' data-name='name'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>";
 	if ($order['note'] != "") $html .= "<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
 	$html .= "

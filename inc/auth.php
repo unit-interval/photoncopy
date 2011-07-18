@@ -9,7 +9,7 @@ function cookie_auth() {
 		return;
 	}
 	$uid = $_COOKIE['uid'];
-	$query = "select `stamp`+0, `email`, `name` from `user`
+	$query = "select `stamp`+0, `email`, `name`, `location` from `user`
 		where `id` = $uid";
 	if($result = $db->query($query)) {
 		if($result->num_rows === 0) {
@@ -37,6 +37,7 @@ function cookie_auth() {
 	$_SESSION['uid'] = $uid;
 	$_SESSION['name'] = $user['name'];
 	$_SESSION['email'] = $user['email'];
+	$_SESSION['location'] = $user['location'];
 	$_SESSION['credit'] = $credit;
 	cookie_refresh();
 }
@@ -52,7 +53,7 @@ function cookie_auth_par() {
 	$_SESSION['pid'] = $pid;
 	$_SESSION['passphrase'] = $row['passphrase'];
 	$_SESSION['name'] = $row['name'];
-	$_SESSION['region'] = $row['region'];
+	$_SESSION['location'] = $row['location'];
 	$_SESSION['memo'] = $row['memo'];
 	$_SESSION['email'] = $row['email'];
 	cookie_refresh();
