@@ -41,8 +41,8 @@ function showMore(n){
 	refreshW8();
 	var formStatus=[
 		true,
-		($('#formFile input[type="file"]').val()!=''),
 		($('#w2Form').val()!=''),
+		($('#formFile input[type="file"]').val()!=''),
 		($('#w3Form1').val()!='' && $('#w3Form2').val()!=''),
 		($('#w4Form').val()!=''),
 		($('#w5Form').val()!=''),
@@ -258,7 +258,7 @@ $(function(){
 		$('.'+$(this).attr('class')).removeClass('selected');
 		$(this).addClass('selected');
 		$('#w2Form').val($('div.storeId', this).html());
-		showMore(2);
+		showMore(1);
 	});
 	
 	// click on w3 item

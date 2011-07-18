@@ -159,6 +159,12 @@ function page_home($orders, $stores) {
 				<div class='clear'></div>
 			</div>
 			<div id='w1' class='w panel'>
+				<h2>选择打印店</h2>
+				<div class='storeWrapper'>"
+				. mod_store_sel($stores) . "
+				</div>
+			</div>
+			<div id='w2' class='w panel'>
 				<h2>上传文件</h2>
 				<p style='text-align: center'>
 					支持文件类型: PDF文档 WORD文档 PPT幻灯片; 大小限制: 20MB<br>
@@ -171,12 +177,6 @@ function page_home($orders, $stores) {
 					重新选择上传文件将直接替换之前上传的文件
 				</p>
 				<div id='w1c'></div>
-			</div>
-			<div id='w2' class='w panel'>
-				<h2>选择打印店</h2>
-				<div class='storeWrapper'>"
-				. mod_store_sel($stores) . "
-				</div> 
 			</div>
 			<div id='w3' class='w panel'>
 				<h2>纸张和油墨</h2>
