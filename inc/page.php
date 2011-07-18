@@ -51,7 +51,7 @@ function page_resetpasswd($p = false){
 	</div>
 		";
 }
-function page_activate($regions) {
+function page_activate() {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -76,14 +76,6 @@ function page_activate($regions) {
 								<tr>
 									<th>用户名</th>
 									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
-								</tr>
-								<tr>
-									<th>服务区</th>
-									<td>
-										<select class='uiSelect'>"
-											. mod_region_option($regions) .
-										"</select>
-									</td>
 								</tr>
 								<tr>
 									<th>设定密码</th>
