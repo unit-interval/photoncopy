@@ -138,7 +138,7 @@ function verify_update_password_form() {
 if($_GET['c'] == 'login') {
 	if(!($input = verify_login_form()))
 		err_redir('邮箱或密码输入有误，请重新登录');
-	$query = "select `id`, `passwd`, `name` from `user`
+	$query = "select * from `user`
 		where `email` = '{$db->real_escape_string($input['email'])}'";
 	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
 		$user = $result->fetch_assoc();
@@ -152,6 +152,7 @@ if($_GET['c'] == 'login') {
 	$_SESSION['uid'] = $user['id'];
 	$_SESSION['name'] = $user['name'];
 	$_SESSION['email'] = $input['email'];
+	$_SESSION['location'] = $user['location'];
 	if(!$input['pub']) {
 		$expire = time()+3600*24*30;
 		$stamp = date('YmdHis');
@@ -186,6 +187,7 @@ if($_GET['c'] == 'login') {
 		err_redir("邮箱 $email 尚未注册");
 	$_SESSION['name'] = $user['name'];
 	$_SESSION['uid'] = $user['id'];
+	$_SESSION['location'] = $user['location'];
 	$_SESSION['email'] = $email;
 	$_SESSION['state'] = 'resetpw';
 	err_redir('', '/profile.php');

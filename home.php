@@ -45,7 +45,8 @@ if($result = $db->query($query)) {
 	$result->free();
 }
 /* all partners in current location */
-$query = "select `id`, `name`, `region`, `memo` from `partner`";
+$query = "select `id`, `name`, `location`, `memo` from `partner`
+	where `location` = {$_SESSION['location']}";
 if($result = $db->query($query)) {
 	while($row = $result->fetch_assoc())
 	$stores[$row['id']] = $row;

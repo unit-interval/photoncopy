@@ -105,12 +105,13 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$_SESSION['name'] = $partner['name'];
 	$_SESSION['pid'] = $partner['id'];
 	$_SESSION['email'] = $par_email;
+	$_SESSION['location'] = $partner['location'];
 	$_SESSION['state'] = 'par_resetpw';
 	err_redir('', '/partner.php');
 } elseif($_GET['c'] == 'partnerlogin') {
 	if(!($input = verify_login_form()))
 		err_redir('用户名或密码有误，请重新填写','/partner.php');
-	$query = "select `id`, `passwd`,`passphrase`, `name`, `region`, `memo` from `partner`
+	$query = "select * from `partner`
 		where `email` = '{$db->real_escape_string($input['email'])}'";
 	if(($result = $db->query($query)) && ($result->num_rows > 0)) {
 		$user = $result->fetch_assoc();
@@ -124,7 +125,7 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$_SESSION['pid'] = $user['id'];
 	$_SESSION['passphrase'] = $user['passphrase'];
 	$_SESSION['name'] = $user['name'];
-	$_SESSION['region'] = $user['region'];
+	$_SESSION['location'] = $partner['location'];
 	$_SESSION['memo'] = $user['memo'];
 	$_SESSION['email'] = $input['email'];
 	$expire = time()+3600*24*7;
@@ -175,13 +176,12 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	if($input['admin_email'] != '3.14159' || $input['admin_passwd'] != md5('95141.3'))
 		err_redir('请在工作人员的陪同下完成账户激活.', '/partner.php');
 	$query = "insert into `partner`
-		(`email`, `location`, `passwd`, `passphrase`, `name`, `region`) values (
+		(`email`, `location`, `passwd`, `passphrase`, `name`) values (
 		'{$db->real_escape_string($input['email'])}',
 		{$input['location']},
 		'{$input['passwd']}',
 		'{$db->real_escape_string($input['passphrase'])}',
-		'{$db->real_escape_string($input['name'])}',
-		0
+		'{$db->real_escape_string($input['name'])}'
 		)";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}).", '/error.php');
@@ -207,13 +207,13 @@ if($_GET['c'] == 'signuppar' && isset($_GET['a']) && isset($_GET['v'])) {
 	$query = "update `partner` set `passwd` = '" . $input . "' where `id` = {$_SESSION['pid']}";
 	if($db->query($query) !== TRUE)
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
-	$query = "select `passphrase`, `region`, `memo` from `partner` where `id` = {$_SESSION['pid']}";
+	$query = "select * from `partner` where `id` = {$_SESSION['pid']}";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
 	$user = $result->fetch_assoc();
 	$_SESSION['partner'] = true;
 	$_SESSION['passphrase'] = $user['passphrase'];
-	$_SESSION['region'] = $user['region'];
+	$_SESSION['location'] = $user['location'];
 	$_SESSION['memo'] = $user['memo'];
 	unset($_SESSION['state']);
 	err_redir('恭喜您成功找回密码', '/partner.php');
