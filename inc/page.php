@@ -410,7 +410,7 @@ function page_index() {
 				<li class='slidePhoto' id='slidePhoto-1'>
 					<div class='slidePhotoWrapper'>
 						<h2>让校园生活更便捷</h2>
-						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成</p>
+						<p>在线提交打印任务，到店付款领取文档，一切已在行进中完成。</p>
 						<a href='/blog/tutorial/'>了解更多</a>";
 						if($_SESSION['logged_in'] != true)
 						echo "
@@ -564,15 +564,14 @@ function page_par_profile($users, $regions) {
 									</tr>
 									<tr>
 										<th>网络</th>
-<<<<<<< HEAD
 										<td>
 											<select class='uiSelect'>"
 												. mod_region_option($regions) .
 											"</select>
 										</td>
-=======
-										<td>" . location_id2name($_SESSION['location']) ."</td>
->>>>>>> c2f95db7a5ce5ed9068d69485b903e37287c1491
+										<td>" 
+											. location_id2name($_SESSION['location']) .
+										"</td>
 									</tr>
 									<tr>
 										<th>头像</th>
