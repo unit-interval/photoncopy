@@ -1,18 +1,13 @@
 <?php
 
-/** site landing page */
-
 /** turn on output buffering */
 ob_start();
 
-/** load global configurations */
 include './config.php';
-/** basic dependencies */
 include './inc/function.php';
 include './inc/module.php';
 include './inc/page.php';
 
-/** prepare session cookie */
 session_name(SESSNAME);
 session_start();
 
@@ -27,7 +22,6 @@ if($_SESSION['logged_in'] != true) {
 }
  */
 
-/** list the external scripts to be loaded */
 $link['css'][] = 'style';
 $link['css'][] = 'styleIndex';
 $link['js'][] = 'jquery';

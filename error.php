@@ -17,12 +17,4 @@ session_start();
 
 print_re(array($s, $_SESSION));
 
-
-function print_re($v) {
-	echo "<pre>\n";
-	var_dump($v);
-	echo "</pre>";
-	die;
-}
-
 ?>

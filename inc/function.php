@@ -1,7 +1,5 @@
 <?php
 
-/** general functions */
-
 function badge_criteria($class) {
 	$cr = array(
 		'num_submit' => array(
@@ -10,7 +8,7 @@ function badge_criteria($class) {
 	);
 	return $cr[$class];
 }
-/** TODO: predefined error messages might be needed */
+/** predefined error messages might be needed */
 function err_redir($err = '', $tar = '/') {
 	if($tar == '/error.php')
 		$_SESSION['err'] = $err;
@@ -19,9 +17,9 @@ function err_redir($err = '', $tar = '/') {
 	header("Location: $tar");
 	die;
 }
-/** TODO: json_encode wrapper that outputs utf8 charactors directly */
 function json_encode_mb($ob, $options = 0) {
 	return json_encode($ob, $options);
+// TODO following code not working
 //	return preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", json_encode($ob, $options));
 }
 function location_id2name($id = 0) {
@@ -47,6 +45,12 @@ function order_status_map($st = '') {
 		'require_form' => array(3, 4),
 	);
 	return (($st === '') ? $support : $support[$st]);
+}
+function print_re($v) {
+	echo "<pre>\n";
+	var_dump($v);
+	echo "</pre>";
+	die;
 }
 function sanitize_email($m) {
 //	TODO write the actual check later.

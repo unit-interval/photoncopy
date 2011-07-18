@@ -193,8 +193,7 @@ if(!isset($_GET['c'])) {
 	$table = $_GET['c'];
 	if(!isset($tables[$table]))
 	die("table $table doesn't exist.");
-	echo 'dont modify tables this way.';
-//	resetTable($table);
+	resetTable($table);
 }
 
 echo '</body></html>';
