@@ -54,6 +54,8 @@ EOT;
 	SERVER_HOST . ">\r\n";
 	$header .= "Reply-To: " . CODE_NAME . " <service@" .
 	SERVER_HOST . ">\r\n";
+	return mail($to, $subject, $body, $header);
+//	dont send notif email to admin now
 	$return = mail($to, $subject, $body, $header);
 	$subject = CODE_NAME . ' - 新商戶審批';
 	$body = "we've got a new patner application.

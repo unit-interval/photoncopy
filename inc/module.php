@@ -35,83 +35,25 @@ function mod_badge_won($badges, $badges_won) {
 			<td>{$badges[$b['bid']]['desc']}</td></tr>";
 	return $html;
 }
-function mod_login($a = '/authorize') {
-	$pubCheck = "<input class='checkbox' type='checkbox' name='pub' value='yes' />
-							<h3> 正在使用公共电脑登录</h3>";
-	$pubCheck = (($a === '/authorize') ? $pubCheck : '');
-	return "
-				<div id='login' class='panel'>
-					<h2>登录</h2>
-					<form action='{$a}.php?c=login' method='post'>
-						<fieldset>
-							<div class='field'>
-								<label>邮箱</label>
-								<input type='text' name='email' value='"
-								. (($a === '/authorize') ? $_COOKIE['email'] : $_COOKIE['email_p']) .
-								"' title='请输入邮箱地址' class='uiText autoHint' />
-							</div>
-							<div class='field'>
-								<label>密码</label>
-								<input type='password' name='passwd' class='uiText' />
-							</div>
-						</fieldset>
-						<fieldset class='submit'>
-							$pubCheck
-							<input class='uiBtn submit' type='submit' value='登录' />
-						</fieldset>
-					</form>
-				</div>
-	";
-}
-function mod_login_forget($a = '/authorize') {
-	return "
-				<div id='forget' class='panel'>
-					<h2>取回密码</h2>
-					<form action='{$a}.php?c=forget' method='post'>
-						<fieldset>
-							<div class='field'>
-								<label>邮箱</label>
-								<input type='text' name='email' value='"
-								. (($a === '/authorize') ? $_COOKIE['email'] : $_COOKIE['email_p']) .
-								"' title='请输入邮箱地址' class='uiText autoHint' />
-							</div>
-						</fieldset>
-						<fieldset class='submit'>
-							<input class='uiBtn submit' type='submit' value='取回密码' />
-						</fieldset>
-					</form>
-				</div>
-	";
-}
-function mod_login_signup ($a = '/authorize') {
-	return "
-				<div id='signup' class='panel'>
-					<h2>注册</h2>
-					<form action='{$a}.php?c=reg' method='post'>
-						<fieldset>
-							<div class='field'>
-								<label>邮箱</label>
-								<input type='text' name='email' title='请输入邮箱地址' class='uiText autoHint' />
-							</div>
-						</fieldset>
-						<fieldset class='submit'>
-							<input class='uiBtn submit' type='submit' value='注册' />
-						</fieldset>
-					</form>
-				</div>
-	";
-}
-function mod_map() {
-	return "<iframe width='100%' height='480' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/?ie=UTF8&amp;hq=&amp;ll=39.864289,116.378515&amp;spn=0.005765,0.00912&amp;z=16&amp;output=embed'></iframe>";
-}
-function mod_msg() {
-	if($_SESSION['msg'] . 'x' != 'x') {
-		$msg = "
-			<div id=msgbox>{$_SESSION['msg']}</div>
-			";
-		unset($_SESSION['msg']);
-		return $msg;
+function mod_location_sel($sel = 0) {
+	global $db;
+	$query = "select `id`, `name` from `location`";
+	if(!($result = $db->query($query)))
+		err_redir("db error({$db->errno}). query:$query", '/error.php');
+	$loc = array();
+	while($row = $result->fetch_assoc())
+		$loc[$row['id']] = $row['name'];
+	$result->free();
+
+	$val = ($sel == 0) ? '' : $sel;
+	$html = "<select class='uiSelect' name='location' data-val='$val'>";
+	foreach($loc as $id => $name) {
+		$selected = ($sel == $id) ? " selected='$id'" : '';
+		$html .= "
+			<option value='$id'$selected>$name</option>";
 	}
+	$html .= "</select>";
+	return $html;
 }
 function mod_nav_account($body_id) {
 	if($body_id != 'partner' && $_SESSION['logged_in'])
@@ -299,60 +241,6 @@ function mod_store_sel($stores) {
 					. $html_r . "
 					</div>
 					<div class='clear'></div>";
-	return $html;
-}
-function mod_stores($stores) {
-	$t1 = text_defs('store_region');
-	$html = '';
-	foreach($stores as $s) {
-		$credit = ($_SESSION['credit'][$s['id']] ? $_SESSION['credit'][$s['id']] : 0);
-		$html .= "
-					<div class='storeItem'>
-						<div class='storeItemAvatar'>
-							<img height='100%' width='100%' src='/media/images/store/storeAvatar1.jpg' /> 
-						</div>
-						<div class='storeItemInfo'>
-							<a href='store.php?id={$s['id']}'><input type='button' class='uiBtn1' value='去这里打印' /></a>
-							<h2>{$t1[$s['region']]}{$s['name']}</h2>
-							<p>{$s['memo']}</p>
-							<p>余额: $credit 元</p>
-						</div>
-					</div>
-		";
-	}
-	return $html;
-}
-function mod_tasks($tasks, $stores) {
-	$t1 = text_defs('order_type');
-	$t2 = text_defs('order_status');
-	$html = '';
-	foreach($tasks as $t)
-	$html .= "
-			<div class='taskItem'>
-				编号: {$t['id']}<br />
-				类型: {$t1[$t['type']]}<br />
-				状态: {$t2[$t['status']]}<br />
-				店铺: {$stores[$t['pid']]['name']}<br />
-				金額: {$t['cost']}<br />
-			</div>
-		";
-	return $html;
-}
-function submod_order_action($st) {
-	$action = array(
-		0 => "<input type='button' class='uiBtn3' data-form='0' data-to='2' value='接受訂單' /> / <input type='button' class='uiBtn3' data-form='0' data-to='3' value='轉爲自助打印' /> 请下载文件并核对打印要求.",
-		1 => "订单已被用户撤销，撤销的订单将保留一天.",
-		2 => "<input type='button' class='uiBtn3' data-form='0' data-to='4' value='完成訂單' /> 並通知用戶前來領取.",
-		3 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		4 => "<input type='button' class='uiBtn3' data-form='1' data-to='5' value='确认付款' />",
-		5 => "订单已完成，完成的订单将保留一天.",
-	);
-	if($st == 4 || $st ==3)
-		$form = "
-			    					<tr><th>应收金额</th><td><input type='text' class='uiText2' placeholder='请输入应收金额' name='cost' /> 元</td></tr>
-			    					<tr><th>实收金额</th><td><input type='text' class='uiText2' placeholder='请输入实收金额' name='paid' /> 元</td></tr>";
-	$html = $form . "
-			    					<tr><th>订单操作</th><td>{$action[$st]}</td></tr>";
 	return $html;
 }
 function submod_order_action_par($st) {

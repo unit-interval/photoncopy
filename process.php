@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * file to handle orders
+ */
+
 include './config.php';
 include './inc/database.php';
 include './inc/function.php';

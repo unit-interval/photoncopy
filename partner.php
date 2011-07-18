@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * pages for all parter functionality
+ */
+
 include './config.php';
 include './inc/database.php';
 include './inc/function.php';
@@ -13,7 +17,14 @@ $link['css'][] = 'style';
 $link['js'][] = 'jquery';
 $link['js'][] = 'script';
 
-/** FIXME write partner pages */
+/**
+if ($_SESSION['state'] === 'par_resetpw') {
+} elseif($_SESSION['state'] == 'activate_par') {
+} elseif ($_GET['c'] == 'signup') {
+} elseif($_SESSION['partner'] != true) {
+} elseif ($_GET['c'] == 'profile') {
+} else
+ */
 if ($_SESSION['state'] === 'par_resetpw') {
 	$link['css'][] = 'styleProfile';
 	$link['js'][] = 'partnerProfile';

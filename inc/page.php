@@ -1,57 +1,6 @@
 <?php
 
-function page_resetpasswd($p = false){
-	echo "
-	<div class='contentWrapper'> 
-		<div class='profile'>
-			<div class='profileL'>
-				<div class='profileType'>
-					密码重置
-				</div>
-			</div>
-			<div class='profileRWrapper'>
-			<div class='profileR' id='profile-0'>
-				<div class='profileHeader'>
-					密码重置
-				</div>
-				<div class='profileContent'>
-					<form action='/authorize";
-					if ($p) echo "-par";
-					echo ".php' method='post'>
-						<table>
-							<tbody>
-								<tr>
-									<th>邮箱</th>
-									<td><input type='text' class='uiText2' name='email' disabled='true' value='{$_SESSION['email']}'></td>
-								</tr>
-								<tr>
-									<th>用户名</th>
-									<td><input type='text' id='user_login' class='uiText2' name='name' value='{$_SESSION['name']}' disabled='true'></td>
-								</tr>
-								<tr>
-									<th>设定密码</th>
-									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
-								</tr>
-								<tr>
-									<th>确认密码</th>
-									<td><input type='password' id='pass2' class='uiText2'></td>
-								</tr>
-								<tr>
-									<th></th>
-									<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-				</div>
-			</div>
-			</div>
-			<div class='clear'></div>
-		</div> 
-	</div>
-		";
-}
-function page_activate($regions) {
+function page_activate() {
 	echo "
 	<div class='contentWrapper'> 
 		<div class='profile'>
@@ -78,11 +27,9 @@ function page_activate($regions) {
 									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
 								</tr>
 								<tr>
-									<th>服务区</th>
-									<td>
-										<select class='uiSelect'>"
-											. mod_region_option($regions) .
-										"</select>
+									<th>选择地区</th>
+									<td>"
+									. mod_location_sel() . "
 									</td>
 								</tr>
 								<tr>
@@ -617,11 +564,15 @@ function page_par_profile($users, $regions) {
 									</tr>
 									<tr>
 										<th>网络</th>
+<<<<<<< HEAD
 										<td>
 											<select class='uiSelect'>"
 												. mod_region_option($regions) .
 											"</select>
 										</td>
+=======
+										<td>" . location_id2name($_SESSION['location']) ."</td>
+>>>>>>> c2f95db7a5ce5ed9068d69485b903e37287c1491
 									</tr>
 									<tr>
 										<th>头像</th>
@@ -706,6 +657,12 @@ function page_par_activate() {
 							<tr>
 								<th>邮箱</th>
 								<td><input type='text' class='uiText2' disabled='disabled' value='{$_SESSION['email']}' /></td>
+							</tr>
+							<tr>
+								<th>选择地区</th>
+								<td>"
+								. mod_location_sel() . "
+								</td>
 							</tr>
 							<tr>
 								<th>店名</th>
@@ -859,6 +816,12 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 									<td><input type='text' class='uiText2' id='user_login' name='name' title='{$_SESSION['name']}' value='{$_SESSION['name']}' /></td>
 								</tr>
 								<tr>
+									<th>服务地区</th>
+									<th>"
+									. mod_location_sel($_SESSION['location']) . "
+									</th>
+								</tr>
+								<tr>
 									<th></th>
 									<td><input type='submit' class='uiBtn3' value='保存设置'></td>
 								</tr>
@@ -988,176 +951,56 @@ function page_profile($badges, $badges_won, $num_orders, $stores) {
 		</div> 
 	</div>";
 }
-function page_reg($m) {
-	echo "<div class='contentWrapper'><div class='content'>
-		<p>displays reg form.</p>
-		<form action='/profile.php' method='post'>
-			<fieldset><div class='field'>
-				<label>邮箱</label>
-				<input type='text' name='email' readonly='readonly' value='$m' />
-				<label>用戶名</label>
-				<input type='text' name='name' />
-				<label>密码</label>
-				<input type='password' name='passwd' />
-				<label>密码確認</label>
-				<input type='password' name='passwd-confirm' />
-			</div></fieldset><fieldset class='submit'>
-				<input class='submit' type='submit' value='提交' />
-			</fieldset></form>
-		</div></div>";
-}
-function page_store($store) {
+function page_resetpasswd($p = false){
 	echo "
-		<div class='contentWrapper'><div class='panel board'>
-			<h2>{$text_store_region[$store['region']]}{$store['name']}</h2>
-			<div id='storeStatus'>
-				<div id='storeAvatar'><img width='100%' height='100%' src='/media/images/store/storeAvatar1.jpg' alt='Store Avatar' /></div>
-				<div id='storeMsg'>
-					<div id='msgQuote'></div>
-					<div id='msgContent'>{$store['memo']}</div>
+	<div class='contentWrapper'> 
+		<div class='profile'>
+			<div class='profileL'>
+				<div class='profileType'>
+					密码重置
 				</div>
-				<div class='clear'></div>
 			</div>
-			<div id='storeView'>
-				<img width='100%' src='/media/images/store/storeView1.jpg' alt='Store View'/>
-			</div>
-			<div id='storeMap'>"
-			. mod_map() .
-			"</div>
-			<p id='toggleMap'>显示地图</p>
-		</div>
-		<div class='panel order'>
-			<h2>添加打印任务</h2>
-			<div class='taskType' id='pdf'>PDF文档</div>
-			<div class='taskDetail' id='pdfDetail'>
-				<div class='taskIcon'>
-					<img width='100%' src='/media/images/pdf.png' alt='pdf' />
+			<div class='profileRWrapper'>
+			<div class='profileR' id='profile-0'>
+				<div class='profileHeader'>
+					密码重置
 				</div>
-				<div class='taskDeal'>
-					<form action='/submit.php' method='post' enctype='multipart/form-data'>
-						<input type='hidden' name='store' value='{$store['id']}' />
-						<input type='hidden' name='type' value='0' />
-						<div class='file'>
-							选择需要打印的PDF文档，上传文件大小限制20MB<br />
-							<input type='file' name='document' />
-							<input type='button' class='uiBtn0' value='使用信用额度预打印'/>
-							<input type='submit' class='uiBtn0' value='上传文件后到店自助打印'/>
-						</div>
-						<div class='dashedLine'></div>
-						<table class='taskConfig'>
-							<tr>
-								<th>纸张:</th>
-								<td>
-									<select name='paper'>
-										<option value='1' title='0.06'>A4 (210mm*297mm) 0.06元/张</option>
-										<option value='2' title='0.1'>B5 (182mm*257mm) 0.06元/张</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th>油墨:</th>
-								<td>
-									<select name='color'>
-										<option value='1' title='0.04'>黑白打印 0.04元/面</option>
-										<option value='2' title='0.94'>彩色打印 0.94元/面</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th>环保:</th>
-								<td>
-									<select name='double'>
-										<option value='1'>单面打印</option>
-										<option value='2'>双面打印</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th>份数:</th>
-								<td><input type='text' name='copy' title='请输入需要打印的份数' class='autoHint' /></td>
-							</tr>
-							<tr>
-								<th>页数:</th>
-								<td><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /></td>
-							</tr>
-							<tr>
-								<th>服务:</th>
-								<td>
-									<input type='checkbox' name='' value='1' title='0'/><label>装订 0.00元</label>
-									<input type='checkbox' name='' value='1' title='1.5'/><label>添加封面 1.50元</label>
-								</td>
-							</tr>
-							<tr>
-								<th>留言:</th>
-								<td><textarea name='note' title='请将附加说明写于此处' class='autoHint' rows='3'></textarea></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td>
-									<input type='button' class='uiBtn0' id='pdfCon' value='计算总价' />
-									<input type='button' class='uiBtn0' id='pdfConf' value='修改订单' />
-								</td>
-							</tr>
+				<div class='profileContent'>
+					<form action='/authorize";
+					if ($p) echo "-par";
+					echo ".php' method='post'>
+						<table>
+							<tbody>
+								<tr>
+									<th>邮箱</th>
+									<td><input type='text' class='uiText2' name='email' disabled='true' value='{$_SESSION['email']}'></td>
+								</tr>
+								<tr>
+									<th>用户名</th>
+									<td><input type='text' id='user_login' class='uiText2' name='name' value='{$_SESSION['name']}' disabled='true'></td>
+								</tr>
+								<tr>
+									<th>设定密码</th>
+									<td><input type='password' id='pass1' class='uiText2' name='passwd'></td>
+								</tr>
+								<tr>
+									<th>确认密码</th>
+									<td><input type='password' id='pass2' class='uiText2'></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td><div id='pass-strength-result'>强度</div><input type='submit' id='pass-confirm' class='uiBtn3' value='激活帐户'></td>
+								</tr>
+							</tbody>
 						</table>
-						<div class='dashedLine'></div>
-						<div class='taskConfirm' id='pdfConfirm'>
-							<table class='taskConfi'>
-								<tr>
-									<td></td>
-									<td>单价</td>
-									<td>数量</td>
-									<td>合计</td>
-								</tr>
-								<tr>
-									<td>纸张费用</td>
-									<td>0.06元</td><td>50张</td><td>3元</td>
-								</tr>
-								<tr>
-									<td>墨水费用</td>
-									<td>0.04元</td><td>100面</td><td>4元</td>
-								</tr>
-								<tr>
-									<td>总费用</td>
-									<td></td><td></td><td>4元</td>
-								</tr>
-							</table>
-							<input class='uiBtn0' type='submit' value='提交订单' />
-						</div>
 					</form>
 				</div>
-				<div class='clear'></div>
 			</div>
-			<div class='taskType' id='word'>WORD文档</div>
-			<div class='taskDetail' id='wordDetail'>
-				<div class='taskIcon'>
-					<img width='100%' src='/media/images/docx.png' alt='pdf' />
-				</div>
-				<form action='/submit.php' method='post' enctype='multipart/form-data'>
-					<label>提交PDF文档 </label><input type='file' name='document' /><br>
-					<input type='hidden' name='type' value='1' />
-					<label>颜色 </label><input type='radio' checked='yes' name='color' value='黑白' />黑白<input type='radio' name='color' value='彩色' />彩色<br>
-					<label>环保 </label><input type='radio' checked='yes' name='double' value='双面' />双面<input type='radio' name='double' value='单面'/>单面<br>
-					<label>页数 </label><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /><br>
-					<input type='submit' value='提交'/>
-				</form>
 			</div>
-			<div class='taskType lbCorner rbCorner' id='ppt'>PPT幻灯片</div>
-			<div class='taskDetail' id='pptDetail'>
-				<div class='taskIcon'>
-					<img width='100%' src='/media/images/pptx.png' alt='pdf' />
-				</div>
-				<form action='/submit.php' method='post' enctype='multipart/form-data'>
-					<label>提交PDF文档 </label><input type='file' name='document' /><br>
-					<input type='hidden' name='type' value='2' />
-					<label>颜色 </label><input type='radio' checked='yes' name='color' value='黑白' />黑白<input type='radio' name='color' value='彩色' />彩色<br>
-					<label>环保 </label><input type='radio' checked='yes' name='double' value='双面' />双面<input type='radio' name='double' value='单面'/>单面<br>
-					<label>页数 </label><input type='text' name='page' title='请准确输入上传文件的页数' class='autoHint' /><br>
-					<input type='submit' value='提交'/>
-				</form>
-			</div>
-		</div>
+			<div class='clear'></div>
+		</div> 
 	</div>
-	";
+		";
 }
 function script_home($stores) {
 	$regions = text_defs('store_region');
