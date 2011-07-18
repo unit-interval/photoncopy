@@ -265,11 +265,11 @@ function unit_order($order) {
 	$paid = ($order['paid'] == null) ? '' : " | 实付金额 : " . ($order['paid'] / 10) . " 元";
 	$html = "
 						<div class='taskItem$class'>
-							<h3 class='newly_added'>订单 {$order['id']} 在 <span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
+							<h3 class='newly_added'>订单 {$order['id']} 在 <span class='newly_added' data-name='location'></span><span class='newly_added' data-name='name'></span><span class='taskStatus taskStatus{$order['status']}'>{$t['order_status'][$order['status']]}</span></h3>
 							<div class='taskDetail' data-id='{$order['id']}' data-pid='{$order['pid']}' data-status='{$order['status']}' data-paper='{$order['paper']}' data-color='{$order['color']}' data-back='{$order['back']}' data-layout='{$order['layout']}' data-copy='{$order['copy']}' data-misc='{$order['misc']}' data-fname='$fname'>
 		    					<table>
 		    						<tr><th>打印文件</th><td>$flink</tr>
-		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='region'></span><span class='newly_added' data-name='name'></span></span></td></tr>
+		    						<tr><th>打印店</th><td><span class='showStoreInLightbox'><span class='newly_added' data-name='location'></span><span class='newly_added' data-name='name'></span></span></td></tr>
 		    						<tr><th>订单要求</th><td>{$t['order_paper'][$order['paper']]}－{$t['order_color'][$order['color']]}－{$t['order_back'][$order['back']]}－{$t['order_layout'][$order['layout']]}－{$order['copy']}份－{$t['order_misc'][$order['misc']]}</td></tr>";
 	if ($order['note'] != "") $html .= "<tr><th>客户留言</th><td>{$order['note']}</td></tr>";
 	$html .= "

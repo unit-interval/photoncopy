@@ -131,7 +131,7 @@ function to_status_par($act = -1) {
 }
 function user_exists($m) {
 	global $db;
-	$query = "select `id`, `name` from `user`
+	$query = "select * from `user`
 		where `email` = '{$db->real_escape_string($m)}'";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
@@ -143,7 +143,7 @@ function user_exists($m) {
 }
 function user_exists_par($m) {
 	global $db;
-	$query = "select `id`, `name` from `partner`
+	$query = "select * from `partner`
 		where `email` = '{$db->real_escape_string($m)}'";
 	if(!($result = $db->query($query)))
 		err_redir("db error({$db->errno}). query:$query", '/error.php');
