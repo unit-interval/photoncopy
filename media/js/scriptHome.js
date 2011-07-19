@@ -546,7 +546,7 @@ function order_form_reset() {
 	$('form#formFile input[type="file"]').change(function(){
 		if($(this).val() != ''){
 			UP.start();
-			showMore(1);
+			showMore(2);
 		}
 	});
 }
