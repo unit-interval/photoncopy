@@ -185,6 +185,13 @@ $(function(){
 	
 	$('div.wDummy').css('height', Math.max(parseInt($('#w1').css('height')), parseInt($('#w2').css('height')), parseInt($('#w3').css('height')), parseInt($('#w4').css('height')), parseInt($('#w5').css('height')), parseInt($('#w6').css('height')), parseInt($('#w7').css('height')), parseInt($('#w8').css('height')))+'px');
 
+	if ($('div#taskAccordion > div.taskItem').length == 0) {
+		$('div.taskQueue').hide();
+		$('div.wDummy').show();
+		toggleFocusBtn($('#btn1'), 1, 0);
+		wFade(btn2w($('#btn1')), 1, 0);
+	}
+
 	$('#btn1').hover(function(){
 		$('#btn0').addClass('hover0');
 	}, function(){
@@ -193,10 +200,12 @@ $(function(){
 	
 	$('#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8').click(function(){
 		var pastSelectedBtn = $('.innerBtn.selected', $(this).parent().parent());
-		if ($(this).attr('id') == pastSelectedBtn.attr('id')){
-			toggleFocusBtn($(this), 0, 0);
-			wFade(btn2w($(this)), 0, 0);
-			$('.wDummy').slideUp(500);
+		if ($(this).attr('id') == pastSelectedBtn.attr('id')) {
+			if ($('div#taskAccordion > div.taskItem').length > 0) {
+				toggleFocusBtn($(this), 0, 0);
+				wFade(btn2w($(this)), 0, 0);
+				$('.wDummy').slideUp(500);
+			}
 		}
 		else{
 			if (pastSelectedBtn.length){
@@ -585,6 +594,7 @@ function order_submit() {
 						order_bind_action();
 						order_form_reset();
 						refresh_filter();
+						$('div.taskQueue').slideDown(500);
 						if(data.badge)
 							Notification.add("<a href='/profile.php#2-2'>恭喜！您获得了" + data.badge.name + "徽章，点击查看详情。</a>");
 					}
@@ -598,7 +608,7 @@ $(function(){
 	$('#formFile input[name="file"]').change(function(){
 		if($(this).val() != ''){
 			UP.start();
-			showMore(1);
+			showMore(2);
 		}
 	});
 	$('iframe[name="ifr_upload"]').load(function(){

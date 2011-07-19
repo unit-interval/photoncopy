@@ -570,7 +570,7 @@ input.uiBtn1{
 
 .wDummy{
 	display: none;
-	margin-bottom: 60px;
+	padding-bottom: 60px;
 }
 
 /*------------------------ TASK QUEUE ------------------------*/

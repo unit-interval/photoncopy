@@ -1,0 +1,43 @@
+[
+	{
+		"name" : "通用文档打印" ,
+		"id" : 1 ,
+		"flow" : [
+			{
+				"key" : "文件" ,
+				"type" : "file" ,
+				"label" : "上传文件" ,
+				"desc" : "请上传文件，多个文件请压缩成一个文件后上传，支持类型 pdf, doc, ppt, docx, pptx, zip, rar" ,
+				"option" : {
+					"type" : [ "pdf" , "doc", "ppt" , "docx" , "pptx" , "zip" , "rar"] ,
+				}
+			} ,
+			{
+				"key" : "纸张" ,
+				"type" : "select" ,
+				"label" : "选择纸张" ,
+				"option" : {
+					"values" : [ "A4" , "B5"]
+				}
+			} ,
+			{
+				"key" : "油墨" ,
+				"type" : "select" ,
+				"label" : "选择油墨" ,
+				"option" : {
+					"values" : []
+				}
+			} ,
+			{
+				"key" : ""
+			}
+		]
+	},
+	{
+		"name" : "" ,
+		"id" : 2 ,
+		"flow" : {
+		
+		}
+	}
+]
