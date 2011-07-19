@@ -181,11 +181,14 @@ $tables = array(
 	),
 );
 
-echo '<html><body><a href="/phpmyadmin/">phpmyadmin</a><br />';
+echo '<html><body><br />';
 
 if(!isset($_GET['c'])) {
+	foreach(glob('db-migrate*.php') as $fn)
+		echo "<a href='$fn'>$fn</a><br />";
+	echo '<hr /><br />';
 	foreach($tables as $k => $v)
-	echo "<a href='{$_SERVER['SCRIPT_NAME']}?c=$k'>reset the <strong>$k</strong> table.</a><br />";
+		echo "<a href='{$_SERVER['SCRIPT_NAME']}?c=$k'>reset the <strong>$k</strong> table.</a><br />";
 	echo '<pre>';
 	var_dump($tables);
 	echo '</pre>';
