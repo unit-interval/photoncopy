@@ -6,11 +6,11 @@
 ini_set( "DISPLAY_ERRORS ",   "1 "); 
 error_reporting(E_ALL);  
 
-include '../config.php';
-include DIR_INC . 'database.php';
-include DIR_INC . 'function.php';
+#include '../config.php';
+#include DIR_INC . 'database.php';
+#include DIR_INC . 'function.php';
 require_once DIR_INC .'oauth/connect-renren.php';
-session_name(SESSNAME);
+#session_name(SESSNAME);
 session_start();
 
 $oauth = new RenRenOauth();
