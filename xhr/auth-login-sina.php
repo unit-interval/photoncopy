@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 #include '../config.php';
 #include DIR_INC . 'database.php';
 #include DIR_INC . 'function.php';
-require_once DIR_INC .'oauth/connect-sina.php';
+require_once '../inc/oauth/connect-sina.php';
 #session_name(SESSNAME);
 session_start();
 
