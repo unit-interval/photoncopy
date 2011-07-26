@@ -4,3 +4,7 @@
 		<li><a href="">用腾讯 QQ 帐号登陆（未完成）</a></li>
 		<li><a href="">用 OpenID 帐号登陆（未完成）</a></li>
 </ul>
+
+<?php
+phpinfo();
+?>
