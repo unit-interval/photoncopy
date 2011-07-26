@@ -3,7 +3,7 @@
  * 本文件实现通过新浪微博帐号登陆的逻辑。 
  */
  
-include './config.php';
+include '../config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
 require_once DIR_INC .'oauth/connect-sina.php';
