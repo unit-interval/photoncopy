@@ -24,7 +24,7 @@ function page_activate() {
 								</tr>
 								<tr>
 									<th>用户名</th>
-									<td><input type='text' id='user_login' class='uiText2' name='name'></td>
+									<td><input type='text' id='user_login' class='uiText2' name='name' value='{$_SESSION['sns_name']}'></td>
 								</tr>
 								<tr>
 									<th>选择地区</th>
