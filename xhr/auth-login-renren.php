@@ -2,6 +2,10 @@
 /*
  * 本文件实现通过人人帐号登陆的逻辑。 
  */
+
+ini_set( "DISPLAY_ERRORS ",   "1 "); 
+error_reporting(E_ALL);  
+
 include '../config.php';
 include DIR_INC . 'database.php';
 include DIR_INC . 'function.php';
