@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh" xml:lang="zh"> 
+	<head> 
+		<meta name="description" content="xxx" /> 
+		<meta name="keywords" content="print" /> 
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+		<meta http-equiv="content-language" content="zh-CN" /> 
+		<title>活字网 | 登录</title> 
+		<link rel='stylesheet' type='text/css' href='/media/css/style_new.css' /> 
+		<link rel='stylesheet' type='text/css' href='/media/css/index_new.css' />  
+		<script type='text/javascript' src='/media/js/jquery.js'></script> 
+		<script type='text/javascript' src='/media/js/script_new.js'></script>
+		<script type='text/javascript' src='/media/js/index_new.js'></script> 
+	</head>
+	<body id='login'>
+		<div id='wrapper'>
+			<div id="gradient"> </div>
+			<div id='container'>
+				<div id='header'>
+					<a href='/'>
+						<img src='/media/img/logo.png' alt='Photoncopy' id='logo'/>
+					</a>
+					<ul id='nav'>
+						<li class='active'>
+							<a href='login' class='nav'>登录</a>
+						</li>
+						<li>
+							<a href='signup' class='nav'>注册</a>
+						</li>
+					</ul>
+				</div>
+				<div id='content'>
+					<form action='login' method='post'>
+						<div>
+							<h2>用户名或邮箱</h2>
+							<input type='text' id='email' name='email' autofocus='autofocus'/>
+							<label for='email'>帐号或密码错误，请重试。</label>
+						</div>
+						<div>
+							<h2>密码</h2>
+							<input type='password' id='password' name='email'/>
+							<label for='password'>密码太短。</label>
+						</div>
+						<div>
+							<input checked='checked' id='remember-login' name='remember-login' type='checkbox'>
+							<label for="remember-login">保持登录状态</label>
+							<a href='forgot' id='forgot'>忘记密码？</a>
+						</div>
+						<div>
+							<button type='submit' class='submit-button'>登录</button>
+						</div>
+					</form>
+					<h2>用合作网站帐号登录</h2>
+					<ul id='login-oauth'>
+						<li><a href='login/douban' id='douban-login'>豆瓣</a></li>
+						<li><a href='login/renren' id='renren-login'>人人</a></li>
+						<li><a href='login/weibo' id='weibo-login'>新浪微博</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+		<div id='footer'>
+			<div id="footer-content">
+	        	<p>©2011 活字网 版权所有 - <a href="/TOS" target="_blank">服务条款</a> - <a href="/privacy" target="_blank">隐私权政策</a></p>
+			</div>
+		</div>
+	</body>
+</html>
