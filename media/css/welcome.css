@@ -3,6 +3,7 @@
 }
 
 body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #343434;
@@ -85,7 +86,6 @@ button[type='submit'] {
     display: block;
     height: 31px;
     line-height: 31px;
-    font-family: 'Droid Sans', Arial;
     font-size: 16px;
     padding: 0 16px;
 }
@@ -125,7 +125,6 @@ button[type='submit'] {
 #content h1 {
     margin: 0 0 40px 0;
     padding: 0;
-    font-family: 'Droid Sans', Arial;
     font-weight: normal;
     color: #363636;
     font-size: 35px;
@@ -133,13 +132,11 @@ button[type='submit'] {
 #content h2 {
     margin: 0 0 20px 0;
     padding: 0;
-    font-family: 'Droid Sans', Arial;
     font-weight: normal;
     color: #363636;
     font-size: 25px;
 }
 #content h3 {
-    font-family: 'Droid Sans', Arial;
     font-size: 24px;
     font-weight: normal;
     margin: 0 0 10px 0;
@@ -147,7 +144,6 @@ button[type='submit'] {
 }
 #content h4 {
     color: #343434;
-    font-family: 'Droid Sans', Arial;
     font-size: 17px;
     font-weight: normal;
     margin: 0 0 10px 0;
@@ -160,7 +156,6 @@ br {
 }
 /* Welcome page */
 #welcome #content {
-    font-family: 'Droid Sans', Arial;
     padding: 10px;
     background: transparent;
     width: 940px;
@@ -205,7 +200,6 @@ br {
 
 /* Invitation page */
 #invitation #content {
-    font-family: 'Droid Sans', Arial;
     padding: 10px;
     background: transparent;
     width: 940px;
@@ -261,7 +255,6 @@ ul#sub-nav {
     overflow: hidden;
     padding: 0;
     margin: 0 0 35px 0;
-    font-family: 'Droid Sans', Arial;
 }
 
 ul#sub-nav li {
@@ -278,7 +271,7 @@ ul#sub-nav li span {
 }
 #about #content p,
 #contact #content p {
-    font: 22px 'Droid Sans', Arial;
+    font-size: 22px;
     color: #333;
     font-weight: normal;
     line-height: 32px;
