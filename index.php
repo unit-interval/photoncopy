@@ -1,5 +1,8 @@
 <?php
 
+header('Location: http://huozr.com/');
+die;
+
 /** turn on output buffering */
 ob_start();
 
