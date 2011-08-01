@@ -5,7 +5,7 @@
 		<meta name="keywords" content="print" /> 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
 		<meta http-equiv="content-language" content="zh-CN" /> 
-		<title>活字 | 登录</title> 
+		<title>活字 | 密码取回</title> 
 		<link rel='stylesheet' type='text/css' href='/media/css/style_new.css' /> 
 		<link rel='stylesheet' type='text/css' href='/media/css/index_new.css' />  
 		<script type='text/javascript' src='/media/js/jquery.js'></script>
@@ -19,7 +19,7 @@
 						<img src='/media/img/logo.png' alt='Photoncopy' id='logo'/>
 					</a>
 					<ul id='nav'>
-						<li class='active'>
+						<li>
 							<a href='login' class='nav'>登录</a>
 						</li>
 						<li>
@@ -28,27 +28,17 @@
 					</ul>
 				</div>
 				<div id='content'>
-					<form action='login' method='post'>
+					<form action='forgot' method='post'>
 						<div>
-							<h4>用户名或邮箱</h4>
+							<h4>邮箱</h4>
 							<input type='text' id='email' name='email' autofocus='autofocus'/>
-							<label for='email'>帐号或密码错误，请重试。</label>
+							<label for='email'>该邮箱尚未注册</label>
 						</div>
 						<div>
-							<h4>密码</h4>
-							<input type='password' id='password' name='email'/>
-							<label for='password'>密码太短。</label>
-						</div>
-						<div>
-							<input checked='checked' id='remember-login' name='remember-login' type='checkbox'>
-							<label for="remember-login">保持登录状态</label>
-							<a href='forgot' id='forgot'>忘记密码？</a>
-						</div>
-						<div>
-							<button type='submit' class='submit-button'>登录</button>
+							<button type='submit' class='submit-button'>取回密码</button>
 						</div>
 					</form>
-					<h4>用合作网站帐号登录</h4>
+					<h4>用合作网站帐号取回密码</h4>
 					<ul id='login-oauth'>
 						<li><a href='login/douban' id='douban-login'>豆瓣</a></li>
 						<li><a href='login/renren' id='renren-login'>人人</a></li>

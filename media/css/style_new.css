@@ -39,21 +39,29 @@ button[type='submit'] {
     height: 1236px;
 }
 #container {
-    background: transparent url(../img/header-bg.png) repeat-x 0px -100px;
+    background: transparent url(../img/header-bg.png) repeat-x 0px -125px;
     position: relative;
 }
 #header {
-    height: 125px;
+    height: 95px;
     position: relative;
     margin: 0 auto;
     width: 930px;
     z-index: 10;
 }
+#header a span{
+	position: absolute;
+    bottom: 30px;
+    left: 140px;
+    font-size: 3em;
+    font-style: italic;
+}
 #logo {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 0;
     z-index: 99;
+    width: 80px;
 }
 #nav {
     margin: 0;
@@ -70,7 +78,7 @@ button[type='submit'] {
     padding: 0;
     float: left;
     -webkit-border-radius: 3px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#E8E8E8));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#E8E8E8));
     box-shadow: 1px 1px 1px #DDD;
 }
 #nav li a {
@@ -82,7 +90,7 @@ button[type='submit'] {
     padding: 0 16px;
 }
 #nav li:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#E8E8E8), to(#FFF));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#E8E8E8), to(#FFF));
 }
 #nav li:hover > a {
     color: #94070A;
@@ -117,7 +125,6 @@ button[type='submit'] {
 #content h1 {
     margin: 0 0 40px 0;
     padding: 0;
-    font-family: 'Droid Sans', Arial;
     font-weight: normal;
     color: #363636;
     font-size: 35px;
@@ -125,13 +132,11 @@ button[type='submit'] {
 #content h2 {
     margin: 0 0 20px 0;
     padding: 0;
-    font-family: 'Droid Sans', Arial;
     font-weight: normal;
     color: #363636;
     font-size: 25px;
 }
 #content h3 {
-    font-family: 'Droid Sans', Arial;
     font-size: 24px;
     font-weight: normal;
     margin: 0 0 10px 0;
@@ -139,7 +144,6 @@ button[type='submit'] {
 }
 #content h4 {
     color: #343434;
-    font-family: 'Droid Sans', Arial;
     font-size: 17px;
     font-weight: normal;
     margin: 0 0 10px 0;
@@ -153,7 +157,6 @@ br {
 
 /* Index page */
 #index #content {
-    font-family: 'Droid Sans', Arial;
     padding: 10px;
     background: transparent;
     width: 940px;
@@ -259,21 +262,6 @@ br {
     color: #FFF;
 }
 /* Login */
-#login #content {
-    font-family: 'Droid Sans', Arial;
-    padding: 10px;
-    background: transparent;
-    width: 850px;
-    margin: 50px auto 100px auto;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    -webkit-border-radius: none;
-    -moz-border-radius: none;
-    border: none;
-    z-index: 10;
-    position: relative;
-    overflow: hidden;
-}
 #login #content div {
 	margin-bottom: 25px;
 }
@@ -302,16 +290,16 @@ br {
 #login form button[type='submit'] {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	border-radius: 4px 4px 4px 4px;
+	border-radius: 4px;
+	border-width: 0px;
 	font-size: 25px;
 	padding: 10px;
 	width: 200px;
 	background: #46648C;
 	color: white;
-	border-width: 0px;
 }
 #login form button[type='submit']:hover {
-	background-color: #00386C;
+	background: #00386C;
 }
 #login #login-oauth {
 	height: 50px;
@@ -340,7 +328,90 @@ br {
 	background-color: #F36F21;
 	border-color: #F36F21;
 }
-
+/* Sitetour */
+#sitetour #content p {
+	font-size: 22px;
+    color: #939393;
+    font-weight: normal;
+    line-height: 32px;
+    margin: 0 0 22px;
+}
+#sitetour #sub-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	z-index: 10;
+	position: relative;
+	top: -12px;
+}
+#sitetour #sub-nav li {
+	float: left;
+	height: 50px;
+	width: 50%;
+}
+#sitetour #sub-nav li > a {
+	background: #E6E6E6;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F2F2F2), to(#D1D1D1));
+	font-size: 22px;
+	font-weight: normal;
+	display: block;
+	padding: 11px 0;
+	text-align: center;
+}
+#sitetour #sub-nav li.active > a{
+	color: white;
+	background: #94070A;
+}
+#sitetour #content form div {
+	margin-bottom: 25px;
+}
+#sitetour form input[type='text'] {
+	color: #003863;
+	font-size: 25px;
+	padding: 10px;
+	width: 50%;
+	border: 1px solid #D9D9D9;
+}
+#sitetour form input:focus {
+	border-color: #46648C;
+}
+#sitetour form label[for='email'] {
+	background: #A7A9AC;
+	padding: 10px;
+	font-size: 25px;
+	color: white;
+	margin-left: 10px;
+}
+#sitetour form button[type='submit'] {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border-width: 0px;
+	font-size: 25px;
+	padding: 10px;
+	width: 200px;
+	background: #46648C;
+	color: white;
+}
+#sitetour form button[type='submit']:hover {
+	background: #00386C;
+}
+#sitetour form select {
+	-webkit-appearance: button;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	background-image: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+	border: 1px solid #aaa;
+	color: #555;
+	font-size: 25px;
+	margin: 0 20px 0 0;
+	overflow: hidden;
+	padding: 10px 100px 10px 10px;
+}
+#sitetour #addschool {
+	margin-left: 250px;
+}
 /* Footer */
 #footer {
     background: transparent url(../img/footer-bg.png);
