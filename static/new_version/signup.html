@@ -28,25 +28,24 @@
 					</ul>
 				</div>
 				<div id='content'>
-					
 					<form action='signup' method='post'>
-						<div>
-							<h4>用户名</h4>
-							<input type='text' id='user-name' name='user-name' autofocus='autofocus'/>
-							<label for='user-name'>此用户名已注册过了</label>
+						<h4>用户名</h4>
+						<div class='input-group'>
+							<input type='text' id='user-name' class='input-text' name='user-name' autofocus='autofocus'/>
+							<label class='label-hint' for='user-name'>此用户名已注册过了</label>
+						</div>
+						<h4>设置密码</h4>
+						<div class='input-group'>
+							<input type='password' id='password' class='input-text' name='email'/>
+							<label class='label-hint' for='password'>密码长度至少需6位</label>
+						</div>
+						<h4>确认密码</h4>
+						<div class='input-group'>
+							<input type='password' id='password' class='input-text' name='email'/>
+							<label class='label-hint' for='password'>两次输入的密码不一致</label>
 						</div>
 						<div>
-							<h4>设置密码</h4>
-							<input type='password' id='password' name='email'/>
-							<label for='password'>密码长度至少需6位</label>
-						</div>
-						<div>
-							<h4>确认密码</h4>
-							<input type='password' id='password' name='email'/>
-							<label for='password'>两次输入的密码不一致</label>
-						</div>
-						<div>
-							<button type='submit' class='submit-button'>立即注册</button>
+							<button type='submit' class='button-blue'>立即注册</button>
 						</div>
 					</form>
 				</div>
