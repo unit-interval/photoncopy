@@ -1,0 +1,13 @@
+<?php
+/** DB */
+define('DB_HOST', 'localhost');
+define('DB_USER', 'dbuser');
+define('DB_PASS', 'dbpasswd');
+define('DB_NAME', 'dbname');
+
+/** salt */
+define('SALT_REG', 'salt');
+
+/** swith for debug mode */
+//$debug_enabled = FALSE;
+//
