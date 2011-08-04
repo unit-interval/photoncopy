@@ -183,6 +183,7 @@ br {
 	border-color: #3079ED;
 }
 .button-orange:hover {
+	color: white;
 	border-color: #B0281A;
 }
 .button-gray:hover {
@@ -495,6 +496,7 @@ select {
 	z-index: 10;
 }
 #home #upload-progress span {
+	text-indent: -9999px;
 	position: absolute;
 	height: 26px;
 	width: 245px;
@@ -534,6 +536,9 @@ select {
 }
 #home ul.menu > li:active {
 	box-shadow: inset 0px 0px 4px rgba(0,0,0,0.3);
+}
+#home ul.menu > li.disabled:active {
+	box-shadow: none;
 }
 #home div.detail {
 	float: right;
@@ -591,8 +596,8 @@ select {
 	text-align: right;
 	margin-bottom: 12px;
 }
-#home #requirement dd input[type='text'][name='msg'] {
-	width: 90%;
+#home #requirement dd input[type='text'][name='note'] {
+	width: 95%;
 	margin-bottom: 12px;
 }
 #home ul.option, #home ul.multi-option {
@@ -648,7 +653,8 @@ select {
 	line-height: 30px;
 	font-size: 13px;
 }
-#home #order-detail table tr.alt {
+#home #order-detail table tr.alt > th,
+#home #order-detail table tr.alt > td {
 	background: #EFEFEF;
 }
 #home #order-detail table th {
