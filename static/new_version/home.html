@@ -12,7 +12,6 @@
 	</head>
 	<body id='home'>
 		<div id='wrapper'>
-			<div id="gradient"> </div>
 			<div id='container'>
 				<div id='header'>
 					<a href='/'>
@@ -87,45 +86,45 @@
 							<dl>
 								<dt>选择纸张</dt>
 								<dd>
-									<input type='hidden' name='paper' />
+									<input type='hidden' name='paper' value='A4'/>
 									<ul class='option'>
-										<li>A4</li>
-										<li>B5</li>
+										<li class='button-option'>A4</li>
+										<li class='button-option'>B5</li>
 									</ul>
 								</dd>
 							</dl>
 							<dl>
 								<dt>选择油墨</dt>
 								<dd>
-									<input type='hidden' name='color' />
+									<input type='hidden' name='color' value='黑白'/>
 									<ul class='option'>
-										<li>黑白</li>
-										<li>彩色</li>
+										<li class='button-option'>黑白</li>
+										<li class='button-option'>彩色</li>
 									</ul>
 								</dd>
 							</dl>
 							<dl>
 								<dt>环保选项</dt>
 								<dd>
-									<input type='hidden' name='back' />
+									<input type='hidden' name='back' value='单面打印'/>
 									<ul class='option'>
-										<li>单面打印</li>
-										<li>双面打印</li>
+										<li class='button-option'>单面打印</li>
+										<li class='button-option'>双面打印</li>
 									</ul>
 								</dd>
 							</dl>
 							<dl>
 								<dt>版式缩放</dt>
 								<dd>
-									<input type='hidden' name='layout' />
+									<input type='hidden' name='layout' value='1版'/>
 									<ul class='option'>
-										<li>1版</li>
-										<li>2版</li>
-										<li>4版</li>
-										<li>6版</li>
-										<li>8版</li>
-										<li>9版</li>
-										<li>12版</li>
+										<li class='button-option'>1版</li>
+										<li class='button-option'>2版</li>
+										<li class='button-option'>4版</li>
+										<li class='button-option'>6版</li>
+										<li class='button-option'>8版</li>
+										<li class='button-option'>9版</li>
+										<li class='button-option'>12版</li>
 									</ul>
 								</dd>
 							</dl>
@@ -139,11 +138,11 @@
 							<dl>
 								<dt>附加服务</dt>
 								<dd>
-									<input type='hidden' name='misc' />
+									<input type='hidden' name='misc' value='简易装订'/>
 									<ul class='multi-option'>
-										<li>简易装订</li>
-										<li>侧边装订</li>
-										<li>添加封面</li>
+										<li class='button-multi-option'>简易装订</li>
+										<li class='button-multi-option'>侧边装订</li>
+										<li class='button-multi-option'>添加封面</li>
 									</ul>
 								</dd>
 							</dl>
@@ -209,7 +208,42 @@
 		</div> 
 		<div id='footer'>
 			<div id='footer-content'>
-	        	<p>©2011 活字网 版权所有</p>
+				<ul>
+					<li id='notification-icon'>
+						<span>0</span>
+					</li>
+					<li>Roy有50页低碳打印配额</li>
+				</ul>
+				<div id='notification'>
+					<div id='notification-summary'>
+						<h3>通知</h3>
+						<ul>
+							<li>
+								更新：北京大学农行提款机旁打印店接受了文印任务#2
+								<span></span>
+							</li>
+							<li>
+								订单：你向北京大学农行提款机旁打印店提交了文印任务#1
+								<span></span>
+							</li>
+						</ul>
+					</div>
+					<div id='notification-content'>
+						<h3>‹ 回到通知
+							<ul>
+								<li class='disabled'>‹ 上一封</li>
+								<li> | </li>
+								<li class='active'>下一封 ›</li>
+							</ul>
+						</h3>
+						<ul>
+							<li>jflsdkfjklsjfl</li>
+							<li>jflsdkfjklsjfl</li>
+							<li>jflsdkfjklsjfl</li>
+						</ul>
+					</div>
+				</div>
+	        	<p id='footer-copyright'>©2011 活字网 版权所有</p>
 			</div>
 		</div>
 	</body>
