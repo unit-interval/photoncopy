@@ -65,7 +65,7 @@ function mod_nav_account($body_id) {
 					<a href='/home.php'>示波器</a>
 				</li>
 				<li class='sep'>
-					<a href='http://photoncopy.com/blog/'>黑板报</a>
+					<a href='/blog/'>黑板报</a>
 				</li>
 			</ul>
 		";
@@ -94,7 +94,7 @@ function mod_nav_account($body_id) {
 			</ul>
 			<ul class='navBar'>
 				<li>
-					<a href='http://photoncopy.com/blog/'>黑板报</a>
+					<a href='/blog/'>黑板报</a>
 				</li>
 			</ul>
 		";
